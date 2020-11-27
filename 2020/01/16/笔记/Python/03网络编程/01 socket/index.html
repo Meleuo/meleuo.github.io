@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 网络编程 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python网络编程,学习笔记:Python">
+    <meta name="description" content="网络通信
+交换机：用于同网段通信。
+
+交换机的通信地址是使用mac地址
+交换机通信分为： 广播，单播，和组播
+
+路由器：用于垮网段通讯
+
+路由器是使用IP地址
+
+TCP三次握手
+大名鼎鼎的TCP三次握手，TCP的请求连接只能是客户端发起
+
+1sequenceDiagram&amp;#10;&amp;#9;Client--&amp;#62;&amp;#62;Server: &amp;#21521;&amp;#26381;&amp;#21153;&amp;#221">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 网络编程">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="网络通信
+交换机：用于同网段通信。
+
+交换机的通信地址是使用mac地址
+交换机通信分为： 广播，单播，和组播
+
+路由器：用于垮网段通讯
+
+路由器是使用IP地址
+
+TCP三次握手
+大名鼎鼎的TCP三次握手，TCP的请求连接只能是客户端发起
+
+1sequenceDiagram&amp;#10;&amp;#9;Client--&amp;#62;&amp;#62;Server: &amp;#21521;&amp;#26381;&amp;#21153;&amp;#221">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/22/MTAFij.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/22/MTEBHU.png">
+<meta property="og:updated_time" content="2020-11-26T10:07:48.500Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 网络编程">
+<meta name="twitter:description" content="网络通信
+交换机：用于同网段通信。
+
+交换机的通信地址是使用mac地址
+交换机通信分为： 广播，单播，和组播
+
+路由器：用于垮网段通讯
+
+路由器是使用IP地址
+
+TCP三次握手
+大名鼎鼎的TCP三次握手，TCP的请求连接只能是客户端发起
+
+1sequenceDiagram&amp;#10;&amp;#9;Client--&amp;#62;&amp;#62;Server: &amp;#21521;&amp;#26381;&amp;#21153;&amp;#221">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 网络编程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 网络编程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络通信"><span class="post-toc-number">1.</span> <span class="post-toc-text">网络通信</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP三次握手"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">TCP三次握手</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP四次挥手"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">TCP四次挥手</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Socket模块"><span class="post-toc-number">2.</span> <span class="post-toc-text">Socket模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Socket-模块方法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Socket 模块方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP通信"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">TCP通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP连续通话"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">TCP连续通话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UDP通信"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">UDP通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UDP多人通话"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">UDP多人通话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pycharm通信输出颜色"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">pycharm通信输出颜色</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承socket类实现免编码-123"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">继承socket类实现免编码[^123]</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Scoket-实现上传下载文件"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">Scoket 实现上传下载文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-粘包-UDP收发限制"><span class="post-toc-number">3.</span> <span class="post-toc-text">TCP 粘包 UDP收发限制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP-粘包"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">TCP 粘包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图解TCP粘包"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">图解TCP粘包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码展示粘包"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">代码展示粘包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UDP收发限制"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">UDP收发限制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#避免TCP粘包"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">避免TCP粘包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现大文件传输且不粘包"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">实现大文件传输且不粘包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端合法性校验"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">客户端合法性校验</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#socketserver-模块"><span class="post-toc-number">4.</span> <span class="post-toc-text">socketserver 模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三层加密验证"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">三层加密验证</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/03网络编程/01 socket"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 网络编程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><hr>
+<p>交换机：用于同网段通信。</p>
+<ul>
+<li>交换机的通信地址是使用mac地址</li>
+<li>交换机通信分为： 广播，单播，和组播</li>
+</ul>
+<p>路由器：用于垮网段通讯</p>
+<ul>
+<li>路由器是使用IP地址</li>
+</ul>
+<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><blockquote>
+<p>大名鼎鼎的TCP三次握手，TCP的请求连接只能是客户端发起</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram&#10;&#9;Client--&#62;&#62;Server: &#21521;&#26381;&#21153;&#22120;&#21457;&#36865;SYN&#21253;,&#35831;&#27714;&#36830;&#25509;&#10;&#9;Server--&#62;&#62;Client: &#25910;&#21040;&#22238;&#22797;SYN+1&#21253;&#65292;&#30830;&#35748;&#21487;&#20197;&#36830;&#25509;&#22238;&#22797;ACK&#21253;&#10;&#9;Client--&#62;&#62;Server: &#22238;&#22797;ACK+1&#30830;&#35748;&#65292;&#24314;&#31435;&#36830;&#25509;</span><br></pre></td></tr></table></figure>
+<h3 id="TCP四次挥手"><a href="#TCP四次挥手" class="headerlink" title="TCP四次挥手"></a>TCP四次挥手</h3><blockquote>
+<p>在socket中任何一方 <code>.close()</code> 都会触发TCP四次挥手，也就是说断开请求谁发起都可以</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram&#10;&#9;Client/Server--&#62;&#62;Server/Client: &#21457;&#36865;Fin&#21253;&#35831;&#27714;&#26029;&#24320;&#65292;ACK&#30830;&#35748;&#21253;&#10;&#9;Server/Client--&#62;&#62;Client/Server: &#22238;&#22797;ACK+1,&#34920;&#31034;&#25910;&#21040;&#20102;&#26029;&#24320;&#35831;&#27714;&#65292;&#27491;&#22312;&#20934;&#22791;&#26029;&#24320;&#10;&#9;Server/Client--&#62;&#62;Client/Server: &#22238;&#22797;Fin&#26029;&#24320;&#21253;&#65292;ACK&#30830;&#35748;&#21253;&#10;&#9;Client/Server--&#62;&#62;Server/Client: &#22238;&#22797;ACK&#30830;&#35748;&#65292;&#26029;&#24320;&#36830;&#25509;</span><br></pre></td></tr></table></figure>
+<h2 id="Socket模块"><a href="#Socket模块" class="headerlink" title="Socket模块"></a>Socket模块</h2><hr>
+<blockquote>
+<p>socket有2种通信方式，一种是基于文件的 <code>AF-UNIX</code> 的socket，一种是基于网络的 <code>AF-INET</code></p>
+</blockquote>
+<p><code>AF-UNIX</code> 是网络socket的前身，目前<code>AF-UNIX</code>应用在一台主机上应用程序交换数据的场景，比如php-fpm和nginx，</p>
+<p><code>AF-INET</code> 应用在网络中不同主机的数据交互</p>
+<blockquote>
+<p>socket网络通信又分为tcp和udp，socket模块默认使用tcp协议</p>
+</blockquote>
+<p>TCP ：<code>SOCK_STREAM()</code> 面向数据流，可靠的通信方式</p>
+<p>UDP：<code>SOCK_DGRAM</code>    面向数据报文，不可靠的通信方式</p>
+<hr>
+<h3 id="Socket-模块方法"><a href="#Socket-模块方法" class="headerlink" title="Socket 模块方法"></a>Socket 模块方法</h3><table>
+<thead>
+<tr>
+<th>Socket  服务端方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.bind()</code></td>
+<td>为socket绑定IP + 端口，传递一个元组进去 [0]是ip，[1]是要监听的端口</td>
+</tr>
+<tr>
+<td><code>.listen()</code></td>
+<td>开始监听端口</td>
+</tr>
+<tr>
+<td><code>.accept()</code></td>
+<td>开始等待客户端连接，返回值一个元组[0]是本次连接的对象，[1]是客户端的IP +端口</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>Socket</code> 客户端方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.connect()</code></td>
+<td>连接服务端 IP+PORT，以一个元组传递进去，服务端无法理解将会报错</td>
+</tr>
+<tr>
+<td><code>.connect_ex()</code></td>
+<td>连接服务端 IP+PORT，以一个元组传递进去，如果服务端无法连接将会返回一个错误码</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Socket 模块 公用方法 TCP</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.send()</code></td>
+<td>发送数据给对端，数据格式使用bytes</td>
+</tr>
+<tr>
+<td><code>.recv()</code></td>
+<td>接受对端发送过来的数据，收到的数据格式是bytes</td>
+</tr>
+<tr>
+<td><code>.sendall()</code></td>
+<td>尝试把数据一次性全部发出<a href="send()发送数据，再系统层次就已经被解包发送，send()的返回值就是这次发送了多个字节，而sendall()则是尝试一次性将所有数据发送出去，发送不出去则返回异常">^注释</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Socket 模块 公用方法 UDP</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.sendto()</code></td>
+<td>UDP发送数据方法需要传递2个参数，第一个是要发送的数据，第二个是对端的ip +port 元组形式，发送的数据需要是bytes</td>
+</tr>
+<tr>
+<td><code>.recvfrom()</code></td>
+<td>UDP接收数据，接收2个参数，第一个是数据，第二个是对端的 ip+port</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Socket 阻塞设置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.setbloking()</code></td>
+<td>设置套接字的阻塞与非阻塞，传递一个bool，False为非阻塞，True为阻塞default</td>
+</tr>
+<tr>
+<td><code>.settimeout()</code></td>
+<td>设置套接字的等待时间，阻塞和非阻塞都适用</td>
+</tr>
+<tr>
+<td><code>gettimeout()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="TCP通信"><a href="#TCP通信" class="headerlink" title="TCP通信"></a>TCP通信</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server 代码</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">sr = socket.socket()		    <span class="comment"># 实例化一个socket方法，默认使用AF-INET和TCP协议</span></span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))	<span class="comment"># 绑定一个本地IP，可socket通信的端口	</span></span><br><span class="line">sr.listen()						<span class="comment"># 监听端口</span></span><br><span class="line"></span><br><span class="line">conn,addr = sr.accept()			<span class="comment"># 等待客户端连接,客户端连接成功后会返回一个元组，[0]是连接的socket对象，用于本次会话使用，[1]是客户端的 ip+port</span></span><br><span class="line"></span><br><span class="line">print(conn)	<span class="comment"># 打印当前socket连接对象</span></span><br><span class="line">print(addr)	<span class="comment"># 打印客户端ip+port</span></span><br><span class="line"></span><br><span class="line">msg = conn.recv(<span class="number">2048</span>).decode(<span class="string">'utf-8'</span>)	<span class="comment"># 使用conn.recv 读取客户端发送过来的信息，2048是一次最多读取多少字节 .decode('utf-8')是业务网络传输的数据都是bytes流，需要解码</span></span><br><span class="line">print(msg)								<span class="comment"># 打印客户端传输过来的数据</span></span><br><span class="line">conn.close()					<span class="comment"># 关闭当前客户端的socket连接对象，</span></span><br><span class="line">sr.close()						<span class="comment"># 关闭socket</span></span><br><span class="line"></span><br><span class="line">&gt; &lt;socket.socket fd=<span class="number">616</span>, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=<span class="number">0</span>, laddr=(<span class="string">'127.0.0.1'</span>, <span class="number">12138</span>), raddr=(<span class="string">'127.0.0.1'</span>, <span class="number">52513</span>)&gt;	<span class="comment"># 当前和客户端连接的socket对象</span></span><br><span class="line">&gt; (<span class="string">'127.0.0.1'</span>, <span class="number">52513</span>)				<span class="comment"># 客户端ip+端口</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client 代码</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">ci = socket.socket()			<span class="comment"># 实例化一个socket方法</span></span><br><span class="line">ci.connect((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))	<span class="comment"># 使用 .connect 连接服务器端，</span></span><br><span class="line"></span><br><span class="line">ci.send(<span class="string">'你好服务器！'</span>.encode())	<span class="comment"># 使用 .send发送数据给服务端，网络传输的数据只能是bytes所有需要转码</span></span><br><span class="line">ci.close()				<span class="comment"># 关闭socket</span></span><br></pre></td></tr></table></figure>
+<h3 id="TCP连续通话"><a href="#TCP连续通话" class="headerlink" title="TCP连续通话"></a>TCP连续通话</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line"></span><br><span class="line">sr = socket.socket()</span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">sr.listen()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    conn,addr = sr.accept()</span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        msg_r = conn.recv(<span class="number">4096</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">        print(msg_r)</span><br><span class="line">        <span class="keyword">if</span> msg_r == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">        msg_s = input(<span class="string">'sr&gt;&gt;'</span>)</span><br><span class="line">        conn.send(msg_s.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        <span class="keyword">if</span> msg_s == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line">sr.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line">cl = socket.socket()</span><br><span class="line"></span><br><span class="line">cl.connect((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    msg_s = input(<span class="string">'cl&gt;&gt;'</span>)</span><br><span class="line">    cl.send(msg_s.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">    <span class="keyword">if</span> msg_s == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">    msg_r = cl.recv(<span class="number">4096</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">    print(msg_r)</span><br><span class="line">    <span class="keyword">if</span> msg_r == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>socket TCP 通信代码结构</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graph TB&#10;&#9;A&#62;Server]--&#62;B(&#23548;&#20837;socket&#27169;&#22359;)&#10;&#9;B(&#23548;&#20837;socket&#27169;&#22359;)--&#62;&#32465;&#23450;ip+port&#10;&#9;&#32465;&#23450;ip+port--&#62;&#30417;&#21548;&#22320;&#22336;&#10;&#9;&#30417;&#21548;&#22320;&#22336;--&#62;&#24320;&#22987;&#25509;&#21463;&#23458;&#25143;&#31471;&#30340;&#36830;&#25509;&#10;&#9;&#24320;&#22987;&#25509;&#21463;&#23458;&#25143;&#31471;&#30340;&#36830;&#25509;--&#62;|&#24320;&#22987;|Z(&#19994;&#21153;&#36923;&#36753;...)&#10;&#9;Z(&#19994;&#21153;&#36923;&#36753;...)--&#62;|&#32467;&#26463;|&#20851;&#38381;&#21644;&#23458;&#25143;&#31471;&#30340;&#36830;&#25509;&#10;&#9;&#20851;&#38381;&#21644;&#23458;&#25143;&#31471;&#30340;&#36830;&#25509;--&#62;&#20851;&#38381;socket&#10;&#9;&#20851;&#38381;&#21644;&#23458;&#25143;&#31471;&#30340;&#36830;&#25509;--&#62;|&#31561;&#24453;&#19979;&#19968;&#20010;&#23458;&#25143;&#31471;|&#24320;&#22987;&#25509;&#21463;&#23458;&#25143;&#31471;&#30340;&#36830;&#25509;&#10;&#9;C&#62;Client]--&#62;D(&#23548;&#20837;socket&#27169;&#22359;)&#10;&#9;D(&#23548;&#20837;socket&#27169;&#22359;)--&#62;E(&#36830;&#25509;&#26381;&#21153;&#31471;ip+port)&#10;&#9;E(&#36830;&#25509;&#26381;&#21153;&#31471;ip+port)--&#62;|&#24320;&#22987;|F(&#19994;&#21153;&#36923;&#36753;)&#10;&#9;F(&#19994;&#21153;&#36923;&#36753;)--&#62;|&#32467;&#26463;|G(&#20851;&#38381;socket)</span><br></pre></td></tr></table></figure>
+<h3 id="UDP通信"><a href="#UDP通信" class="headerlink" title="UDP通信"></a>UDP通信</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server</span></span><br><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line">sr = socket.socket(type=socket.SOCK_DGRAM) <span class="comment"># type=socket.SOCK_DGRAM定义这个socket为udp协议</span></span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line"></span><br><span class="line">conn,addr = sr.recvfrom(<span class="number">4096</span>) <span class="comment"># .recvfrom 收到的数据也是一个元组,[0] 是客户端发来的信息，[1]是客户端的ip+端口，用户服务器端的回信</span></span><br><span class="line"></span><br><span class="line">print(conn.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">print(addr)</span><br><span class="line"></span><br><span class="line">sr.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">cl = socket.socket(type=socket.SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line">cl.sendto(<span class="string">'你好服务端'</span>.encode(<span class="string">'utf-8'</span>), (<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line"></span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<h3 id="UDP多人通话"><a href="#UDP多人通话" class="headerlink" title="UDP多人通话"></a>UDP多人通话</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line">sr = socket.socket(type=socket.SOCK_DGRAM)</span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    conn,addr = sr.recvfrom(<span class="number">4096</span>)</span><br><span class="line">    print(conn.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">    <span class="keyword">if</span> conn == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">    msg_s = input(<span class="string">'sr&gt;&gt;'</span>)</span><br><span class="line">    sr.sendto(msg_s.encode(<span class="string">'utf-8'</span>),addr)</span><br><span class="line">    <span class="keyword">if</span> msg_s == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">sr.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">cl = socket.socket(type=socket.SOCK_DGRAM)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    msg_s = input(<span class="string">"cl&gt;&gt;"</span>)</span><br><span class="line">    cl.sendto(msg_s.encode(<span class="string">'utf-8'</span>), (<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">    <span class="keyword">if</span> msg_s == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">    conn,addr = cl.recvfrom(<span class="number">4096</span>)</span><br><span class="line">    conn = conn.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">    print(conn)</span><br><span class="line">    <span class="keyword">if</span> conn == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<h3 id="pycharm通信输出颜色"><a href="#pycharm通信输出颜色" class="headerlink" title="pycharm通信输出颜色"></a>pycharm通信输出颜色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server</span></span><br><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line">sr = socket.socket(type=socket.SOCK_DGRAM)</span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    conn,addr = sr.recvfrom(<span class="number">4096</span>)</span><br><span class="line">    print(<span class="string">'\033[1:%sm%s\033[0m'</span> %(conn.decode(<span class="string">'utf-8'</span>)[<span class="number">0</span>:<span class="number">2</span>],conn.decode(<span class="string">'utf-8'</span>)[<span class="number">2</span>:]))</span><br><span class="line">    <span class="keyword">if</span> conn == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">    msg_s = input(<span class="string">'sr&gt;&gt;'</span>)</span><br><span class="line">    sr.sendto(msg_s.encode(<span class="string">'utf-8'</span>),addr)</span><br><span class="line">    <span class="keyword">if</span> msg_s == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">sr.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">cl = socket.socket(type=socket.SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line">colour_ = str(random.randint(<span class="number">30</span>,<span class="number">37</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    msg_s = colour_ + input(<span class="string">"cl&gt;&gt;"</span>)</span><br><span class="line">    cl.sendto(msg_s.encode(<span class="string">'utf-8'</span>), (<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">    <span class="keyword">if</span> msg_s == <span class="string">'q'</span>:<span class="keyword">break</span></span><br><span class="line">    conn,addr = cl.recvfrom(<span class="number">4096</span>)</span><br><span class="line">    conn = conn.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">    print(conn)</span><br><span class="line">    <span class="keyword">if</span> conn == <span class="string">'q'</span>:brea、k</span><br><span class="line"></span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<h3 id="继承socket类实现免编码-123"><a href="#继承socket类实现免编码-123" class="headerlink" title="继承socket类实现免编码[^123]"></a>继承socket类实现免编码[^123]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 继承socket 的my_socket模块文件</span></span><br><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">My_socket</span><span class="params">(socket.socket)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,coding=<span class="string">'utf-8'</span>)</span>:</span></span><br><span class="line">        self.coding = coding</span><br><span class="line">        super().__init__(type=socket.SOCK_DGRAM)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">my_sendto</span><span class="params">(self,msg,addr)</span>:</span></span><br><span class="line">        self.sendto(msg.encode(<span class="string">'utf-8'</span>),addr)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">my_recvfrom</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        conn,addr = self.recvfrom(num)</span><br><span class="line">        <span class="keyword">return</span> conn.decode(self.coding),addr</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server</span></span><br><span class="line"><span class="keyword">from</span>  my_socket <span class="keyword">import</span> My_socket</span><br><span class="line">sr = My_socket()</span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">conn,addr = sr.my_recvfrom(<span class="number">4096</span>)</span><br><span class="line"></span><br><span class="line">print(conn)</span><br><span class="line">print(addr)</span><br><span class="line"></span><br><span class="line">sr.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client</span></span><br><span class="line"><span class="keyword">from</span>  my_socket <span class="keyword">import</span>  My_socket</span><br><span class="line"></span><br><span class="line">cl = My_socket()</span><br><span class="line"></span><br><span class="line">cl.my_sendto(<span class="string">'你好服务端'</span>,(<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<h3 id="Scoket-实现上传下载文件"><a href="#Scoket-实现上传下载文件" class="headerlink" title="Scoket 实现上传下载文件"></a>Scoket 实现上传下载文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server 端</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># conding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">sr = socket.socket()</span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>, <span class="number">12138</span>))</span><br><span class="line">sr.listen()</span><br><span class="line">conn, addr = sr.accept()</span><br><span class="line">msg = conn.recv(<span class="number">65500</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">print(msg)</span><br><span class="line">dit_data = json.loads(msg)</span><br><span class="line"><span class="keyword">if</span> dit_data[<span class="string">'select'</span>] == <span class="string">'upload'</span>:</span><br><span class="line">    print(<span class="string">"upload"</span>)</span><br><span class="line">    fb1 = open(dit_data[<span class="string">'filename'</span>], <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    fb1.write(dit_data[<span class="string">"content"</span>])</span><br><span class="line">    fb1.close()</span><br><span class="line"><span class="keyword">if</span> dit_data[<span class="string">'select'</span>] == <span class="string">'download'</span>:</span><br><span class="line">    <span class="keyword">if</span> os.path.isfile(dit_data[<span class="string">'filename'</span>]):</span><br><span class="line">        fb2 =  open(dit_data[<span class="string">'filename'</span>], encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        content = json.dumps(fb2.read())</span><br><span class="line">        fb2.close()</span><br><span class="line">        conn.send(content.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        conn.send(<span class="string">"Error"</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">conn.close()</span><br><span class="line">sr.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client </span></span><br><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># conding: utf-8</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ftp_file</span><span class="params">()</span>:</span></span><br><span class="line"><span class="decorator">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">(filename,select)</span>:</span></span><br><span class="line">        file_name = os.path.basename(filename)</span><br><span class="line">        <span class="keyword">with</span> open(filename, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            content = f.read()</span><br><span class="line">        dit_data = &#123;<span class="string">"select"</span>: select, <span class="string">'filename'</span>: file_name, <span class="string">'content'</span>: content&#125;</span><br><span class="line">        msg = json.dumps(dit_data)</span><br><span class="line">        cl.send(msg.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"><span class="decorator">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(filename,select)</span>:</span></span><br><span class="line">        file_name = os.path.basename(filename)</span><br><span class="line">        dit_data = &#123;<span class="string">"select"</span>: select, <span class="string">'filename'</span>: filename, <span class="string">'content'</span>: <span class="keyword">None</span>&#125;</span><br><span class="line">        msg = json.dumps(dit_data)</span><br><span class="line">        cl.send(msg.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        msg_data = cl.recv(<span class="number">4096</span>)</span><br><span class="line">        <span class="keyword">if</span> msg_data.decode(<span class="string">"utf-8"</span>) == <span class="string">"Error"</span>:</span><br><span class="line">            print(<span class="string">"你要的文件不存在"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">                save_path = input(<span class="string">"你要保存的路径(默认为当前路径)&gt;&gt;"</span>)</span><br><span class="line">                <span class="keyword">if</span> save_path == <span class="string">""</span>:</span><br><span class="line">                    print(<span class="string">"保存在当前路径"</span>)</span><br><span class="line">                <span class="keyword">elif</span> os.path.isdir(save_path):</span><br><span class="line">                    save_path = re.sub(<span class="string">r'[\\/]$'</span>,<span class="string">''</span>,save_path)</span><br><span class="line">                    print(<span class="string">"你要保存的路径是%s\\+%s"</span> % (save_path,file_name))</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    print(<span class="string">'该路径不存在'</span>)</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                save_path = save_path + <span class="string">"\\"</span> + file_name</span><br><span class="line">                <span class="keyword">with</span> open(save_path,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(msg_data.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">cl = socket.socket()</span><br><span class="line">cl.connect((<span class="string">'127.0.0.1'</span>, <span class="number">12138</span>))</span><br><span class="line">select_lst = &#123;<span class="string">'1'</span>:<span class="string">'upload'</span>,<span class="string">'2'</span>:<span class="string">'download'</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> select_lst.items(): print(<span class="string">'%s:%s'</span> % (i[<span class="number">0</span>], i[<span class="number">1</span>]))</span><br><span class="line">select = input(<span class="string">"你的操作是&gt;&gt;"</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> select_lst.get(select):</span><br><span class="line">        filename = input(<span class="string">"你要操作的文件&gt;&gt;"</span>)</span><br><span class="line">        getattr(Ftp_file,select_lst[select])(filename,select_lst[select])</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"你的输入有误"</span>)</span><br><span class="line">cl.close()</span><br><span class="line"><span class="comment"># except Exception as e:</span></span><br><span class="line"><span class="comment">#     print("错误信息: %s %s" %(type(e),e))</span></span><br><span class="line"><span class="comment">#     cl.close()</span></span><br><span class="line"><span class="comment"># finally:</span></span><br><span class="line"><span class="comment">#     cl.close()</span></span><br></pre></td></tr></table></figure>
+<h2 id="TCP-粘包-UDP收发限制"><a href="#TCP-粘包-UDP收发限制" class="headerlink" title="TCP 粘包 UDP收发限制"></a>TCP 粘包 UDP收发限制</h2><hr>
+<blockquote>
+<p>粘包是TCP才会有的问题，UDP是不存在的</p>
+</blockquote>
+<h3 id="TCP-粘包"><a href="#TCP-粘包" class="headerlink" title="TCP 粘包"></a>TCP 粘包</h3><p>粘包的本质就是 接受端因为不知道要如何接受服务端数据（收到的数据或大或小），造成收到的数据混乱。</p>
+<p><strong>为什么会发生粘包？</strong></p>
+<p>首先要了解：TCP传输数据 有 <strong>合包</strong>，<strong>拆包</strong>的机制，称之为 <code>nagle</code> 算法</p>
+<ul>
+<li>合包：服务端发送数据时，如果多次连续发送，且每个数据过小，前一个数据包就会在缓冲区等待后面的，然后使用nagle算法把这几个数据包打包成一个大的数据包，在发送</li>
+<li>拆包：客户端接受数据包时，数据包到达缓冲区，在使用nagle算法把这个大的数据包解分为原来的小数据包在按照顺序挨个接受。[^mtu]</li>
+</ul>
+<p>[^mtu]: 数据的拆包还受数据链路层（物理网卡）最大传输单元 <code>MTU</code>的影响，通常机器的 <code>MTU</code>都是1500，也就是说大于1500的数据包在这里还会进行一次拆包，到了应用层（操作系统） 在进行合包</p>
+<h3 id="图解TCP粘包"><a href="#图解TCP粘包" class="headerlink" title="图解TCP粘包"></a>图解TCP粘包</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://s2.ax1x.com/2019/11/22/MTAFij.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>由于服务端并不知道客户端发送发送的数据包字节大小，因此，服务端在接受数据时会出现这4种情况</p>
+<ul>
+<li>D1和D2 2个数据包正常分开发送，服务器正常接受</li>
+<li>D1和D2 被nagle 合包成一个数据包，发送给服务端，但是因为偶然，数据包没有进行正常拆包，全部被第一个 <code>recv(1024)</code> 接受到，而第二个没有接收到数据，这样就引发了数据紊乱，也就是粘包</li>
+<li>D1 D2 D3正常分开发送，D1正常接收，但是第二个数据包 <code>4096</code> 的大小超过服务端准备接受的大小，于是服务端只收到了D2 数据中 1024个字节的数据，剩余的3072被 第三个 <code>recv(1024)</code> 拿过去了一点~这样就有造成了数据紊乱</li>
+</ul>
+<h3 id="代码展示粘包"><a href="#代码展示粘包" class="headerlink" title="代码展示粘包"></a>代码展示粘包</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://s2.ax1x.com/2019/11/22/MTEBHU.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="UDP收发限制"><a href="#UDP收发限制" class="headerlink" title="UDP收发限制"></a>UDP收发限制</h3><p><strong>TCP协议</strong>如果单次发送的数据如果过大，就会被nagle算法拆包成多个合乎大小的数据包发送，到对端后在缓冲区按照顺序在进行合包<a href="send()发送数据，再系统层次就已经被解包发送，send()的返回值就是这次发送了多个字节，而sendall()则是尝试一次性将所有数据发送出去，发送不出去则返回异常">^注释</a>，同时也是因为TCP协议发送数据是使用数据流形式，所以是不能控制哪个数据包先到。这也是引发粘包的问题之一</p>
+<p><strong>UDP协议</strong>的数据传输格式是数据报格式，每次发送数据最大只能发送 <code>65535-20(IP包头)-8(UDP包头)=65507</code>，所以UDP就像是一架到美国的飞机， 一次只能发送 <code>65507</code>， 多了就无法起飞(报错)，一旦发送事故就是全部凉凉。</p>
+<p>而且在经过数据链路层（物理网卡）时，由于单次最大传输单元MTU的1500限制，大于1500的UDP数据包，也必须在这里进行拆包，但是由于UDP协议的数据本身就是一次性发送，不可靠的协议，在这里进行拆包过程中有一个数据包丢了，本次传输就失败了~<strong>所以使用UDP传输数据要避免拆包，尽可能的保证数据成功发送</strong></p>
+<blockquote>
+<p>单次UDP数据包发送的最佳大小就是：<code>1500-20(IP包头)-8(UDP包头)=1472</code></p>
+</blockquote>
+<h3 id="避免TCP粘包"><a href="#避免TCP粘包" class="headerlink" title="避免TCP粘包"></a>避免TCP粘包</h3><p>又是一个曲线救国的方法，发送每一个数据前告诉对端，我这次发了多少数据，这里使用的struce模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server</span></span><br><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cl = socket.socket()</span><br><span class="line">cl.connect((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line"></span><br><span class="line">msg = <span class="string">'asadasd!@#$qwdc群岛亲卫队123123'</span>.encode(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment">#msg = input('&gt;&gt;').encode('utf-8')</span></span><br><span class="line">msg = struct.pack(<span class="string">'i'</span>,len(msg)) + msg</span><br><span class="line">cl.send(msg)</span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client</span></span><br><span class="line"><span class="keyword">import</span>  socket</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cl = socket.socket()</span><br><span class="line">cl.connect((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line"></span><br><span class="line">msg = <span class="string">'asadasd!@#$qwdc群岛亲卫队123123'</span>.encode(<span class="string">'utf-8'</span>) <span class="comment">#需要把字符串编码后再len,因为网络传输使用的是bytes，中文文，数字，字母占用的字节长度是不一样的，不编码len，len的是字符长度，不是占用的bytes长度</span></span><br><span class="line"><span class="comment">#msg = input('&gt;&gt;').encode('utf-8')</span></span><br><span class="line">msg = struct.pack(<span class="string">'i'</span>,len(msg)) + msg</span><br><span class="line">cl.send(msg)</span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<h3 id="实现大文件传输且不粘包"><a href="#实现大文件传输且不粘包" class="headerlink" title="实现大文件传输且不粘包"></a>实现大文件传输且不粘包</h3><p>`struct模块<a href="send()发送数据，再系统层次就已经被解包发送，send()的返回值就是这次发送了多个字节，而sendall()则是尝试一次性将所有数据发送出去，发送不出去则返回异常">^注释</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">sk = socket.socket()</span><br><span class="line">sk.bind((<span class="string">"127.0.0.1"</span>,<span class="number">8001</span>))</span><br><span class="line">sk.listen()</span><br><span class="line">conn,addr = sk.accept()</span><br><span class="line">b_len_dic = conn.recv(<span class="number">4</span>)</span><br><span class="line">len_dic = struct.unpack(<span class="string">'i'</span>,b_len_dic)[<span class="number">0</span>]<span class="comment"># 获取到int类型字典的长度，</span></span><br><span class="line"><span class="comment"># unpack得到的是一个元组，要取下标为0的位置</span></span><br><span class="line">str_dic = conn.recv(len_dic).decode(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment"># str_dic = &#123;"opt":menu.get(num),"filename":None,"filesize":None&#125;</span></span><br><span class="line">dic = json.loads(str_dic)</span><br><span class="line"><span class="keyword">if</span> dic[<span class="string">"opt"</span>] == <span class="string">"upload"</span>:</span><br><span class="line">    filename = <span class="string">"1"</span>+ dic[<span class="string">"filename"</span>]</span><br><span class="line">    <span class="keyword">with</span> open(filename,<span class="string">"ab"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">while</span> dic[<span class="string">'filesize'</span>]:</span><br><span class="line">            content = conn.recv(<span class="number">1024</span>)</span><br><span class="line">            f.write(content)</span><br><span class="line">            dic[<span class="string">'filesize'</span>] -= len(content)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> dic[<span class="string">"opt"</span>] == <span class="string">"download"</span>:</span><br><span class="line">    <span class="comment"># 客户端发来一个字典要执行的功能，以及客户端自己的绝对路径</span></span><br><span class="line">    <span class="comment"># 服务器要返回这个绝对路径中所有文件及文件夹</span></span><br><span class="line">    <span class="comment"># 客户端自己选择进入到哪一层目录下</span></span><br><span class="line">    <span class="comment"># 服务器都要返回对应目录下所有文件及文件夹</span></span><br><span class="line">    <span class="comment"># 客户随时选择某一个目录下的某一个文件进行下载</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 客户端发送来一个字典，包含了要进行的操作，要下载的文件的绝对路径，</span></span><br><span class="line">    <span class="comment"># 根据绝对路径去读取文件内容</span></span><br><span class="line">    <span class="comment"># 一边读，一遍发</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">conn.close()</span><br><span class="line">sk.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">sk = socket.socket()</span><br><span class="line">sk.connect((<span class="string">"127.0.0.1"</span>,<span class="number">8001</span>))</span><br><span class="line">menu = &#123;<span class="string">"1"</span>:<span class="string">"upload"</span>,<span class="string">"2"</span>:<span class="string">"download"</span>&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> menu.items():</span><br><span class="line">    print(k,v)</span><br><span class="line">num = input(<span class="string">"请输入功能选项:"</span>)</span><br><span class="line"><span class="keyword">if</span> num == <span class="string">"1"</span>:</span><br><span class="line">    dic = &#123;<span class="string">"opt"</span>:menu.get(num),<span class="string">"filename"</span>:<span class="keyword">None</span>,<span class="string">"filesize"</span>:<span class="keyword">None</span>&#125;</span><br><span class="line">    file_path = input(<span class="string">"请输入一个绝对路径:"</span>)<span class="comment"># 文件的绝对路径</span></span><br><span class="line">    <span class="comment"># E:\Python S14\day32\实现大文件的传输\11.mp4</span></span><br><span class="line">    filename = os.path.basename(file_path)<span class="comment"># 文件名字</span></span><br><span class="line">    filesize = os.path.getsize(file_path)<span class="comment"># 获取用户输入的路径中文件的大小</span></span><br><span class="line">    dic[<span class="string">"filename"</span>] = filename</span><br><span class="line">    dic[<span class="string">"filesize"</span>] = filesize</span><br><span class="line">    str_dic = json.dumps(dic)</span><br><span class="line">    len_dic = len(str_dic)<span class="comment"># 获取到字典的长度，是一个int类型的数据   46   146</span></span><br><span class="line">    b_len_dic = struct.pack(<span class="string">'i'</span>,len_dic)<span class="comment"># 用一个4bytes的数据表示字典的长度</span></span><br><span class="line"></span><br><span class="line">    sk.send(b_len_dic + str_dic.encode(<span class="string">"utf-8"</span>))<span class="comment"># 将bytes类型的字典的长度 + bytes类型的字典的内容，一起发送给服务器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">#  因为上边send字典时，如果程序执行过快，可能会马上执行到下边的send(content)</span></span><br><span class="line">    <span class="comment">#  此时有可能会发生粘包，所以在此中间加一个recv,为了避免粘包</span></span><br><span class="line">    <span class="keyword">with</span> open(file_path,<span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">while</span> filesize:</span><br><span class="line">            content = f.read(<span class="number">1024</span>)</span><br><span class="line">            sk.send(content)</span><br><span class="line">            filesize -= len(content)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> num == <span class="string">"2"</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h3 id="客户端合法性校验"><a href="#客户端合法性校验" class="headerlink" title="客户端合法性校验"></a>客户端合法性校验</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> hmac</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.DEBUG)</span><br><span class="line"></span><br><span class="line">sr = socket.socket()</span><br><span class="line">sr.bind((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">sr.listen()</span><br><span class="line">conn,addr = sr.accept()</span><br><span class="line"></span><br><span class="line">auth_str = os.urandom(<span class="number">10</span>)</span><br><span class="line">auth_salt = <span class="string">b'jerry'</span></span><br><span class="line">md5_key = hmac.new(auth_str,auth_salt)</span><br><span class="line">auth_key = md5_key.digest()</span><br><span class="line">logging.debug(<span class="string">'auth_key %s'</span>%auth_key)</span><br><span class="line"></span><br><span class="line">conn.send(auth_str)</span><br><span class="line">logging.debug(<span class="string">'发送的auth_str: %s'</span> %auth_str)</span><br><span class="line"></span><br><span class="line">auth_msg = conn.recv(<span class="number">16</span>)</span><br><span class="line">logging.debug(<span class="string">'收到的 auth_msg %s'</span>%auth_msg)</span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">"auth_msg %s和 auth_key %s"</span> %(auth_msg,auth_key))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> auth_msg == auth_key:</span><br><span class="line">    conn.send(<span class="string">'1'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    conn.send(<span class="string">'0'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line">conn.close()</span><br><span class="line">sr.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> hmac</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.DEBUG)</span><br><span class="line">cl = socket.socket()</span><br><span class="line">cl.connect((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">auth_salt = <span class="string">b'jerry'</span></span><br><span class="line">auth_str = cl.recv(<span class="number">10</span>)</span><br><span class="line">logging.debug(<span class="string">'收到的auth_str: %s'</span> %auth_str)</span><br><span class="line"></span><br><span class="line">md5_key = hmac.new(auth_str,auth_salt)</span><br><span class="line">auth_msg = md5_key.digest()</span><br><span class="line">logging.debug(<span class="string">'auth_msg %s'</span>%auth_msg)</span><br><span class="line">print(len(auth_msg))</span><br><span class="line"></span><br><span class="line">cl.send(auth_msg)</span><br><span class="line"></span><br><span class="line">auth_result = cl.recv(<span class="number">1</span>)</span><br><span class="line">print(auth_result)</span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<h2 id="socketserver-模块"><a href="#socketserver-模块" class="headerlink" title="socketserver 模块"></a>socketserver 模块</h2><p>socketserver 底层调用的还是socket，socketserver能够接收客户端的<code>并发</code><a href="send()发送数据，再系统层次就已经被解包发送，send()的返回值就是这次发送了多个字节，而sendall()则是尝试一次性将所有数据发送出去，发送不出去则返回异常">^注释</a>请求</p>
+<table>
+<thead>
+<tr>
+<th>socketserver方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>socketserver.TCPserver()</code></td>
+<td>实例化一个基于TCP的socket</td>
+</tr>
+<tr>
+<td><code>.server_forever()</code></td>
+<td>永久监听一个TCP</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server 和socket一样，这里就是固定格式</span></span><br><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mysocket</span><span class="params">(socketserver.BaseRequestHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handler</span><span class="params">(self)</span>:</span>	<span class="comment">#这里必须定义为handler</span></span><br><span class="line">        self.request.recv(<span class="number">1024</span>) <span class="comment"># 等同于 conn.recv(1024)</span></span><br><span class="line">		msg = <span class="string">"我是服务端"</span>.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">        self.request.send(msg)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = socketserver.TCPServer((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>),Mysocket) <span class="comment">#指定要调用的类</span></span><br><span class="line">    s.server_forever()	<span class="comment"># `永久监听一个</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 客户端代码就是使用socket的</span></span><br></pre></td></tr></table></figure>
+<h3 id="三层加密验证"><a href="#三层加密验证" class="headerlink" title="三层加密验证"></a>三层加密验证</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram&#10;&#9;Client--&#62;&#62;Server: C&#21457;&#36865;&#24403;&#21069;&#36134;&#25143;&#29366;&#24577;&#65292;&#21644;&#29992;&#25143;&#21517;&#23494;&#30721;&#10;&#9;Client--&#62;&#62;Server: C&#23494;&#30721;&#20351;&#29992;&#25955;&#21015;&#31639;&#27861;+&#30416;&#21152;&#23494;&#10;&#9;Server--&#62;Client: S&#25910;&#21040;&#29992;&#25143;&#20449;&#24687;&#65292;&#21028;&#26029;&#29992;&#25143;&#29366;&#24577;&#10;&#9;Server--&#62;Client: S&#27604;&#23545;&#29992;&#25143;&#21517;&#26159;&#21542;&#23384;&#22312;&#20110;&#25968;&#25454;&#24211;&#10;&#9;Server--&#62;Client: S&#25226;&#23494;&#30721;&#20877;&#27425;&#21152;&#23494;,&#27604;&#23545;&#25968;&#25454;&#24211;&#20013;&#30340;&#23494;&#30721;&#10;&#9;Server--&#62;&#62;Client: &#36820;&#22238;&#30331;&#24405;&#35748;&#35777;&#32467;&#26524;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Server </span></span><br><span class="line"><span class="keyword">import</span>  socketserver</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.DEBUG)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># dct &#123;'status':True/False,'username':'name','password':'pass','result':'str'&#125;</span></span><br><span class="line"><span class="comment"># info user|pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mysocket</span><span class="params">(socketserver.BaseRequestHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span><span class="params">(self)</span>:</span></span><br><span class="line">        login_msg = self.request.recv(<span class="number">1024</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">        login_dct = json.loads(login_msg)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> login_dct[<span class="string">'status'</span>]:</span><br><span class="line">            <span class="string">'''开始认证'''</span></span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">'info'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> f.readlines():</span><br><span class="line">                    info_user = i.strip().split(<span class="string">"|"</span>)</span><br><span class="line">                    logging.debug(<span class="string">'info_user[0]: %s'</span> %info_user[<span class="number">0</span>])</span><br><span class="line">                    logging.debug(<span class="string">"login_dct['username']: %s"</span> %login_dct[<span class="string">'username'</span>])</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> login_dct[<span class="string">'username'</span>] == info_user[<span class="number">0</span>]:</span><br><span class="line">                        logging.debug(<span class="string">'用户名存在'</span>)</span><br><span class="line">                        salt = <span class="string">b'jerry'</span></span><br><span class="line">                        md5_pas = hashlib.md5(salt)</span><br><span class="line">                        md5_pas.update(login_dct[<span class="string">'password'</span>].encode(<span class="string">'utf-8'</span>))</span><br><span class="line">                        login_pas = md5_pas.hexdigest()</span><br><span class="line">                        <span class="keyword">if</span> login_pas == info_user[<span class="number">1</span>]:</span><br><span class="line">                            logging.debug(<span class="string">'用户登陆成功'</span>)</span><br><span class="line">                            login_dct[<span class="string">'status'</span>] = <span class="keyword">True</span></span><br><span class="line">                            login_dct[<span class="string">'result'</span>] = <span class="string">'Hi Good boy 欢迎登录'</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            login_dct[<span class="string">'result'</span>] = <span class="string">'登陆失败，密码不正确'</span></span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    logging.debug(<span class="string">'用户不存在'</span>)</span><br><span class="line">                    login_dct[<span class="string">'result'</span>] = <span class="string">'登陆失败，用户名不存在'</span></span><br><span class="line">            s_msg = json.dumps(login_dct).encode(<span class="string">'utf-8'</span>)</span><br><span class="line">            self.request.send(s_msg)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            logging.debug(<span class="string">'用户已然登录'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    s = socketserver.TCPServer((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>),Mysocket)</span><br><span class="line">    s.serve_forever()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Client </span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">cl = socket.socket()</span><br><span class="line">cl.connect((<span class="string">'127.0.0.1'</span>,<span class="number">12138</span>))</span><br><span class="line">login_dct = &#123;<span class="string">'status'</span>:<span class="keyword">False</span>,<span class="string">'username'</span>:<span class="keyword">None</span>,<span class="string">'password'</span>:<span class="keyword">None</span>,<span class="string">'result'</span>:<span class="keyword">None</span>&#125;</span><br><span class="line">login_user = input(<span class="string">'用户名&gt; '</span>)</span><br><span class="line">login_pass = input(<span class="string">'密码&gt; '</span>)</span><br><span class="line">md5_pas = hashlib.md5(login_user.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">md5_pas.update(login_pass.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">login_dct[<span class="string">'password'</span>] = md5_pas.hexdigest()</span><br><span class="line">login_dct[<span class="string">'username'</span>] = login_user</span><br><span class="line"></span><br><span class="line">msg_json = json.dumps(login_dct).encode(<span class="string">'utf-8'</span>)</span><br><span class="line">cl.send(msg_json)</span><br><span class="line"></span><br><span class="line">result_json = cl.recv(<span class="number">1024</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">result_dct = json.loads(result_json)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> result_dct[<span class="string">'status'</span>]:print(result_dct[<span class="string">'result'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">'登陆成功......'</span>)</span><br><span class="line">cl.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注册用户</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">sup_user = input(<span class="string">'user&gt;&gt;'</span>)</span><br><span class="line">sup_pass = input(<span class="string">'pass&gt;&gt;'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">md5_pas = hashlib.md5(sup_user.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">md5_pas.update(sup_pass.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">md5pass = md5_pas.hexdigest()</span><br><span class="line">salt = <span class="string">b'jerry'</span></span><br><span class="line">md5_salt = hashlib.md5(salt)</span><br><span class="line">md5_salt.update(md5pass.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">password = md5_salt.hexdigest()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'info'</span>,<span class="string">'a'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(<span class="string">'%s|%s\n'</span> %(sup_user,password))</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:07:48.500Z" itemprop="dateUpdated">2020-11-26 18:07:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/03网络编程/01 socket/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python网络编程/">Python网络编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/&title=《Python 网络编程》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/&title=《Python 网络编程》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 网络编程》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/01面向对象/02命名空间-组合/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 面向对象:命名空间-组合</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/01面向对象/01 面向对象/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 面向对象</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/&title=《Python 网络编程》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/&title=《Python 网络编程》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 网络编程》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/03网络编程/01 socket/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQW4jMQwEwPz/09nrAruWm6Q4mEP5ZDiOR6WDRDT58xO/fv95nf/693c+fT//5U+/c+2Fh4eHN176eYnJ+09LrD7x/KzzL+Dh4eFt887LOi8xuR6q5/b52si3Eg8PD+8NvHPh2yt/e4U4Hh4e3vt5SRiRfD4H4+Hh4b2BV40G5jFu8vt5qX0ha8HDw8OLefkx/Z73K/09PDw8vHFXvXfQ58Hurevn41Pw8PDwFni90YFqEZy0/ydjXl8iCTw8PLyrvOo4VLUllg9RbeDx8PDw9njzBlivgK5eAIW7rno54uHh4cW83lF+PtCryWpvW6tbj4eHh3eXNyl2bwUZcxIeHh7ek7z8aM5HCvIroRpkJIFIVF7j4eHhtXjVpv7dMaxJYyz6Lzw8PLw1Xq/+vDUQcCFHyUcH8PDw8Ma8/BpIQtveNZNEw/kVhYeHh/cMr3DIFq+NSWk+GUrAw8PD2+NVS9Xq4Zs30qrFdNQAw8PDw1vg5c2q5FCuPrL6eXX78PDw8J7kzdv/vRJ5EkDMrzo8PDy8hJcPP/VGRZO9zGPZPPDFw8PD2+ZVS9hesJt8c5I6X8ha8PDw8GJer/G/gZwMCvxn/Xh4eHiP8KoH93ycdML7shI8PDy8Bd4E1lv0JLqtRsN4eHh4T/LKxWscKPQi2t524+Hh4T3JS8rW3qhBvgW9whoPDw/vDbw8ou2NGlRL6vxiw8PDw9vg/RZf1Qf3NjGPj79cEnh4eHgLvOri8shgu1WWrwEPDw9vgzcvi8/b0Vt6Hvh+ubrw8PDw1nh56FCNeleK4Lx8x8PDw3s9rxoo9Jpt+WgCHh4e3nt4eTibj1JNNqgwOoCHh4d3ibdxZPcCi+pIwZfmHB4eHt4Cb9KIyo/7ZAShev3cGmvAw8PDi3l/AOny/itfHu3IAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

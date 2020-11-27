@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Kubernetes 管理k8s | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习笔记:Kubernetes">
+    <meta name="description" content="资源管理管理k8s核心资源的三种方法
+
+陈述式管理—主要依赖命令行CLI工具进行管理
+声明式管理—主要以来统一资源配置清单（manifest）进行管理
+GUI式管理—主要依赖图形化操作界面（web界面 dashborad）进行管理
+
+陈述式资源管理namespace 名称空间1kubectl get namespace/ns&amp;#10;&amp;#10;namespace&amp;#9;&amp;#9;&amp;#33719;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes 管理k8s">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="资源管理管理k8s核心资源的三种方法
+
+陈述式管理—主要依赖命令行CLI工具进行管理
+声明式管理—主要以来统一资源配置清单（manifest）进行管理
+GUI式管理—主要依赖图形化操作界面（web界面 dashborad）进行管理
+
+陈述式资源管理namespace 名称空间1kubectl get namespace/ns&amp;#10;&amp;#10;namespace&amp;#9;&amp;#9;&amp;#33719;&amp;#">
+<meta property="og:updated_time" content="2020-11-26T09:18:29.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kubernetes 管理k8s">
+<meta name="twitter:description" content="资源管理管理k8s核心资源的三种方法
+
+陈述式管理—主要依赖命令行CLI工具进行管理
+声明式管理—主要以来统一资源配置清单（manifest）进行管理
+GUI式管理—主要依赖图形化操作界面（web界面 dashborad）进行管理
+
+陈述式资源管理namespace 名称空间1kubectl get namespace/ns&amp;#10;&amp;#10;namespace&amp;#9;&amp;#9;&amp;#33719;&amp;#">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Kubernetes 管理k8s</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Kubernetes 管理k8s</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源管理"><span class="post-toc-number">1.</span> <span class="post-toc-text">资源管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#陈述式资源管理"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">陈述式资源管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#namespace-名称空间"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">namespace 名称空间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pod-pod控制器-管理"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">pod/pod控制器 管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#service-管理"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">service 管理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#声明式管理"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">声明式管理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#k8s平滑升级"><span class="post-toc-number">2.</span> <span class="post-toc-text">k8s平滑升级</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#k8s-人为调度"><span class="post-toc-number">3.</span> <span class="post-toc-text">k8s 人为调度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#污点-taint"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">污点 taint</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容忍污点"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">容忍污点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多个污点"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">多个污点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容忍多个污点"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">容忍多个污点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标签"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">标签</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/kubernetes/03_管理k8s"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Kubernetes 管理k8s</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h1><p>管理k8s核心资源的三种方法</p>
+<ul>
+<li>陈述式管理—主要依赖命令行CLI工具进行管理</li>
+<li>声明式管理—主要以来统一资源配置清单（manifest）进行管理</li>
+<li>GUI式管理—主要依赖图形化操作界面（web界面 dashborad）进行管理</li>
+</ul>
+<h2 id="陈述式资源管理"><a href="#陈述式资源管理" class="headerlink" title="陈述式资源管理"></a>陈述式资源管理</h2><h3 id="namespace-名称空间"><a href="#namespace-名称空间" class="headerlink" title="namespace 名称空间"></a>namespace 名称空间</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get namespace/ns&#10;&#10;namespace&#9;&#9;&#33719;&#21462;k8s&#20013;&#30340;&#21517;&#31216;&#31354;&#38388;&#65292; ns&#31616;&#20889;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get all [ -n namespace ] &#10;&#10;all &#9;&#33719;&#21462;&#21517;&#31216;&#31354;&#38388;&#20013;&#30340;&#20840;&#37096;&#36164;&#28304;&#10;-n  &#9;&#25351;&#23450;&#21517;&#31216;&#31354;&#38388;, &#19981;&#25351;&#23450;&#40664;&#35748;&#26159;default&#21517;&#31216;&#31354;&#38388;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace&#9;app&#10;&#10;app&#9;&#9;&#21019;&#24314;&#19968;&#20010;&#21517;&#20026;app&#30340;&#21517;&#31216;&#31354;&#38388;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete namespace&#9;app&#10;&#10;app&#9;&#9;&#21024;&#38500;&#21517;&#20026;app&#30340;&#21517;&#31216;&#31354;&#38388;</span><br></pre></td></tr></table></figure>
+<h3 id="pod-pod控制器-管理"><a href="#pod-pod控制器-管理" class="headerlink" title="pod/pod控制器 管理"></a>pod/pod控制器 管理</h3><ul>
+<li>新建一个名为 nginx-web的 pod控制器</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create deployment nginx-web --image=harbor.od.com/public/nginx:1.7.9 -n kube-public&#10;&#10;create&#9;&#9;&#9;&#21019;&#24314;pod&#25511;&#21046;&#22120;&#10;deployment&#9;&#9;&#25351;&#23450;&#20351;&#29992; deployment pod&#25511;&#21046;&#22120;&#10;nginx-web&#9;&#9;pod&#25511;&#21046;&#22120;&#30340;name&#10;--image=&#9;&#9;&#20854;&#20013;pod&#20351;&#29992;&#30340;&#38236;&#20687;&#10;-n&#9;&#9;&#9;&#9;&#25351;&#23450;&#21517;&#31216;&#31354;&#38388;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要区分pod和pod控制器，这里创建的就是一个pod控制器，相当于是pod的剧本， pod控制器会按照剧本内容拉起pod</p>
+</blockquote>
+<ul>
+<li>删除名为nginx-web-548f4f9d8d-q4j9b的pod</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete pod nginx-web-548f4f9d8d-q4j9b&#9;-n kube-public</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>删除了pod，pod控制器会立刻从新按照剧本拉起新的pod，所以对pod的删除相当于是重启pod</p>
+</blockquote>
+<ul>
+<li>删除指定控制器，同样旗下的所以pod也会被一并销毁</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete deployment nginx-test -n kube-public [--force&#9;--grace-period=0]&#10;&#10;deployment&#9;&#25351;&#23450;&#25511;&#21046;&#22120;&#31867;&#22411;&#10;nginx-test&#9;&#25351;&#23450;&#25511;&#21046;&#22120;&#21517;&#23383;&#10;--force&#9;--grace-period=0&#9;&#24378;&#21046;&#21024;&#38500;pod</span><br></pre></td></tr></table></figure>
+<ul>
+<li>扩容/减少pod数量</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl scale deployment nginx-web <span class="comment">--replicas=5 -n kube-public</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--replicas	指定pod总数</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询pod控制器信息</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  describe/get  deployment nginx-web -n kube-public&#10;&#10;describe&#9;&#9;&#35814;&#32454;&#26597;&#30475;&#10;get&#9;&#9;&#9;&#9;&#31616;&#21333;&#26597;&#30475;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询pod信息</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl <span class="operator"><span class="keyword">describe</span>/<span class="keyword">get</span> pod nginx-web-<span class="number">548</span>f4f9d8d-pg5fb -<span class="keyword">n</span> kube-<span class="keyword">public</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod nginx-web-548f4f9d8d-pg5fb -n kube-public -o wide&#10;&#10;-o wide&#9;&#9;&#26174;&#31034;pod&#30340;ip</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进入pod</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl exec -it nginx-ds-cf468 /bin/bash</span><br></pre></td></tr></table></figure>
+<h3 id="service-管理"><a href="#service-管理" class="headerlink" title="service 管理"></a>service 管理</h3><ul>
+<li>创建svc</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl expose deployment nginx-web --port=80 -n kube-public</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询svc</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get service/svc&#10;kubectl describe svc nginx-web -n kube-public</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除svc</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete svc nginx-test</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>kubernet集群管理资源的唯一入口就是通过相应的方法调用apiserver的接口</p>
+<p>kubectl 是k8s官方提供的CLI工具，用于和apiserver进行通讯，用户输入的命令会转化为apiserver能识别的信息</p>
+</blockquote>
+<blockquote>
+<p>kubectl 命令查询<a href="http://docs.kubernetes.org.cn/683.html" target="_blank" rel="external">http://docs.kubernetes.org.cn/683.html</a></p>
+</blockquote>
+<h2 id="声明式管理"><a href="#声明式管理" class="headerlink" title="声明式管理"></a>声明式管理</h2><ul>
+<li>查看资源配置清单</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get deployment nginx-web -n kube-public -o yaml</span><br></pre></td></tr></table></figure>
+<ul>
+<li>资源配置清单必要的4个字段</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1&#10;kind: Deployment&#10;metadata:&#10;&#9;&#10;spec:</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解释配置清单字段</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl explain&#9;service.apiVersion&#10;&#10;&#35299;&#37322;apiVersion&#23383;&#27573;&#30340;&#21487;&#36873;&#21442;&#25968;&#21644;&#24847;&#20041;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用配置清单创建任务</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; nginx-ds.yaml &#60;&#60;-EOF&#10;apiVersion: extensions/v1beta1&#10;kind: DaemonSet&#10;metadata:&#10;  name: nginx-ds&#10;spec:&#10;  template:&#10;    metadata:&#10;      labels:&#10;        app: nginx-ds&#10;    spec:&#10;      containers:&#10;      - name: my-nginx&#10;        image: harbor.od.com/public/nginx:1.7.9&#10;        ports:&#10;        - containerPort: 80&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl <span class="operator"><span class="keyword">create</span> -<span class="keyword">f</span>  nginx-ds.yaml  -<span class="keyword">n</span> kube-<span class="keyword">public</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>修改配置清单内容</p>
+<ul>
+<li><p>在线修改</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl edit service nginx-ds -n kube-public&#10;&#10;&#20462;&#25913;service&#36164;&#28304;&#37197;&#32622;&#28165;&#21333;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl edit deployment nginx-ds -n kube-public&#10;&#10;&#20462;&#25913;pod&#25511;&#21046;&#22120;&#36164;&#28304;&#37197;&#32622;&#28165;&#21333;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>离线修改</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f nginx-ds<span class="class">.yaml</span> </span><br><span class="line"></span><br><span class="line">直接修改配置清单文件，然后使用apply让其生效</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>删除资源配置清单生成的资源</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete -f file.yaml</span><br></pre></td></tr></table></figure>
+<h1 id="k8s平滑升级"><a href="#k8s平滑升级" class="headerlink" title="k8s平滑升级"></a>k8s平滑升级</h1><blockquote>
+<p> 将当前2台节点的k8s平滑升级到 v1.15.4</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-21 conf]# kubectl  get nodes&#10;NAME              STATUS   ROLES         AGE     VERSION&#10;k8s-21.host.com   Ready    master,node   5d12h   v1.15.2&#10;k8s-22.host.com   Ready    master,node   5d12h   v1.15.2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备软件包</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/src</span><br><span class="line">wget https:<span class="comment">//dl.k8s.io/v1.15.4/kubernetes-server-linux-amd64.tar.gz</span></span><br><span class="line"></span><br><span class="line">mv kubernetes-server-linux-amd64<span class="class">.tar</span><span class="class">.gz</span>  kubernetes-server-v1.<span class="number">15.4</span>-linux-amd64<span class="class">.tar</span><span class="class">.gz</span></span><br><span class="line"></span><br><span class="line">mkdir tmpdir</span><br><span class="line"></span><br><span class="line">tar -xf  kubernetes-server-v1.<span class="number">15.4</span>-linux-amd64<span class="class">.tar</span><span class="class">.gz</span> -C tmpdir/</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-<span class="number">21</span> src]<span class="comment"># tree tmpdir/</span></span><br><span class="line">tmpdir/</span><br><span class="line">`<span class="comment">-- kubernetes</span></span><br><span class="line">    |<span class="comment">-- LICENSES</span></span><br><span class="line">    |<span class="comment">-- addons</span></span><br><span class="line">    |<span class="comment">-- kubernetes-src.tar.gz</span></span><br><span class="line">    `<span class="comment">-- server</span></span><br><span class="line">        `<span class="comment">-- bin</span></span><br><span class="line">            |<span class="comment">-- apiextensions-apiserver</span></span><br><span class="line">            ..........................</span><br><span class="line">			..........................</span><br><span class="line">            `<span class="comment">-- mounter</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a  tmpdir/kubernetes /opt/kubernetes-v1.15.4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备新版本的kubernetes</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/kubernetes-v1.18.4&#10;rm -rf kubernetes-src.tar.gz&#10;&#10;cd server/bin/&#10;rm -rf *.tar&#10;rm -rf *_tag&#10;&#10;cp -a /opt/kubernetes/server/bin/conf /opt/kubernetes/server/bin/certs /opt/kubernetes/server/bin/*.sh .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>从k8s中剔除要升级的节点</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-21 conf]# kubectl  get nodes&#10;NAME              STATUS   ROLES         AGE     VERSION&#10;k8s-21.host.com   Ready    master,node   5d12h   v1.15.2&#10;k8s-22.host.com   Ready    master,node   5d12h   v1.15.2&#10;&#10;[root@k8s-21 conf]# kubectl  delete nodes k8s-21.host.com&#10;NAME              STATUS   ROLES         AGE     VERSION&#10;k8s-21.host.com   Ready    master,node   5d12h   v1.15.2&#10;k8s-22.host.com   Ready    master,node   5d12h   v1.15.2&#10;&#10;[root@k8s-21 conf]# kubectl  get nodes&#10;NAME              STATUS   ROLES         AGE     VERSION&#10;k8s-22.host.com   Ready    master,node   5d12h   v1.15.2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从集群中删除一个 节点时，k8s内部会自动将该节点的任务调度到其他节点上去</p>
+</blockquote>
+<ul>
+<li>强制覆盖旧版本的软连接</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sfn /opt/kubernetes-v1.15.4 /opt/kubernetes</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启 k8s</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl stop all&#10;ps aux | grep kube&#10;&#10;supervisorctl start all</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果有错误需要手动处理，问题基本上都是supervisor没有杀掉旧的进程影响的</p>
+</blockquote>
+<ul>
+<li>检查新版本的运行状态</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-<span class="number">21</span> supervisord.d]<span class="preprocessor"># supervisorctl  status</span></span><br><span class="line">etcd-server-<span class="number">21</span>                   RUNNING   pid <span class="number">26389</span>, uptime <span class="number">0</span>:<span class="number">03</span>:<span class="number">33</span></span><br><span class="line">flanneld-<span class="number">21</span>                      RUNNING   pid <span class="number">27499</span>, uptime <span class="number">0</span>:<span class="number">02</span>:<span class="number">08</span></span><br><span class="line">kube-apiserver-<span class="number">21</span>                RUNNING   pid <span class="number">26391</span>, uptime <span class="number">0</span>:<span class="number">03</span>:<span class="number">33</span></span><br><span class="line">kube-controller-manager-<span class="number">21</span>       RUNNING   pid <span class="number">26392</span>, uptime <span class="number">0</span>:<span class="number">03</span>:<span class="number">33</span></span><br><span class="line">kube-kubelet-<span class="number">21</span>                  RUNNING   pid <span class="number">27904</span>, uptime <span class="number">0</span>:<span class="number">01</span>:<span class="number">01</span></span><br><span class="line">kube-proxy-<span class="number">21</span>                    RUNNING   pid <span class="number">26388</span>, uptime <span class="number">0</span>:<span class="number">03</span>:<span class="number">33</span></span><br><span class="line">kube-scheduler-<span class="number">21</span>                RUNNING   pid <span class="number">26404</span>, uptime <span class="number">0</span>:<span class="number">03</span>:<span class="number">33</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-21 supervisord.d]# kubectl  get nodes&#10;NAME              STATUS   ROLES         AGE     VERSION&#10;k8s-21.host.com   Ready    &#60;none&#62;        13m     v1.15.4&#10;k8s-22.host.com   Ready    master,node   5d12h   v1.15.2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> k8s-22 升级也是同理</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-21 ~]# kubectl  get nodes&#10;NAME              STATUS   ROLES    AGE   VERSION&#10;k8s-21.host.com   Ready    &#60;none&#62;   50m   v1.15.4&#10;k8s-22.host.com   Ready    &#60;none&#62;   34s   v1.15.4</span><br></pre></td></tr></table></figure>
+<h1 id="k8s-人为调度"><a href="#k8s-人为调度" class="headerlink" title="k8s 人为调度"></a>k8s 人为调度</h1><h2 id="污点-taint"><a href="#污点-taint" class="headerlink" title="污点 taint"></a>污点 taint</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  taint node k8s-21.host.com disk=hdd:NoExecute</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  taint node k8s-21.host.com disk-&#10;&#10;&#21024;&#38500;&#19968;&#20010;&#27745;&#28857;</span><br></pre></td></tr></table></figure>
+<h3 id="容忍污点"><a href="#容忍污点" class="headerlink" title="容忍污点"></a>容忍污点</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat nginx-dp.yaml &#10;apiVersion: extensions/v1beta1&#10;kind: Deployment&#10;metadata:&#10;  labels:&#10;    app: nginx-dp&#10;  name: nginx-dp&#10;  namespace: kube-public&#10;spec:&#10;  replicas: 2&#10;  selector:&#10;    matchLabels:&#10;      app: nginx-dp&#10;  template:&#10;    metadata:&#10;      labels:&#10;        app: nginx-dp&#10;    spec:&#10;      tolerations:&#10;      - key: disk&#10;        value: hdd&#10;        effect: NoExecute&#10;      containers:&#10;      - image: harbor.od.com/public/nginx:1.7.9&#10;        imagePullPolicy: IfNotPresent&#10;        name: nginx</span><br></pre></td></tr></table></figure>
+<h3 id="多个污点"><a href="#多个污点" class="headerlink" title="多个污点"></a>多个污点</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint node k8s-21.host.com hdd=:NoExecute&#10;kubectl taint node k8s-21.host.com min_memory=:NoExecute</span><br></pre></td></tr></table></figure>
+<h3 id="容忍多个污点"><a href="#容忍多个污点" class="headerlink" title="容忍多个污点"></a>容忍多个污点</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1&#10;kind: Deployment&#10;metadata:&#10;  labels:&#10;    app: nginx-dp&#10;  name: nginx-dp&#10;  namespace: kube-public&#10;spec:&#10;  replicas: 2&#10;  selector:&#10;    matchLabels:&#10;      app: nginx-dp&#10;  template:&#10;    metadata:&#10;      labels:&#10;        app: nginx-dp&#10;    spec:&#10;      tolerations:&#10;      - key: hdd&#10;      - key: min_memory&#10;        effect: NoExecute&#10;      containers:&#10;      - image: harbor.od.com/public/nginx:1.7.9&#10;        imagePullPolicy: IfNotPresent&#10;        name: nginx</span><br></pre></td></tr></table></figure>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T09:18:29.663Z" itemprop="dateUpdated">2020-11-26 17:18:29</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/kubernetes/03_管理k8s/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Kubernetes/">学习笔记:Kubernetes</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/&title=《Kubernetes 管理k8s》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/&title=《Kubernetes 管理k8s》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes 管理k8s》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/02模块/05 re模块/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模块:re模块</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/kubernetes/04_k8s插件/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Kubernetes K8s的插件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/&title=《Kubernetes 管理k8s》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/&title=《Kubernetes 管理k8s》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes 管理k8s》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/kubernetes/03_管理k8s/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQY7DIAwF0Ln/pTPbShXMt0lGCjxWVUJLXhYuNv75icf1Mb6vj2Z+3s0/f//mbQMDA+O1jGs6RgskS47mz1/H/FvDdTEwMA5gJA/Rmz8P3Mnrm6+FgYGBMZ+TbwfzsIuBgYHxRMDNA2g1icXAwMCoJrH5g67Xyh7MxTEwMF7IyJf5/8+PnG9gYGC8inEVR57iVoPjtTAwMDD2ZuQB7q7NWXKoWX0eDAyMcxh549f8bi8lrrZ0RLk4BgbGRoxegb56wFl9rF4gxsDA2I9RbUJ9ogCXM4Z3MTAwjmEkm7n1sNtrIPtjRQwMjAMYvaJYnnbmrV15s0XzPwEDA+OFjOrUdVLvEDTaUGJgYGzKSAr0vYOBXh2s2sCBgYFxJqNQ5CoG0N4riMI9BgbGAYy7gmbUZloMstF1DAyMrRnJ1GpATKg5vgrGwMDYj9ELuCvFuDxk52thYGDszegFx/V0tPeb+R8DBgbGfoy8BJ+E0fXGsuoVDAyMMxlJUeyJJLa67vCUAwMD4wDGSuNFtXBWTWgxMDAwei0X1a1kFVZOYjEwMDZiXMVRTTuT0Lm+ZcTAwNibkY9eEX+9CQwDAwOjGiKTb+VHm3c1XmBgYJzDWDkYWGmniBq8kjYODAwMjOLmLw/Wefy8OeBiYGBszagWyNZLaVFzGAYGxgGMXrE+L/RXy3Z5CwgGBsYJjF6LQ+/kodpkloRdDAyMrRm/yd5LqbbeGlYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

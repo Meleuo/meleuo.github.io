@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>shell里奇奇怪怪的$参数 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,Shell">
+    <meta name="description" content="-
+简介
+
+
+
+
+$?
+上一个命令执行的结果，非0即为异常
+
+
+$$
+当前程序的pid
+
+
+
+
+
+
+$0
+当前执行的脚本名称
+
+
+$n
+传递过来的第n个参数
+
+
+$*
+传递过来的全部参数，在以 &amp;quot;$*&amp;quot;调用将视为一个整体
+
+
+$@
+传递过来的全部参数
+
+
+$#
+传递过来的参数数
+
+
+
+演示1&amp;#10095; cat test&amp;#10;#!/bin/bash&amp;#10;&amp;#10;f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell里奇奇怪怪的$参数">
+<meta property="og:url" content="http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="-
+简介
+
+
+
+
+$?
+上一个命令执行的结果，非0即为异常
+
+
+$$
+当前程序的pid
+
+
+
+
+
+
+$0
+当前执行的脚本名称
+
+
+$n
+传递过来的第n个参数
+
+
+$*
+传递过来的全部参数，在以 &amp;quot;$*&amp;quot;调用将视为一个整体
+
+
+$@
+传递过来的全部参数
+
+
+$#
+传递过来的参数数
+
+
+
+演示1&amp;#10095; cat test&amp;#10;#!/bin/bash&amp;#10;&amp;#10;f">
+<meta property="og:updated_time" content="2020-11-26T07:17:18.623Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell里奇奇怪怪的$参数">
+<meta name="twitter:description" content="-
+简介
+
+
+
+
+$?
+上一个命令执行的结果，非0即为异常
+
+
+$$
+当前程序的pid
+
+
+
+
+
+
+$0
+当前执行的脚本名称
+
+
+$n
+传递过来的第n个参数
+
+
+$*
+传递过来的全部参数，在以 &amp;quot;$*&amp;quot;调用将视为一个整体
+
+
+$@
+传递过来的全部参数
+
+
+$#
+传递过来的参数数
+
+
+
+演示1&amp;#10095; cat test&amp;#10;#!/bin/bash&amp;#10;&amp;#10;f">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">shell里奇奇怪怪的$参数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">shell里奇奇怪怪的$参数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-26T07:16:58.000Z" itemprop="datePublished" class="page-time">
+  2020-11-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#演示"><span class="post-toc-number">1.</span> <span class="post-toc-text">演示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#和-的区别"><span class="post-toc-number">2.</span> <span class="post-toc-text">$* 和$@的区别</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux/shell里奇奇怪怪的$参数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">shell里奇奇怪怪的$参数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-26 15:16:58" datetime="2020-11-26T07:16:58.000Z"  itemprop="datePublished">2020-11-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <table>
+<thead>
+<tr>
+<th>-</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$?</code></td>
+<td>上一个命令执行的结果，非0即为异常</td>
+</tr>
+<tr>
+<td><code>$$</code></td>
+<td>当前程序的pid</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>$0</code></td>
+<td>当前执行的脚本名称</td>
+</tr>
+<tr>
+<td><code>$n</code></td>
+<td>传递过来的第n个参数</td>
+</tr>
+<tr>
+<td><code>$*</code></td>
+<td>传递过来的全部参数，在以 <code>&quot;$*&quot;</code>调用将视为一个整体</td>
+</tr>
+<tr>
+<td><code>$@</code></td>
+<td>传递过来的全部参数</td>
+</tr>
+<tr>
+<td><code>$#</code></td>
+<td>传递过来的参数数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10095; cat test&#10;#!/bin/bash&#10;&#10;function func() &#123;&#10;  echo &#34;\$$ : $$&#34;&#10;  echo &#34;\$? : $?&#34;&#10;  echo &#34;\$0 : $0&#34;&#10;  echo &#34;\$1 : $1&#34;&#10;  echo &#34;\$2 : $2&#34;&#10;  echo &#34;\$# : $#&#34;&#10;  echo &#34;\$* : $*&#34;&#10;  echo &#34;\$@ : $@&#34;&#10;&#125;&#10;&#10;func f1 f2 f3 f4 f5 f6&#10;&#10095; ./test&#10;$$ : 7345&#10;$? : 0&#10;$0 : ./test&#10;$1 : f1&#10;$2 : f2&#10;$# : 6&#10;$* : f1 f2 f3 f4 f5 f6&#10;$@ : f1 f2 f3 f4 f5 f6</span><br></pre></td></tr></table></figure>
+<h2 id="和-的区别"><a href="#和-的区别" class="headerlink" title="$* 和$@的区别"></a><code>$*</code> 和<code>$@</code>的区别</h2><p><code>$*</code> 和<code>$@</code>的区别 就是在被双引号的包裹下，<code>$*</code> 将全部参数视为一个整体，<code>$@</code> 还是一个，一个的参数</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10095; cat test&#10;#!/bin/bash&#10;&#10;function func() &#123;&#10;  echo &#34;\$*&#34;&#10;  for i in &#34;$*&#34;; do&#10;    echo $i&#10;  done&#10;&#10;  echo &#34;\$@&#34;&#10;  for i in &#34;$@&#34;; do&#10;    echo $i&#10;  done&#10;&#125;&#10;&#10;func f1 f2 f3 f4 f5 f6&#10;&#10095; ./test&#10;$*&#10;f1 f2 f3 f4 f5 f6&#10;$@&#10;f1&#10;f2&#10;f3&#10;f4&#10;f5&#10;f6</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T07:17:18.623Z" itemprop="dateUpdated">2020-11-26 15:17:18</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/11/26/Linux/shell里奇奇怪怪的$参数/" target="_blank" rel="external">http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/&title=《shell里奇奇怪怪的$参数》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/&title=《shell里奇奇怪怪的$参数》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《shell里奇奇怪怪的$参数》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/26/NGINX/Nginx配置文件/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">nginx 配置文件模板[持续更新]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/10/12/MySQL/基于MySQL innodb cluster 的MySQL高可用方案/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">基于MySQL innodb cluster 的MySQL高可用方案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/&title=《shell里奇奇怪怪的$参数》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/&title=《shell里奇奇怪怪的$参数》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《shell里奇奇怪怪的$参数》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/26/Linux/shell里奇奇怪怪的$参数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aO27DMBAFQN//0gmQKo3ktx9aLkZVYEeUhgG4zOO+XvH183cln///JL9r8g4LFx4eHl7rtqsrZ9xjrsa8f+7V+Pm9eHh4eOd49wvxPS+frGohufq2UHLw8PDwHuXdb2p3X25ts46Hh4f3KK+6vb4fIRn/gbqHh4eHF/OSMKL3Wkms0GMvZy14eHh4Ma96+PQNPx8838PDw8MbnKrngWy+3OdL//xt8fDw8E7w8oi2+sjJQdpkKl/JLh4PDw9vzMv/7c+H23qt/K0KWTUeHh7egDeJU5PlPm88zctVeTONh4eH90Fe/upJ0NDbgudTUK51eHh4eGNer7FpvvRXS0K+ZcfDw8M7x+ttjvOFfvL71XJyeb6Hh4eHt8SrbqzzbDjfFlebBsopNR4eHt4qr7foN5ufBlNWLSGjmoaHh4fXKgm7LQK9aCMvUZdPx8PDwzvGS27oNUX1Yt/qCJej4eHh4R3glb8uHvDni3gvbqj+MfDw8PBO8HJGjsnLT7WcVMsGHh4e3mle9chq0jSQB8HVcAQPDw9vl7d1rFU94qrGx9VDtYUTPDw8PLyAVw1V561XSdAwCovx8PDwjvG2oodeS8GE+mbq8fDw8A7w5m1S5xb9vCC92e7j4eHhHePlj99qAsiP//NQ47Iw4OHh4a3yehFAr1lqXmCaR2V4eHh4q7ytJb43Wt5ekE9WVPfw8PDwVnlJy1RvBc6372sXHh4e3iqv12iVL/ej+KAVheDh4eGd5k2KRy/eTQpAPnHV8oaHh4e3xcuLQXUHO3n16jHYmxgXDw8P7wAvDynyofPDquST5uTi4eHhfQ2vt2ffCnbzacLDw8N7lrcboU7iiUIcjIeHh3eM11uy85i1V3gmRQIPDw/vHG9yADZp2LoPaj/aQICHh4eX8n4Be+RzqFuDuv0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

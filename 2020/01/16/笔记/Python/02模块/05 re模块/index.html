@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 模块:re模块 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python模块,学习笔记:Python">
+    <meta name="description" content="re模块正则匹配
+
+
+匹配方法
+说明
+
+
+
+
+re.findall
+返回一个存储所有匹配上的项的列表
+
+
+
+1234ret = re.findall(&apos;\d‘, &apos;qwdqwd12d123e21232&apos;)print(ret)&amp;gt; [&apos;1&apos;, &apos;2&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;2&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;2&apos;]
+
+
+
+匹配方法
+说明
+
+
+
+
+re.search
+返回正则匹配结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 模块:re模块">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="re模块正则匹配
+
+
+匹配方法
+说明
+
+
+
+
+re.findall
+返回一个存储所有匹配上的项的列表
+
+
+
+1234ret = re.findall(&apos;\d‘, &apos;qwdqwd12d123e21232&apos;)print(ret)&amp;gt; [&apos;1&apos;, &apos;2&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;2&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;2&apos;]
+
+
+
+匹配方法
+说明
+
+
+
+
+re.search
+返回正则匹配结">
+<meta property="og:updated_time" content="2020-11-26T10:08:17.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 模块:re模块">
+<meta name="twitter:description" content="re模块正则匹配
+
+
+匹配方法
+说明
+
+
+
+
+re.findall
+返回一个存储所有匹配上的项的列表
+
+
+
+1234ret = re.findall(&apos;\d‘, &apos;qwdqwd12d123e21232&apos;)print(ret)&amp;gt; [&apos;1&apos;, &apos;2&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;2&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;2&apos;]
+
+
+
+匹配方法
+说明
+
+
+
+
+re.search
+返回正则匹配结">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 模块:re模块</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 模块:re模块</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#re模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">re模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正则匹配"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">正则匹配</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正则替换"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">正则替换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正则切割"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">正则切割</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RE进阶"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">RE进阶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#re中的正则分组"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">re中的正则分组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#findall-分组优先"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">findall 分组优先</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#search-分组"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">search + 分组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分组命名"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">分组命名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引分组"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">索引分组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#练习"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">练习</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flags方法"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">flags方法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/02模块/05 re模块"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 模块:re模块</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h2><h3 id="正则匹配"><a href="#正则匹配" class="headerlink" title="正则匹配"></a>正则匹配</h3><table>
+<thead>
+<tr>
+<th>匹配方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.findall</code></td>
+<td>返回一个存储所有匹配上的项的<code>列表</code></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ret = re.findall('\d‘, 'qwdqwd12d123e21232')</span><br><span class="line">print(ret)</span><br><span class="line"></span><br><span class="line">&gt; ['1', '2', '1', '2', '3', '2', '1', '2', '3', '2']</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>匹配方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.search</code></td>
+<td>返回正则匹配<code>结果的对象地址</code></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ret2 =  re.search('\d+','aw1234de123123de')</span><br><span class="line">if ret2:</span><br><span class="line">    print(type(ret2))</span><br><span class="line">    print(ret2.group())</span><br><span class="line">        </span><br><span class="line">&gt; &lt;class 're.Match'&gt;</span><br><span class="line">&gt; 1234</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>匹配方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.match</code></td>
+<td>如果字符串开始的位置或者从开始就有多个字符匹配到了正则表达式,就返回一个相应的匹配对象,不然就找不到</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ret3 =  re.match(<span class="string">'\d+'</span>,<span class="string">'aw1234de123123de'</span>)</span><br><span class="line">print(ret3)</span><br><span class="line">print(ret3.group())</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">None</span></span><br><span class="line">&gt; AttributeError: <span class="string">'NoneType'</span> object has no attribute <span class="string">'group'</span></span><br></pre></td></tr></table></figure>
+<h3 id="正则替换"><a href="#正则替换" class="headerlink" title="正则替换"></a>正则替换</h3><table>
+<thead>
+<tr>
+<th>正则替换</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.sub</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>re.subn</code></td>
+<td>返回一个set, set[0]是替换的结果, set[1]是替换的次数</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">'123qwe1212ewq32.23fcwe12d12'</span></span><br><span class="line">ret1 = re.sub(<span class="string">'[a-z]'</span>,<span class="string">'-'</span>,str1)</span><br><span class="line">print(ret1)</span><br><span class="line"></span><br><span class="line">&gt; <span class="number">123</span>---<span class="number">1212</span>---<span class="number">32.23</span>----<span class="number">12</span>-<span class="number">12</span></span><br><span class="line"></span><br><span class="line">ret1 = re.subn(<span class="string">'[a-z]'</span>,<span class="string">'-'</span>,str1)</span><br><span class="line">print(ret1)</span><br><span class="line">(<span class="string">'123-we1212ewq32.23fcwe12d12'</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">&gt; (<span class="string">'123---1212---32.23----12-12'</span>, <span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 和字符串 replace一样,sub和sub也支持在最后面定义替换的个数</span></span><br><span class="line">ret1 = re.subn(<span class="string">'[a-z]'</span>,<span class="string">'-'</span>,str1,<span class="number">2</span>)</span><br><span class="line">print(ret1)</span><br><span class="line"></span><br><span class="line">&gt; (<span class="string">'123--e1212ewq32.23fcwe12d12'</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="正则切割"><a href="#正则切割" class="headerlink" title="正则切割"></a>正则切割</h3><table>
+<thead>
+<tr>
+<th>正则切割</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.split</code></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ret2 = re.split(<span class="string">'\d+'</span>,<span class="string">'123qwe1212ewq32.23fcwe12d12'</span>)</span><br><span class="line">print(ret2)</span><br><span class="line"></span><br><span class="line">&gt; [<span class="string">''</span>, <span class="string">'qwe'</span>, <span class="string">'ewq'</span>, <span class="string">'.'</span>, <span class="string">'fcwe'</span>, <span class="string">'d'</span>, <span class="string">''</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="RE进阶"><a href="#RE进阶" class="headerlink" title="RE进阶"></a>RE进阶</h3><p>正则表达式也是一种语法,</p>
+<p>我们写的正则也是需要被编译后才能被Python解释器所理解运行, 当需要重复使用同一条规则时可以使用<code>re.compile</code>  预编译好正则表达式赋予一个变量,这样使用的时候直接拿过来用, <strong>一定程度上能够节省代码运行的时间效率</strong></p>
+<table>
+<thead>
+<tr>
+<th>进阶</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.compile</code></td>
+<td>预编译一条正则表达式</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ret = re.compile(<span class="string">'\d+\.?\d+'</span>)</span><br><span class="line">print(ret.findall(<span class="string">'qwdqwd2.123dwqed112.3'</span>))</span><br><span class="line">print(ret.findall(<span class="string">'1.123,qwd13123.12qwe23.13'</span>))</span><br><span class="line"></span><br><span class="line">&gt; [<span class="string">'2.123'</span>, <span class="string">'112.3'</span>]</span><br><span class="line">&gt; [<span class="string">'1.123'</span>, <span class="string">'13123.12'</span>, <span class="string">'23.13'</span>]</span><br></pre></td></tr></table></figure>
+<p>在python通常会用<code>iter()</code> 把列表等数据类型创建一个迭代器对象<code>next()</code>可以依次取出迭代器中的元素</p>
+<p> 这样做的好处是: 使用迭代器可以调用出列表中的所有元素, 并且列表里面的所有元素不需要在同一时间加载到内存中, 需要用的时候加载即可, <strong>一定程度上节省服务器的内存提高空间效率</strong></p>
+<p><code>re模块</code>中也有同样功能的方法,</p>
+<table>
+<thead>
+<tr>
+<th>进阶</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.finditer</code></td>
+<td>把正则表达式<code>匹配结果的对象</code>以一个迭代器的方式返回</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ret1 = re.finditer(<span class="string">'\d+'</span>,<span class="string">'qwe12eqw45151e21125e1125e14215e'</span>)</span><br><span class="line">print(ret1)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span>  ret1:</span><br><span class="line">    print(i.group())</span><br><span class="line">    </span><br><span class="line">&gt; &lt;callable_iterator object at <span class="number">0x02D9F890</span>&gt;</span><br><span class="line">&gt; <span class="number">12</span></span><br><span class="line">&gt; <span class="number">45151</span></span><br><span class="line">&gt; <span class="number">21125</span></span><br><span class="line">&gt; <span class="number">1125</span></span><br><span class="line">&gt; <span class="number">14215</span></span><br></pre></td></tr></table></figure>
+<h3 id="re中的正则分组"><a href="#re中的正则分组" class="headerlink" title="re中的正则分组"></a>re中的正则分组</h3><blockquote>
+<p>属于正则表达式在Python中的一些特殊的方法</p>
+</blockquote>
+<h3 id="findall-分组优先"><a href="#findall-分组优先" class="headerlink" title="findall 分组优先"></a><code>findall 分组优先</code></h3><p>在findall中的正则表达式分组匹配的结果将会被优先显示, <code>即使是空</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ret = re.findall(<span class="string">'www.baidu.com|www.taobao.com'</span>,<span class="string">'www.baidu.com'</span>)</span><br><span class="line">ret1 = re.findall(<span class="string">'www.(baidu|taobao).com'</span>,<span class="string">'www.baidu.com'</span>)</span><br><span class="line">ret2 = re.findall(<span class="string">'[a-z](\d?)'</span>,<span class="string">'abcd'</span>)</span><br><span class="line">print(<span class="string">'ret'</span>,ret)</span><br><span class="line">print(<span class="string">'ret1'</span>,ret1)</span><br><span class="line">print(<span class="string">'ret2'</span>,ret2)</span><br><span class="line"></span><br><span class="line">&gt; ret [<span class="string">'www.baidu.com'</span>]</span><br><span class="line">&gt; ret1 [<span class="string">'baidu'</span>]</span><br><span class="line">&gt; ret2 [<span class="string">''</span>, <span class="string">''</span>, <span class="string">''</span>, <span class="string">''</span>]</span><br></pre></td></tr></table></figure>
+<p>取消<code>findall</code>分组优先</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ret1 = re.findall(<span class="string">'www.(?:baidu|taobao).com'</span>,<span class="string">'www.baidu.com'</span>)</span><br><span class="line">ret2 = re.findall(<span class="string">'[a-z](?:\d?)'</span>,<span class="string">'abcd'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'ret1'</span>,ret1)</span><br><span class="line">print(<span class="string">'ret2'</span>,ret2)</span><br><span class="line"></span><br><span class="line">&gt; ret1 [<span class="string">'www.baidu.com'</span>]</span><br><span class="line">&gt; ret2 [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同样适用于 re.compile</p>
+</blockquote>
+<h3 id="search-分组"><a href="#search-分组" class="headerlink" title="search + 分组"></a><code>search + 分组</code></h3><p><code>search</code>也遵循分组优先的原则, 不同于<code>findall</code>的是, <code>search</code> 需要使用<code>.group()</code> 触发,并且可以指定输出哪一个表达式分组匹配到的内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ret = re.search(<span class="string">'\d+(.\d+)(.\d+)(.\d+)'</span>,<span class="string">'1.2.3.4-2*(60+(-40.35/5)-(-4*3))'</span>)</span><br><span class="line">print(ret.group())</span><br><span class="line">print(ret.group(<span class="number">1</span>))</span><br><span class="line">print(ret.group(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">ret1 = re.search(<span class="string">'(\w&#123;0,3&#125;)(\d?)(\d+)'</span>,<span class="string">'abc123456'</span>)</span><br><span class="line">print(ret1.group(<span class="number">0</span>))</span><br><span class="line">print(ret1.group(<span class="number">1</span>))</span><br><span class="line">print(ret1.group(<span class="number">2</span>))</span><br><span class="line">print(ret1.group(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">&gt; <span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span></span><br><span class="line">&gt; <span class="number">.2</span></span><br><span class="line">&gt; <span class="number">.3</span></span><br><span class="line">&gt; abc123456</span><br><span class="line">&gt; abc</span><br><span class="line">&gt; <span class="number">1</span></span><br><span class="line">&gt; <span class="number">23456</span></span><br></pre></td></tr></table></figure>
+<p><code>split + 分组</code></p>
+<p>当split中的正则有分组，那么就会显示分组中切割消失的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ret = re.split(<span class="string">'(\d+)'</span>,<span class="string">'qwd123d1e12edd123eww21ed1'</span>)</span><br><span class="line">print(ret)</span><br><span class="line"></span><br><span class="line">&gt; [<span class="string">'qwd'</span>, <span class="string">'123'</span>, <span class="string">'d'</span>, <span class="string">'1'</span>, <span class="string">'e'</span>, <span class="string">'12'</span>, <span class="string">'edd'</span>, <span class="string">'123'</span>, <span class="string">'eww'</span>, <span class="string">'21'</span>, <span class="string">'ed'</span>, <span class="string">'1'</span>, <span class="string">''</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="分组命名"><a href="#分组命名" class="headerlink" title="分组命名"></a>分组命名</h3><p>命名方式: 在分组内添加<code>?P&lt;name&gt;</code>   命名</p>
+<p>调用方式: 在分组内使用<code>?P=name</code></p>
+<blockquote>
+<p>PS: 调用的分组内的正则表达式, 然后对吧分组内正则表达式匹配的值是否相等,</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ret = re.search(<span class="string">r'&lt;(?P&lt;gname&gt;\w)&gt;\w+&lt;/(?P=gname)&gt;'</span>,<span class="string">'&lt;a&gt;abc&lt;/a&gt;'</span>)</span><br><span class="line">print(ret.group(<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">ret1 = re.search(<span class="string">r'&lt;(?P&lt;gname&gt;\w)&gt;\w+&lt;/(?P=gname)&gt;'</span>,<span class="string">'&lt;a&gt;abc&lt;/b&gt;'</span>)</span><br><span class="line">print(ret1)</span><br><span class="line"></span><br><span class="line">&gt; a</span><br><span class="line">&gt; <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<h3 id="索引分组"><a href="#索引分组" class="headerlink" title="索引分组"></a>索引分组</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ret1 = re.search(<span class="string">r'&lt;(\w)&gt;\w+&lt;/(\1)&gt;'</span>,<span class="string">'&lt;a&gt;abc&lt;/a&gt;'</span>)</span><br><span class="line">print(ret1.group(<span class="number">1</span>))</span><br><span class="line">&gt; a</span><br></pre></td></tr></table></figure>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1-2*(60+(-40.35/5)-(-4*3))  匹配所有整数and浮点数,但是不显示浮点数</span></span><br><span class="line">ret = re.findall(<span class="string">'(?:\d+\.\d+)|(\d+)'</span>,<span class="string">'1-2*(60+(-40.35/5)-(-4*3))'</span>)</span><br><span class="line">print(ret)</span><br><span class="line">&gt; [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'60'</span>, <span class="string">''</span>, <span class="string">'5'</span>, <span class="string">'4'</span>, <span class="string">'3'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;a&gt;abc&lt;/a&gt;	匹配字符串中的&lt;&gt;中的a &amp; 匹配字符串中的二个&lt;&gt;中间的值：abc</span></span><br><span class="line">ret = re.findall(<span class="string">r'&lt;(\w)&gt;'</span>,<span class="string">r'&lt;a&gt;abc&lt;/a&gt;'</span>)</span><br><span class="line">ret1 = re.findall(<span class="string">r'&gt;(\w+)&lt;'</span>,<span class="string">r'&lt;a&gt;abc&lt;/a&gt;'</span>)</span><br><span class="line">print(<span class="string">'ret:'</span>, ret)</span><br><span class="line">print(<span class="string">'ret1:'</span>,ret1)</span><br><span class="line"></span><br><span class="line">ret_ = re.search(<span class="string">'&lt;(\w+)&gt;(\w+)&lt;(/\w+)&gt;'</span>,<span class="string">'&lt;a&gt;abc&lt;/a&gt;'</span>)</span><br><span class="line">print(<span class="string">'ret_:'</span>,ret_.group(<span class="number">1</span>))</span><br><span class="line">print(<span class="string">'ret_:'</span>,ret_.group(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">&gt; ret: [<span class="string">'a'</span>]</span><br><span class="line">&gt; ret1: [<span class="string">'abc'</span>]</span><br><span class="line">&gt; ret_: a</span><br><span class="line">&gt; ret_: abc</span><br></pre></td></tr></table></figure>
+<h3 id="flags方法"><a href="#flags方法" class="headerlink" title="flags方法"></a>flags方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ret = re.findall(<span class="string">'[a-z]'</span>,<span class="string">'DQW!@FCQDdqwdfcq'</span>,re.I)</span><br><span class="line">print(ret)</span><br><span class="line"></span><br><span class="line">&gt; [<span class="string">'D'</span>, <span class="string">'Q'</span>, <span class="string">'W'</span>, <span class="string">'F'</span>, <span class="string">'C'</span>, <span class="string">'Q'</span>, <span class="string">'D'</span>, <span class="string">'d'</span>, <span class="string">'q'</span>, <span class="string">'w'</span>, <span class="string">'d'</span>, <span class="string">'f'</span>, <span class="string">'c'</span>, <span class="string">'q'</span>]</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>flags方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.I</code></td>
+<td>忽略大小写,完整写法:IGNORECASE</td>
+</tr>
+<tr>
+<td><code>re.M</code></td>
+<td>忽略换行符，多行模式，改变^跟$的行为，完整的写法：MULTILINE</td>
+</tr>
+<tr>
+<td><code>re.S</code></td>
+<td>让<code>.</code>字符可以匹配任意字符，包括换行符，完整的写法：DOTALL</td>
+</tr>
+<tr>
+<td><code>re.L</code></td>
+<td>表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境，不推荐使用，完整的写法：LOCALE</td>
+</tr>
+<tr>
+<td><code>re.U</code></td>
+<td>使用\w \W \s \S \d \D使用取决于unicode定义的字符属性。在python3中默认使用该flag，完整的写法：UNICODE</td>
+</tr>
+<tr>
+<td><code>re.X</code></td>
+<td>冗长模式，该模式下pattern字符串可以是多行的，忽略空白字符，并可以添加注释，完整的写法：VERBOSE</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:08:17.451Z" itemprop="dateUpdated">2020-11-26 18:08:17</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/02模块/05 re模块/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python模块/">Python模块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/&title=《Python 模块:re模块》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/&title=《Python 模块:re模块》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 模块:re模块》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/kubernetes/02_安装k8s/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Kubernetes 部署K8S</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/kubernetes/03_管理k8s/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Kubernetes 管理k8s</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/&title=《Python 模块:re模块》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/&title=《Python 模块:re模块》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 模块:re模块》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/02模块/05 re模块/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACw0lEQVR42u3aQW5bMQwE0Nz/0inQVTe2Z0jJcYr3V0FjfOupgKgM+fUVP99/n+c///svyWce/fbR255/cvXg4eHhjZb+6EkWnS/x+Tc+2oJH35i8Bw8PD+8eb1YM2qXnR3y+uS8seHh4eD/KSwrAfoOSKzUeHh7e7+UVV9tDn8fDw8P7HF5yFU42JQ8j8i3OL+54eHh47+GdaoC98+cf6O/h4eHhBcdr8rSRa1sSNqvFw8PDu8FLWvLPL8dRHLBobuXNtihrwcPDwzvKm0W07XBAHiIkb4g2HQ8PD+8or41i27/6ZzFuvkEv1omHh4d3jdfGB8V1Nt6CNoaI3oyHh4d3gdceu3nZSMpAHjokoUm0cjw8PLw1r40b9mNYbSOtBdfJBx4eHt6Il19bZ8WjqEtxuYreg4eHh3eB14aweXlow9y6axeHJnh4eHhneflY1SxcmJWT5LIe/Qfg4eHhXeDN2kt5Y6xterXjBdHG4eHh4V3g5Ud/eyi3oUY7iFC07vDw8PAO8c5ecNuSkAxdtVvw4i8GPDw8vDXv1KW2bbO17bdZucLDw8O7wdsc+pvLbh5krNaGh4eHd5mXBKP5ET+bgNpMT9UVCQ8PD+8Qrz3WT4HzQlWUEzw8PLwLvKI/Nmp3bUib9URZCx4eHt6I17ag8oHUdiRrU1rq0QE8PDy8BW/WsJ9dwTcxbj6IgIeHh3ebl7+ubZi1ZWZz4X74jXh4eHgXeO3TjkPNtma2uCEJDw8Pr1zbd/nk19/ZgpJ4Io8w8PDw8G7wNsdue9C3g1YtY1NU8PDw8FpesohZeciv1LNBgSKfxsPDw7vAmw0QtE2vBLAJSg7PR+Dh4eFd4OXBwSZoyEsOHh4e3qfxkuN7do3ORwrq0oKHh4d3jZeHEfkSNy20PKiNCgMeHh7eUd77G2Bt2JG3xz6iv4eHh/c/8/4ACpsNAYaCclEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

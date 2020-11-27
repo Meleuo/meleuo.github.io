@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="{&quot;ID&quot;:&quot;20200914151218-mc5d9p6&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-d0wkfxl&quot;,&quot;Type&quot;:1,&quot;Close&quot;:true,&quot;Children&quot;:[{&quot;Type&quot;:16,&quot;Tokens&quot;:&quot;W3RvY10=&quot;}]},{&quot;ID&quot;:&quot;20200914">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Msrte-人生苦短,何妨一试">
+<meta property="og:url" content="http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="{&quot;ID&quot;:&quot;20200914151218-mc5d9p6&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-d0wkfxl&quot;,&quot;Type&quot;:1,&quot;Close&quot;:true,&quot;Children&quot;:[{&quot;Type&quot;:16,&quot;Tokens&quot;:&quot;W3RvY10=&quot;}]},{&quot;ID&quot;:&quot;20200914">
+<meta property="og:updated_time" content="2020-09-13T23:12:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Msrte-人生苦短,何妨一试">
+<meta name="twitter:description" content="{&quot;ID&quot;:&quot;20200914151218-mc5d9p6&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-d0wkfxl&quot;,&quot;Type&quot;:1,&quot;Close&quot;:true,&quot;Children&quot;:[{&quot;Type&quot;:16,&quot;Tokens&quot;:&quot;W3RvY10=&quot;}]},{&quot;ID&quot;:&quot;20200914">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-27T02:00:27.634Z" itemprop="datePublished" class="page-time">
+  2020-11-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-笔记/Python/02模块/12 双端队列.md"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-27 10:00:27" datetime="2020-11-27T02:00:27.634Z"  itemprop="datePublished">2020-11-27</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            {"ID":"20200914151218-mc5d9p6","Type":0,"Close":true,"LastLineBlank":true,"Children":[{"ID":"20200914151218-d0wkfxl","Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"W3RvY10="}]},{"ID":"20200914151218-75txi1m","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"5LuA5LmI5piv6Zif5YiX"}]},{"ID":"20200914151218-vodnu2o","Type":4,"Close":true,"LastLineBlank":true},{"ID":"20200914151218-08p1f43","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5oOz6LGh5oiQ5LiA5Liq5pep5LiK5o6S6Zif6L+b5Zyw6ZOB77yM5YWI5o6S6Zif55qE6YKj5Liq5Lq65LiA5a6a5piv5YWI6L+b5YWl5Zyw6ZOB55qE6YKj5Liq5Lq677yM5ZCO5Yiw55qE5bCx5ZCO6L+b77yM5LiU5YWI6L+b5Y6755qE6YKj5Liq5Lq66L+b5Y675LqG5bCx5piv6L+b5Y675LqG77yM5LuW5LiN5Lya5YmN5LiA6ISa6L+I5YWl5Zyw6ZOB5ZCO5LiA6ISa5Zyo5Zue5p2l6YeN5paw5o6S6Zif44CC"}]},{"ID":"20200914151218-luxu84v","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6L+Z5bCx5piv5LiA5Liq6Zif5YiX77yM"}]},{"ID":"20200914151218-cw3ul4n","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"5Y2V56uv6Zif5YiX"}]},{"ID":"20200914151218-cwuj92m","Type":4,"Close":true,"LastLineBlank":true},{"ID":"20200914151218-bv2q5xw","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Y2V56uv6Zif5YiX5bCx5YOP5Zyw6ZOB55qE5L6L5a2Q5LiA5qC377yM5YWI6L+b5YWI5Ye677yM6ICM5LiU5Ye65Y675LqG5bCx5piv5rKh5LqG"}]},{"ID":"20200914151218-d674cyk","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":22,"Close":true,"Children":[{"Type":23,"Tokens":"Kio=","Close":true},{"Type":16,"Tokens":"5Y2V56uv6Zif5YiX5LiA5pem5b2i5oiQ77yM5peg5rOV5p+l55yL6Zif5YiX5LiK55qE5o6S5YiX6aG65bqP77yM5Lmf5peg5rOV5L+u5pS544CC"},{"Type":24,"Tokens":"Kio=","Close":true}]}]},{"ID":"20200914151218-ziscufi","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"cHl0aG9u","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"cHl0aG9u"},{"Type":15,"Tokens":"aW1wb3J0IHF1ZXVlCnVwaW5nID0gcXVldWUuUXVldWUoKSAjIOWunuS+i+WMluS4gOS4quWNleerr+mYn+WIl+aWueazlQp1cGluZy5wdXQoJ2plcnJ5JykgIyAucHV0IOS8oOWFpeS4gOS4quWPguaVsAp1cGluZy5wdXQoJ3RvbWNhdCcpCnVwaW5nLnB1dCgnR29kemlsbGEnKQoKcHJpbnQodXBpbmcuZ2V0KCkpCSMgLmdldCDmi7/lh7rmnaXkuIDkuKrlhYPntKAKcHJpbnQodXBpbmcuZ2V0KCkpCnByaW50KHVwaW5nLmdldCgpKQpwcmludCh1cGluZy5nZXQoKSkKCj4gamVycnkKPiB0b21jYXQKPiBHb2R6aWxsYQo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-8vch2ol","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5Y2V56uv6Zif5YiX55qE5bqU55So5Zy65pmv77ya572R57uc5o6S6Zif6LSt56Wo77yM"}]}]},{"ID":"20200914151218-pspcdj6","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"5Y+M56uv6Zif5YiX"}]},{"ID":"20200914151218-xaaf0o1","Type":4,"Close":true,"LastLineBlank":true},{"ID":"20200914151218-lq46z6f","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Y2V56uv5bCx5piv5YOP5piv5LiA5Liq5rC0566h77yM5bem6L655pS+5Y+z6L655Ye677yM5Ye65LqG5bCx5rKh5LqG44CC"}]},{"ID":"20200914151218-1w4ghx8","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Y+M56uv6Zif5YiX5Lmf5piv5LiA5Liq5rC0566h77yM5L2G5piv5a6D5piv5LuO"},{"Type":22,"Close":true,"Children":[{"Type":23,"Tokens":"Kio=","Close":true},{"Type":16,"Tokens":"5Y+z5pS+5Y+z5Ye677yM5bem5pS+5bem5Ye6"},{"Type":24,"Tokens":"Kio=","Close":true}]}]},{"ID":"20200914151218-ve867qx","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"cHl0aG9u","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"cHl0aG9u"},{"Type":15,"Tokens":"IyDlvoDlj4znq6/pmJ/liJfkuK3mlrnlgLwKSW4gWzldOiBmcm9tICBjb2xsZWN0aW9ucyBpbXBvcnQgZGVxdWUKSW4gWzEwXTogZHEgPSBkZXF1ZSgpCiAgICAjIC5hcHBlbmTku47lj7PlvoDlt6YKSW4gWzExXTogZHEuYXBwZW5kKCdhMScpICAJICAKSW4gWzEyXTogZHEuYXBwZW5kKCdhMicpCiAgICAjIC5hZGRlbmRsZWZ0IOS7juW3puW+gOWPswpJbiBbMTNdOiBkcS5hcHBlbmRsZWZ0KCdiMScpICAKSW4gWzE0XTogZHEuYXBwZW5kbGVmdCgnYjInKQpJbiBbMTVdOiBwcmludChkcSkKZGVxdWUoWydiMicsICdiMScsICdhMScsICdhMiddKQoKIAkKSW4gWzE2XTogcHJpbnQoZHEucG9wKCkpICAgICAgIyDku47lj7Povrnmi7/kuIDkuKrlh7rllaYKYTIKSW4gWzE3XTogcHJpbnQoZHEpICMg5bCx5LuO5Y+z6L655bCR5LqG5LiA5LiqCmRlcXVlKFsnYjInLCAnYjEnLCAnYTEnXSkgCgpJbiBbMThdOiBwcmludChkcS5wb3BsZWZ0KCkpICMg5LuO5bem6L655ou/5LiA5Liq5Ye65p2lCmIyCkluIFsxOV06IHByaW50KGRxKQkj5bem6L655bCx5bCR5LqG5LiA5LiqCmRlcXVlKFsnYjEnLCAnYTEnXSkKCkluIFsyMF06IGRxLmluc2VydCgwLCd6MScpICMg5LuO5oyH5a6a5LiL5qCH5o+S5YWl5LiA5LiqCkluIFsyMV06IHByaW50KGRxKQpkZXF1ZShbJ3oxJywgJ2IxJywgJ2ExJ10pCgpJbiBbMjJdOiBkcS5yZW1vdmUoJ2ExJykgIyDliKDpmaTmjIflrprlhYPntKAKSW4gWzIzXTogcHJpbnQoZHEpCmRlcXVlKFsnejEnLCAnYjEnXSkK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-34wmkrh","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"5Y+M56uv6Zif5YiX5ZKM5YiX6KGo"}]},{"ID":"20200914151218-2oad6ix","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5Y+M56uv6Zif5YiX5Zyo5YaF5a2Y5Lit5a2Y5YKo6Zif5YiX5pWw5o2u5piv6YeH55So5LqG5ZKMQ+ivreiogOS4gOagt+eahOmTvuihqOe7k+aehO+8jOadpeaehOmAoOWPjOerr+mYn+WIl+eahOexu+Weiw=="}]}]},{"ID":"20200914151218-qa7wpte","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Zug5Li66ZO+5o6l55qE54m55oCn77yM5L2/5Y+M56uv6Zif5YiX5Zyo5o+S5YWl5ZKM5Yig6Zmk55qE5pON5L2c5Lya5b6I5b+r77yM5Zyo5aSn6YeP55qE5omn6KGM5o+S5YWl5ZKM5Yig6Zmk5pON5L2c77yM5Y+M56uv6Zif5YiX5q+U5YiX6KGo6YCf5bqm5b+r6L+RMTDlgI3vvIzkvYbmmK/lj4znq6/pmJ/liJfnmoTmn6Xor6LpgJ/luqbov5zmr5TliJfooajnmoTlt64="}]},{"ID":"20200914151218-qrwp0gd","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5YiX6KGo5piv5byA6L6f5LiA5Z2X5YaF5a2Y56m66Ze077yM5L6d5qyh5pS+5YWl5YWD57Sg77yM5p2l5p6E5bu65YiX6KGo57uT5p6E"}]}]},{"ID":"20200914151218-wkqy0yv","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Zug5Li65YiX6KGo55qE54m55oCn77yM5q+U5aaC5Yig6Zmk77yM5Y+q6KaB5YiX6KGo5omn6KGM5Yig6Zmk56ysMTDkuKrnmoTmlbDmja7vvIzpgqPkuYjnrKwxMOS4queahOaVsOaNruWIoOmZpOS6hu+8jOmCo+S9jee9ruaYr+S4jeaYr+epuuS6hu+8jOWIl+ihqOWwseS8muiHquWKqOeahOaJp+ihjO+8jOWwhuWQjumdoueahOaVsOaNruWFqOmDqOaPkOWJjeS4gOS9je+8jOi/meagt+eahOWIoOmZpOmAn+W6puWwseS8muebuOW9k+aFou+8jOaPkuWFpeS5n+S4gOagt++8jOaPkuWFpeWIsDEw6KGM77yM6YKjMTDooYzku6XkuIvnmoTmiYDmnInmlbDmja7pg73opoHkuIvpmY3kuIDkvY3vvIzkuIDml6bmiafooYzlpKfph4/nmoTliKDpmaTot5/mj5LlhaXmk43kvZzvvIzpgJ/luqbkvJrlj5jlvpflvojmhaLvvIzlnKjov5nph4zlu7rorq7kvb/nlKjlj4znq6/pmJ/liJc="}]}]}
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-13T23:12:28.000Z" itemprop="dateUpdated">2020-09-14 07:12:28</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/11/27/笔记/Python/02模块/12 双端队列.md/" target="_blank" rel="external">http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/27/笔记/Python/02模块/11 异常处理.md/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/11/27/笔记/Python/03网络编程/01 socket.md/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/Python/02模块/12 双端队列.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvklEQVR42u3aS25jMQwEwNz/0hlgthk/d1NikgFKK8MfWSUDEk3y4yMen3/H86tf3/P5ZbQzz95ZDzw8PLzR0l+NZ0CylHzOV4+TOV+uEA8PD2+NlywxOazbTXme+Xlrotnw8PDwfpTXYvLrIY+K8fDw8P5f3q2r4u6m4OHh4X0nLw9hZ+x2C/JExrVcCx4eHl7Mm6Vlf/bxYn0PDw8P76CqnpfE8uskX27SiPBmDXh4eHgLvDyEPUnaboTRxZbh4eHhXeW1B3rLzheXvJoj8fDw8PZ4z+X5pHifsJM06yyUz1u48PDw8O7yTkpfJw2mszRuvYl4eHh4a7w2kE0W2iY7Zq2xUWcEHh4e3lXeSZNovtzz5tT8asHDw8Pb5rUXQHvQt981rOOdfCUeHh5ezMuTqrMkwt3SWhvK4+Hh4W3z2gJVG3zfIhXbhIeHh7fGawPo87JZvhFte+uFbgg8PDy8kpcnCJLE7vOxfre56k1PBB4eHt5V3t2U7gxzUjB7uSo8PDy8b+G1KdQ8jJ41K5wE2Xh4eHgbvDZobq+KtkEqOfTbpDAeHh7eXV6bYmgP6zbhe148q38xPDw8vBEvSRnkCzrZspM2gjdpXDw8PLwFXpIUaMtdRcq1TA1HCWI8PDy8b+El6dG2OSB5pi10RX8P8PDw8BZ4edFrI32QbGJ7aeHh4eFt89rDug2m2/e0Rbg31w8eHh7eAm929OeBb55oKMpacbULDw8Pb4P3WY5ZIf+87eB5C15uMR4eHt4Cb3bs5gFxXvRKwvF2Zjw8PLw9Xr7QWZpgluTNExxvPouHh4e3xkv+3p+0WLWHe3uDvfwsHh4e3q/hta0As/RH3rx1obMMDw8Pb4E3PJrLIH7WrBBV9vDw8PCu8mbH8cmy2tnaefDw8PD2eLMCWHtJ5KFwG+Kv1Pfw8PDw/v3MH5P6+T519ECYAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

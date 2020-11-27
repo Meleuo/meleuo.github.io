@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 面向对象:内置函数_反射_内置方法 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python 面向对象,学习笔记:Python">
+    <meta name="description" content="内置函数isinstance
+isinstance  判断对象和类之间的关系
+12345678910111213class A():passclass B(A):    name = &quot;123213&quot;b = B()print(isinstance(b, B))print(isinstance(b, A))print(type(b) is A) print(type(b) is B)&amp;gt; Tru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 面向对象:内置函数_反射_内置方法">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="内置函数isinstance
+isinstance  判断对象和类之间的关系
+12345678910111213class A():passclass B(A):    name = &quot;123213&quot;b = B()print(isinstance(b, B))print(isinstance(b, A))print(type(b) is A) print(type(b) is B)&amp;gt; Tru">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/06/MioxG6.gif">
+<meta property="og:updated_time" content="2020-11-26T10:08:57.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 面向对象:内置函数_反射_内置方法">
+<meta name="twitter:description" content="内置函数isinstance
+isinstance  判断对象和类之间的关系
+12345678910111213class A():passclass B(A):    name = &quot;123213&quot;b = B()print(isinstance(b, B))print(isinstance(b, A))print(type(b) is A) print(type(b) is B)&amp;gt; Tru">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 面向对象:内置函数_反射_内置方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 面向对象:内置函数_反射_内置方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内置函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">内置函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#isinstance"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">isinstance</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#issubclass"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">issubclass</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#attr-反射"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">*attr(反射)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射静态字段"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">反射静态字段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射类方法"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">反射类方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射静态方法"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">反射静态方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射实例化对象"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">反射实例化对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射模块"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">反射模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射当前文件中的模块"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">反射当前文件中的模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反射练习"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">反射练习</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#setattr-and-delattr"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">setattr and delattr</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#super"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">super</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/01面向对象/06内置函数_反射_内置方法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 面向对象:内置函数_反射_内置方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><h3 id="isinstance"><a href="#isinstance" class="headerlink" title="isinstance"></a>isinstance</h3><hr>
+<p><code>isinstance</code>  判断对象和类之间的关系</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span><span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    name = <span class="string">"123213"</span></span><br><span class="line"></span><br><span class="line">b = B()</span><br><span class="line">print(isinstance(b, B))</span><br><span class="line">print(isinstance(b, A))</span><br><span class="line">print(type(b) <span class="keyword">is</span> A) </span><br><span class="line">print(type(b) <span class="keyword">is</span> B)</span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line">&gt; <span class="keyword">False</span></span><br><span class="line">&gt; <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<p>使用<code>type</code>判断对象是否为某个类型，他不考虑继承关系</p>
+<p><code>isinstance</code> 判断对象所属类型，包括所有继承关系</p>
+<blockquote>
+<p>PS   is 和 == 的区别 </p>
+</blockquote>
+<p><code>==</code> 进行值运算，值相等则为True</p>
+<p><code>is</code> 身份运算，不仅要求值相等还要求内存地址相等</p>
+<h3 id="issubclass"><a href="#issubclass" class="headerlink" title="issubclass"></a>issubclass</h3><hr>
+<p><code>issubcless</code>  继承关系运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span><span class="keyword">pass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    name = <span class="string">"123213"</span></span><br><span class="line"></span><br><span class="line">print(issubclass(B,A))</span><br><span class="line">print(issubclass(A,B))</span><br></pre></td></tr></table></figure>
+<h3 id="attr-反射"><a href="#attr-反射" class="headerlink" title="*attr(反射)"></a>*attr(反射)</h3><hr>
+<p>使用字符串类型的变量名来服务器这个变量的值</p>
+<p><code>getattr</code>  使用<code>字符串类型的变量名</code>反射出类对于变量名的值,存在则输出，不存在报错</p>
+<p><code>hasattr</code>  使用<code>字符串类型的变量名</code>判断类中是否存在该对于变量，存在为<code>True</code>，不存在为<code>False</code></p>
+<p><code>getattr</code>和<code>hasattr</code>是相辅相成的，一般情况都是通过<code>hasattr</code>判断其是否存在后在用<code>getattr</code> 执行反射出来</p>
+<h3 id="反射静态字段"><a href="#反射静态字段" class="headerlink" title="反射静态字段"></a>反射静态字段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    CAT = <span class="string">"汤姆"</span></span><br><span class="line">print(getattr(Animal,<span class="string">'CAT'</span>))</span><br><span class="line">&gt; 汤姆</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    CAT = <span class="string">"汤姆"</span></span><br><span class="line">print(hasattr(Animal,<span class="string">'CAT'</span>))</span><br><span class="line">&gt; <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    CAT = <span class="string">"汤姆"</span></span><br><span class="line"><span class="keyword">if</span> hasattr(Animal,<span class="string">'CAT'</span>):</span><br><span class="line">    print(getattr(Animal,<span class="string">'CAT'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="反射类方法"><a href="#反射类方法" class="headerlink" title="反射类方法"></a>反射类方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    CAT = <span class="string">"汤姆"</span></span><br><span class="line"><span class="decorator">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">action</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"暴打杰瑞"</span>)</span><br><span class="line"><span class="keyword">if</span> hasattr(Animal,<span class="string">'action'</span>):</span><br><span class="line">    getattr(Animal,<span class="string">'action'</span>)()  <span class="comment"># 内存地址后加双括号即为执行</span></span><br><span class="line"></span><br><span class="line">&gt; 暴打杰瑞</span><br></pre></td></tr></table></figure>
+<h3 id="反射静态方法"><a href="#反射静态方法" class="headerlink" title="反射静态方法"></a>反射静态方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    CAT = <span class="string">"汤姆"</span></span><br><span class="line"><span class="decorator">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">action</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"暴打杰瑞"</span>)</span><br><span class="line"><span class="decorator">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">action2</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"暴打斯派克"</span>)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> hasattr(Animal,<span class="string">'action2'</span>):</span><br><span class="line">    getattr(Animal,<span class="string">'action2'</span>)()</span><br><span class="line">    </span><br><span class="line">&gt; 暴打斯派克</span><br></pre></td></tr></table></figure>
+<h3 id="反射实例化对象"><a href="#反射实例化对象" class="headerlink" title="反射实例化对象"></a>反射实例化对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    CAT = <span class="string">"汤姆"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">action</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"暴打杰瑞"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">action2</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"暴打斯派克"</span>)</span><br><span class="line"></span><br><span class="line">a1 = Animal()</span><br><span class="line"><span class="keyword">if</span> hasattr(a1,<span class="string">'action2'</span>):</span><br><span class="line">    getattr(a1,<span class="string">"action2"</span>)()</span><br><span class="line">&gt; 暴打斯派克</span><br></pre></td></tr></table></figure>
+<h3 id="反射模块"><a href="#反射模块" class="headerlink" title="反射模块"></a>反射模块</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://s2.ax1x.com/2019/11/06/MioxG6.gif" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="反射当前文件中的模块"><a href="#反射当前文件中的模块" class="headerlink" title="反射当前文件中的模块"></a>反射当前文件中的模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  sys</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cat</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"My name is 汤姆"</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dog</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"My name is 杰瑞"</span>)</span><br><span class="line"></span><br><span class="line">my_file = sys.modules[<span class="string">"__main__"</span>]</span><br><span class="line">getattr(my_file,<span class="string">"cat"</span>)()</span><br><span class="line">&gt; My name <span class="keyword">is</span> 汤姆</span><br></pre></td></tr></table></figure>
+<h3 id="反射练习"><a href="#反射练习" class="headerlink" title="反射练习"></a>反射练习</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">()</span>:</span></span><br><span class="line">    choice_list = [</span><br><span class="line">        (<span class="string">'选择科目'</span>,<span class="string">'choice_subject'</span>),</span><br><span class="line">        (<span class="string">'选择课堂'</span>,<span class="string">'choice_classroom'</span>),</span><br><span class="line">        (<span class="string">'开始学习'</span>,<span class="string">'choice_study'</span>)</span><br><span class="line">    ]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">choice_subject</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"选择科目"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">choice_classroom</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"选择课堂"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">choice_study</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"开始学习"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span><span class="params">()</span>:</span></span><br><span class="line">    choice_list = [</span><br><span class="line">        (<span class="string">'选择学生'</span>,<span class="string">'choice_Student'</span>),</span><br><span class="line">        (<span class="string">'创建科目'</span>,<span class="string">'craete_subject'</span>),</span><br><span class="line">        (<span class="string">'创建学习'</span>,<span class="string">'create_study'</span>)</span><br><span class="line">    ]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">choice_Student</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"选择学生"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">craete_subject</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"创建科目"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_study</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"创建学习"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__user = <span class="string">"Jerry"</span></span><br><span class="line">        self.__pass = <span class="string">"123"</span></span><br><span class="line">        <span class="comment"># self.__user = input("用户名：")</span></span><br><span class="line">        <span class="comment"># self.__pass = input("密码：")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"file"</span>,<span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="comment">#print(f.readlines())</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> f.readlines():</span><br><span class="line">                usr,pas,role = i.strip().split(<span class="string">"|"</span>)</span><br><span class="line">                <span class="keyword">if</span> usr == self.__user == usr <span class="keyword">and</span> pas == self.__pass:</span><br><span class="line">                    <span class="keyword">return</span> usr,role</span><br><span class="line">            <span class="keyword">return</span>  <span class="keyword">False</span>,<span class="string">"Landing failed !"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span>  sys</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    A = Login()</span><br><span class="line">    usr,role = A.Login()</span><br><span class="line">    exit()  <span class="keyword">if</span> usr <span class="keyword">is</span> <span class="keyword">False</span> <span class="keyword">else</span> print(<span class="string">"Hello %s: %s 欢迎访问"</span> %(role,usr))</span><br><span class="line">    my_file = sys.modules[<span class="string">'__main__'</span>]</span><br><span class="line">    role = getattr(my_file,role)</span><br><span class="line">    obj = role(usr)</span><br><span class="line">    choice_list = obj.choice_list</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="keyword">for</span> num,i <span class="keyword">in</span> enumerate(choice_list,<span class="number">1</span>):</span><br><span class="line">            print(num,i[<span class="number">0</span>])</span><br><span class="line">        choice = int(input(<span class="string">"&gt;&gt;&gt;&gt;&gt;"</span>))</span><br><span class="line">        getattr(obj,choice_list[choice-<span class="number">1</span>][<span class="number">1</span>])()</span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<h3 id="setattr-and-delattr"><a href="#setattr-and-delattr" class="headerlink" title="setattr and delattr"></a>setattr and delattr</h3><p>setattr 顾名思义 修改反射内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    cat = <span class="string">"汤姆"</span></span><br><span class="line"></span><br><span class="line">print(Animal.__dict__)</span><br><span class="line">setattr(Animal,<span class="string">"cat"</span>,<span class="string">"tomcat"</span>)</span><br><span class="line">print(Animal.__dict__)</span><br><span class="line">&gt; &#123;<span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'cat'</span>: <span class="string">'汤姆'</span>, <span class="string">'__dict__'</span>: &lt;attribute <span class="string">'__dict__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__weakref__'</span>: &lt;attribute <span class="string">'__weakref__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__doc__'</span>: <span class="keyword">None</span>&#125;</span><br><span class="line">&gt; &#123;<span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'cat'</span>: <span class="string">'tomcat'</span>, <span class="string">'__dict__'</span>: &lt;attribute <span class="string">'__dict__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__weakref__'</span>: &lt;attribute <span class="string">'__weakref__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__doc__'</span>: <span class="keyword">None</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>delattr 删除反射内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    cat = <span class="string">"汤姆"</span></span><br><span class="line"></span><br><span class="line">print(Animal.__dict__)</span><br><span class="line">delattr(Animal,<span class="string">"cat"</span>)</span><br><span class="line">print(Animal.__dict__)</span><br><span class="line">&gt; &#123;<span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'cat'</span>: <span class="string">'汤姆'</span>, <span class="string">'__dict__'</span>: &lt;attribute <span class="string">'__dict__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__weakref__'</span>: &lt;attribute <span class="string">'__weakref__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__doc__'</span>: <span class="keyword">None</span>&#125;</span><br><span class="line">&gt; &#123;<span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'__dict__'</span>: &lt;attribute <span class="string">'__dict__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__weakref__'</span>: &lt;attribute <span class="string">'__weakref__'</span> of <span class="string">'Animal'</span> objects&gt;, <span class="string">'__doc__'</span>: <span class="keyword">None</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><p>基类调用父类方法的内置函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"login ing....."</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment">#A.Login(self) # super和这样调用是等价的，不过，super在Py3中不需要传递鸡肋的类名和self，super会自动帮你做</span></span><br><span class="line">        super().Login()</span><br><span class="line"> </span><br><span class="line">b1 = B()</span><br><span class="line"></span><br><span class="line">&gt; login ing.....</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:08:57.657Z" itemprop="dateUpdated">2020-11-26 18:08:57</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-面向对象/">Python 面向对象</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/&title=《Python 面向对象:内置函数_反射_内置方法》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/&title=《Python 面向对象:内置函数_反射_内置方法》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:内置函数_反射_内置方法》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/02模块/08 hashlib模块/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模块:hashlib 模块</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/02模块/09 configparser模块/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 模块:cofingparser模块</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/&title=《Python 面向对象:内置函数_反射_内置方法》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/&title=《Python 面向对象:内置函数_反射_内置方法》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:内置函数_反射_内置方法》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/06内置函数_反射_内置方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADPElEQVR42u3ay47iMBAF0P7/n2a2I80kfW/ZSMQcr1CAxMcsinr8/MTrdbH+fvf+W1fvJk/89/NXO9m8sLGxsR/Cft2uZBP51u/ZV1fun3t/HJd7wMbGxj6Ofb+tNkQlwSY/7nxvRbDExsbG/mJ2vtE8VXgFCxsbGxt7L/sd4SopGM0SJGxsbOxvYM9Sgr2HlZeW7tmba2nY2NjYH8/ehfmE12/pb2NjY2N/MPtVrpVWQd70bUd8agU2Njb2QeyV4ZvkL35yBOsNgOHwEDY2NvbXsPMm7uyT7UHPUqafPB5iY2NjP4qd/+l/R/m+bU60g0F1EoKNjY39QPaG6BdvYjbQs9KiyFMmbGxs7Kez89HJWdhL7j8LjW2LAhsbG/s8dvsnvm0G52FpJTmpn4uNjY19HHtXCpEnJ20SsjLcU0RsbGxs7Iez88L6q1yz5GF9Dbsi2NjY2I9i58MxbYBJwmFylG3DOGlUY2NjY5/HzpsEeRhr77lh4KZsAGNjY2OfwW5Hc/JwkgSt5LntOE406IONjY19HHulTTsLfrtK/3lx6rK/jY2Njf1w9kpRqR3lmTV62xSlaE5gY2NjH8FOAs/eVGHWpm2PYDiphI2Njf1YdpJyJCWkthmQpzorx/qf+2NjY2MfxM6DwezW+QGtFLlmjQdsbGzsk9j5GM1soKcNhHlCsnQ02NjY2F/Abgd08uu7DiX51iUeGxsb+wh2EgxWgtzSr1HCkkCLjY2NfR5771jMSpjJr8/e/WVwBxsbG/s49v1xzEJRGwLXh3h+uY6NjY19EHslqLQhsG3lzkJmkqhgY2Njn8SeNV/z8JO0addL/3kPFxsbG/tUdj3y8rby0Cz9yEXY2NjYp7J/4tUO5cySirzUNQzM2NjY2EewX+XKy/frxaP8mO7vtpSEYGNjY388uw1aeYiahaLkuPNGxYaDwMbGxn4IOw88baN31txNfp/2B6hradjY2NgPZLcN2jxUzBrJs5JTUQ7DxsbG/mJ2PoiTh5b2ubODxsbGxsbOSz95mEmKR7OmxRtTEWxsbOyPZK+0YFtksbmyPVw0KrCxsbEPYtflmKD0k7ds263sbRtjY2NjP5z9B5yxm6c3E4hjAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

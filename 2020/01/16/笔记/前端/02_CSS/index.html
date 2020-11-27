@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>前端 CSS | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习笔记:前端">
+    <meta name="description" content="CSS
+                
+                    
+                    
+                
+                image-20201017204825343
+            
+CSS引用方式
+直接在标签上使用style 属性
+在HTML中使用style标签
+使用link引入外部CSS文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端 CSS">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/前端/02_CSS/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="CSS
+                
+                    
+                    
+                
+                image-20201017204825343
+            
+CSS引用方式
+直接在标签上使用style 属性
+在HTML中使用style标签
+使用link引入外部CSS文件">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201017204825343.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013105118731.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013110118576.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013113119116.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013114427694.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013115128163.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013115532160.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013115858049.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013120115284.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013120342260.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013123027723.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-13%2012-36.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-13%2013-19.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013132403281.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/867021-20180305155201408-1680872107.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013154129502.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013160152006.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-13%2016-21.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013162714561.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013163251931.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013173550944.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013173708807.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013174233647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/11111111111111.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013175513657.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/867021-20180305155247808-885981996.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013180704462.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013180502335.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013183546528.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2012-36.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2014-23.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2014-27.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2014-30.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014143407589.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2015-01.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014160935996.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014232805460.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014233250712.png">
+<meta property="og:updated_time" content="2020-11-26T09:50:54.055Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端 CSS">
+<meta name="twitter:description" content="CSS
+                
+                    
+                    
+                
+                image-20201017204825343
+            
+CSS引用方式
+直接在标签上使用style 属性
+在HTML中使用style标签
+使用link引入外部CSS文件">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端 CSS</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端 CSS</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CSS"><span class="post-toc-number">1.</span> <span class="post-toc-text">CSS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CSS引用方式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">CSS引用方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">选择器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础选择器"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">基础选择器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#标签选择器"><span class="post-toc-number">1.2.1.1.</span> <span class="post-toc-text">标签选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ID选择器"><span class="post-toc-number">1.2.1.2.</span> <span class="post-toc-text">ID选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类名选择器"><span class="post-toc-number">1.2.1.3.</span> <span class="post-toc-text">类名选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通用选择器"><span class="post-toc-number">1.2.1.4.</span> <span class="post-toc-text">通用选择器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组合选择器"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">组合选择器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#后代选择器"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">后代选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#儿子选择器"><span class="post-toc-number">1.2.2.2.</span> <span class="post-toc-text">儿子选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#毗邻选择器"><span class="post-toc-number">1.2.2.3.</span> <span class="post-toc-text">毗邻选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#弟弟选择器"><span class="post-toc-number">1.2.2.4.</span> <span class="post-toc-text">弟弟选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性选择器"><span class="post-toc-number">1.2.2.5.</span> <span class="post-toc-text">属性选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分组选择器"><span class="post-toc-number">1.2.2.6.</span> <span class="post-toc-text">分组选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#嵌套"><span class="post-toc-number">1.2.2.7.</span> <span class="post-toc-text">嵌套</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#伪类选择器"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">伪类选择器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#a标签"><span class="post-toc-number">1.2.3.1.</span> <span class="post-toc-text">a标签</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#input标签"><span class="post-toc-number">1.2.3.2.</span> <span class="post-toc-text">input标签</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通用"><span class="post-toc-number">1.2.3.3.</span> <span class="post-toc-text">通用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#伪元素选择器"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">伪元素选择器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择器优先级"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">选择器优先级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CSS属性"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">CSS属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#宽-amp-高"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">宽&高</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文字属性"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">文字属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文字字体"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">文字字体</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文字大小"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">文字大小</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文字粗细"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">文字粗细</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文字颜色"><span class="post-toc-number">1.4.2.4.</span> <span class="post-toc-text">文字颜色</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文字透明"><span class="post-toc-number">1.4.2.5.</span> <span class="post-toc-text">文字透明</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文字对齐"><span class="post-toc-number">1.4.2.6.</span> <span class="post-toc-text">文字对齐</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文字装饰"><span class="post-toc-number">1.4.2.7.</span> <span class="post-toc-text">文字装饰</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景属性"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">背景属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#背景颜色"><span class="post-toc-number">1.4.3.1.</span> <span class="post-toc-text">背景颜色</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#背景图片"><span class="post-toc-number">1.4.3.2.</span> <span class="post-toc-text">背景图片</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#图片重复"><span class="post-toc-number">1.4.3.2.1.</span> <span class="post-toc-text">图片重复</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#图片位置"><span class="post-toc-number">1.4.3.2.2.</span> <span class="post-toc-text">图片位置</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#边框"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">边框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#指定边边框"><span class="post-toc-number">1.4.4.1.</span> <span class="post-toc-text">指定边边框</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#圆角边框"><span class="post-toc-number">1.4.4.2.</span> <span class="post-toc-text">圆角边框</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#display"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">display</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#盒子模型"><span class="post-toc-number">1.4.6.</span> <span class="post-toc-text">盒子模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#外边距"><span class="post-toc-number">1.4.6.1.</span> <span class="post-toc-text">外边距</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#内边距"><span class="post-toc-number">1.4.6.2.</span> <span class="post-toc-text">内边距</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浮动"><span class="post-toc-number">1.4.7.</span> <span class="post-toc-text">浮动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#清除浮动"><span class="post-toc-number">1.4.7.1.</span> <span class="post-toc-text">清除浮动</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#溢出"><span class="post-toc-number">1.4.8.</span> <span class="post-toc-text">溢出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定位"><span class="post-toc-number">1.4.9.</span> <span class="post-toc-text">定位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#z-index"><span class="post-toc-number">1.4.10.</span> <span class="post-toc-text">z-index</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#opacity"><span class="post-toc-number">1.4.11.</span> <span class="post-toc-text">opacity</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">代码实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#头像"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">头像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导航栏"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">导航栏</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/前端/02_CSS"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端 CSS</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201017204825343.png" alt="image-20201017204825343" title>
+                </div>
+                <div class="image-caption">image-20201017204825343</div>
+            </figure>
+<h2 id="CSS引用方式"><a href="#CSS引用方式" class="headerlink" title="CSS引用方式"></a>CSS引用方式</h2><ul>
+<li>直接在标签上使用<code>style</code> 属性</li>
+<li>在HTML中使用style标签</li>
+<li>使用link引入外部CSS文件</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013105118731.png" alt="image-20201013105118731" title>
+                </div>
+                <div class="image-caption">image-20201013105118731</div>
+            </figure>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span>这是DIV<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="id">#div1</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"div1"</span>&gt;</span></span><br><span class="line">    这是div1</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>dwqdqw</p>
+<h4 id="类名选择器"><a href="#类名选择器" class="headerlink" title="类名选择器"></a>类名选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="class">.c1</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a1 c1 b1"</span>&gt;</span></span><br><span class="line">    这是使用类名选择器的div</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"a1"</span>&gt;</span></span><br><span class="line">    这是一个小p</span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="通用选择器"><a href="#通用选择器" class="headerlink" title="通用选择器"></a>通用选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">	font-size: 20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013110118576.png" alt="image-20201013110118576" title>
+                </div>
+                <div class="image-caption">image-20201013110118576</div>
+            </figure>
+<h3 id="组合选择器"><a href="#组合选择器" class="headerlink" title="组合选择器"></a>组合选择器</h3><h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">div</span> <span class="tag">span</span> <span class="rules">&#123; <span class="comment">/* 找的是div标签下全部的span*/</span></span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span>&gt;</span>span1<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="title">span</span>&gt;</span>span2<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>span2<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013113119116.png" alt="image-20201013113119116" title>
+                </div>
+                <div class="image-caption">image-20201013113119116</div>
+            </figure>
+<h4 id="儿子选择器"><a href="#儿子选择器" class="headerlink" title="儿子选择器"></a>儿子选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="id">#div1</span>&gt;<span class="tag">span</span> <span class="rules">&#123; <span class="comment">/* 只会找到#div1 下一层的内容，再往下就不会找了*/</span></span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">'div1'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span>&gt;</span>span1<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">span</span>&gt;</span>span2<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>span3<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013114427694.png" alt="image-20201013114427694" title>
+                </div>
+                <div class="image-caption">image-20201013114427694</div>
+            </figure>
+<h4 id="毗邻选择器"><a href="#毗邻选择器" class="headerlink" title="毗邻选择器"></a>毗邻选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">p</span>+<span class="tag">span</span> <span class="rules">&#123; <span class="comment">/*只会找到p后面的第一个span， 第二个是找不到的*/</span></span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>这是p<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>这是p下面的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>这是p下下面的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013115128163.png" alt="image-20201013115128163" title>
+                </div>
+                <div class="image-caption">image-20201013115128163</div>
+            </figure>
+<h4 id="弟弟选择器"><a href="#弟弟选择器" class="headerlink" title="弟弟选择器"></a>弟弟选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">p</span>~<span class="tag">span</span><span class="rules">&#123; <span class="comment">/*只要是在p下面的span，全部都是弟弟，都能被拿到， 但，如果被其他标签包裹的span是拿不到的*/</span></span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>这是p<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>这是p下面的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>这是p下下面的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">span</span>&gt;</span>这是p下下下面div里的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">hr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>这是p下下下下面hr后的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013115532160.png" alt="image-20201013115532160" title>
+                </div>
+                <div class="image-caption">image-20201013115532160</div>
+            </figure>
+<h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">span</span><span class="attr_selector">[jerry]</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line">    <span class="tag">span</span><span class="attr_selector">[jerry='true']</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20px</span></span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">jerry</span>=<span class="value">'true'</span>&gt;</span>Jerry属性为True<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">hr</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">jerry</span>=<span class="value">'false'</span>&gt;</span>Jerry属性为False<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">hr</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> &gt;</span>没有Jerry的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013115858049.png" alt="image-20201013115858049" title>
+                </div>
+                <div class="image-caption">image-20201013115858049</div>
+            </figure>
+<h4 id="分组选择器"><a href="#分组选择器" class="headerlink" title="分组选择器"></a>分组选择器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">	<span class="tag">p</span>,</span><br><span class="line">    <span class="tag">div</span>&gt;<span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>我是一个小P<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span>&gt;</span>我是div里的span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013120115284.png" alt="image-20201013120115284" title>
+                </div>
+                <div class="image-caption">image-20201013120115284</div>
+            </figure>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="class">.a1</span> <span class="id">#div1</span> <span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a1 c2 b3"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"div1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span>&gt;</span>我是一个小span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span>&gt;</span>我是第二个小span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013120342260.png" alt="image-20201013120342260" title>
+                </div>
+                <div class="image-caption">image-20201013120342260</div>
+            </figure>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><h4 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span><span class="pseudo">:link</span> <span class="rules">&#123; <span class="comment">/*未访问过的链接*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">a</span><span class="pseudo">:visited</span> <span class="rules">&#123; <span class="comment">/* 访问过的标签*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> blue</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013123027723.png" alt="image-20201013123027723" title>
+                </div>
+                <div class="image-caption">image-20201013123027723</div>
+            </figure>
+<h4 id="input标签"><a href="#input标签" class="headerlink" title="input标签"></a>input标签</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span><span class="pseudo">:focus</span> <span class="rules">&#123; <span class="comment">/*鼠标点击输入框*/</span></span><br><span class="line">	<span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">2px</span> soild green</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-13%2012-36.gif" alt="Peek" title="2020-10-13">
+                </div>
+                <div class="image-caption">2020-10-13</div>
+            </figure>
+<h4 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">input</span><span class="pseudo">:hover</span> <span class="rules">&#123; <span class="comment">/*鼠标放置触发*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">outline</span>:<span class="value"> none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> aliceblue</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">input</span><span class="pseudo">:active</span> <span class="rules">&#123; <span class="comment">/*鼠标点击触发*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">outline</span>:<span class="value"> none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> aliceblue</span></span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-13%2013-19.gif" alt="Peek" title="2020-10-13">
+                </div>
+                <div class="image-caption">2020-10-13</div>
+            </figure>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span><span class="pseudo">:first-letter</span> <span class="rules">&#123; <span class="comment">/*给字符串首位设置特殊样式*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">p</span><span class="pseudo">:before</span> <span class="rules">&#123; <span class="comment">/*在字符串首位插入== */</span></span><br><span class="line">    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"=="</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">p</span><span class="pseudo">:after</span> <span class="rules">&#123; <span class="comment">/*在字符串尾部插入内容*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"[*]"</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> green</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013132403281.png" alt="image-20201013132403281" title>
+                </div>
+                <div class="image-caption">image-20201013132403281</div>
+            </figure>
+<h2 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/867021-20180305155201408-1680872107.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<h2 id="CSS属性"><a href="#CSS属性" class="headerlink" title="CSS属性"></a>CSS属性</h2><h3 id="宽-amp-高"><a href="#宽-amp-高" class="headerlink" title="宽&amp;高"></a>宽&amp;高</h3><blockquote>
+<p>只有块级标签才有资格设置 宽和高</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>; <span class="comment">/*宽*/</span></span><br><span class="line">        <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>; <span class="comment">/*高*/</span></span><br><span class="line">    &#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    我是一个div</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="文字属性"><a href="#文字属性" class="headerlink" title="文字属性"></a>文字属性</h3><h4 id="文字字体"><a href="#文字字体" class="headerlink" title="文字字体"></a>文字字体</h4><blockquote>
+<p>会从左到右依次在系统中找， 全部找不到用系统默认的</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">"Microsoft Yahei"</span>, <span class="string">"微软雅黑"</span>, <span class="string">"Arial"</span>, sans-serif</span><br><span class="line"></span></span></span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="文字大小"><a href="#文字大小" class="headerlink" title="文字大小"></a>文字大小</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="文字粗细"><a href="#文字粗细" class="headerlink" title="文字粗细"></a>文字粗细</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">font-weight</span>:<span class="value"> bold</span></span>; <span class="comment">/*加粗*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>font-weight的值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td>标准，默认</td>
+</tr>
+<tr>
+<td>bold</td>
+<td>加粗</td>
+</tr>
+<tr>
+<td>bolder</td>
+<td>加粗豪华版</td>
+</tr>
+<tr>
+<td>lighter</td>
+<td>更细</td>
+</tr>
+<tr>
+<td>100～900</td>
+<td>设置具体粗细， 400=normal, 700=bold</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>继承爸爸的</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文字颜色"><a href="#文字颜色" class="headerlink" title="文字颜色"></a>文字颜色</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="function">rgb</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>color参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#FFFFFF</td>
+<td>十六进制</td>
+</tr>
+<tr>
+<td>red</td>
+<td>单词</td>
+</tr>
+<tr>
+<td>rgb(255,255,255)</td>
+<td>RGB值</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文字透明"><a href="#文字透明" class="headerlink" title="文字透明"></a>文字透明</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="function">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.1</span>) <span class="comment">/*第4位可从 0.0～1.0之间，越小越透明*/</span></span><br><span class="line"></span></span></span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013154129502.png" alt="image-20201013154129502" title>
+                </div>
+                <div class="image-caption">image-20201013154129502</div>
+            </figure>
+<h4 id="文字对齐"><a href="#文字对齐" class="headerlink" title="文字对齐"></a>文字对齐</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>text-align参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conter</td>
+<td>居中</td>
+</tr>
+<tr>
+<td>left</td>
+<td>左对齐 defalut</td>
+</tr>
+<tr>
+<td>right</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>justify</td>
+<td>两端对其</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文字装饰"><a href="#文字装饰" class="headerlink" title="文字装饰"></a>文字装饰</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">text-decoration</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>text-decoration参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>默认, 标准的文本</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>文本定义一条下划线</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>文本定义一条上划线</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>删除线</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>继承父元素</td>
+</tr>
+</tbody>
+</table>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013160152006.png" alt="image-20201013160152006" title>
+                </div>
+                <div class="image-caption">image-20201013160152006</div>
+            </figure>
+<h3 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h3><h4 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(<span class="string">"https://i.imgur.com/sDfsfPI.png"</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h5 id="图片重复"><a href="#图片重复" class="headerlink" title="图片重复"></a>图片重复</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(<span class="string">"https://i.imgur.com/sDfsfPI.png"</span>)</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-repeat</span>:<span class="value"> no-repeat</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>background-repeat参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repeat</td>
+<td>平铺整个区域</td>
+</tr>
+<tr>
+<td>repeat-x</td>
+<td>x轴平铺</td>
+</tr>
+<tr>
+<td>repeat-y</td>
+<td>y轴平铺</td>
+</tr>
+<tr>
+<td>no-repeat</td>
+<td>不平铺</td>
+</tr>
+</tbody>
+</table>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-13%2016-21.gif" alt="Peek" title="2020-10-13">
+                </div>
+                <div class="image-caption">2020-10-13</div>
+            </figure>
+<h5 id="图片位置"><a href="#图片位置" class="headerlink" title="图片位置"></a>图片位置</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> green</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> blue</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(<span class="string">"https://i.loli.net/2020/10/13/QbDRxsChUmei3lc.png"</span>)</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-repeat</span>:<span class="value"> no-repeat</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-position</span>:<span class="value"> right top</span></span>; <span class="comment">/* 正中间 center center*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>background-position参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10px 20px</td>
+<td>距离左边10px, 距离右边px</td>
+</tr>
+<tr>
+<td>right top</td>
+<td>靠右， 靠顶部</td>
+</tr>
+</tbody>
+</table>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013162714561.png" alt="image-20201013162714561" title>
+                </div>
+                <div class="image-caption">image-20201013162714561</div>
+            </figure>
+<blockquote>
+<p> 简写: <code>background: #FFFFFF url(&#39;1.jpg&#39;) no-repeat right top;</code></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013163251931.png" alt="image-20201013163251931" title>
+                </div>
+                <div class="image-caption">image-20201013163251931</div>
+            </figure>
+<h3 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">2px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-style</span>:<span class="value"> solid</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013173550944.png" alt="image-20201013173550944" title>
+                </div>
+                <div class="image-caption">image-20201013173550944</div>
+            </figure>
+<blockquote>
+<p>简写： <code>border: 2px solid red;</code></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013173708807.png" alt="image-20201013173708807" title>
+                </div>
+                <div class="image-caption">image-20201013173708807</div>
+            </figure>
+<table>
+<thead>
+<tr>
+<th>border-style参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>无边框</td>
+</tr>
+<tr>
+<td>solid</td>
+<td>实线</td>
+</tr>
+<tr>
+<td>dotted</td>
+<td>点状 虚线</td>
+</tr>
+<tr>
+<td>dashed</td>
+<td>矩状 虚线</td>
+</tr>
+</tbody>
+</table>
+<h4 id="指定边边框"><a href="#指定边边框" class="headerlink" title="指定边边框"></a>指定边边框</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> aqua</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-top-width</span>:<span class="value"> <span class="number">2px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-top-style</span>:<span class="value"> dashed</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-top-color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013174233647.png" alt="image-20201013174233647" title>
+                </div>
+                <div class="image-caption">image-20201013174233647</div>
+            </figure>
+<h4 id="圆角边框"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">2px</span> dashed green</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">50%</span></span></span>; <span class="comment">/*圆角比*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/11111111111111.gif" alt="11111111111111" title>
+                </div>
+                <div class="image-caption">11111111111111</div>
+            </figure>
+<h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>display参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>元素存在在代码上，但是不在浏览器上显示，一般配合js使用</td>
+</tr>
+<tr>
+<td>block</td>
+<td>让行内元素拥有块级元素的特性，沾满页面宽度，可设置宽高，</td>
+</tr>
+<tr>
+<td>inline</td>
+<td>块级元书按行内元素特性，无法设置宽高</td>
+</tr>
+<tr>
+<td>inline-block</td>
+<td>使元素同时具有行内元素和块级元素的特点。不占一行，但可设宽高</td>
+</tr>
+</tbody>
+</table>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013175513657.png" alt="image-20201013175513657" title>
+                </div>
+                <div class="image-caption">image-20201013175513657</div>
+            </figure>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><blockquote>
+<p>这是一个只可意会不可言传的贵东西，</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/867021-20180305155247808-885981996.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<h4 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h4><blockquote>
+<p>设置 指定元素边边距离毗邻元素的距离</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#c1</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="comment">/* #c1元素距离下面元素的距离设置为 10px*/</span></span><br><span class="line">    <span class="comment">/*margin-left: 10px;*/</span></span><br><span class="line">    <span class="comment">/*margin-right: 10px;*/</span></span><br><span class="line">    <span class="comment">/*margin-top: 10px;*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013180704462.png" alt="image-20201013180704462" title>
+                </div>
+                <div class="image-caption">image-20201013180704462</div>
+            </figure>
+<h4 id="内边距"><a href="#内边距" class="headerlink" title="内边距"></a>内边距</h4><blockquote>
+<p>元素内容（字符）到边边的距离</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#c1</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">padding-top</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">20px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding-bottom</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">40px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013180502335.png" alt="image-20201013180502335" title>
+                </div>
+                <div class="image-caption">image-20201013180502335</div>
+            </figure>
+<blockquote>
+<p>简写： <code>padding: 10px  20px 30px 40px</code> </p>
+<p>顺序分别是： <code>padding: 上 右 下 左</code> 顺时针旋转</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201013183546528.png" alt="image-20201013183546528" title>
+                </div>
+                <div class="image-caption">image-20201013183546528</div>
+            </figure>
+<h3 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">c1</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="comment">/*靠左浮动*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2012-36.gif" alt="Peek" title="2020-10-14">
+                </div>
+                <div class="image-caption">2020-10-14</div>
+            </figure>
+<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p>解决父标签塌陷问题，如下，使用浮动的标签就脱离了原来的HTML结构</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2014-23.gif" alt="Peek" title="2020-10-14">
+                </div>
+                <div class="image-caption">2020-10-14</div>
+            </figure>
+<p>解决方法：</p>
+<ul>
+<li>clear属性</li>
+<li>给父标签设置固定高度</li>
+<li>伪元素</li>
+<li>overflow:hidden</li>
+</ul>
+<blockquote>
+<p> clear属性在标签最下面添加一个拥有clear属性的div空标签</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"clear: left"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>	//表示当前div的左边不能出现浮动元素</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2014-27.gif" alt="Peek" title="2020-10-14">
+                </div>
+                <div class="image-caption">2020-10-14</div>
+            </figure>
+<blockquote>
+<p> 给父标签设置固定高度</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2014-30.gif" alt="Peek" title="2020-10-14">
+                </div>
+                <div class="image-caption">2020-10-14</div>
+            </figure>
+<blockquote>
+<p> 伪元素</p>
+</blockquote>
+<p>借助伪元素 after 在标签最后面实现一个空的块级区域， 然后借助clear属性避免塌陷</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">""</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014143407589.png" alt="image-20201014143407589" title>
+                </div>
+                <div class="image-caption">image-20201014143407589</div>
+            </figure>
+<h3 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h3><blockquote>
+<p>内容溢出后使用overflow 控制溢出内容的效果</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.d1 &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    border: 1px solid green;</span><br><span class="line">    overflow: auho;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">'d1'</span>&gt;</span></span><br><span class="line">    　　枯藤老树昏鸦，小桥流水人家，古道西风瘦马。</span><br><span class="line">　　夕阳西下，断肠人在天涯。</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>overflow参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visible</td>
+<td>默认值，溢出内容不会被处理，会呈现在元素框外</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>溢出内容会被隐藏，不可见</td>
+</tr>
+<tr>
+<td>scroll</td>
+<td>内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。</td>
+</tr>
+<tr>
+<td>auto</td>
+<td>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>从父元素继承</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/Peek%202020-10-14%2015-01.gif" alt="Peek 2020-10-14 15-01"></p>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><blockquote>
+<p>定位position属性是和 left, right, top, bottom这样的位置属性是一起用的， 简单来说position是定义位置属性的参照物</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.c1</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>position参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>static</td>
+<td>默认， 无定位，不能当中绝对定位的参照物,并且设置位置属性（left,top等）是不起作用的</td>
+</tr>
+<tr>
+<td>relative</td>
+<td>相对定位， 先对于元素原始位置进行定位</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>绝对定位，参考上级已经定位的元素进行定位，如果没有上级元素，或者上级元素没有定位那么将会依照body标签定位（页面左上角）</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>固定定位，参考浏览器页面窗口进行定位</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>绝对定位， 固定定位都和浮动一样脱离原有的页面结构，相对定位不会脱离</strong></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014160935996.png" alt="image-20201014160935996" title>
+                </div>
+                <div class="image-caption">image-20201014160935996</div>
+            </figure>
+<h3 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h3><blockquote>
+<p>设置元素在网页上面的层叠顺序，并且元素必须设置定位position才可以设置z-index</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="comment">/* 1~999取值值越大，权重越高*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014232805460.png" alt="image-20201014232805460" title>
+                </div>
+                <div class="image-caption">image-20201014232805460</div>
+            </figure>
+<h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><blockquote>
+<p>设置元素透明度</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0.5</span></span></span>; <span class="comment">/*0.0~1.0之间取值*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201014233250712.png" alt="image-20201014233250712" title>
+                </div>
+                <div class="image-caption">image-20201014233250712</div>
+            </figure>
+<h2 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h2><h3 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"zh-cn"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"X-UA-Compatible"</span> <span class="attribute">content</span>=<span class="value">"IE=edge"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="class">.d1</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">3px</span> solid green</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">50%</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.d1</span>&gt;<span class="tag">img</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"d1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"https://i.imgur.com/TuYd1H8.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--导航栏--&gt;</span></span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.nav</span> <span class="rules">&#123;</span><br><span class="line">            <span class="comment">/*height: 50px;*/</span></span><br><span class="line">            <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#575454</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.left</span>,</span><br><span class="line">        <span class="class">.right</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> none</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.nav</span><span class="pseudo">:after</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">""</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="class">.left</span> <span class="tag">li</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">10px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">13px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">border-right</span>:<span class="value"> <span class="number">1px</span> solid darkgrey</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">20px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">color</span>:<span class="value"> white</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="class">.right</span> <span class="tag">li</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.right</span> <span class="tag">li</span> <span class="tag">a</span><span class="pseudo">:hover</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">color</span>:<span class="value"> green</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">background-color</span>:<span class="value"> white</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.right</span>&gt;<span class="tag">li</span>&gt;<span class="tag">a</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">18px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">text-decoration</span>:<span class="value"> none</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">color</span>:<span class="value"> white</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">50px</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"nav"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"left"</span> <span class="attribute">style</span>=<span class="value">"float: left"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>123<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>123<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>123<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>123<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span>123<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"right"</span> <span class="attribute">style</span>=<span class="value">"float: right"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://www.msrte.com/"</span>&gt;</span>Msrte<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://www.msrte.com/"</span>&gt;</span>Msrte<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://www.msrte.com/"</span>&gt;</span>Msrte<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://www.msrte.com/"</span>&gt;</span>Msrte<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://www.msrte.com/"</span>&gt;</span>Msrte<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T09:50:54.055Z" itemprop="dateUpdated">2020-11-26 17:50:54</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/前端/02_CSS/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/前端/02_CSS/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-前端/">学习笔记:前端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/前端/02_CSS/&title=《前端 CSS》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/前端/02_CSS/&title=《前端 CSS》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/前端/02_CSS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端 CSS》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/前端/02_CSS/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/前端/02_CSS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/前端/01_HTML/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端 HTML</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/前端/05_Bootstrap/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">前端 Bootstrap</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/前端/02_CSS/&title=《前端 CSS》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/前端/02_CSS/&title=《前端 CSS》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/前端/02_CSS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端 CSS》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/前端/02_CSS/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/前端/02_CSS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aQW7DMAwFUd//0u42QCFlPlkXMDVaBYkd6W0IUuR14XV/LPLMan0+ufq836W1ZMiQ8VoG3/j3Bulb/Bt+NhkyZJzDWEWw1TP7b8hR+K/7s8mQIUPG/pnVUUh4TYOvDBkyZHAG32yP3D8vQ4YMGbUilgRNcnFGiuEHa3EZMmS8kMFv3f//8yP9DRkyZLyKcYeLp4a1Y92lJUOGjNkMvk2ttVkb4Ci+K0OGjNEMXl7yAjUdBUv3+kKVIUPGIAa/LCMXYf20r1jcypAhYzSDPJqWo2kDstNaWGa4MmTIGMToJHC1LUmqx3+VIUPGaYz00DzgpgllHIJlyJBxAKOW9vWDaQpe/rMMGTJGM0iw6wRQchlH9kLDFjJkyBjK6B+XjIil4ZsH96sfxWXIkPFCRlrQ9gNx2khAGa4MGTKGMvjL6R1XrYgNmhMyZMgYzXjiECR9TEN2PDMiQ4aMcQzeXEyv5OIL/VLpK0OGjBMYacFJQmEtcKeXbjJkyDiNkZapJBHkzYZOA1WGDBmnMdLAyq/J0uu5uBiWIUPGYYxa+UoSOF4qx8W2DBkyhjLucKVJYa15GY99yJAhYzSjFuY6wxl/NWAhQ4aM0xg8yKbpYK15Sc6AXpMhQ8Y4Rq3pyEcrOsEa3arJkCFDRmk8olOIxsFahgwZMsJhi05RSkL2l/6GDBkyhjLSZkAnKeQH5QMcMmTImM1olY6NcY30WPEFnAwZMiYwfgCuEiLg0gfsXgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

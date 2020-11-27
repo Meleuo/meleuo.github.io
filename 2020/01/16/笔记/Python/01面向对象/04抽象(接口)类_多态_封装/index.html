@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 面向对象:抽象(接口)类_多态_封装 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python 面向对象,学习笔记:Python">
+    <meta name="description" content="接口类&amp;amp;抽象类
+接口，抽象类：在Python中这2者是同一种概念。
+接口类就是给类定义一个规范，继承了接口类的派生类里面必须定义接口类要求的方法，不然就会报错
+1234567891011121314151617from  abc import  ABCMeta, abstractmethodclass Payment(metaclass=ABCMeta): # 指定 元类 为ABCmate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 面向对象:抽象(接口)类_多态_封装">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="接口类&amp;amp;抽象类
+接口，抽象类：在Python中这2者是同一种概念。
+接口类就是给类定义一个规范，继承了接口类的派生类里面必须定义接口类要求的方法，不然就会报错
+1234567891011121314151617from  abc import  ABCMeta, abstractmethodclass Payment(metaclass=ABCMeta): # 指定 元类 为ABCmate">
+<meta property="og:updated_time" content="2020-11-26T10:08:53.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 面向对象:抽象(接口)类_多态_封装">
+<meta name="twitter:description" content="接口类&amp;amp;抽象类
+接口，抽象类：在Python中这2者是同一种概念。
+接口类就是给类定义一个规范，继承了接口类的派生类里面必须定义接口类要求的方法，不然就会报错
+1234567891011121314151617from  abc import  ABCMeta, abstractmethodclass Payment(metaclass=ABCMeta): # 指定 元类 为ABCmate">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 面向对象:抽象(接口)类_多态_封装</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 面向对象:抽象(接口)类_多态_封装</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#接口类-amp-抽象类"><span class="post-toc-number">1.</span> <span class="post-toc-text">接口类&抽象类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多态"><span class="post-toc-number">2.</span> <span class="post-toc-text">多态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#鸭子函数"><span class="post-toc-number">3.</span> <span class="post-toc-text">鸭子函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#封装"><span class="post-toc-number">4.</span> <span class="post-toc-text">封装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#私有封装"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">私有封装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#私有封装如何实现的？"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">私有封装如何实现的？</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/01面向对象/04抽象(接口)类_多态_封装"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 面向对象:抽象(接口)类_多态_封装</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="接口类-amp-抽象类"><a href="#接口类-amp-抽象类" class="headerlink" title="接口类&amp;抽象类"></a>接口类&amp;抽象类</h2><hr>
+<p>接口，抽象类：在Python中这2者是同一种概念。</p>
+<p>接口类就是给<code>类</code>定义一个规范，继承了<code>接口类</code>的派生类里面必须定义接口类要求的方法，不然就会报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  abc <span class="keyword">import</span>  ABCMeta, abstractmethod</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Payment</span><span class="params">(metaclass=ABCMeta)</span>:</span> <span class="comment"># 指定 元类 为ABCmate，默认的元类是object</span></span><br><span class="line"><span class="decorator">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(self)</span>:</span> <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Alipay</span><span class="params">(Payment)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,monery)</span>:</span></span><br><span class="line">        self.monery = monery</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"使用支付宝支付了："</span>,self.monery)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(PayApi,monery)</span>:</span></span><br><span class="line">     pay = PayApi(monery)</span><br><span class="line">     pay.pay()</span><br><span class="line"></span><br><span class="line">pay(Alipay,<span class="string">"5000"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  abc <span class="keyword">import</span>  ABCMeta, abstractmethod</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Payment</span><span class="params">(metaclass=ABCMeta)</span>:</span></span><br><span class="line"><span class="decorator">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(self)</span>:</span> <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Alipay</span><span class="params">(Payment)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,monery)</span>:</span></span><br><span class="line">        self.monery = monery</span><br><span class="line">    <span class="comment"># def pay(self):</span></span><br><span class="line">    <span class="comment">#     print("使用支付宝支付了：",self.monery)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QQpay</span><span class="params">(Payment)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,monery)</span>:</span></span><br><span class="line">        self.monery = monery</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"使用支付宝支付了："</span>,self.monery)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MTpay</span><span class="params">(Payment)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,monery)</span>:</span></span><br><span class="line">        self.monery = monery</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"使用支付宝支付了："</span>,self.monery)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wepay</span><span class="params">(Payment)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,monery)</span>:</span></span><br><span class="line">        self.monery = monery</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"使用支付宝支付了："</span>,self.monery)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pay</span><span class="params">(PayApi,monery)</span>:</span></span><br><span class="line">     pay = PayApi(monery)</span><br><span class="line">     pay.pay()</span><br><span class="line"></span><br><span class="line">pay(Alipay,<span class="string">"5000"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><hr>
+<p><del>Python 没有多态</del></p>
+<p>python面向对象的三大特性之一</p>
+<p>在python中无多态，因为python处处都是多态</p>
+<p>也是因为python是一门弱类型语言</p>
+<p>可能在别的语言中，比如java，java是一门强类型的语言，无论是赋值变量还是实例化传递参时，都是需要先声明这值是什么类型的数据，才能传递</p>
+<p>在python中，不管是什么类型的数据，只要能传递，就能传入函数，封装到对象</p>
+<h2 id="鸭子函数"><a href="#鸭子函数" class="headerlink" title="鸭子函数"></a>鸭子函数</h2><hr>
+<p>鸭子类型：看着像鸭子，这就是鸭子</p>
+<p>鸭子就是让多个函数或类中的方法用处一致时，给那些方法起的名字统一</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Str</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">List</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tuple</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>​    以上，为什么字符串、列表、无级、都有index方法，因为他们的用处一样，这种类型也被称为鸭子类型</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><hr>
+<ul>
+<li><p>公有封装：实例化一个对象时，解析器会把代码中的属性封装在空间内可以通过各种方式调用的就是公有封装</p>
+</li>
+<li><p>私有封装：就是私有制，只能在封装体内掉调用，</p>
+<p>私有字段：对于私有字段来说，只能在本类内部访问，在外部，以及派生类都是调用不到的 </p>
+<p>私有方法：对于私有方法来说，只能在本类内部访问，在外部，以及派生类都是调用不到的</p>
+</li>
+</ul>
+<h3 id="私有封装"><a href="#私有封装" class="headerlink" title="私有封装"></a>私有封装</h3><p>私有封装分为: 私有字段，私有方法，私有对象属性</p>
+<p>简单来说想让一个对象从公有变成似有只需要在其名称前加上<code>两个下划线</code>即可，例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    __name = <span class="string">"杰瑞"</span> <span class="comment"># 私有字段</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(self,age)</span>:</span>  </span><br><span class="line">        print(<span class="string">"My name is "</span>,self.__name)</span><br><span class="line">a = A(<span class="string">"10"</span>)</span><br><span class="line">a.func()</span><br><span class="line">&gt; My name <span class="keyword">is</span>  杰瑞</span><br></pre></td></tr></table></figure>
+<p>上面介绍到私有封装只能在本类内部调用，所有无论是从外部还是派生类中都是调用不到的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    __name = <span class="string">"杰瑞"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"My name is "</span>,self.__name)</span><br><span class="line">a = A()</span><br><span class="line">a.__name</span><br><span class="line">&gt; aceback (most recent call last):</span><br><span class="line">&gt; File <span class="string">"python.py"</span>, line <span class="number">48</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">&gt;   a.__name</span><br><span class="line">&gt; AttributeError: <span class="string">'A'</span> object has no attribute <span class="string">'__name'</span></span><br></pre></td></tr></table></figure>
+<p>私有方法也是同理，错误就不再演示了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    __name = <span class="string">"杰瑞"</span>		 <span class="comment"># 私有静态字段</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,age)</span>:</span></span><br><span class="line">        self.__age = age  <span class="comment"># 私有属性 </span></span><br><span class="line">        self.__func()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__func</span><span class="params">(self)</span>:</span>     <span class="comment"># 私有方法</span></span><br><span class="line">        print(<span class="string">"My name is "</span>,self.__name)</span><br><span class="line">        print(<span class="string">"我今年："</span>,self.__age)</span><br><span class="line">a = A(<span class="string">"10"</span>)</span><br><span class="line">&gt; My name <span class="keyword">is</span>  杰瑞</span><br><span class="line">&gt; 我今年： <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h3 id="私有封装如何实现的？"><a href="#私有封装如何实现的？" class="headerlink" title="私有封装如何实现的？"></a>私有封装如何实现的？</h3><p>python中私有封装的实现是用的比较取巧的方式，就是当解释器发现你这个对象是以<code>__</code>开头的私有对象时，他在把其记录内存空间时，修改你的对象名，在其对象名字前加上<code>_类名</code></p>
+<p>也就是说如果你的私有字段名为<code>__name</code>，在内存空间中记录的就是<code>_类名__name</code></p>
+<p>如何证明呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    __age = <span class="string">"10"</span></span><br><span class="line">    __name = <span class="string">"杰瑞"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"My name is "</span>,self.__name)</span><br><span class="line">        self.__func1()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__func1</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"我今年："</span>,self.__age)</span><br><span class="line">print(A.__dict__)</span><br><span class="line">&gt; &#123;<span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'_A__age'</span>: <span class="string">'10'</span>, <span class="string">'_A__name'</span>: <span class="string">'杰瑞'</span>, <span class="string">'func'</span>: &lt;function A.func at <span class="number">0x01484930</span>&gt;, <span class="string">'_A__func1'</span>: &lt;function A.__func1 at <span class="number">0x01484A08</span>&gt;, <span class="string">'__dict__'</span>: &lt;attribute <span class="string">'__dict__'</span> of <span class="string">'A'</span> objects&gt;, <span class="string">'__weakref__'</span>: &lt;attribute <span class="string">'__weakref__'</span> of <span class="string">'A'</span> objects&gt;, <span class="string">'__doc__'</span>: <span class="keyword">None</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>因为内存空间中间记录的名字是被解释器修改过的，所以你在外部调用时自然调用不到的，因为你调用的这个名字内存空间里面确实没有，当然如果你死活非要调用: 你通过在私有对象前加上<code>_类名</code>也是可以的调用到的（为了你的饭碗我不建议你这么做）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    __age = <span class="string">"10"</span></span><br><span class="line">    __name = <span class="string">"杰瑞"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"My name is "</span>,self.__name)</span><br><span class="line">        self.__func1()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__func1</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"我今年："</span>,self.__age)</span><br><span class="line">a = A()</span><br><span class="line">print(a._A__name)</span><br><span class="line">&gt; 杰瑞</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:08:53.677Z" itemprop="dateUpdated">2020-11-26 18:08:53</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-面向对象/">Python 面向对象</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/&title=《Python 面向对象:抽象(接口)类_多态_封装》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/&title=《Python 面向对象:抽象(接口)类_多态_封装》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:抽象(接口)类_多态_封装》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/02模块/10 logging模块/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模块:logging模块</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/02模块/11 异常处理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 模块:异常处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/&title=《Python 面向对象:抽象(接口)类_多态_封装》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/&title=《Python 面向对象:抽象(接口)类_多态_封装》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:抽象(接口)类_多态_封装》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/04抽象(接口)类_多态_封装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADKUlEQVR42u3a0U7rQAwE0P7/T3NfkVBgxi6XZnvyhJo07FkkLHv28Yivj0/X50++3v16XT1/9ebv33l19/EbFzY2NvZN2Pmir5Z+9Uly9/t3fv+GZDsutwYbGxv7OHa+oE3xSMpV8tvbjcPGxsbGbrcgLyT5M+0GYWNjY2NvykaOTKY9s1EXNjY29rux8+H+vuzNnvyzWRo2Njb2y7PzYdDr//wr+TY2Njb2C7M/yqvdoLb9qNuJmQIbGxv7IHZeANoYIN+CPBJom6IfmhlsbGzs49ibA5dJ+No2D5tvJWvAxsbGPok9K1T7z9twoi1jRROFjY2NfVt20gBsysazWpq8OEXfwsbGxj6IPatybYXcBLTJYZ18y7CxsbHPZrdjnVnJyZe7iRk2QTU2Njb2vdh54zHbxboxWJfSov3AxsbGPoLdjn7a4c6sYWj/DDMFNjY29hnsPEydPdmGvrOhUr4GbGxs7PPYOaltD2bvbIdNqygCGxsb+wh29I++fHU+eMqH/nnA/ISTStjY2Ng3ZLfh62wpbVibxwztsSFsbGzsk9j5UL49XtMOkmYRchtdYGNjY5/Kzg/QbBZXlJb48M1mbdjY2NhnsDdDn3aDZk+264nCaWxsbOyD2PnBmnYov2kY2gB4sxJsbGzsu7P3rcUm3J0NjzbDrCdMsLCxsbFfjD0b6yQlJy9Im03JV1hM0bCxsbFvyG55j+DKhzv7sld3XdjY2NgHsWfR6aa05Ad38sC4DYOxsbGxz2Mn5Wozss/jhzxCbhsYbGxs7FPZ7WAoDxWSpiJZ+mabolkaNjY29kHsaJgeNBizozmz0Dc/VISNjY39DuznFrB2Q9sS2A6S/lMrgo2Njf2n7HbU3kawbbOxSq2TYRM2Njb2EexZrLuJbNsxU14m86M82NjY2Cex82u/HW1gkG/ffg3Y2NjYd2e3pLbNyBltG9MeBsLGxsY+m90O92fL2r9502ZgY2NjY89igE37MYt7o4KKjY2N/cbsdnHtEZw8GG6HTdjY2Nhns/NjNJuWIOfloe9sEIaNjY19ErtdblJI8sM6+43LSyw2Njb2cex/bBIhTBs7B/QAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

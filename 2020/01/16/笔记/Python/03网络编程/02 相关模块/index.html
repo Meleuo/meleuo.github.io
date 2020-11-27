@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 网络编程:相关模块 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python网络编程,学习笔记:Python">
+    <meta name="description" content="subprocess 模块
+在os模块中有一个popen模块可以执行操作系统的命令，但是！popen方法只能返回命令执行正确的结果，如果命令执行出错返回来的结果就是乱码，而且这个乱码是无解的。
+subprocess.Popen() 就是用来弥补这个缺陷的，虽然使用相对 os.popen()要麻烦一点，但是好在人家能够正常使用
+
+
+
+subprocess.Popen() 方法参数
+说明
+
+
+
+
+`s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 网络编程:相关模块">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="subprocess 模块
+在os模块中有一个popen模块可以执行操作系统的命令，但是！popen方法只能返回命令执行正确的结果，如果命令执行出错返回来的结果就是乱码，而且这个乱码是无解的。
+subprocess.Popen() 就是用来弥补这个缺陷的，虽然使用相对 os.popen()要麻烦一点，但是好在人家能够正常使用
+
+
+
+subprocess.Popen() 方法参数
+说明
+
+
+
+
+`s">
+<meta property="og:updated_time" content="2020-11-26T10:07:51.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 网络编程:相关模块">
+<meta name="twitter:description" content="subprocess 模块
+在os模块中有一个popen模块可以执行操作系统的命令，但是！popen方法只能返回命令执行正确的结果，如果命令执行出错返回来的结果就是乱码，而且这个乱码是无解的。
+subprocess.Popen() 就是用来弥补这个缺陷的，虽然使用相对 os.popen()要麻烦一点，但是好在人家能够正常使用
+
+
+
+subprocess.Popen() 方法参数
+说明
+
+
+
+
+`s">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 网络编程:相关模块</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 网络编程:相关模块</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#subprocess-模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">subprocess 模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#struct模块"><span class="post-toc-number">2.</span> <span class="post-toc-text">struct模块</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/03网络编程/02 相关模块"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 网络编程:相关模块</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="subprocess-模块"><a href="#subprocess-模块" class="headerlink" title="subprocess 模块"></a>subprocess 模块</h2><hr>
+<p>在<code>os</code>模块中有一个<code>popen</code>模块可以执行操作系统的命令，但是！<code>popen</code>方法只能返回命令执行正确的结果，如果命令执行出错返回来的结果就是乱码，而且这个乱码是无解的。</p>
+<p><code>subprocess.Popen()</code> 就是用来弥补这个缺陷的，虽然使用相对 <code>os.popen()</code>要麻烦一点，但是好在人家能够正常使用</p>
+<table>
+<thead>
+<tr>
+<th><code>subprocess.Popen()</code> 方法参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`shell=Ture</td>
+<td>False(default)`</td>
+<td>表示是否把cmd当初系统名字执行</td>
+</tr>
+<tr>
+<td><code>stdout=subprocess.PIPE</code></td>
+<td>指定正确输出后存放缓冲区管道[^1注释]</td>
+</tr>
+<tr>
+<td><code>stderr=subprocess.PIPE</code></td>
+<td>指定错误输出后存放缓冲区管道</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令执行成功</span></span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line">In [<span class="number">3</span>]: result = subprocess.Popen(<span class="string">'ls'</span>,shell=<span class="keyword">True</span>,stdout=subprocess.PIPE,stderr=subprocess.PIPE) <span class="comment"># 设置必要参数</span></span><br><span class="line">In [<span class="number">4</span>]: stdout = result.stdout.read()<span class="comment"># 缓存区的数据只能被 .read()一次，读一次就没了，所以这里.read()读取subprocess.PIPE 读取对应缓冲区中的数据然后赋给变量</span></span><br><span class="line">In [<span class="number">5</span>]: stderr = result.stderr.read()</span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: print(stdout.decode(<span class="string">'utf-8'</span>))<span class="comment"># 这里命令执行正常，所以stdout缓冲区中存放的有返回的数据，且数据是bytes类型的，所以需要解码，</span></span><br><span class="line">total <span class="number">16</span>K</span><br><span class="line">-rw-r--r-- <span class="number">1</span> root root <span class="number">16</span>K Nov <span class="number">17</span> <span class="number">19</span>:<span class="number">21</span> test.txt <span class="comment"># 命令返回结果</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: print(stderr.decode(<span class="string">'utf-8'</span>))<span class="comment"># 同理，由于命令执行正常所以 stderr 缓冲区是没有接收到如何数据的</span></span><br><span class="line">		<span class="comment"># 这里返回的数据就是空</span></span><br><span class="line">        </span><br><span class="line">In [<span class="number">8</span>]:</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令执行失败</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: result = subprocess.Popen(<span class="string">'llaaa'</span>,shell=<span class="keyword">True</span>,stdout=subprocess.PIPE,stderr=subprocess.PIPE)</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: stdout = result.stdout.read()</span><br><span class="line">In [<span class="number">10</span>]: stderr = result.stderr.read()</span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: print(stdout.decode(<span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: print(stderr.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">/bin/sh: llaaa: command <span class="keyword">not</span> found</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]:</span><br></pre></td></tr></table></figure>
+<p>[^1注释]: 缓存区的数据只能被 .read()一次，读一次就没了，常用的手段就是读取来，赋予给变量</p>
+<h2 id="struct模块"><a href="#struct模块" class="headerlink" title="struct模块"></a>struct模块</h2><hr>
+<p>struct模块用于把一串数字[^注释]转换为一个  4字节bytes</p>
+<p>[^注释]: 数字的长度受python 中最大数字的现在，正整数是<code>2147483647</code>，负整数是<code>-2147483648</code>，可以使用 <code>sys.maxsize</code> 查看</p>
+<table>
+<thead>
+<tr>
+<th><code>struct</code> 常用方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>struct.pack()</code></td>
+<td>把数字压缩成 4个bytes类型</td>
+</tr>
+<tr>
+<td><code>struct.unpack()</code></td>
+<td>解压，结果以一个元组返回</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 压缩单个int</span><br><span class="line">import struct</span><br><span class="line"></span><br><span class="line">int1 = 2147483647</span><br><span class="line">packint = struct.pack('i',int1)</span><br><span class="line">print(packint)</span><br><span class="line">unint = struct.unpack('i',packint)</span><br><span class="line">print('unint--&gt;',unint)</span><br><span class="line"></span><br><span class="line">&gt; b'\xff\xff\xff\x7f'</span><br><span class="line">&gt; unint--&gt; (2147483647,)</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 压缩多个int </span><br><span class="line">import struct</span><br><span class="line"></span><br><span class="line">int1 = 2147483647</span><br><span class="line">int2 = -2147483648</span><br><span class="line">packint = struct.pack('ii',int1,int2)</span><br><span class="line">print('packint1--&gt;:',packint)</span><br><span class="line">unint1,unint2 = struct.unpack('ii',packint)</span><br><span class="line">print('unint1--&gt;',unint1)</span><br><span class="line">print('unint2--&gt;',unint2)</span><br><span class="line"></span><br><span class="line">&gt; packint1--&gt;: b'\xff\xff\xff\x7f\x00\x00\x00\x80'</span><br><span class="line">&gt; unint1--&gt; 2147483647</span><br><span class="line">&gt; unint2--&gt; -2147483648</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:07:51.448Z" itemprop="dateUpdated">2020-11-26 18:07:51</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/03网络编程/02 相关模块/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python网络编程/">Python网络编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/&title=《Python 网络编程:相关模块》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/&title=《Python 网络编程:相关模块》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 网络编程:相关模块》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/01 函数/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 函数</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/03网络编程/03 多进程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 网络编程:多进程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/&title=《Python 网络编程:相关模块》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/&title=《Python 网络编程:相关模块》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 网络编程:相关模块》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/03网络编程/02 相关模块/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aW25CMQwFQPa/6XYBQHpsxy2qhi/E415PkGJj5/GIH19Pj/z15+tU7/XuatceeHh4eOPQ83DPoSfI5Pm7d6MlwMPDw1vjncNNkkECzvftJPFEd8TDw8P7AF6CPOPzbR0PDw/vP/GSYjpPD+clyK+Jh4eH95u8pLRNMHkzIm/UJqX2hV4LHh4e3sIU6XOer8z38PDw8MZT9WqSmLdik3sVosXDw8Nb4N0aUyWf7w3PquUyHh4e3m/yqqFUg944zhU1jvHw8PDWePNxVH58anJAoTD6wsPDw1vgbWzKvZZr9QhXdMwLDw8Pb413a6I0bzfkhw+uZTw8PDy8Ii8vaieb+GQM1lvKt+kBDw8P7yqvOV5qNRry1kb1+FezJYGHh4fX+VY5lPPmno+peg3farLBw8PDu8U7k6rr1FugXlKJFhEPDw9vgde7XD7a325M5N1aPDw8vFu8QsU9HmLlCzf5/KO3inh4eHitEwKTFkA1McxJ1bYIHh4e3i3e5FhAtT2Rl+C9BsQLMB4eHt4CLx9EVUf7ObJa6CfNYjw8PLw9Xu/v/YTaK+WbB8Lw8PDwFnh5kToZ2ycFejVtlBvKeHh4eJd4UcVdTBiTIjh5Ny/Z8fDw8DZ41eCqY63JMYX5QA4PDw9vj5enhEmTYlKyJ6mlvK54eHh4Y96kCK4Wx0kK6aWNF9/Cw8PDW+P1Nv38+FR+KCEfekWpAg8PD+8qr7fRV4OehDsq/fHw8PAWeJMm7KRQ7i1TL23g4eHhbfBulcjVIHoN3CTx/DAAw8PDw7vEm9w+b+MWeiTjNIaHh4f3Obx8+JRQ81fy2Aq1PB4eHt4f8fJQzq/nZXqhIYKHh4e3xrt1cGq+xedtkeinwsPDw1vgVf/eT5q21RZGb4SGh4eHt8b7BmxBDQE8xRVRAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

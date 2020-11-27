@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>前端 Javascript | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习笔记:前端">
+    <meta name="description" content="image-20201017204858700
+            
+js基础数据类型
+
+
+类型
+解释
+范例
+
+
+
+
+number
+数字类型
+1
+
+
+string
+字符串类型
+‘abc’
+
+
+NaN
+数据类型为 number，但是内容不是number
+parseInt(‘abc’)
+
+
+true false
+布尔值
+
+
+
+number数字类型
+12var s1 = 123;var s1 = 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端 Javascript">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/前端/03_Javascript/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="image-20201017204858700
+            
+js基础数据类型
+
+
+类型
+解释
+范例
+
+
+
+
+number
+数字类型
+1
+
+
+string
+字符串类型
+‘abc’
+
+
+NaN
+数据类型为 number，但是内容不是number
+parseInt(‘abc’)
+
+
+true false
+布尔值
+
+
+
+number数字类型
+12var s1 = 123;var s1 = 1">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201017204858700.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019100217265.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019100412022.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019102037873.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019102014685.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019110300285.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019145431302.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019150536127.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019151810557.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019161927963.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019163041396.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201020114610887.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201020154701450.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201022095327465.png">
+<meta property="og:updated_time" content="2020-11-26T09:51:03.491Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端 Javascript">
+<meta name="twitter:description" content="image-20201017204858700
+            
+js基础数据类型
+
+
+类型
+解释
+范例
+
+
+
+
+number
+数字类型
+1
+
+
+string
+字符串类型
+‘abc’
+
+
+NaN
+数据类型为 number，但是内容不是number
+parseInt(‘abc’)
+
+
+true false
+布尔值
+
+
+
+number数字类型
+12var s1 = 123;var s1 = 1">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端 Javascript</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端 Javascript</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#js基础"><span class="post-toc-number">1.</span> <span class="post-toc-text">js基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#number"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">number</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符串方法"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">字符串方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布尔值"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">布尔值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#null-amp-undefined"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">null & undefined</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#列表"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#splice"><span class="post-toc-number">1.1.5.1.</span> <span class="post-toc-text">.splice()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#forEach"><span class="post-toc-number">1.1.5.2.</span> <span class="post-toc-text">.forEach()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#map"><span class="post-toc-number">1.1.5.3.</span> <span class="post-toc-text">.map()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运算符"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">运算符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算数运算符"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">算数运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#比较运算符"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">比较运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑运算符"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">逻辑运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#赋值运算符"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">赋值运算符</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#流程控制"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">流程控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#if-else"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">if else</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#switch"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">switch</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#循环语句"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">循环语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#for"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">for</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#while"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">while</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三元运算"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">三元运算</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#arguments"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">arguments</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义对象-字典"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">自定义对象(字典)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#map对象"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">map对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面向对象"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">面向对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内置对象"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">内置对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">Date</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Json"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">Json</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RegExp"><span class="post-toc-number">1.8.3.</span> <span class="post-toc-text">RegExp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Math"><span class="post-toc-number">1.8.4.</span> <span class="post-toc-text">Math</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BOM和DOM"><span class="post-toc-number">2.</span> <span class="post-toc-text">BOM和DOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BOM"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">BOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#window"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">window</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#navigator"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">navigator</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#screen"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">screen</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#history"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">history</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#location"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">location</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#弹出框"><span class="post-toc-number">2.1.6.</span> <span class="post-toc-text">弹出框</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计时"><span class="post-toc-number">2.1.7.</span> <span class="post-toc-text">计时</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">DOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查找标签"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">查找标签</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#直接查找"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">直接查找</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#间接查找"><span class="post-toc-number">2.2.1.2.</span> <span class="post-toc-text">间接查找</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点操作"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">节点操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建节点"><span class="post-toc-number">2.2.2.1.</span> <span class="post-toc-text">创建节点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除节点"><span class="post-toc-number">2.2.2.2.</span> <span class="post-toc-text">删除节点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#替换节点"><span class="post-toc-number">2.2.2.3.</span> <span class="post-toc-text">替换节点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#节点属性"><span class="post-toc-number">2.2.2.4.</span> <span class="post-toc-text">节点属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取value"><span class="post-toc-number">2.2.2.5.</span> <span class="post-toc-text">获取value</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#class操作"><span class="post-toc-number">2.2.2.6.</span> <span class="post-toc-text">class操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS操作"><span class="post-toc-number">2.2.2.7.</span> <span class="post-toc-text">CSS操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件"><span class="post-toc-number">2.2.2.8.</span> <span class="post-toc-text">事件</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">代码实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择菜单"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">选择菜单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#登录弹窗"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">登录弹窗</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/前端/03_Javascript"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端 Javascript</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201017204858700.png" alt="image-20201017204858700" title>
+                </div>
+                <div class="image-caption">image-20201017204858700</div>
+            </figure>
+<h1 id="js基础"><a href="#js基础" class="headerlink" title="js基础"></a>js基础</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>解释</th>
+<th>范例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>数字类型</td>
+<td>1</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串类型</td>
+<td>‘abc’</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>数据类型为 number，但是内容不是number</td>
+<td>parseInt(‘abc’)</td>
+</tr>
+<tr>
+<td>true false</td>
+<td>布尔值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="number"><a href="#number" class="headerlink" title="number"></a>number</h3><p>数字类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> s1 = <span class="number">12.3</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><blockquote>
+<p>string</p>
+</blockquote>
+<h4 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.length</td>
+<td>获取数据长度</td>
+</tr>
+<tr>
+<td>.trim()</td>
+<td>去除数据左右2边空格</td>
+</tr>
+<tr>
+<td>.trimLeft()</td>
+<td>去除数据左边空格</td>
+</tr>
+<tr>
+<td>.trimRight()</td>
+<td>去除数据右边空格</td>
+</tr>
+<tr>
+<td>.charAt(n)</td>
+<td>返回第n个字符</td>
+</tr>
+<tr>
+<td>.concat(value1,value2)</td>
+<td>拼接</td>
+</tr>
+<tr>
+<td>.indexOF(substring,start)</td>
+<td>子序列位置</td>
+</tr>
+<tr>
+<td><del>.substring(start, stop)</del></td>
+<td><del>切片，不支持负数</del></td>
+</tr>
+<tr>
+<td>.slice(start, stop)</td>
+<td>切片，支持负数</td>
+</tr>
+<tr>
+<td>.toLocaleLowerCase()</td>
+<td>转为小写</td>
+</tr>
+<tr>
+<td>.toUpperCase()</td>
+<td>转换为大写</td>
+</tr>
+<tr>
+<td>.split(str,int)</td>
+<td>切片， str为分隔符， int指定输出几个值</td>
+</tr>
+<tr>
+<td><code></code></td>
+<td>模板字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019100217265.png" alt="image-20201019100217265" title>
+                </div>
+                <div class="image-caption">image-20201019100217265</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019100412022.png" alt="image-20201019100412022" title>
+                </div>
+                <div class="image-caption">image-20201019100412022</div>
+            </figure>
+<h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> s1 = <span class="literal">true</span>;</span><br><span class="line">&gt; <span class="keyword">var</span> s2 = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在条件判断中 <code>&#39;&#39;</code> <code>0</code>  <code>null</code> <code>underfined</code> <code>NaN</code> <code>false</code> 判断都是false</p>
+</blockquote>
+<h3 id="null-amp-undefined"><a href="#null-amp-undefined" class="headerlink" title="null &amp; undefined"></a>null &amp; undefined</h3><blockquote>
+<p> 在js中null一般都是人为处理后才会出现的值</p>
+</blockquote>
+<p>null和underfined的区别</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019102037873.png" alt="image-20201019102037873" title>
+                </div>
+                <div class="image-caption">image-20201019102037873</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019102014685.png" alt="image-20201019102014685" title>
+                </div>
+                <div class="image-caption">image-20201019102014685</div>
+            </figure>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> l1  = [<span class="string">"a1"</span>, <span class="string">"a2"</span>, <span class="string">"a3"</span>, <span class="string">"a4"</span>];</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.length</td>
+<td>宿主的长度</td>
+</tr>
+<tr>
+<td>.push()</td>
+<td>在list尾部添加</td>
+</tr>
+<tr>
+<td>.pop()</td>
+<td>删除list 尾部</td>
+</tr>
+<tr>
+<td>.unshift(value)</td>
+<td>在头部添加元素</td>
+</tr>
+<tr>
+<td>.shift</td>
+<td>移除头部元素</td>
+</tr>
+<tr>
+<td>.slice(start,end)</td>
+<td>切片</td>
+</tr>
+<tr>
+<td>.reverse()</td>
+<td>反转</td>
+</tr>
+<tr>
+<td>.sort()</td>
+<td>排序</td>
+</tr>
+<tr>
+<td>.forEach()</td>
+<td>将列表中的值挨个传递给回调函数</td>
+</tr>
+<tr>
+<td>.splice()</td>
+<td>删除元素， 并向数组添加新元素</td>
+</tr>
+<tr>
+<td>.map()</td>
+<td>将列表中的值挨个传递给回调函数，并且返回回调函数的结果</td>
+</tr>
+</tbody>
+</table>
+<h4 id="splice"><a href="#splice" class="headerlink" title=".splice()"></a>.splice()</h4><blockquote>
+<p>.splice(start, end, str1,str2…) </p>
+<p>start 和end是必填表示删除的起点和终点， str1.替换被删除数据</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019110300285.png" alt="image-20201019110300285" title>
+                </div>
+                <div class="image-caption">image-20201019110300285</div>
+            </figure>
+<h4 id="forEach"><a href="#forEach" class="headerlink" title=".forEach()"></a>.forEach()</h4><blockquote>
+<p>.forEach(function (a,b,c){}) 中定义一个匿名函数，forEach方法会将list的值循环传递给匿名函数，匿名函数可以接受3个参数，a是循环传递过来的值， b是a在list中的下标， c是整个list</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] </span><br><span class="line">a1.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">i</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(i + <span class="number">1</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019145431302.png" alt="image-20201019145431302" title>
+                </div>
+                <div class="image-caption">image-20201019145431302</div>
+            </figure>
+<h4 id="map"><a href="#map" class="headerlink" title=".map()"></a>.map()</h4><blockquote>
+<p>.map()接.forEach()的区别是map会将匿名函数处理的结果返回回来，可以通过赋值的方法得到经过匿名函数处理后的list</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">var</span> b1 = a1.map(<span class="function"><span class="keyword">function</span> (<span class="params">value,item</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value + <span class="number">1</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019150536127.png" alt="image-20201019150536127" title>
+                </div>
+                <div class="image-caption">image-20201019150536127</div>
+            </figure>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ - * <span class="regexp">/ %  ++ --</span></span><br></pre></td></tr></table></figure>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&lt;</span><br><span class="line">&gt;=</span><br><span class="line"><span class="header">&lt;=</span><br><span class="line">==</span></span><br><span class="line">===</span><br><span class="line">!=</span><br><span class="line">!==</span><br></pre></td></tr></table></figure>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;&amp;</span><br><span class="line"><span class="string">||</span></span><br><span class="line">!</span><br></pre></td></tr></table></figure>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">=</span><br><span class="line">+=</span></span><br><span class="line">-=</span><br><span class="line"><span class="strong">*=</span><br><span class="line">/=</span></span><br></pre></td></tr></table></figure>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">19</span>;</span><br><span class="line"><span class="keyword">if</span> (age &gt; <span class="number">18</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&gt;18'</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&lt;18'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> age = <span class="number">19</span>;</span><br><span class="line"><span class="keyword">if</span> (age &gt; <span class="number">18</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&gt;18'</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> (age &lt; <span class="number">18</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&lt;18'</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'=18'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span> (s1) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1'</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'2'</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'3'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;<span class="number">10</span>;i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="string">"a1 a2 a3 a4 a5"</span>;</span><br><span class="line"><span class="keyword">var</span> s1 = s1.split(<span class="string">' '</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; s1.length;i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(s1[i])</span><br><span class="line">&#125;</span><br><span class="line">a1</span><br><span class="line">a2</span><br><span class="line">a3</span><br><span class="line">a4</span><br><span class="line">a5</span><br></pre></td></tr></table></figure>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="number">0</span></span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="keyword">while</span> (s1 &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前的是: '</span> + s1)</span><br><span class="line">    s1++</span><br><span class="line">&#125;</span><br><span class="line">当前的是: <span class="number">0</span></span><br><span class="line">当前的是: <span class="number">1</span></span><br><span class="line">当前的是: <span class="number">2</span></span><br><span class="line">当前的是: <span class="number">3</span></span><br><span class="line">当前的是: <span class="number">4</span></span><br><span class="line">当前的是: <span class="number">5</span></span><br><span class="line">当前的是: <span class="number">6</span></span><br><span class="line">当前的是: <span class="number">7</span></span><br><span class="line">当前的是: <span class="number">8</span></span><br><span class="line">当前的是: <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h3 id="三元运算"><a href="#三元运算" class="headerlink" title="三元运算"></a>三元运算</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">a &gt; b ? a:b  <span class="comment">// a:b 判断为true返回a, 判断为false 返回b</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b)</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匿名函数 </span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a + b)</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即函数</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="built_in">console</span>.log(a+b)&#125;)(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">var</span> a1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">a1.forEach((i)=&gt;&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(i + <span class="number">1</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a>arguments</h3><blockquote>
+<p>函数内置的一个方法，里面是传递给函数全部的参数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1(<span class="number">1</span>)</span><br><span class="line">VM3341:<span class="number">2</span> Arguments [<span class="number">1</span>, callee: ƒ, <span class="built_in">Symbol</span>(<span class="built_in">Symbol</span>.iterator): ƒ]</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019151810557.png" alt="image-20201019151810557" title>
+                </div>
+                <div class="image-caption">image-20201019151810557</div>
+            </figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(age); <span class="comment">//这里的age为underfined</span></span><br><span class="line">  <span class="keyword">var</span> age = <span class="number">22</span>;		<span class="comment">// age为22</span></span><br><span class="line">  <span class="built_in">console</span>.log(age);	<span class="comment">//输出22</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">age</span>(<span class="params"></span>)</span>&#123;	<span class="comment">//重新赋值函数到age上</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"呵呵"</span>);	</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(age);	<span class="comment">//打印age函数地址</span></span><br><span class="line">&#125;</span><br><span class="line">foo();  <span class="comment">// 执行后的结果是？</span></span><br></pre></td></tr></table></figure>
+<h2 id="自定义对象-字典"><a href="#自定义对象-字典" class="headerlink" title="自定义对象(字典)"></a>自定义对象(字典)</h2><blockquote>
+<p>只能使用字符串当做key</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d1 = &#123;<span class="string">'a1'</span>:<span class="number">100</span>,<span class="string">'a2'</span>:<span class="number">200</span>&#125;</span><br><span class="line">d1.a1</span><br><span class="line">d1[<span class="string">'a1'</span>] <span class="comment">//取值方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> d1)&#123; <span class="comment">//遍历方法</span></span><br><span class="line">	<span class="built_in">console</span>.log(i)    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019161927963.png" alt="image-20201019161927963" title>
+                </div>
+                <div class="image-caption">image-20201019161927963</div>
+            </figure>
+<h3 id="map对象"><a href="#map对象" class="headerlink" title="map对象"></a>map对象</h3><blockquote>
+<p>key可以使用可has的任意值</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m1 = <span class="keyword">new</span> <span class="built_in">Map</span>() <span class="comment">//实例化一个map对象</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">m1.set(key, value) <span class="comment">//设置一个键值对</span></span><br><span class="line"></span><br><span class="line">m1.get(key) <span class="comment">//获取一个键值对</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201019163041396.png" alt="image-20201019163041396" title>
+                </div>
+                <div class="image-caption">image-20201019163041396</div>
+            </figure>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><blockquote>
+<p>懒得记<br><a href="https://www.cnblogs.com/zyl910/p/js_class_bestpractice.html" target="_blank" rel="external">https://www.cnblogs.com/zyl910/p/js_class_bestpractice.html</a></p>
+</blockquote>
+<h2 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h2><blockquote>
+<p>JavaScript的内置方法</p>
+</blockquote>
+<h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d1 = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.getDate()</td>
+<td>获取日</td>
+</tr>
+<tr>
+<td>.getDay()</td>
+<td>获取星期几</td>
+</tr>
+<tr>
+<td>.getMonth()</td>
+<td>获取月份，从0月开始的，正确的应该是 +1</td>
+</tr>
+<tr>
+<td>.getFullYear()</td>
+<td>获取年份</td>
+</tr>
+<tr>
+<td><del>.getYear()</del></td>
+<td><del>获取年份，得到的值是 <code>当前年份 - 1900</code></del></td>
+</tr>
+<tr>
+<td>.getHours()</td>
+<td>获取小时</td>
+</tr>
+<tr>
+<td>.getMinutes()</td>
+<td>获取分钟</td>
+</tr>
+<tr>
+<td>.getSeconds()</td>
+<td>获取秒</td>
+</tr>
+<tr>
+<td>.getMilliseconds()</td>
+<td>获取毫秒</td>
+</tr>
+<tr>
+<td>.getTime()</td>
+<td>时间戳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> json1 = <span class="string">'&#123;"name": "jerry", "age": 20&#125;'</span> <span class="comment">//反序列化</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(json1)</span><br><span class="line">obj.age</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> json2 = <span class="built_in">JSON</span>.stringify(obj)	<span class="comment">//序列化</span></span><br><span class="line"><span class="string">"&#123;"</span>name<span class="string">":"</span>jerry<span class="string">","</span>age<span class="string">":20&#125;"</span></span><br></pre></td></tr></table></figure>
+<h3 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> r1 = <span class="regexp">/jerry/</span>   <span class="comment">//正则匹配</span></span><br><span class="line">&gt; r1.test(<span class="string">'jerry'</span>)</span><br><span class="line">&lt; <span class="literal">true</span></span><br><span class="line">&gt; r1.test(<span class="string">'Jerry'</span>)</span><br><span class="line">&lt; <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">&gt; s1.match(<span class="regexp">/Jerry/</span>) <span class="comment">// 正则匹配</span></span><br><span class="line">&lt; [<span class="string">"Jerry"</span>, index: <span class="number">0</span>, input: <span class="string">"Jerry and Tomcat"</span>, groups: <span class="literal">undefined</span>]</span><br><span class="line">&gt; s1.match(<span class="regexp">/jerry/</span>)</span><br><span class="line">&lt; <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">var</span> r2 = <span class="regexp">/jerry/i</span>  <span class="comment">//i 不区分大小写</span></span><br><span class="line">&gt; r2.test(<span class="string">'Jerry'</span>)</span><br><span class="line">&lt; <span class="literal">true</span></span><br><span class="line">&gt; r2.test(<span class="string">'jerry'</span>)</span><br><span class="line">&lt; <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">var</span> r3 = <span class="regexp">/^jerry$/g</span> <span class="comment">//g 全局匹配</span></span><br><span class="line">&gt; s3.test(<span class="string">'jerry'</span>)</span><br><span class="line">&lt; <span class="literal">true</span></span><br><span class="line">&gt; s3.test(<span class="string">'jerry'</span>)  </span><br><span class="line">&lt; <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">var</span> s1 = <span class="string">'Jerry and Tomcat'</span> <span class="comment">// 匹配正则表达式,返回结果的首字母位置</span></span><br><span class="line">&gt; s1.search(<span class="string">'Jerry'</span>)</span><br><span class="line">&lt; <span class="number">0</span></span><br><span class="line">&gt; s1.search(<span class="regexp">/tomcat/i</span>)</span><br><span class="line">&lt; <span class="number">10</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">var</span> s1 = <span class="string">'JerryAndTom'</span></span><br><span class="line">&gt; s1.split(<span class="string">'And'</span>)			<span class="comment">// split指定字符串进行切割</span></span><br><span class="line">&lt; (<span class="number">2</span>) [<span class="string">"Jerry"</span>, <span class="string">"Tom"</span>]</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">var</span> s1 = <span class="string">'JerryAndTom'</span></span><br><span class="line">&gt; s1.replace(<span class="string">'And'</span>,<span class="string">'和'</span>)    <span class="comment">// replace 指定字符串替换</span></span><br><span class="line">&lt; <span class="string">"Jerry和Tom"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201020114610887.png" alt="image-20201020114610887" title>
+                </div>
+                <div class="image-caption">image-20201020114610887</div>
+            </figure>
+<p>第二次匹配之所以会出现异常是因为 g在test中使用的时候还有一个lastIndex的属性,lastIndex定义了test匹配开始的下标</p>
+<p>例如上面的例子,匹配过一次字符串 <code>JerryAndTom</code>后, 这时的s3的lastIndex的值为5,  第二次匹配就会从字符串下标为5的位置开始匹配, 当匹配不到的时候 lastIndex的值会重置为0, 这也是为啥第三次匹配能匹配到的原因.</p>
+</blockquote>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abs(n)</td>
+<td>取n的绝对值</td>
+</tr>
+<tr>
+<td><del>exp(x)</del></td>
+<td><del>返回 e 的指数</del></td>
+</tr>
+<tr>
+<td>floor(x)</td>
+<td>对数进行向下舍入</td>
+</tr>
+<tr>
+<td><del>log(x)</del></td>
+<td><del>返回数的自然对数（底为e）</del></td>
+</tr>
+<tr>
+<td>max(n,m)</td>
+<td>返回去n和m 两者中大的那个</td>
+</tr>
+<tr>
+<td>min(n,m)</td>
+<td>返回去n和m 两者中小的那个</td>
+</tr>
+<tr>
+<td>pow(n,m)</td>
+<td>返回n的m次幂</td>
+</tr>
+<tr>
+<td>random()</td>
+<td>取0~1自建的随机数</td>
+</tr>
+<tr>
+<td>round(x)</td>
+<td>四舍五入</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.abs(-<span class="number">1</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="built_in">Math</span>.abs(<span class="number">1.1</span>)</span><br><span class="line"><span class="number">1.1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">1.9</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">9.9</span>)</span><br><span class="line"><span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.max(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="built_in">Math</span>.max(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.min(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="built_in">Math</span>.min(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="number">16</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.random()</span><br><span class="line"><span class="number">0.06251484862199863</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.round(<span class="number">1.9</span>)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="built_in">Math</span>.round(<span class="number">1.4</span>)</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="BOM和DOM"><a href="#BOM和DOM" class="headerlink" title="BOM和DOM"></a>BOM和DOM</h1><h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p><strong>BOM 开放给用户操作浏览器的方法</strong></p>
+<h3 id="window"><a href="#window" class="headerlink" title="window"></a>window</h3><blockquote>
+<p>windows 所有浏览器都支持的对象, 他表示的就是浏览器窗口</p>
+<p>所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员</p>
+<p>全局变量是 window 对象的属性。全局函数是 window 对象的方法。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">windows.innerHeight		<span class="comment">// 获取浏览器窗口的内部高度</span></span><br><span class="line">windows.innerWidth		<span class="comment">// 获取浏览器窗口的内部宽度</span></span><br><span class="line">windows.open()			<span class="comment">// 打开一个新的窗口</span></span><br><span class="line">windows.close()			<span class="comment">// 关闭open打开的窗口</span></span><br></pre></td></tr></table></figure>
+<h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><blockquote>
+<p>没啥用, 不准确</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">navigator.appName　　<span class="comment">// Web浏览器全称</span></span><br><span class="line">navigator.appVersion　　<span class="comment">// Web浏览器厂商和版本的详细字符串</span></span><br><span class="line">navigator.userAgent　　<span class="comment">// 客户端绝大部分信息</span></span><br><span class="line">navigator.platform　　　<span class="comment">// 浏览器运行所在的操作系统</span></span><br></pre></td></tr></table></figure>
+<h3 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h3><blockquote>
+<p>没啥用</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen.availWidth	<span class="comment">// 可用的屏幕宽度</span></span><br><span class="line">screen.availHeight	<span class="comment">// 可用的屏幕高度</span></span><br></pre></td></tr></table></figure>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><blockquote>
+<p>操作浏览器返回或前进页面</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.forward		<span class="comment">//前进一页</span></span><br><span class="line">history.back		<span class="comment">//后退一页</span></span><br></pre></td></tr></table></figure>
+<h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location.href	<span class="comment">//获取当前页面URL</span></span><br><span class="line">location.href = <span class="string">'https://www.msrte.com'</span>	<span class="comment">//跳转到指定URL</span></span><br><span class="line">location.reload()	<span class="comment">//刷新页面</span></span><br></pre></td></tr></table></figure>
+<h3 id="弹出框"><a href="#弹出框" class="headerlink" title="弹出框"></a>弹出框</h3><ul>
+<li>警告框</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">'你看见那个太阳了吗?'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>确认框</li>
+</ul>
+<blockquote>
+<p>根据用户选择, 返回 true / false</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">confirm(<span class="string">'你看见那个太阳了嘛? '</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>提示框</li>
+</ul>
+<blockquote>
+<p>要求用户输入, 无输入则返回默认值</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prompt(<span class="string">'你看见那个太阳了嘛? '</span>,<span class="string">'我没看见'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="计时"><a href="#计时" class="headerlink" title="计时"></a>计时</h3><ul>
+<li>执行一次</li>
+</ul>
+<p><code>setTimeout(js语句,倒计时/毫秒)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'你看见那个太阳了吗?'</span>)&#125;,<span class="number">2000</span>) <span class="comment">//设置一个计时器2000毫毛后执行匿名函数</span></span><br><span class="line"></span><br><span class="line">clearTimeout(s1)		<span class="comment">//取消s1计时器</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>重复执行</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s2 = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'无知是恶'</span>)&#125;,<span class="number">2000</span>) <span class="comment">//设置一个重复计时器</span></span><br><span class="line"></span><br><span class="line">clearInterval(s2)		<span class="comment">//取消重复计时器</span></span><br></pre></td></tr></table></figure>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
+<li>改变页面的元素</li>
+<li>改变页面的属性</li>
+<li>改变页面的样式</li>
+<li>对页面的时间做出处理</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201020154701450.png" alt="image-20201020154701450" title>
+                </div>
+                <div class="image-caption">image-20201020154701450</div>
+            </figure>
+<h3 id="查找标签"><a href="#查找标签" class="headerlink" title="查找标签"></a>查找标签</h3><h4 id="直接查找"><a href="#直接查找" class="headerlink" title="直接查找"></a>直接查找</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过ID查找标签</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>)</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>).innerText = <span class="string">'Jerry'</span> <span class="comment">//innerText修改标签内容</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByClassName(<span class="string">'c1'</span>)  <span class="comment">//通过class查找, 因为class可能会重复, 所以返回的是一个list,通过下标取具体的标签 </span></span><br><span class="line">&gt; <span class="built_in">document</span>.getElementsByClassName(<span class="string">'c1'</span>)[<span class="number">1</span>]</span><br><span class="line">&lt; <span class="xml"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"p1 c1"</span>&gt;</span>p1<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)  <span class="comment">//获取全部的b标签, 返回一个list</span></span><br></pre></td></tr></table></figure>
+<h4 id="间接查找"><a href="#间接查找" class="headerlink" title="间接查找"></a>间接查找</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div1Ele = <span class="built_in">document</span>.getElementByID(<span class="string">'div'</span>)[<span class="number">1</span>]</span><br><span class="line">div1Ele.parentElement		<span class="comment">//查找父节点标签位置</span></span><br><span class="line">div1Ele.children            <span class="comment">//查找全部子标签</span></span><br><span class="line">div1Ele.firstElementChild	<span class="comment">// 第一个子标签</span></span><br><span class="line">div1Ele.lastElementChild	<span class="comment">// 最后一个子标签'</span></span><br><span class="line">div1Ele.nextElementSibling	<span class="comment">// 下一个兄弟标签</span></span><br><span class="line">div1Ele.previousElementSibling  	<span class="comment">//上一个兄弟标签</span></span><br></pre></td></tr></table></figure>
+<h3 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h3><h4 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在指定标签后面添加一个节点</span></span><br><span class="line">&gt; <span class="keyword">var</span> newdiv = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)	 <span class="comment">// 创建一个节点</span></span><br><span class="line">&gt; newdiv.innerText = <span class="string">'这是一个新的div'</span>			<span class="comment">// 给这个新节点赋予文本内容</span></span><br><span class="line">&gt; <span class="keyword">var</span> d1 = <span class="built_in">document</span>.getElementById(<span class="string">'d1'</span>)		<span class="comment">// 找到ID d1为 标签</span></span><br><span class="line">&gt; d1.appendChild(newdiv)						<span class="comment">// 在 找到ID d1为 标签的后面将 newdiv标签添加上去</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在指定标签的前面增加一个节点, 需要使用父标签来定位</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">&lt;div id="d2"&gt;这是d2</span><br><span class="line">    &lt;p&gt;这是d2的儿子标签 p1&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newdiv = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">newdiv.innerText = <span class="string">'这是一个新的div'</span></span><br><span class="line"><span class="keyword">var</span> d2Ele =  <span class="built_in">document</span>.getElementById(<span class="string">'d2'</span>)</span><br><span class="line"><span class="keyword">var</span> d2_p0Ele =  <span class="built_in">document</span>.getElementByTagName(<span class="string">'p'</span>)</span><br><span class="line">d2Ele.insertBefore(newdiv,d2_p0Ele[<span class="number">0</span>])   <span class="comment">// 在d2_p0Ele标签前插入newdiv标签</span></span><br></pre></td></tr></table></figure>
+<h4 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要使用父标签来寻找要被删除的标签</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">&lt;div id="d2"&gt;这是d2</span><br><span class="line">    &lt;p&gt;这是d2的儿子标签 p1&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> d1Ele = <span class="built_in">document</span>.getElementById(<span class="string">'d2'</span>)  <span class="comment">//找到id为 d2的标签</span></span><br><span class="line">d1Ele.removeChild(<span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>])	<span class="comment">//删除id为d2标签的子标签, 被删除的是p标签的弟0个</span></span><br></pre></td></tr></table></figure>
+<h4 id="替换节点"><a href="#替换节点" class="headerlink" title="替换节点"></a>替换节点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要使用父标签来寻找要被删除的标签</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">&lt;div id="d2"&gt;这是d2</span><br><span class="line">    &lt;p&gt;这是d2的儿子标签 p1&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="节点属性"><a href="#节点属性" class="headerlink" title="节点属性"></a>节点属性</h4><p>获取文本节点的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> divEle = <span class="built_in">document</span>.getElementById(<span class="string">"d1"</span>)</span><br><span class="line">divEle.innerText	<span class="comment">// 获取标签内容</span></span><br><span class="line">divEle.innerHTML 	<span class="comment">// 获取标签源代码</span></span><br><span class="line">divEle.innerText=<span class="string">"1"</span></span><br><span class="line">divEle.innerHTML=<span class="string">"&lt;p&gt;2&lt;/p&gt;"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> divEle = <span class="built_in">document</span>.getElementById(<span class="string">"d1"</span>); </span><br><span class="line">divEle.getAttribute(<span class="string">"age"</span>)	<span class="comment">// 获取属性的值</span></span><br><span class="line">divEle.setAttribute(<span class="string">"age"</span>,<span class="string">"18"</span>)	<span class="comment">// 修改属性的值</span></span><br><span class="line">divEle.removeAttribute(<span class="string">"age"</span>)	<span class="comment">// 删除一个属性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// HTML标签 自带的属性还可以直接.属性名来获取和设置</span></span><br><span class="line">imgEle.src</span><br><span class="line">imgEle.src=<span class="string">"..."</span></span><br></pre></td></tr></table></figure>
+<h4 id="获取value"><a href="#获取value" class="headerlink" title="获取value"></a>获取value</h4><blockquote>
+<p>输入框都是通过 .value获取值的</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">&lt;input type="checkbox" value="篮球" id="i5"&gt;</span><br><span class="line">&lt;textarea&gt;&lt;/textarea&gt;</span><br><span class="line">&lt;select name="" id="s1"&gt;</span><br><span class="line">    &lt;option value="北京"&gt;北京&lt;/option&gt;</span><br><span class="line">    &lt;option value="上海"&gt;上海&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> textareaELe = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'textarea'</span>)[<span class="number">0</span>]</span><br><span class="line">textareaELe.value			<span class="comment">// 参看value的内容</span></span><br><span class="line">textareaELe.value = <span class="string">'123'</span>	<span class="comment">//赋值</span></span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20201022095327465.png" alt="image-20201022095327465" title>
+                </div>
+                <div class="image-caption">image-20201022095327465</div>
+            </figure>
+<h4 id="class操作"><a href="#class操作" class="headerlink" title="class操作"></a>class操作</h4><blockquote>
+<p>可以通过js方法实现, 在标签上添加或者删除一个class</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> divELecls = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>].classList</span><br><span class="line">divELecls.add(<span class="string">'c1'</span>) 	 <span class="comment">//给标签添加一个类</span></span><br><span class="line">divElecls.remove(<span class="string">'c1'</span>)	 <span class="comment">//删除一个类</span></span><br><span class="line">divElecls.contains(<span class="string">'c1'</span>) <span class="comment">// 判断标签中是否存在这个类,存在为真</span></span><br><span class="line">divElecls.toggle(<span class="string">'c1'</span>)   <span class="comment">// 取反. 存在就删除. 不存在即添加</span></span><br></pre></td></tr></table></figure>
+<h4 id="CSS操作"><a href="#CSS操作" class="headerlink" title="CSS操作"></a>CSS操作</h4><blockquote>
+<p>js可以任意修改css的属性, 当 css的属性名含有<code>-</code>时, 就省略这个<code>-</code>然后下一位的字母大写. 例如 : <code>border-radius</code> 在js中写成<code>borderRadius</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> divEle = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>]</span><br><span class="line">divELe.style.backgroundColor = <span class="string">'#000'</span></span><br></pre></td></tr></table></figure>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><blockquote>
+<p>事件绑定方式</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* 直接在HTML标签上绑定 */</span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"b1"</span> <span class="attribute">onclick</span>=<span class="value">'setImg()'</span>&gt;</span>点我<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setImg</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> b1Ele = <span class="built_in">document</span>.getElementById(<span class="string">'b1'</span>)</span><br><span class="line">        b1Ele.style.backgroundColor = <span class="string">'red'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/* 在js代码中绑定 */ //推荐</span><br><span class="line">&lt;button id="b1"&gt;点我&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var b1Ele = document.getElementById('b1')</span><br><span class="line">    b1.onclick = function ()&#123;</span><br><span class="line">        this.style.backgroundColor = 'red'</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>常用的事件触发</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onclick</td>
+<td>鼠标单击某个对象事件</td>
+</tr>
+<tr>
+<td>ondblclick</td>
+<td>鼠标双击某个对象事件</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td>元素获得焦点, 常用于input</td>
+</tr>
+<tr>
+<td>onblur</td>
+<td>元素失去焦点, 常用于input</td>
+</tr>
+<tr>
+<td>onchange</td>
+<td>域的内容改变, 通常用户select的option的变化</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td>某个键盘按键被按下。    应用场景: 当用户在最后一个输入框按下回车按键时,表单提交</td>
+</tr>
+<tr>
+<td>onkeypress</td>
+<td>某个键盘按键被按下并松开</td>
+</tr>
+<tr>
+<td>onkeyup</td>
+<td>某个键盘按键被松开。</td>
+</tr>
+<tr>
+<td>onload</td>
+<td>一张页面或一幅图像完成加载。</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>鼠标按钮被按下</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>鼠标被移动</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>鼠标从某元素移开</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标移到某元素之上</td>
+</tr>
+<tr>
+<td>onselect</td>
+<td>在文本框中的文本被选中时发生</td>
+</tr>
+<tr>
+<td>onsubmit</td>
+<td>确认按钮被点击，使用的对象是form</td>
+</tr>
+</tbody>
+</table>
+<h2 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h2><h3 id="选择菜单"><a href="#选择菜单" class="headerlink" title="选择菜单"></a>选择菜单</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"s1"</span>&gt;</span>大区<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"s1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">""</span>&gt;</span>-选择大区-<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"s2"</span>&gt;</span>服务器<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">select</span>  <span class="attribute">id</span>=<span class="value">"s2"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--    &lt;option value=""&gt;-选择服务器-&lt;/option&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> s1Ele = <span class="built_in">document</span>.getElementById(<span class="string">'s1'</span>)</span><br><span class="line">    <span class="keyword">var</span> s2Ele = <span class="built_in">document</span>.getElementById(<span class="string">'s2'</span>)</span><br><span class="line">    serverArray = &#123;</span><br><span class="line">        <span class="string">'北方大区'</span>: [<span class="string">'河南一区'</span>,<span class="string">'北京三区'</span>,<span class="string">'上海一区'</span>],</span><br><span class="line">        <span class="string">'南方大区'</span>: [<span class="string">'广东一区'</span>,<span class="string">'广西一区'</span>,<span class="string">'深圳二区'</span>],</span><br><span class="line">        <span class="string">'专线大区'</span>: [<span class="string">'电信专线'</span>,<span class="string">'联通专线'</span>,<span class="string">'移动专线'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> serverArray ) &#123;</span><br><span class="line">        <span class="keyword">var</span> optionTmp = <span class="built_in">document</span>.createElement(<span class="string">'option'</span>)</span><br><span class="line">        optionTmp.innerText = i</span><br><span class="line">        s1Ele.appendChild(optionTmp)</span><br><span class="line">    &#125;</span><br><span class="line">    s1.onchange=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        s2Ele.innerText = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">var</span> i <span class="keyword">in</span> serverArray[<span class="keyword">this</span>.value]) &#123;</span><br><span class="line">            <span class="keyword">var</span> optionTmp = <span class="built_in">document</span>.createElement(<span class="string">'option'</span>)</span><br><span class="line">            optionTmp.innerText = serverArray[<span class="keyword">this</span>.value][i]</span><br><span class="line">            s2Ele.appendChild(optionTmp)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="登录弹窗"><a href="#登录弹窗" class="headerlink" title="登录弹窗"></a>登录弹窗</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="class">.cover</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">position</span>:<span class="value"> fixed</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">1</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>)</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.login</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">200px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#19b3ff</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">50%</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">margin</span>:<span class="value"> -<span class="number">100px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">150px</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">999</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.login-down</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">float</span>:<span class="value"> right</span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">            <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="class">.hide</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"login-btn"</span>&gt;</span>登录<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"cover hide"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"login hide"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"login-down"</span>&gt;</span>x<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> coverEle = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'cover'</span>)[<span class="number">0</span>].classList</span><br><span class="line">    <span class="keyword">var</span> loginBtnEle = <span class="built_in">document</span>.getElementById(<span class="string">'login-btn'</span>)</span><br><span class="line">    <span class="keyword">var</span> loginEle = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'login'</span>)[<span class="number">0</span>].classList</span><br><span class="line">    loginBtnEle.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        coverEle.remove(<span class="string">'hide'</span>)</span><br><span class="line">        loginEle.remove(<span class="string">'hide'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> loginDownEle = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'login-down'</span>)[<span class="number">0</span>]</span><br><span class="line">    loginDownEle.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        coverEle.add(<span class="string">'hide'</span>)</span><br><span class="line">        loginEle.add(<span class="string">'hide'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T09:51:03.491Z" itemprop="dateUpdated">2020-11-26 17:51:03</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/前端/03_Javascript/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/前端/03_Javascript/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-前端/">学习笔记:前端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/前端/03_Javascript/&title=《前端 Javascript》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/前端/03_Javascript/&title=《前端 Javascript》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/前端/03_Javascript/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端 Javascript》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/前端/03_Javascript/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/前端/03_Javascript/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/前端/04_JQuery/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端 Jquery</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/kubernetes/08_Prometheus/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Kubernetes Prometheus</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/前端/03_Javascript/&title=《前端 Javascript》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/前端/03_Javascript/&title=《前端 Javascript》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/前端/03_Javascript/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端 Javascript》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/前端/03_Javascript/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/前端/03_Javascript/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aMW7DMAwF0N7/0i7QqUAb9ZNyCph6mjLYkV4GhhT58RGv62vlz/x8/vq2Xr27fuaGhYGB8VjGtVzJNsmhr+LKz4aBgXEOIw+g+ed1CF7HzPxsGBgYGOvA19s+SSIxMDAwdhi9kNr7CTAwMDCqRWz1ci0PtUmKeVstjoGB8UBGtTHwn5/f2N/AwMB4CONqrV4iuE4Hd06FgYExm5GkYr3G5Pq4SZpYLpgxMDBGM/aHtHYYeQGcBGsMDIzZjDzVy9/tvdUL/RgYGKcx8kQtCbV5qlcd18DAwDiB0RtxqDYU7xqnKFy0YWBgjGZUQ2fv+mynnRD1VzEwMIYycuT7CtRqgoiBgXEOo5fY7aR0SVpZ+BExMDBGM5KN8xSwl0rmz/9RAGNgYBzDyA9aDb7V67byVR0GBsYBjP3xrOQbeld7W6UsBgbGwxk7gbKaCOa7bA1bYGBgHMPIWwXV0JwXxoVAjIGBcRijMOIQb3lXy6HQicXAwBjE6BWo1VGJ/Lq/twsGBsZsRh4W85I1D45JSRwVvRgYGKMZ5cSrWGT22gO9diYGBsZUxlVc1aO8Lyl8+b+BgYExjtFrCVSPuDPslaetGBgYsxlJkM2nzPLAnYTp8n0hBgbGaEb1cEkYrcLyIvaXtzAwMDBaJWWv8dAcxcDAwMBoDW81Q+dddTYGBsY4RrXgXF+K5WVtfp33R1qJgYExmrHTGMjL197Qxs3hHgMD43mMT/gPPOIwNoeBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

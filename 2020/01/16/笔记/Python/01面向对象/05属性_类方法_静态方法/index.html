@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 面向对象:属性_类方法_静态方法 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python 面向对象,学习笔记:Python">
+    <meta name="description" content="属性
+属性： 将一个方法伪装成一个属性，在人的认知看上看起来更合理
+看着是一个名称但是在代码中需要被计算的，这里就用得到伪装成属性
+@property
+计算人体的BMT值，算法：体重（kg）÷ 身高^2（m）
+1234567891011class BMI():    def __init__(self,weight,height):        self.weight = weight">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 面向对象:属性_类方法_静态方法">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="属性
+属性： 将一个方法伪装成一个属性，在人的认知看上看起来更合理
+看着是一个名称但是在代码中需要被计算的，这里就用得到伪装成属性
+@property
+计算人体的BMT值，算法：体重（kg）÷ 身高^2（m）
+1234567891011class BMI():    def __init__(self,weight,height):        self.weight = weight">
+<meta property="og:updated_time" content="2020-11-26T10:08:55.513Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 面向对象:属性_类方法_静态方法">
+<meta name="twitter:description" content="属性
+属性： 将一个方法伪装成一个属性，在人的认知看上看起来更合理
+看着是一个名称但是在代码中需要被计算的，这里就用得到伪装成属性
+@property
+计算人体的BMT值，算法：体重（kg）÷ 身高^2（m）
+1234567891011class BMI():    def __init__(self,weight,height):        self.weight = weight">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 面向对象:属性_类方法_静态方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 面向对象:属性_类方法_静态方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性"><span class="post-toc-number">1.</span> <span class="post-toc-text">属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改伪装成属性的方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">修改伪装成属性的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除伪装成属性的方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">删除伪装成属性的方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">类方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类方法的应用场景"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">类方法的应用场景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类中的方法不需要对象参与"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">类中的方法不需要对象参与</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单单对类中的静态对象进行修改"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">单单对类中的静态对象进行修改</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承中父类得到子类中的对象"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">继承中父类得到子类中的对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">静态方法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/01面向对象/05属性_类方法_静态方法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 面向对象:属性_类方法_静态方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><hr>
+<p>属性： 将一个方法伪装成一个属性，<code>在人的认知看上看起来更合理</code></p>
+<p>看着是一个名称但是在代码中需要被计算的，这里就用得到伪装成属性</p>
+<p><code>@property</code></p>
+<p>计算人体的BMT值，算法：体重（kg）÷ 身高^2（m）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BMI</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,weight,height)</span>:</span></span><br><span class="line">        self.weight = weight</span><br><span class="line">        self.height = height</span><br><span class="line"><span class="decorator">    @property #  在方法前使用property装饰器</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bmight</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  <span class="string">"你的MBI是: %s "</span> %(self.weight /  self.height ** <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">bmi = BMI(<span class="number">60</span>,<span class="number">1.73</span>)</span><br><span class="line">print(bmi.bmight)</span><br><span class="line">&gt; 你的MBI是: <span class="number">20.04744562130375</span></span><br></pre></td></tr></table></figure>
+<h3 id="修改伪装成属性的方法"><a href="#修改伪装成属性的方法" class="headerlink" title="修改伪装成属性的方法"></a>修改伪装成属性的方法</h3><p><code>@方法名.setter</code> 必须和<code>@property</code> 一起使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,age)</span>:</span></span><br><span class="line">        self.__age = age</span><br><span class="line"></span><br><span class="line"><span class="decorator">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  <span class="string">"杰瑞今年：%s"</span> %(self.__age)</span><br><span class="line"><span class="decorator">    @age.setter # 固定格式 @方法名.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self,new_age)</span>:</span> <span class="comment"># 固定格式</span></span><br><span class="line">        self.__age = new_age</span><br><span class="line"></span><br><span class="line">a1 = A(<span class="number">3</span>)</span><br><span class="line">print(a1.age)</span><br><span class="line">a1.age = <span class="string">"12138"</span></span><br><span class="line">print(a1.age)</span><br><span class="line">&gt; 杰瑞今年：<span class="number">3</span></span><br><span class="line">&gt; 杰瑞今年：<span class="number">12138</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除伪装成属性的方法"><a href="#删除伪装成属性的方法" class="headerlink" title="删除伪装成属性的方法"></a>删除伪装成属性的方法</h3><p><code>@方法名.deleter 必须和</code>@property` 一起使</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,age)</span>:</span></span><br><span class="line">        self.__age = age</span><br><span class="line"></span><br><span class="line"><span class="decorator">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  <span class="string">"杰瑞今年：%s"</span> %(self.__age)</span><br><span class="line"><span class="decorator">    @age.deleter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">del</span>  self.__age</span><br><span class="line"></span><br><span class="line">a1 = A(<span class="number">3</span>)</span><br><span class="line">print(a1.__dict__)</span><br><span class="line"><span class="keyword">del</span>  a1.age</span><br><span class="line">print(a1.__dict__)</span><br><span class="line">&gt; &#123;<span class="string">'_A__age'</span>: <span class="number">3</span>&#125;</span><br><span class="line">&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h2><hr>
+<p>在方法前添加<code>@classmethod</code> </p>
+<p>然后方法第一个形参是<code>cls</code>,<code>cls</code>默认接收的实参是调用他的<code>类</code>的内存地址</p>
+<h3 id="类方法的应用场景"><a href="#类方法的应用场景" class="headerlink" title="类方法的应用场景"></a>类方法的应用场景</h3><h3 id="类中的方法不需要对象参与"><a href="#类中的方法不需要对象参与" class="headerlink" title="类中的方法不需要对象参与"></a>类中的方法不需要对象参与</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    name = <span class="string">"杰瑞"</span></span><br><span class="line"><span class="decorator">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">"My name is %s"</span> %(cls.name))</span><br><span class="line"></span><br><span class="line">A.func()</span><br><span class="line"></span><br><span class="line">&gt; My name <span class="keyword">is</span> 杰瑞</span><br></pre></td></tr></table></figure>
+<h3 id="单单对类中的静态对象进行修改"><a href="#单单对类中的静态对象进行修改" class="headerlink" title="单单对类中的静态对象进行修改"></a>单单对类中的静态对象进行修改</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    name = <span class="string">"杰瑞"</span></span><br><span class="line"><span class="decorator">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(cls, new_name)</span>:</span></span><br><span class="line">        cls.name = new_name</span><br><span class="line"></span><br><span class="line">A.func(<span class="string">"汤姆"</span>)</span><br><span class="line">print(A.__dict__)</span><br><span class="line"></span><br><span class="line">&gt; &#123;<span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'name'</span>: <span class="string">'汤姆'</span>, <span class="string">'func'</span>: &lt;classmethod object at <span class="number">0x03669910</span>&gt;, <span class="string">'__dict__'</span>: &lt;attribute <span class="string">'__dict__'</span> of <span class="string">'A'</span> objects&gt;, <span class="string">'__weakref__'</span>: &lt;attribute <span class="string">'__weakref__'</span> of <span class="string">'A'</span> objects&gt;, <span class="string">'__doc__'</span>: <span class="keyword">None</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承中父类得到子类中的对象"><a href="#继承中父类得到子类中的对象" class="headerlink" title="继承中父类得到子类中的对象"></a>继承中父类得到子类中的对象</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class A:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line">    @classmethod</span><br><span class="line">    def func(cls): # ③ 找到了func1， 并且此时cls接受的实参就是 B 的名称空间地址</span><br><span class="line">        print(cls.name)  # 通过B的名称空间地址调用B的静态字段 name</span><br><span class="line">        print(cls) # 输出 name</span><br><span class="line">        cls.name = "汤姆" # 修改</span><br><span class="line">class B(A): # ② 类的名称空间类并没有，去父类A里找</span><br><span class="line">    name = "杰瑞"</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">b1 = B()</span><br><span class="line">b1.func() #①调用func1方法</span><br><span class="line">print(B.__dict__)</span><br><span class="line"></span><br><span class="line">&gt; 杰瑞</span><br><span class="line">&gt; &lt;class '__main__.B'&gt;</span><br><span class="line">&gt; &#123;'__module__': '__main__', 'name': '汤姆', '__doc__': None&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>问： 为什么 cls接受的是B的名称空间地址</p>
+</blockquote>
+<blockquote>
+<p>答： 别问！再问自杀！(强行解释：因为在外部是使用<code>b1.func()</code> 调用<code>func</code>方法，解释器在B的名称空间找不到<code>func</code>，根据指示牌去了A的名称空间找到了<code>func</code>，因为<code>func</code>是一个类方法所以在外部调用的时候默认就把B的名称空间传入过去了！)</p>
+</blockquote>
+<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><hr>
+<p>静态方法和在外部定义的变量本质上没有任何区别！</p>
+<p>静态方法的价值就在去其可以帮助程序员<code>归类</code>，可以提升代码的复用性，能增加代码的清晰度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line"><span class="decorator">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"我是一个静态方法"</span>)</span><br><span class="line"></span><br><span class="line">A.func1()</span><br><span class="line">&gt; 我是一个静态方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">--------------------------------------------------------------------------</span><br><span class="line">ZBench-CN.sh: line <span class="number">336</span>: uuid: command not found</span><br><span class="line">节点名称                  IP地址            下载速度            延迟</span><br><span class="line">CacheFly                  <span class="number">205.234</span>.<span class="number">175.175</span>   <span class="number">88.1M</span>B/s            <span class="number">0.524</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Linode</span>, Singapore, SG     <span class="number">139.162</span>.<span class="number">23.4</span>      <span class="number">9.70M</span>B/s            <span class="number">197.940</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Linode</span>, London, UK        <span class="number">176.58</span>.<span class="number">107.39</span>     <span class="number">120M</span>B/s             <span class="number">8.214</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Linode</span>, Frankfurt, DE     <span class="number">139.162</span>.<span class="number">130.8</span>     <span class="number">111M</span>B/s             <span class="number">14.028</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Linode</span>, Fremont, CA       <span class="number">50.116</span>.<span class="number">14.9</span>       <span class="number">7.67M</span>B/s            <span class="number">153.414</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Softlayer</span>, Dallas, TX     <span class="number">173.192</span>.<span class="number">68.18</span>     <span class="number">15.2M</span>B/s            <span class="number">129.879</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Softlayer</span>, Seattle, WA    <span class="number">67.228</span>.<span class="number">112.250</span>    <span class="number">12.6M</span>B/s            <span class="number">142.795</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Softlayer</span>, Frankfurt, DE  <span class="number">159.122</span>.<span class="number">69.4</span>      <span class="number">57.0M</span>B/s            <span class="number">16.457</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Softlayer</span>, Singapore, SG  <span class="number">119.81</span>.<span class="number">28.170</span>     <span class="number">8.68M</span>B/s            <span class="number">197.485</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">Softlayer</span>, HongKong, CN   <span class="number">119.81</span>.<span class="number">130.170</span>    <span class="number">7.93M</span>B/s            <span class="number">229.911</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">--------------------------------------------------------------------------</span><br><span class="line">节点名称                  上传速度          下载速度            延迟</span><br><span class="line">上海电信                  0</span>.<span class="number">59</span> Mbit/s       <span class="number">15.59</span> Mbit/s        <span class="number">285.989</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">西安电信                  1</span>.<span class="number">18</span> Mbit/s       <span class="number">14.14</span> Mbit/s        <span class="number">613.537</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">北京联通                  5</span>.<span class="number">22</span> Mbit/s       <span class="number">8.53</span> Mbit/s         <span class="number">227.366</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">--------------------------------------------------------------------------</span><br><span class="line">合肥        : 284</span>.<span class="number">08</span> <span class="keyword">ms</span>  <span class="title">北京        : 156</span>.<span class="number">46</span> <span class="keyword">ms</span>  <span class="title">武汉        : 220</span>.<span class="number">27</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">昌吉        : Fail</span>       成都        : Fail       上海        : Fail</span><br><span class="line">太原        : <span class="number">150.52</span> <span class="keyword">ms</span>  <span class="title">杭州        : 253</span>.<span class="number">47</span> <span class="keyword">ms</span>  <span class="title">宁夏        : 215</span>.<span class="number">19</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">呼和浩特    : 314</span>.<span class="number">77</span> <span class="keyword">ms</span>  <span class="title">南昌        : Fail</span>       拉萨        : Fail</span><br><span class="line">乌鲁木齐    : Fail       天津        : <span class="number">193.91</span> <span class="keyword">ms</span>  <span class="title">襄阳        : Fail</span></span><br><span class="line">郑州        : <span class="number">204.58</span> <span class="keyword">ms</span>  <span class="title">沈阳        : Fail</span>       兰州        : <span class="number">219.88</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">哈尔滨      : Fail</span>       宁波        : Fail       苏州        : Fail</span><br><span class="line">济南        : <span class="number">221.36</span> <span class="keyword">ms</span>  <span class="title">西安        : 224</span>.<span class="number">75</span> <span class="keyword">ms</span>  <span class="title">西宁        : Fail</span></span><br><span class="line">重庆        : <span class="number">308.55</span> <span class="keyword">ms</span>  <span class="title">深圳        : Fail</span>       南京        : Fail</span><br><span class="line">长沙        : Fail       长春        : <span class="number">217.95</span> <span class="keyword">ms</span>  <span class="title">福州        : 264</span>.<span class="number">14</span> <span class="keyword">ms</span></span><br><span class="line"><span class="title">--------------------------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:08:55.513Z" itemprop="dateUpdated">2020-11-26 18:08:55</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-面向对象/">Python 面向对象</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/&title=《Python 面向对象:属性_类方法_静态方法》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/&title=《Python 面向对象:属性_类方法_静态方法》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:属性_类方法_静态方法》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/02模块/09 configparser模块/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模块:cofingparser模块</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/02模块/10 logging模块/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 模块:logging模块</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/&title=《Python 面向对象:属性_类方法_静态方法》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/&title=《Python 面向对象:属性_类方法_静态方法》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:属性_类方法_静态方法》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/05属性_类方法_静态方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3aQW7bQBAEQP//0841AWKqe4YGxFXxZMiUxFodBtu9X1/x9X15/XRn8vrf/82fIfnMGy5sbGzsh7AT0vXr7be04OST258HGxsb+zx28nHt4GmRyXC6XvriObGxsbE/nv1iPFyOk80918+GjY2NjZ2wr8dSi0wWKx9y2NjY2J/MTkKl316sZFjmhcFtWRo2Njb227NnEfx7/v0r/TY2Njb2G7O/yytfmtn2Y1ZF1ApsbGzsg9j5AJiFRHkZsN+o1M+PjY2NfQQ7idr3Mf3syObmXS/ux8bGxj6IfW+Ik7+3DfTbZY22QNjY2NhHs/O6d1PZ5t+7CZ6iUAkbGxv7CPamBphF//vKIQ+/oroXGxsb++HsTfaSvJKPrs1moz5zio2Njf1wdvLRSRiUL187wPJlLTYt2NjY2AexZ3VpWwm3NcBdjHaLhY2Njf109l2HbGaLlQPy6jfabmFjY2Mfx84L1zxUag901qnYporAxsbGfjh7E9O0x3Hawrj9GfKKAhsbG/s89r2HIO8aY8ly5Id1fjx2iY2Njf1wdh4htQXwLEhqtxyrIYqNjY19BDsfHnmIMyuA95VDkaJhY2NjfwB79oizbcMs+m+f9p87sbGxsQ9i7+vedqOS1LF51JWPrhc/GDY2NvZB7Dxm2sRG0VCJQ6vNUMTGxsY+g92G9bMNRv4J+aKsgi1sbGzsI9iz4y/tnfdWCLOfoW6JsbGxsR/FbsP3dqOSD6f2IE5bIfynFcHGxsY+gn3X2EgCoPp4TfzefJODjY2NfRI7D/o3m4F8pM2ODc1KaGxsbOyT2LOI565xkhwMSr6lDsWwsbGxj2PnNe0s6J+NmXbpi+M72NjY2MexZ7XrbLBtCuCkfo62N9jY2NhHsL/Lqz2yk0dIOWC/3NjY2NgnsfNrdpimZe9Dpbx4xsbGxj6JnQyt2QBrl3VfPBflMTY2NvZx7HwjMRtd7QGg9nnqxcXGxsb+YPZ+vM1ConyLUhe92NjY2B/J3tQD7dK0pUUyOLGxsbHPY7cbhiSs3/ByQB6EYWNjY5/K3sf3+aPsq4VkWEYDDBsbG/sE9h9wIz7a/GJxuAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

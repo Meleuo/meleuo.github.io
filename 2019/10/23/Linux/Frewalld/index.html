@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>linux Frewalld文档 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux,防火墙">
+    <meta name="description" content="[toc]
+FrewallFrewall 是Centos7 下的默认防火墙，之前一直偷懒继续使用iptables。
+如今Centos 8都出来好长时间了，我才开始研究这个～～
+
+初识FrewallFrewall 底层调用的还是iptables，但是firewall和iptables不同的地方在于
+
+firewall 使用区域和服务的理念管理规则,Iptables 使用链式结构管理规则
+firewa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux Frewalld文档">
+<meta property="og:url" content="http://example.com/2019/10/23/Linux/Frewalld/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="[toc]
+FrewallFrewall 是Centos7 下的默认防火墙，之前一直偷懒继续使用iptables。
+如今Centos 8都出来好长时间了，我才开始研究这个～～
+
+初识FrewallFrewall 底层调用的还是iptables，但是firewall和iptables不同的地方在于
+
+firewall 使用区域和服务的理念管理规则,Iptables 使用链式结构管理规则
+firewa">
+<meta property="og:updated_time" content="2020-11-26T08:14:44.536Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux Frewalld文档">
+<meta name="twitter:description" content="[toc]
+FrewallFrewall 是Centos7 下的默认防火墙，之前一直偷懒继续使用iptables。
+如今Centos 8都出来好长时间了，我才开始研究这个～～
+
+初识FrewallFrewall 底层调用的还是iptables，但是firewall和iptables不同的地方在于
+
+firewall 使用区域和服务的理念管理规则,Iptables 使用链式结构管理规则
+firewa">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">linux Frewalld文档</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">linux Frewalld文档</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-23T08:05:00.000Z" itemprop="datePublished" class="page-time">
+  2019-10-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Frewall"><span class="post-toc-number">1.</span> <span class="post-toc-text">Frewall</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初识Frewall"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">初识Frewall</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#firewall-配置群"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">firewall 配置群</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#firewall-配置服务规则"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">firewall 配置服务规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#firewall-端口规则配置"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">firewall 端口规则配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#firewall-端口转发"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">firewall 端口转发</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#firewall-配置范例"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">firewall 配置范例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#firewall-高级配置"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">firewall 高级配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#firewall-总结"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">firewall 总结</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux/Frewalld"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">linux Frewalld文档</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-23 16:05:00" datetime="2019-10-23T08:05:00.000Z"  itemprop="datePublished">2019-10-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>[toc]</p>
+<h1 id="Frewall"><a href="#Frewall" class="headerlink" title="Frewall"></a>Frewall</h1><p>Frewall 是Centos7 下的默认防火墙，之前一直偷懒继续使用iptables。</p>
+<p>如今Centos 8都出来好长时间了，我才开始研究这个～～</p>
+<p><br></p>
+<h2 id="初识Frewall"><a href="#初识Frewall" class="headerlink" title="初识Frewall"></a>初识Frewall</h2><p>Frewall 底层调用的还是iptables，但是firewall和iptables不同的地方在于</p>
+<ul>
+<li>firewall 使用区域和服务的理念管理规则,Iptables 使用链式结构管理规则</li>
+<li>firewall 动态管理规则,允许更新规则时不会破坏现有的连接.</li>
+</ul>
+<blockquote>
+<p>计算机内所有的规则基本上都是拒绝优先,firewall也不例外.</p>
+</blockquote>
+<p>redhat 系列的在新版本中 都预装使用了Firewall 作为默认的防火墙</p>
+<p>debian系列默认的是iptables,使用apt安装firewalld即可.</p>
+<p>管理使用 <code>systemctl</code> 管理工具</p>
+<p><br></p>
+<p>firewall 的配置主配置文件在<code>/etc/firewalld/</code>下</p>
+<p>firewall还有一个目录就是<code>/usr/lib/firewall/</code>这里面放的全都是</p>
+<p>firewall的规则相关配置文件.firewall的规则配置文件使用的 <code>XML</code>,除非有特殊的配置,否则你应该使用 <code>firewall-cmd</code>来管理规则.</p>
+<p><br><br></p>
+<h2 id="firewall-配置群"><a href="#firewall-配置群" class="headerlink" title="firewall 配置群"></a>firewall 配置群</h2><p>firewalld使用2个配置集: <code>运行时</code>和<code>持久</code>,重启firewall后没有持久保存的 规则,重启后都得不到应用,重启后只会应用 持久保持的规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-service=http <span class="comment"># 应用规则到运行时配置集中</span></span><br><span class="line">firewall-cmd --zone=dmz --add-service=http --permanent	<span class="comment"># --permanent 持久</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd	--reload 	<span class="comment"># 重新加载firewall-cmd 配置</span></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<p>##　firewall 的区域</p>
+<p>什么是区域?</p>
+<p>windows 的防火墙也是按照区域划分的, <code>家庭</code>,<code>办公</code>,<code>公共</code>就是3个区域, </p>
+<p>firewall也是类似的逻辑, <strong>区域</strong>是给在特定的网络场景下构建的不同规则集,  你可以为不同的网络环境启用不同的区域, 比如你在公司时启用了work区域,放行samba服务器和同事共享文件, 但是在咖啡厅启用public只允许自己访问外部网络. 拒绝外部的不必要访问.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-add-zones	<span class="comment"># 查看系统上的所有区域的配置</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=[zone] --list-all	<span class="comment">#查看指定区域的配置</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --get-acteve-zones	<span class="comment">#查看系统网卡默认配置的区域</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --get-default-zone	<span class="comment">#查看系统默认的区域</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd -set-default-zone=[zone]	<span class="comment">#修改系统默认的区域</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-interface=[Network card] <span class="comment"># 把指定网卡添加到指定区域中</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>firewall-cmd 的其他命令都有一个可选项 <code>--zone=[zone]</code>指定操作的区域,如果不加默认就操作default zone.</p>
+</blockquote>
+<p><br><br></p>
+<h2 id="firewall-配置服务规则"><a href="#firewall-配置服务规则" class="headerlink" title="firewall 配置服务规则"></a>firewall 配置服务规则</h2><p>firewall 预设了许多网络服务的规则,配置文件 <code>/usr/lib/firewall/service/</code> 下,当然,你也可以为您自己的网络服务编写一个 <code>XML</code>配置文件放在该目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@server ~]<span class="comment"># ls /usr/lib/firewalld/services/</span></span><br><span class="line">RH-Satellite-<span class="number">6</span>.xml       isns.xml                  quassel.xml</span><br><span class="line">amanda-client.xml        jenkins.xml               radius.xml</span><br><span class="line">................</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --get-service	<span class="comment"># 查看所有可用的 网络服务规则</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-service=http	<span class="comment"># 放行http服务的端口</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --remove-service=http	<span class="comment"># 删除/禁用 http服务的放行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --list-services	<span class="comment">#查看放行的所有网络服务</span></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h2 id="firewall-端口规则配置"><a href="#firewall-端口规则配置" class="headerlink" title="firewall 端口规则配置"></a>firewall 端口规则配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz	--add-port=<span class="number">80</span>/tcp <span class="comment"># 放行tcp下的80端口</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --remove-port=<span class="number">80</span>/tcp <span class="comment"># 删除放行tcp/80 的规则</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --list-ports	<span class="comment">#查看放行的全部端口</span></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h2 id="firewall-端口转发"><a href="#firewall-端口转发" class="headerlink" title="firewall 端口转发"></a>firewall 端口转发</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-forward-port=port=<span class="number">80</span>:proto=tcp:toport=<span class="number">8080</span>	<span class="comment"># 将80端口的流量转发到8080端口上</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>IP地址转发需要给区域启用 <code>masqueeade</code> (IP地址伪装)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-masquerade <span class="comment"># 给dmz区域启用IP地址伪装</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --remove-masqueeade <span class="comment"># 禁用</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-forward-port=port=<span class="number">80</span>:proto=tcp:toport=<span class="number">80</span>:toaddr=<span class="number">192.168</span>.<span class="number">1.5</span> <span class="comment"># 将通往本机80端口的流量转发给 192.168.1.5:80上</span></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h2 id="firewall-配置范例"><a href="#firewall-配置范例" class="headerlink" title="firewall 配置范例"></a>firewall 配置范例</h2><p>配置一个适用于普通的web服务器的规则集</p>
+<p>这里使用firewalld内置的 dmz区域,使用 dmz的原因是:</p>
+<ul>
+<li>dmz默认允许所有出站流量</li>
+<li>允许所有icmp流量(ping)的入站</li>
+<li>允许22(ssh)的入站请求</li>
+<li>其他入站全部拒绝</li>
+</ul>
+<p>这个区域的预设规则非常合适初始化使用.这里把dmz设置为默认的区域</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --set-default-zone=dmz</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>我给外网提供服务的IP绑定在<code>eth0</code>网卡上,把网卡添加到 dmz区域中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-interface=eth0</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>放行服务和端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-service=http</span><br><span class="line">firewall-cmd --zone=dmz --add-service=http --permanent</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-service=https</span><br><span class="line">firewall-cmd --zone=dmz --add-service=https --permanent</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=dmz --add-port=<span class="number">8080</span>/tcp</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>操作实例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[root@server ~]<span class="comment"># firewall-cmd --set-default-zone=public</span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --set-default-zone=dmz   </span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --zone=dmz --add-interface=eth0</span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --add-service=http</span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --add-service=http --permanent</span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --add-service=https</span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --add-service=https --permanent</span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --add-port=8080/tcp            </span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --add-port=8080/tcp --permanent</span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --reload </span></span><br><span class="line">success</span><br><span class="line">[root@server ~]<span class="comment"># firewall-cmd --list-all # 查看默认区域的全部规则</span></span><br><span class="line">dmz (active)</span><br><span class="line">  target: default</span><br><span class="line">  icmp-block-inversion: no</span><br><span class="line">  interfaces: eth0</span><br><span class="line">  sources: </span><br><span class="line">  services: http https ssh</span><br><span class="line">  ports: <span class="number">8080</span>/tcp</span><br><span class="line">  protocols: </span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports: </span><br><span class="line">  <span class="built_in">source</span>-ports: </span><br><span class="line">  icmp-blocks: </span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h2 id="firewall-高级配置"><a href="#firewall-高级配置" class="headerlink" title="firewall 高级配置"></a>firewall 高级配置</h2><p>firewall 高级配置有很多, 请查阅man或者官方手册</p>
+<p><br></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-rich-rule=<span class="string">'rule family="ipv4" source address=192.168.1.5 reject'</span> <span class="comment"># 拒绝来自192.168.1.5 的全部流量 accpet是放行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-rich-rule=<span class="string">'rule family="ipv3" address=192.168.1.15 port port=80 protocol=tcp reject'</span> <span class="comment"># 拒绝192.168.1.15访问本机的80/tcp端口</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-rich-rule=<span class="string">'rule family="ipv4" forward-port port=80 protocol=tcp to-port=80 to-addr=192.165.1.5'</span> <span class="comment"># 将本机上的80端口的访问转发到192.168.1.5:80上 (需要开启masquerade)</span></span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h2 id="firewall-总结"><a href="#firewall-总结" class="headerlink" title="firewall 总结"></a>firewall 总结</h2><p>firewall删除规则基本上就是 把 <code>--add...</code> 改为 <code>--remove....</code>就行了,</p>
+<p>firewall 没有提供删除全部 持久规则的方法.但是你可以直接清空对应区域的配置文件, 例如 :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; /etc/firewalld/zones/dmz.xml</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<blockquote>
+<p> 有了预设的service和区域这个概念, 相比于iptables</p>
+<p> firewall的配置确实方便很多</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T08:14:44.536Z" itemprop="dateUpdated">2020-11-26 16:14:44</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/23/Linux/Frewalld/" target="_blank" rel="external">http://example.com/2019/10/23/Linux/Frewalld/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/防火墙/">防火墙</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/10/23/Linux/Frewalld/&title=《linux Frewalld文档》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/10/23/Linux/Frewalld/&title=《linux Frewalld文档》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2019/10/23/Linux/Frewalld/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux Frewalld文档》 — Msrte-人生苦短,何妨一试&url=http://example.com/2019/10/23/Linux/Frewalld/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2019/10/23/Linux/Frewalld/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/前端/05_Bootstrap/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端 Bootstrap</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/01/Linux/Ubuntu_Debian_时间同步/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu and Debian时间同步</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2019/10/23/Linux/Frewalld/&title=《linux Frewalld文档》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2019/10/23/Linux/Frewalld/&title=《linux Frewalld文档》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2019/10/23/Linux/Frewalld/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux Frewalld文档》 — Msrte-人生苦短,何妨一试&url=http://example.com/2019/10/23/Linux/Frewalld/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2019/10/23/Linux/Frewalld/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACF0lEQVR42u3ay4rDMAwF0P7/T2dgVgMl4UpyB2ofr0Iftk8WwrL0esXj+h13n7x/+/fz9/E8z91sCwYGBsbXMq7HcbdAdXP5a3pe5ZaKgYFxACOZ+nlz1RA8nwcDAwMjCYJJ8M0DdILEwMDAyBl5svqJYyUGBsaZjGQr1Qu153ny58W5OAYGxhcyqoWB/3z+YH0DAwPjSxhXcVSLmtWSQHNXGBgYWzN6V12r/tVrsCiccDEwMLZmVJeZtHz1DotRwMXAwNiC0QtzPWT+yvKAjoGBcQKjt0w1sM7nKdQ3MDAwtmPMA2Vv073S5m0gxsDAOIyRbzEpG1QLA/kVHgYGxmmM6p+rxchVYff29xgYGAcwCjWEeHPlAuSgCQMDA+McRnXSpIWiOls16GNgYGD0rvWrh79ekoyBgXEmIwpt4+C4qr0DAwPjNEZ+7Os1Saw6dEa3hhgYGNsx8oU/11QxKT9gYGCcwyg0YBW/rR4TmyVMDAyMrRn5hX4hpWwlwBMeBgbGaYw88H0uia0mzBgYGHszJs0Qky2+WiMvbWJgYOzEuIqjx560aEQlUgwMjK0Z1WDXu6yf3AWOjoYYGBgbMZIgW6gwLLqqKxckMDAwDmDkYbT3XGjwar0UDAwMjLzBa54Aj46GGBgYGK32r+Ra7XmVaD8YGBgHMHpJbO9irto0FoVyDAyMrRnVwsDapHSePGNgYGzN+AG6361jwWtEwgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

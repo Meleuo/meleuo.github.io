@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Kubernetes K8s微服务实战 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习笔记:Kubernetes">
+    <meta name="description" content="k8s实战架构图
+                
+                    
+                    
+                
+                image-20200627182732619
+            
+安装zookeeper
+k8s-11 k8s-12 k8s-21
+
+配置jdk环境1cd /opt/src/
+1wget h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes K8s微服务实战">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="k8s实战架构图
+                
+                    
+                    
+                
+                image-20200627182732619
+            
+安装zookeeper
+k8s-11 k8s-12 k8s-21
+
+配置jdk环境1cd /opt/src/
+1wget h">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200627182732619.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200630105212206.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/jenkins.od.com_job_dubbo-demo_configure.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701180040552.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701110118012.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701113347745.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701145316044.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701180010671.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701175952223.png">
+<meta property="og:updated_time" content="2020-11-26T09:18:21.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kubernetes K8s微服务实战">
+<meta name="twitter:description" content="k8s实战架构图
+                
+                    
+                    
+                
+                image-20200627182732619
+            
+安装zookeeper
+k8s-11 k8s-12 k8s-21
+
+配置jdk环境1cd /opt/src/
+1wget h">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Kubernetes K8s微服务实战</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Kubernetes K8s微服务实战</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#k8s实战"><span class="post-toc-number">1.</span> <span class="post-toc-text">k8s实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#架构图"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">架构图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装zookeeper"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装zookeeper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置jdk环境"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">配置jdk环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装zookper"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">安装zookper</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#部署Jenkins-到k8s"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">部署Jenkins 到k8s</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#部署nfs服务"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">部署nfs服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备jenkins镜像"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">准备jenkins镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#托管到k8s"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">托管到k8s</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为jenkins安装Maven"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">为jenkins安装Maven</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#dubbo-微服务"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">dubbo 微服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备基础的jre环境"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">准备基础的jre环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置jenkins构建dubbo微服务"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">配置jenkins构建dubbo微服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#构建dubbo-demo-server"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">构建dubbo-demo-server</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dubbo-demo-server托管到k8s"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">dubbo-demo-server托管到k8s</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dubbo-monitor"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">dubbo-monitor</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#构建dubbo-demo-consumer"><span class="post-toc-number">1.4.2.4.</span> <span class="post-toc-text">构建dubbo-demo-consumer</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dubbo-demo-consumer托管到k8s"><span class="post-toc-number">1.4.2.5.</span> <span class="post-toc-text">dubbo-demo-consumer托管到k8s</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dubbo-demo改版-过程"><span class="post-toc-number">1.4.2.6.</span> <span class="post-toc-text">dubbo-demo改版 过程</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/kubernetes/06_k8s微服务实战"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Kubernetes K8s微服务实战</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="k8s实战"><a href="#k8s实战" class="headerlink" title="k8s实战"></a>k8s实战</h1><h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200627182732619.png" alt="image-20200627182732619" title>
+                </div>
+                <div class="image-caption">image-20200627182732619</div>
+            </figure>
+<h2 id="安装zookeeper"><a href="#安装zookeeper" class="headerlink" title="安装zookeeper"></a>安装zookeeper</h2><blockquote>
+<p>k8s-11 k8s-12 k8s-21</p>
+</blockquote>
+<h3 id="配置jdk环境"><a href="#配置jdk环境" class="headerlink" title="配置jdk环境"></a>配置jdk环境</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/src/</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://file.ipython.run:20443/Linux/java/jdk-8u221-linux-x64.tar.gz&#10;&#10;mkdir /usr/java/&#10;tar xf jdk-8u221-linux-x64.tar.gz -C /usr/java/&#10;&#10;ln -s /usr/java/jdk1.8.0_221 /usr/java/jdk</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile&#10;&#10;export JAVA_HOME=/usr/java/jdk&#10;export PATH=$JAVA_HOME/bin:$JAVA_HOME/bin:$PATH&#10;export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile&#10;&#10;~]# java -version&#10;java version &#34;1.8.0_221&#34;&#10;Java(TM) SE Runtime Environment (build 1.8.0_221-b11)&#10;Java HotSpot(TM) 64-Bit Server VM (build 25.221-b11, mixed mode)</span><br></pre></td></tr></table></figure>
+<h3 id="安装zookper"><a href="#安装zookper" class="headerlink" title="安装zookper"></a>安装zookper</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/src</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://file.ipython.run:20443/Linux/zookeeper/zookeeper-3.4.14.tar.gz&#10;&#10;&#10;tar -xf zookeeper-3.4.14.tar.gz -C /opt/&#10;ln -s /opt/zookeeper-3.4.14/ /opt/zookeeper&#10;&#10;mkdir /data/zookeeper/data /data/zookeeper/logs</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; /opt/zookeeper/conf/zoo.cfg &#60;&#60;-EOF&#10;tickTime=2000&#10;initLimit=10&#10;syncLimit=5&#10;dataDir=/data/zookeeper/data&#10;dataLogDir=/data/zookeeper/logs&#10;clientPort=2181&#10;server.1=zk1.od.com:2888:3888&#10;server.2=zk2.od.com:2888:3888&#10;server.3=zk3.od.com:2888:3888&#10;EOF</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>别忘记配置 bind9</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#22312; zookeeper  &#38598;&#32676;&#19978;&#30340;3&#21488;&#20027;&#26426;&#19978;&#20998;&#21035;&#23450;&#20041;&#19968;&#20010;id&#10;echo 1 &#62; /data/zookeeper/data/myid    #k8s-11&#10;echo 2 &#62; /data/zookeeper/data/myid    #k8s-12&#10;echo 3 &#62; /data/zookeeper/data/myid    #k8s-21</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动zookeeper</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/zookeeper/bin/zkServer.sh start&#10;opt]# /opt/zookeeper/bin/zkServer.sh  status&#10;ZooKeeper JMX enabled by default&#10;Using config: /opt/zookeeper/bin/../conf/zoo.cfg&#10;Mode: follower</span><br></pre></td></tr></table></figure>
+<h2 id="部署Jenkins-到k8s"><a href="#部署Jenkins-到k8s" class="headerlink" title="部署Jenkins 到k8s"></a>部署Jenkins 到k8s</h2><h3 id="部署nfs服务"><a href="#部署nfs服务" class="headerlink" title="部署nfs服务"></a>部署nfs服务</h3><p>jenkins的构建文件是需要保留的，所以需要使用到共享存储，这里选用nfs</p>
+<blockquote>
+<p> 全部节点安装 nfs-utils</p>
+</blockquote>
+<blockquote>
+<p>k8s-200</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; /etc/exports &#60;&#60;-EOF&#10;/data/nfs_volume 10.10.10.0/24(rw,no_root_squash)&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nfs&#10;&#10; ~]# showmount -e 10.10.10.200&#10;Export list for 10.10.10.200:&#10;/data/nfs_volume 10.10.10.0/24</span><br></pre></td></tr></table></figure>
+<h3 id="准备jenkins镜像"><a href="#准备jenkins镜像" class="headerlink" title="准备jenkins镜像"></a>准备jenkins镜像</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull jenkins/jenkins:2.190.3&#10;docker tag 22b8b9a84dbe harbor.od.com/public/jenkins:v2.190.3</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mkidr jenkins;cd jenkins </span><br><span class="line"></span><br><span class="line">jenkins]<span class="comment"># cat &gt; Dockerfile  &lt;&lt;-EOF</span></span><br><span class="line"><span class="built_in">FROM</span> harbor.od.com/public/jenkins:v2.<span class="number">190.3</span></span><br><span class="line"><span class="built_in">USER</span> root</span><br><span class="line"></span><br><span class="line"><span class="built_in">RUN</span> <span class="bash">/bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="string">"Asia/Shanghai"</span> &gt; /etc/timezone</span><br><span class="line"></span></span><br><span class="line"><span class="built_in">ADD</span> <span class="bash">id_rsa /root/.ssh/id_rsa</span><br><span class="line"></span><span class="built_in">ADD</span> <span class="bash">config.json /root/.docker/config.json</span><br><span class="line"></span></span><br><span class="line"><span class="built_in">ADD</span> <span class="bash">get-docker.sh /get-docker.sh</span><br><span class="line"></span></span><br><span class="line"><span class="built_in">RUN</span> <span class="bash"><span class="built_in">echo</span> <span class="string">"      StrictHostKeyChecking no"</span> &gt;&gt; /etc/ssh/ssh_config</span><br><span class="line"></span><span class="built_in">RUN</span> <span class="bash">/get-docker.sh</span><br><span class="line"></span>EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config.json 文件为 docker harbor仓库的认证文件</span><br><span class="line">get-docker.sh   是从 get.docker.com curl下来的安装docker client安装脚本</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>现在 harbor上创建一个infra 私有仓库</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build . -t  harbor<span class="class">.od</span><span class="class">.com</span>/infra/jenkins:v2.<span class="number">190.3</span></span><br></pre></td></tr></table></figure>
+<h3 id="托管到k8s"><a href="#托管到k8s" class="headerlink" title="托管到k8s"></a>托管到k8s</h3><ul>
+<li>在k8s上创建一个infra名称空间</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create ns infra</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在infra创建一个secret 为docker-registry类型</li>
+</ul>
+<p>由于jenkins 放在似有仓库中， k8s再拉去镜像时需要想harbor认证，不然三拉不下来的</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  create secret docker-registry harbor --docker-server=harbor.od.com --docker-username=admin --docker-password=Harbor12345  -n infra&#10;&#10;&#10;&#10;docker-resitry&#9;&#9;&#25351;&#23450;&#20026;docker-registr&#31867;&#22411;&#10;harbor&#9;&#9;&#9;&#9;&#36825;&#20010;&#23494;&#38053;&#30340;&#21517;&#23383;&#10;--docker-username&#9;harbor&#30340;&#29992;&#25143;&#21517;&#10;--docker-password&#9;harbor&#30340;&#23494;&#30721;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备资源配置清单</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; dp.yaml  &#60;&#60;-EOF&#10;kind: Deployment&#10;apiVersion: extensions/v1beta1&#10;metadata:&#10;  name: jenkins&#10;  namespace: infra&#10;  labels: &#10;    name: jenkins&#10;spec:&#10;  replicas: 1&#10;  selector:&#10;    matchLabels: &#10;      name: jenkins&#10;  template:&#10;    metadata:&#10;      labels: &#10;        app: jenkins &#10;        name: jenkins&#10;    spec:&#10;      volumes:&#10;      - name: data&#10;        nfs: &#10;          server: k8s-200&#10;          path: /data/nfs_volume/jenkins_home&#10;      - name: docker&#10;        hostPath: &#10;          path: /run/docker.sock   &#10;          type: &#39;&#39;&#10;      containers:&#10;      - name: jenkins&#10;        image: harbor.od.com/infra/jenkins:v2.190.3&#10;        imagePullPolicy: IfNotPresent  &#10;        ports:&#10;        - containerPort: 8080&#10;          protocol: TCP&#10;        env:&#10;        - name: JAVA_OPTS&#10;          value: -Xmx512m -Xms512m&#10;        volumeMounts:&#10;        - name: data&#10;          mountPath: /var/jenkins_home&#10;        - name: docker&#10;          mountPath: /run/docker.sock&#10;      imagePullSecrets:&#10;      - name: harbor&#10;      securityContext: &#10;        runAsUser: 0&#10;  strategy:&#10;    type: RollingUpdate&#10;    rollingUpdate: &#10;      maxUnavailable: 1&#10;      maxSurge: 1&#10;  revisionHistoryLimit: 7&#10;  progressDeadlineSeconds: 600&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; svc.yaml  &#60;&#60;-EOF&#10;kind: Service&#10;apiVersion: v1&#10;metadata: &#10;  name: jenkins&#10;  namespace: infra&#10;spec:&#10;  ports:&#10;  - protocol: TCP&#10;    port: 80&#10;    targetPort: 8080&#10;  selector:&#10;    app: jenkins&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; ingrees.yaml  &#60;&#60;-EOF&#10;kind: Ingress&#10;apiVersion: extensions/v1beta1&#10;metadata: &#10;  name: jenkins&#10;  namespace: infra&#10;spec:&#10;  rules:&#10;  - host: jenkins.od.com&#10;    http:&#10;      paths:&#10;      - path: /&#10;        backend: &#10;          serviceName: jenkins&#10;          servicePort: 80&#10;EOF</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动jenkins</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  apply -f http://k8s-yaml.od.com/jenkins/dp.yaml&#10;kubectl  apply -f http://k8s-yaml.od.com/jenkins/svc.yaml&#10;kubectl  apply -f http://k8s-yaml.od.com/jenkins/ingrees.yaml</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>jenkins启动较慢</p>
+</blockquote>
+<blockquote>
+<p>启动成功后 安装 <code>Blue Ocean</code> 插件</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200630105212206.png" alt="image-20200630105212206" title>
+                </div>
+                <div class="image-caption">image-20200630105212206</div>
+            </figure>
+<h3 id="为jenkins安装Maven"><a href="#为jenkins安装Maven" class="headerlink" title="为jenkins安装Maven"></a>为jenkins安装Maven</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/src/&#10;wget https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xf apache-maven-3.6.1-bin.tar.gz  -C /data/nfs_volume/jenkins_home/&#10;mv apache-maven-3.6.1 maven-3.6.1-8u232</span><br></pre></td></tr></table></figure>
+<ul>
+<li>给maven 配置国内源</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /data/nfs_volume/jenkins_home/maven-3.6.1-8u232/conf&#10;&#10;vim settings.xml&#10;  &#60;mirrors&#62;&#10;    &#60;mirror&#62;&#10;        &#60;id&#62;nexus-aliyun&#60;/id&#62;&#10;        &#60;mirrorOf&#62;central&#60;/mirrorOf&#62;&#10;        &#60;name&#62;Nexus aliyun&#60;/name&#62;&#10;        &#60;url&#62;http://maven.aliyun.com/nexus/content/groups/public&#60;/url&#62;&#10;    &#60;/mirror&#62;&#10;  &#60;/mirrors&#62;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@jenkins-d69ddffd8-fdrww:/var/jenkins_home/maven-3.6.1-8u232/bin# ./mvn -version&#10;Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-05T03:00:29+08:00)&#10;Maven home: /var/jenkins_home/maven-3.6.1-8u232&#10;Java version: 1.8.0_232, vendor: Oracle Corporation, runtime: /usr/local/openjdk-8/jre&#10;Default locale: en, platform encoding: UTF-8&#10;OS name: &#34;linux&#34;, version: &#34;4.4.227-1.el7.elrepo.x86_64&#34;, arch: &#34;amd64&#34;, family: &#34;unix&#34;</span><br></pre></td></tr></table></figure>
+<h2 id="dubbo-微服务"><a href="#dubbo-微服务" class="headerlink" title="dubbo 微服务"></a>dubbo 微服务</h2><h3 id="准备基础的jre环境"><a href="#准备基础的jre环境" class="headerlink" title="准备基础的jre环境"></a>准备基础的jre环境</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull stanleyws/jre8:8u112&#10;docker tag fa3a085d6ef1 harbor.od.com/public/jre:8u112&#10;docker push harbor.od.com/public/jre:8u112</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /dat/Dockerfile/jre8&#10;cd !$</span><br></pre></td></tr></table></figure>
+<ul>
+<li>制作Dockerfile</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; Dockerfile  &#60;&#60;-EOF&#10;FROM harbor.od.com/public/jre:8u112&#10;RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &#38;&#38;\&#10;    echo &#39;Asia/Shanghai&#39; &#62;/etc/timezone&#10;ADD config.yml /opt/prom/config.yml&#10;ADD jmx_javaagent-0.3.1.jar /opt/prom/&#10;WORKDIR /opt/project_dir&#10;ADD entrypoint.sh /entrypoint.sh&#10;CMD [&#34;/entrypoint.sh&#34;]&#10;EOF</span><br></pre></td></tr></table></figure>
+<ul>
+<li>后期普罗米修斯监控需要用到的配置文件</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; config.yml  &#60;&#60;-EOF&#10;--- &#10;rules: &#10; - pattern: &#39;.*&#39;&#10;EOF</span><br></pre></td></tr></table></figure>
+<ul>
+<li>普罗米修斯采集jvm信息的一个 jar包</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.3.1/jmx_prometheus_javaagent-0.3.1.jar -O jmx_javaagent-0.3.1.jar</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动脚本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; entrypoint.sh  &#60;&#60;-EOF&#10;#!/bin/sh&#10;M_OPTS=&#34;-Duser.timezone=Asia/Shanghai -javaagent:/opt/prom/jmx_javaagent-0.3.1.jar=$(hostname -i):$&#123;M_PORT:-&#34;12346&#34;&#125;:/opt/prom/config.yml&#34;&#10;C_OPTS=$&#123;C_OPTS&#125;&#10;JAR_BALL=$&#123;JAR_BALL&#125;&#10;exec java -jar $&#123;M_OPTS&#125; $&#123;C_OPTS&#125; $&#123;JAR_BALL&#125;&#10;EOF</span><br></pre></td></tr></table></figure>
+<ul>
+<li>build</li>
+</ul>
+<blockquote>
+<p>事先要在 harbor中创建 base 公开仓库</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build . -t harbor.od.com/base/jre8:8u112&#10;docker push harbor.od.com/base/jre8:8u112</span><br></pre></td></tr></table></figure>
+<h3 id="配置jenkins构建dubbo微服务"><a href="#配置jenkins构建dubbo微服务" class="headerlink" title="配置jenkins构建dubbo微服务"></a>配置jenkins构建dubbo微服务</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/jenkins.od.com_job_dubbo-demo_configure.png" alt="jenkins.od.com_job_dubbo-demo_configure" title>
+                </div>
+                <div class="image-caption">jenkins.od.com_job_dubbo-demo_configure</div>
+            </figure>
+<ul>
+<li>流水线剧本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;&#10;  agent any &#10;    stages &#123;&#10;      stage(&#39;pull&#39;) &#123; //get project code from repo &#10;        steps &#123;&#10;          sh &#34;git clone $&#123;params.git_repo&#125; $&#123;params.app_name&#125;/$&#123;env.BUILD_NUMBER&#125; &#38;&#38; cd $&#123;params.app_name&#125;/$&#123;env.BUILD_NUMBER&#125; &#38;&#38; git checkout $&#123;params.git_ver&#125;&#34;&#10;        &#125;&#10;      &#125;&#10;      stage(&#39;build&#39;) &#123; //exec mvn cmd&#10;        steps &#123;&#10;          sh &#34;cd $&#123;params.app_name&#125;/$&#123;env.BUILD_NUMBER&#125;  &#38;&#38; /var/jenkins_home/maven-$&#123;params.maven&#125;/bin/$&#123;params.mvn_cmd&#125;&#34;&#10;        &#125;&#10;      &#125;&#10;      stage(&#39;package&#39;) &#123; //move jar file into project_dir&#10;        steps &#123;&#10;          sh &#34;cd $&#123;params.app_name&#125;/$&#123;env.BUILD_NUMBER&#125; &#38;&#38; cd $&#123;params.target_dir&#125; &#38;&#38; mkdir project_dir &#38;&#38; mv *.jar ./project_dir&#34;&#10;        &#125;&#10;      &#125;&#10;      stage(&#39;image&#39;) &#123; //build image and push to registry&#10;        steps &#123;&#10;          writeFile file: &#34;$&#123;params.app_name&#125;/$&#123;env.BUILD_NUMBER&#125;/Dockerfile&#34;, text: &#34;&#34;&#34;FROM harbor.od.com/$&#123;params.base_image&#125;&#10;ADD $&#123;params.target_dir&#125;/project_dir /opt/project_dir&#34;&#34;&#34;&#10;          sh &#34;cd  $&#123;params.app_name&#125;/$&#123;env.BUILD_NUMBER&#125; &#38;&#38; docker build -t harbor.od.com/$&#123;params.image_name&#125;:$&#123;params.git_ver&#125;_$&#123;params.add_tag&#125; . &#38;&#38; docker push harbor.od.com/$&#123;params.image_name&#125;:$&#123;params.git_ver&#125;_$&#123;params.add_tag&#125;&#34;&#10;        &#125;&#10;      &#125;&#10;    &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="构建dubbo-demo-server"><a href="#构建dubbo-demo-server" class="headerlink" title="构建dubbo-demo-server"></a>构建dubbo-demo-server</h4><blockquote>
+<p>项目地址: <code>https://github.com/Meleuo/dubbo-demo-service.git</code></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701180040552.png" alt="image-20200701180040552" title>
+                </div>
+                <div class="image-caption">image-20200701180040552</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701110118012.png" alt="image-20200701110118012" title>
+                </div>
+                <div class="image-caption">image-20200701110118012</div>
+            </figure>
+<h4 id="dubbo-demo-server托管到k8s"><a href="#dubbo-demo-server托管到k8s" class="headerlink" title="dubbo-demo-server托管到k8s"></a>dubbo-demo-server托管到k8s</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/k8s-yaml/dubbo-demo-service/&#10;cd !$</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; dp.yaml  &#60;&#60;-EOF&#10;kind: Deployment&#10;apiVersion: extensions/v1beta1&#10;metadata:&#10;  name: dubbo-demo-service&#10;  namespace: app&#10;  labels: &#10;    name: dubbo-demo-service&#10;spec:&#10;  replicas: 1&#10;  selector:&#10;    matchLabels: &#10;      name: dubbo-demo-service&#10;  template:&#10;    metadata:&#10;      labels: &#10;        app: dubbo-demo-service&#10;        name: dubbo-demo-service&#10;    spec:&#10;      containers:&#10;      - name: dubbo-demo-service&#10;        image: harbor.od.com/app/dubbo-demo-service:master_200701_0000&#10;        ports:&#10;        - containerPort: 20880&#10;          protocol: TCP&#10;        env:&#10;        - name: JAR_BALL&#10;          value: dubbo-server.jar&#10;        imagePullPolicy: IfNotPresent&#10;      imagePullSecrets:&#10;      - name: harbor&#10;      restartPolicy: Always&#10;      terminationGracePeriodSeconds: 30&#10;      securityContext: &#10;        runAsUser: 0&#10;      schedulerName: default-scheduler&#10;  strategy:&#10;    type: RollingUpdate&#10;    rollingUpdate: &#10;      maxUnavailable: 1&#10;      maxSurge: 1&#10;  revisionHistoryLimit: 7&#10;  progressDeadlineSeconds: 600&#10;EOF</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要创建app 名称空间</p>
+</blockquote>
+<ul>
+<li>在app名称空间中添加一个secret</li>
+</ul>
+<p>dubbo的镜像放在似有仓库中， so， 需要配置对于harbor的认证</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret docker-registry harbor --docker-server=harbor.od.com --docker-username=admin --docker-password=Harbor12345</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动dubbo</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  apply -f http://k8s-yaml.od.com/dubbo-demo-service/dp.yaml</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701113347745.png" alt="image-20200701113347745" title>
+                </div>
+                <div class="image-caption">image-20200701113347745</div>
+            </figure>
+<h4 id="dubbo-monitor"><a href="#dubbo-monitor" class="headerlink" title="dubbo-monitor"></a>dubbo-monitor</h4><p>dubbo-monitor 是一款用来监控dubbo服务的程序</p>
+<blockquote>
+<p><a href="https://github.com/Jeromefromcn/dubbo-monitor" target="_blank" rel="external">https://github.com/Jeromefromcn/dubbo-monitor</a></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/src&#10;&#10;git clone https://github.com/Jeromefromcn/dubbo-monitor.git&#10;cd dubbo-monitor/dubbo-monitor-simple/conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改dubbo-monitor 启动参数</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62;  dubbo_origin.properties  &#60;&#60;-EOF&#10;dubbo.container=log4j,spring,registry,jetty&#10;dubbo.application.name=dubbo-monitor&#10;dubbo.application.owner=dubbo-monitor-owner&#10;dubbo.registry.address=zookeeper://zk1.od.com:2181?backup=zk2.od.com:2181,zk3.od.com:2181&#10;dubbo.protocol.port=7070&#10;dubbo.jetty.port=18081&#10;dubbo.jetty.directory=/dubbo-monitor-simple/monitor&#10;dubbo.charts.directory=/dubbo-monitor-simple/charts&#10;dubbo.statistics.directory=/dubbo-monitor-simple/monitor/statistics&#10;dubbo.log4j.file=logs/dubbo-monitor-simple.log&#10;dubbo.log4j.level=WARN&#10;EOF</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改dubbo-monitor启动脚本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/src/dubbo-monitor/dubbo-monitor-simple/bin&#10;vim start.sh&#10;&#10;JAVA_MEM_OPTS=&#34; -server -Xmx128m -Xms128m -Xmn32m -XX:PermSize=16m -Xss256k -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 &#34;&#10;else&#10;JAVA_MEM_OPTS=&#34; -server -Xms128m -Xmx128m -XX:PermSize=16m -XX:SurvivorRatio=2 -XX:+UseParallelGC &#34;&#10;&#10;exec java $JAVA_OPTS $JAVA_MEM_OPTS $JAVA_DEBUG_OPTS $JAVA_JMX_OPTS -classpath $CONF_DIR:$LIB_JARS com.alibaba.dubbo.container.Main &#62; $STDOUT_FILE 2&#62;&#38;1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将配置好的duboo-monitor打包为镜像</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/src&#10;cp -a dubbo-monitor /data/Dockerfile&#10;cd /data/Dockerfile/dubbo-monitor&#10;&#10;docker build  . -t harbor.od.com/infra/dubbo-monitor:latest&#10;docker push harbor.od.com/infra/dubbo-monitor:latest</span><br></pre></td></tr></table></figure>
+<ul>
+<li>交付到k8s中</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/k8s-yaml/dubbo-monitor/&#10;cd /data/k8s-yaml/dubbo-monitor/</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; cm.yaml  &#60;&#60;-EOF&#10;apiVersion: v1&#10;kind: ConfigMap&#10;metadata:&#10;  name: dubbo-monitor-cm&#10;  namespace: infra&#10;data:&#10;  dubbo.properties: |&#10;    dubbo.container=log4j,spring,registry,jetty&#10;    dubbo.application.name=simple-monitor&#10;    dubbo.application.owner=simple-moitor-owner&#10;    dubbo.registry.address=zookeeper://zk1.od.com:2181?backup=zk2.od.com:2181,zk3.od.com:2181&#10;    dubbo.protocol.port=20880&#10;    dubbo.jetty.port=8080&#10;    dubbo.jetty.directory=/dubbo-monitor-simple/monitor&#10;    dubbo.charts.directory=/dubbo-monitor-simple/charts&#10;    dubbo.statistics.directory=/dubbo-monitor-simple/statistics&#10;    dubbo.log4j.file=/dubbo-monitor-simple/logs/dubbo-monitor.log&#10;    dubbo.log4j.level=WARN&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; dp.yaml  &#60;&#60;-EOF&#10;kind: Deployment&#10;apiVersion: extensions/v1beta1&#10;metadata:&#10;  name: dubbo-monitor&#10;  namespace: infra&#10;  labels: &#10;    name: dubbo-monitor&#10;spec:&#10;  replicas: 1&#10;  selector:&#10;    matchLabels: &#10;      name: dubbo-monitor&#10;  template:&#10;    metadata:&#10;      labels: &#10;        app: dubbo-monitor&#10;        name: dubbo-monitor&#10;    spec:&#10;      containers:&#10;      - name: dubbo-monitor&#10;        image: harbor.od.com/infra/dubbo-monitor:latest&#10;        ports:&#10;        - containerPort: 7070&#10;          protocol: TCP&#10;        - containerPort: 18081&#10;          protocol: TCP&#10;        imagePullPolicy: IfNotPresent&#10;      imagePullSecrets:&#10;      - name: harbor&#10;      restartPolicy: Always&#10;      terminationGracePeriodSeconds: 30&#10;      securityContext: &#10;        runAsUser: 0&#10;      schedulerName: default-scheduler&#10;  strategy:&#10;    type: RollingUpdate&#10;    rollingUpdate: &#10;      maxUnavailable: 1&#10;      maxSurge: 1&#10;  revisionHistoryLimit: 7&#10;  progressDeadlineSeconds: 600&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; svc.yaml  &#60;&#60;-EOF&#10;kind: Service&#10;apiVersion: v1&#10;metadata: &#10;  name: dubbo-monitor&#10;  namespace: infra&#10;spec:&#10;  ports:&#10;  - protocol: TCP&#10;    port: 8080&#10;    targetPort: 18081&#10;  selector: &#10;    app: dubbo-monitor&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; ingress.yaml  &#60;&#60;-EOF&#10;kind: Ingress&#10;apiVersion: extensions/v1beta1&#10;metadata: &#10;  name: dubbo-monitor&#10;  namespace: infra&#10;spec:&#10;  rules:&#10;  - host: dubbo-monitor.od.com&#10;    http:&#10;      paths:&#10;      - path: /&#10;        backend: &#10;          serviceName: dubbo-monitor&#10;          servicePort: 8080&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubelet apply -f http://k8s-yaml.od.com/dubbo-monitor/dp.yaml&#10;kubelet apply -f http://k8s-yaml.od.com/dubbo-monitor/svc.yaml&#10;kubelet apply -f http://k8s-yaml.od.com/dubbo-monitor/ingress.yaml</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701145316044.png" alt="image-20200701145316044" title>
+                </div>
+                <div class="image-caption">image-20200701145316044</div>
+            </figure>
+<h4 id="构建dubbo-demo-consumer"><a href="#构建dubbo-demo-consumer" class="headerlink" title="构建dubbo-demo-consumer"></a>构建dubbo-demo-consumer</h4><blockquote>
+<p>项目地址： <a href="mailto:`git@github.com" target="_blank" rel="external">`git@github.com</a>:Meleuo/dubbo-demo-web.git`</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701180010671.png" alt="image-20200701180010671" title>
+                </div>
+                <div class="image-caption">image-20200701180010671</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200701175952223.png" alt="image-20200701175952223" title>
+                </div>
+                <div class="image-caption">image-20200701175952223</div>
+            </figure>
+<h4 id="dubbo-demo-consumer托管到k8s"><a href="#dubbo-demo-consumer托管到k8s" class="headerlink" title="dubbo-demo-consumer托管到k8s"></a>dubbo-demo-consumer托管到k8s</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/k8s-yaml/dubbo-demo-consumer&#10;cd !$</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; dp.yaml  &#60;&#60;-EOF&#10;kind: Deployment&#10;apiVersion: extensions/v1beta1&#10;metadata:&#10;  name: dubbo-demo-consumer&#10;  namespace: app&#10;  labels: &#10;    name: dubbo-demo-consumer&#10;spec:&#10;  replicas: 1&#10;  selector:&#10;    matchLabels: &#10;      name: dubbo-demo-consumer&#10;  template:&#10;    metadata:&#10;      labels: &#10;        app: dubbo-demo-consumer&#10;        name: dubbo-demo-consumer&#10;    spec:&#10;      containers:&#10;      - name: dubbo-demo-consumer&#10;        image: harbor.od.com/app/dubbo-demo-consumer:master_200701_0424&#10;        ports:&#10;        - containerPort: 8080&#10;          protocol: TCP&#10;        - containerPort: 20880&#10;          protocol: TCP&#10;        env:&#10;        - name: JAR_BALL&#10;          value: dubbo-client.jar&#10;        imagePullPolicy: IfNotPresent&#10;      imagePullSecrets:&#10;      - name: harbor&#10;      restartPolicy: Always&#10;      terminationGracePeriodSeconds: 30&#10;      securityContext: &#10;        runAsUser: 0&#10;      schedulerName: default-scheduler&#10;  strategy:&#10;    type: RollingUpdate&#10;    rollingUpdate: &#10;      maxUnavailable: 1&#10;      maxSurge: 1&#10;  revisionHistoryLimit: 7&#10;  progressDeadlineSeconds: 600&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; svc.yaml  &#60;&#60;-EOF&#10;kind: Service&#10;apiVersion: v1&#10;metadata: &#10;  name: dubbo-demo-consumer&#10;  namespace: app&#10;spec:&#10;  ports:&#10;  - protocol: TCP&#10;    port: 8080&#10;    targetPort: 8080&#10;  selector: &#10;    app: dubbo-demo-consumer&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62;  ingress.yaml  &#60;&#60;-EOF&#10;kind: Ingress&#10;apiVersion: extensions/v1beta1&#10;metadata: &#10;  name: dubbo-demo-consumer&#10;  namespace: app&#10;spec:&#10;  rules:&#10;  - host: demo.od.com&#10;    http:&#10;      paths:&#10;      - path: /&#10;        backend: &#10;          serviceName: dubbo-demo-consumer&#10;          servicePort: 8080&#10;EOF</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>别忘记配置DNS</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  apply -f http://k8s-yaml.od.com/dubbo-demo-consumer/dp.yaml&#10;kubectl  apply -f http://k8s-yaml.od.com/dubbo-demo-consumer/svc.yaml&#10;kubectl  apply -f http://k8s-yaml.od.com/dubbo-demo-consumer/ingress.yaml</span><br></pre></td></tr></table></figure>
+<h4 id="dubbo-demo改版-过程"><a href="#dubbo-demo改版-过程" class="headerlink" title="dubbo-demo改版 过程"></a>dubbo-demo改版 过程</h4><p><code>新代码提交到Git</code>  –&gt; <code>Jenkins 打包</code>  –&gt; <code>在dashborad修改deployment的镜像源</code> –&gt;<code>k8s启动新容器</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T09:18:21.604Z" itemprop="dateUpdated">2020-11-26 17:18:21</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/kubernetes/06_k8s微服务实战/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Kubernetes/">学习笔记:Kubernetes</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/&title=《Kubernetes K8s微服务实战》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/&title=《Kubernetes K8s微服务实战》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes K8s微服务实战》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/kubernetes/05_dashboard/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Kubernetes K8s的dashborad</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/kubernetes/07_配置中心/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Kubernetes K8s配置中心</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/&title=《Kubernetes K8s微服务实战》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/&title=《Kubernetes K8s微服务实战》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes K8s微服务实战》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/kubernetes/06_k8s微服务实战/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQW4bMRAEQP3/08o1QGype4a0FaB40mGxy6IBctycxyMez7/G62e+e/75z3j9ZPv11cDDw8NbTL2dxHdTaaeezyqfMx4eHt5tXrLRz36/3uLz5cjfj4eHh/e/8JLy9xmMdlHw8PDwPp+3KaCT77aHBB4eHt5v8ZJ//nNYe8y8Ph5+KGvBw8PD66rW6Bbpc35fud/Dw8PDW9+q5xvuqeOkbT54M1s8PDy8C7x8wz2Lz4PgtlzGw8PD+wTebINODoZZKPx6Jl98BQ8PD+8CL7+aSi74N3FGe6jkX8fDw8M7y9sUuJvWgbPtAm/u9/Dw8PAu8JJtN4fNMLNn6mswPDw8vDUv35r3B0ZbIrdvjsprPDw8vEO8ZKOfhQKbBoJ9wY2Hh4d3j5d8PploW7K3RXM+Nzw8PLx7vDaQzcOITcCRvCdaGjw8PLxrvGTbnQUBz3gkx8mqpwwPDw/vEK9tmZo1S7Ul+Az5yAF4eHh4a17LmLVetaVzu4j13xAPDw/vEC+/4mpjgqRM38THRaSLh4eHt+DNtvjZ0szi3fbIwcPDw/sZXn4l1ka9eetVHgQXYQoeHh7eUV4y0SQerRuhRqM+lvDw8PAu8PIAd3b937YgzBYoip7x8PDwjvLyUjhvlsrXdRNJ1FkLHh4e3lFe3cBUFr758uVBSd0NgYeHh3eBN6vH281982RdiOPh4eFd483K5bYcz794LALGw8PDO8p7lmOPzGvd2eHxxf0eHh4e3lHeqVe3RXkeQ7RLduwIwcPDw1uX1Ptgt21CbVsKVmEEHh4e3oi32bjzhqpNWDy8fsPDw8P7AN6mgN5HG/Xc8PDw8D6Aty+UN5M+1nSFh4eHt+blxfHsIMnL7k1Y/O3BgIeHh3eUN/snf7bptw0K7XdX93t4eHh473l/ANBapkuqqf6hAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

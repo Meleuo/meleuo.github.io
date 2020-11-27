@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="{&quot;ID&quot;:&quot;20200914151218-pcd3ngs&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-ougx8lq&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:2,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;Tokens&quot;:&quot;IyMg&quot;},{&quot;Typ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Msrte-人生苦短,何妨一试">
+<meta property="og:url" content="http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="{&quot;ID&quot;:&quot;20200914151218-pcd3ngs&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-ougx8lq&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:2,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;Tokens&quot;:&quot;IyMg&quot;},{&quot;Typ">
+<meta property="og:updated_time" content="2020-09-13T23:12:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Msrte-人生苦短,何妨一试">
+<meta name="twitter:description" content="{&quot;ID&quot;:&quot;20200914151218-pcd3ngs&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-ougx8lq&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:2,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;Tokens&quot;:&quot;IyMg&quot;},{&quot;Typ">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-27T02:00:27.630Z" itemprop="datePublished" class="page-time">
+  2020-11-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-笔记/kubernetes/01_基本概率.md"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-27 10:00:27" datetime="2020-11-27T02:00:27.630Z"  itemprop="datePublished">2020-11-27</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            {"ID":"20200914151218-pcd3ngs","Type":0,"Close":true,"Children":[{"ID":"20200914151218-ougx8lq","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"UG9kL1BvZOaOp+WItuWZqA=="}]},{"ID":"20200914151218-0bw4hcf","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"UG9k"}]},{"ID":"20200914151218-zr5b1ky","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"UG9k5pivSzhz6YeM5pyA5bCP55qE6YC76L6R5Y2V5YWD"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"MeS4qlBvZOmHjOmdouWPr+iDveacieWkmuS4quWuueWZqO+8jCDkuIDkuKpQ6YeM6Z2i5pyJ5aSa5LiqQ++8jOW5tuS4lOWkmuS4qmPkuK3lhbHkuqsgVVRTICBORVQgIElQQ+WQjeensOepuumXtA=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"UG9k5piv5LiA5Liq6LGM6LGG6I2a77yM5a655Zmo55u45b2T5LqO6LGM6LGG"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5LiA5LiqUG9k6YeM6L+Q6KGM5aSa5Liq5a655Zmo77yMIOWPiOWPqyDovrnovabmqKHlvI8="}]}]}]},{"ID":"20200914151218-ere2xv7","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"UG9k5o6n5Yi25Zmo"}]},{"ID":"20200914151218-9y7ufei","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"UG9k5o6n5Yi25Zmo5pivUG9k5ZCv5Yqo55qE5LiA56eN5qih5p2/77yM55So5p2l5L+d6K+BSzhz6YeM5ZCv5Yqo55qEUG9k5a6J6KOF6aKE5pyf55qE6L+Q6KGM77yI5Ymv5pys5pWw77yMIOeUn+WRveWRqOacn++8jCDlgaXlurfnirbmgIHmo4Dmn6XvvIk="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"Szhz5o+Q5L6b5LyX5aSa55qEUG9k5o6n5Yi25Zmo"}]},{"Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"RGVwbG95bWVudA=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"RGFlbW9uU2V0"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"UmVwbGljYVNldA=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"U3RhdGVmdWxTZXQ="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"Sm9i"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"Q3JvbkpvYg=="}]}]}]}]}]},{"ID":"20200914151218-ck0fe7p","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"TmFtZSAvTmFtZXNwYWNl"}]},{"ID":"20200914151218-rnz0yen","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"TmFtZQ=="}]},{"ID":"20200914151218-plfc1tr","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"55Sx5LqOSzhz5YaF6YOo77yM5L2/55SoIui1hOa6kCIg5p2l5a6a5LmJ5LiA56eN6YC76L6R5qaC5b+177yI5Yqf6IO977yJ5pWF5q+P56eNICLotYTmupAiIOmDvemcgOimgeWumuS5ieS4gOS4quKAnOWQjeensOKAnQ=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"Iui1hOa6kCLmnIlBcGnniYjmnKwoQXBpVmVyc2lvbikg57G75Yir77yIS2luZO+8iSwg5YWD5pWw5o2u77yIbWV0YWRhdGHvvInvvIwg5a6a5LmJ5riF5Y2V77yIc3BlY++8ie+8jCDnirbmgIHvvIhzdGF0dXPvvInnrYnphY3nva7kv6Hmga8="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"IuWQjeensCIg6YCa5bi45a6a5LmJ5ZyoICLotYTmupAiIOeahCAgIuWFg+aVsOaNriIg5L+h5oGv6YeM"}]}]}]},{"ID":"20200914151218-1xq851x","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"TmFtZXNwYWNl"}]},{"ID":"20200914151218-ceeatpy","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"Szhz5YaF6YOo55qE6Jma5ouf6ZuG576k57uE"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5ZCM57uE5LiN5Y+v5ZCM5ZCN77yM5LiN5ZCM57uE5Y+v5Lul5ZCM5ZCM5ZCN"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"azhzIOmHjOm7mOiupOWtmOWcqOeahOWQjeensOepuumXtOacie+8miBkZWZhdWx077yMIGt1YmUtc3lzdGVtLCBrdWJlLXB1bGlj"}]}]}]},{"ID":"20200914151218-nw1z4o7","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"TGFiZWwvTGFiZWzpgInmi6nlmag="}]},{"ID":"20200914151218-0yluf1d","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"TGFiZWw="}]},{"ID":"20200914151218-glxhxqs","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5qCH562+5pivazhz54m56Imy55qE566h55CG5pa55byP77yM5L6/5LqO5YiG57G7566h55CG6LWE5rqQ5a+56LGh"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5LiA5Liq5qCH562+5Y+v5Lul5a+55bqU5aSa5Liq6LWE5rqQ77yMIOS4gOS4qui1hOa6kOS5n+WPr+S7peacieWkmuS4quagh+etvu+8jOS7luS7rOaYr+WkmuWvueWkmueahOWFs+ezuw=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5LiA5Liq6LWE5rqQ5oul5pyJ5aSa5Liq5qCH562+77yM5Y+v5Lul5a6e546w5LiN5ZCM57u05bqm55qE566h55CG"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5qCH562+55qE57uE5oiQ77yaIGtleT12YWx1ZQ=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5ZKM5qCH562+57G75Ly855qE6L+Y5pyJ5LiA5LiqICLms6jop6MiIO+8iGFubm90YXRpb25z77yJ"}]}]}]},{"ID":"20200914151218-4qbq5ni","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"TGFiZWzpgInmi6nlmag="}]},{"ID":"20200914151218-gu3c8j7","Type":7,"Close":true,"LastLineBlank":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"57uZ6LWE5rqQ5omT5LiK5qCH562+5ZCO77yMIOWPr+S7peS9v+eUqOagh+etvumAieaLqeWZqOi/h+a7pOaMh+WumueahOagh+etvuOAgg=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5qCH562+6YCJ5oup5Zmo55uu5YmN5pyJ5Lik5Liq77yaIOWfuuS6juetieWAvOWFs+ezu++8iOetieS6ju+8jOS4jeetieS6ju+8ie+8jCDpm4blkIjlhbPns7vvvIjlsZ7kuo7vvIzkuI3lsZ7kuo7vvIwg5a2Y5Zyo77yJ"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6K645aSa6LWE5rqQ5pSv5oyB5YaF5bWM55qE6YCJ5oup5Zmo5a2X5q61"}]},{"Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"bWF0Y2hsYWJlbHM="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"bWF0Y2hFeHByZXNzaW9ucw=="}]}]}]}]}]},{"ID":"20200914151218-y15a900","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"U2VydmVyIC8gSW5ncmVzcw=="}]},{"ID":"20200914151218-twz2qhe","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"U2VydmljZQ=="}]},{"ID":"20200914151218-rmv47dp","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5ZyoSzhz55qE5LiW55WM6YeM77yM6Jm954S25q+P5LiqUG9k6YO95Lya6KKr5Y2V54us5YiG6YWN5LiA5Liq5Y2V54us55qESVDlnLDlnYDvvIzkvYbmmK/ov5nkuKpJUOWcsOWdgOS5n+maj+S5i1BvZOeahOeUn+WRveWRqOacn+iAjOmUgOavgeWSjOWIm+W7ug=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"U2VydmljZSjmnI3liqEpIOWwseaYr+eUqOadpeino+WGs+i/meS4qumXrumimOeahOaguOW/g+amguW/tQ=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5LiA5LiqU2VydmljZeWPr+S7peeci+S9nOS4gOe7hOaPkOS+m+ebuOWQjOacjeWKoVBvZOWvueWklueahOiuv+mXruaOpeWPow=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"U2VydmljZeS9nOeUqOWfn+mCo+S6m1BvZOaYr+mAmui/h+agh+etvumAieaLqeWZqOWumuS5ieeahA=="}]}]}]},{"ID":"20200914151218-u1lq0g0","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"SW5ncmVzcw=="}]},{"ID":"20200914151218-4np87hf","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"SW5ncmVzc+aYr0s4c+mbhue+pOmHjOW3peS9nOWcqE9TSeS4uuS6huaooeWei+WPguiAg+aooeWei+S4i+eahO+8jOesrOS4g+WxgueahOW6lOeUqO+8jOWvueWkluaatOmcsueahOaOpeWPow=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"U2VydmljZeWPquiDveS9v+eUqEw05rWB6YeP6LCD5bqm77yMIOihqOeOsOaWsOaJi+aYr2lwICsgcG9ydA=="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"SW5ncmVzcyDliJnlj6/ku6XosIPluqbkuI3lkIznmoTkuJrliqHln5/vvIwg5LiN5ZCMVVJM6K6/6Zeu6Lev5b6E55qE5Lia5Yqh5rWB6YeP"}]}]}]},{"ID":"20200914151218-ybx1lit","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":1,"Children":[{"Type":3,"Tokens":"IyA="},{"Type":16,"Tokens":"SzhT55qE57uE5Lu2"}]},{"ID":"20200914151218-i42ep0i","Type":2,"Close":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"}]}]}
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-13T23:12:26.000Z" itemprop="dateUpdated">2020-09-14 07:12:26</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/11/27/笔记/kubernetes/01_基本概率.md/" target="_blank" rel="external">http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/27/其他/Salt vs. Ansible/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Salt vs. Ansible</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/11/27/笔记/Python/01面向对象/06内置函数_反射_内置方法.md/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/kubernetes/01_基本概率.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3awY7iMBAEUP7/p1lprqtAVXcMM9LLCaGE+PngNtV+POLr+XP9//n1/Vd3Pi+u2a/dcOHh4eGNhv76lVcvyJ+9+pxQX4/nzTTh4eHhHeMlxSBZvjdFIpmCfMx4eHh4v4HXLtPJ/e02HQ8PD+8v8tr/+22BwcPDw/srvE2gkG9/22A3mabbshY8PDy8mLdZlL/1+UP9PTw8PLzFcpxHCa8H1N65ufDw8PBO8PZNpra5NYsk8pA3+seAh4eHt+C9fn0bMSQHp3J8vkO+LDN4eHh4x3jnmmGzZ9uScPl2PDw8vMO8pMl0IizIS0h9Px4eHt6XePkyPQsX2pg4mfriNXh4eHgjXtFMiqOKfLvcRrT5qPDw8PBO8Nr2Ur7eboLaWZT8pg2Gh4eHdxMvDxrqCHW9oOe8y2/w8PDwDvA2A22b+pvvk2kqLjw8PLwFLw8Rkk1wXlqSp9ojBW+yFjw8PLxjvGTpb5Ft+Js34ep/DHh4eHi38tpgIo9W2+9nB7wuD13h4eHhHePVG9byKNVsoZ9NDR4eHt4neW1Eu98iz8LlqM2Gh4eH9xFevkAnn4tFPMAnU4OHh4f3Sd4swM2Lx2wLXhylmg0LDw8P7ybe5lhVvslut9r5JL4pDHh4eHgLXrtYJ02vNsAtjgIs4hI8PDy8u3jJQPeNrvz32995U9jw8PDwPsjbhBSbp4aMqwnCw8PDO8BrE9G8nX9XmZnFwXh4eHjneM/yao9Dze7MD1e9mSA8PDy8A7xZYcgnon3ZLNRopxgPDw9vz2sHmiz9bRnYtN9uOHqFh4eHN+K1L94Ukhl+mLXg4eHhfZXX3pnEDXnRarfgeHh4eL+Hl7es7i0JwyMFeHh4eMd4s0B2lQ0HocPsvAMeHh7ead6+NdU2qJIQOY+bH/sLDw8PL+X9A2h3u2Cef2b2AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

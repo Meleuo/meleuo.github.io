@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 模块 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python模块,学习笔记:Python">
+    <meta name="description" content="模块
+为什么要用模块**
+有一些复杂的功能普通开发者无法开发完成的，就可以借助别人已经写好的模块来实现。
+实现一些Python本身自带的函数或方法无法实现的功能
+
+操作系统交互
+和时间交互
+取相对应的随机数
+跟网络通信交互
+
+模块的形式：文件夹/py文件/C语言编译好的编译文件
+为什么要有模块
+
+方便开发者分类管理
+可以有效的节省内存
+提供更多的功能
+
+模块分为
+12345678内置模块- 安装P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 模块">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/02模块/01 模块/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="模块
+为什么要用模块**
+有一些复杂的功能普通开发者无法开发完成的，就可以借助别人已经写好的模块来实现。
+实现一些Python本身自带的函数或方法无法实现的功能
+
+操作系统交互
+和时间交互
+取相对应的随机数
+跟网络通信交互
+
+模块的形式：文件夹/py文件/C语言编译好的编译文件
+为什么要有模块
+
+方便开发者分类管理
+可以有效的节省内存
+提供更多的功能
+
+模块分为
+12345678内置模块- 安装P">
+<meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MZMl2F.png">
+<meta property="og:updated_time" content="2020-11-26T10:08:09.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 模块">
+<meta name="twitter:description" content="模块
+为什么要用模块**
+有一些复杂的功能普通开发者无法开发完成的，就可以借助别人已经写好的模块来实现。
+实现一些Python本身自带的函数或方法无法实现的功能
+
+操作系统交互
+和时间交互
+取相对应的随机数
+跟网络通信交互
+
+模块的形式：文件夹/py文件/C语言编译好的编译文件
+为什么要有模块
+
+方便开发者分类管理
+可以有效的节省内存
+提供更多的功能
+
+模块分为
+12345678内置模块- 安装P">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 模块</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 模块</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块的导入"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模块的导入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块别名"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">模块别名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#from导入"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">from导入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#from-命名空间的转换"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">from   命名空间的转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#as-重命名"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">as   重命名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#和-all"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">*  和   __all__</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块相关"><span class="post-toc-number">2.</span> <span class="post-toc-text">模块相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python中-py-文件有2种执行方法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Python中 py 文件有2种执行方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#name-amp-sys-module"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">__name__  & sys.module</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#把模块当脚本运行"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">把模块当脚本运行</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块使用规范"><span class="post-toc-number">3.</span> <span class="post-toc-text">模块使用规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块的导入规范"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">模块的导入规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块的命名规范"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">模块的命名规范</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块循环导入"><span class="post-toc-number">4.</span> <span class="post-toc-text">模块循环导入</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/02模块/01 模块"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 模块</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><hr>
+<p>为什么要用模块**</p>
+<p>有一些复杂的功能普通开发者无法开发完成的，就可以借助别人已经写好的模块来实现。</p>
+<p>实现一些Python本身自带的函数或方法无法实现的功能</p>
+<ol>
+<li>操作系统交互</li>
+<li>和时间交互</li>
+<li>取相对应的随机数</li>
+<li>跟网络通信交互</li>
+</ol>
+<p>模块的形式：<code>文件夹/py文件/C语言编译好的编译文件</code></p>
+<p><strong>为什么要有模块</strong></p>
+<ol>
+<li>方便开发者分类管理</li>
+<li>可以有效的节省内存</li>
+<li>提供更多的功能</li>
+</ol>
+<p><strong>模块分为</strong></p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">内置模块</span><br><span class="line">-<span class="ruby"> 安装<span class="constant">Python</span>解释器就跟着安装好的那些方法</span><br><span class="line"></span></span><br><span class="line">第三方模块</span><br><span class="line">-<span class="ruby"> 安装<span class="constant">Python</span>解释器时没有安装上的功能模块</span><br><span class="line"></span></span><br><span class="line">自定义模块</span><br><span class="line">-<span class="ruby"> 自己写的通用功能，把他当作模块使用</span></span><br></pre></td></tr></table></figure>
+<h3 id="模块的导入"><a href="#模块的导入" class="headerlink" title="模块的导入"></a>模块的导入</h3><hr>
+<p><strong>用自定义模块举例</strong></p>
+<p>自定义模块的定义得是在当前代码文件同目录下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_module file # 自定义模块的py文件</span></span><br><span class="line">print(<span class="string">"导入了my_nodule 自定义模块"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"my_nodule模块的Logining ........"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> my_module <span class="comment"># 导入自定义模块</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"当前代码的Logining.........."</span>)</span><br><span class="line"></span><br><span class="line">Login()</span><br><span class="line">my_module.Login()</span><br><span class="line">    </span><br><span class="line">&gt; 导入了my_nodule 自定义模块</span><br><span class="line">&gt; 当前代码的Logining..........</span><br><span class="line">&gt; my_module模块的Logining ........</span><br></pre></td></tr></table></figure>
+<p><strong>模块在导入的过程中发生了什么 ? </strong></p>
+<p>​    从上面的代码我们可以看出，导入<code>my_module</code> 时，模块中定义的<code>print</code>方法就被执行了，</p>
+<p>​    调用<code>Login()</code> 方法触发的是当前代码的<code>Login</code> ，而调用<code>my_module.Login()</code> 触发的<code>my_module</code>模块的方法，由此可以推断出:</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>引用模块并不是吧模块的代码加载到当前文件</span><br><span class="line"><span class="bullet">* </span>引用模块是在内存中开辟了一块内存空间把模块的代码加载进去。</span><br><span class="line"><span class="bullet">* </span>在当前文件的内存空间中会有一个和模块同名的 变量名 索引指向的内存地址是模块的内存地址,使用这个变量名就可以调用到模块内存空间的方法</span><br></pre></td></tr></table></figure>
+<h3 id="模块别名"><a href="#模块别名" class="headerlink" title="模块别名"></a>模块别名</h3><hr>
+<p>导入模块时可以给他设置一个别名的</p>
+<p>需要注意的是，这个别名取代的是<code>当前代码内存空间</code>  中指向 <code>模块代码内存地址</code> 的变量名，也就是说，设置了别名的模块原来的指向 <code>模块代码内存地址</code>  的变量名是被别名取缔了也就用不了了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> my_module <span class="keyword">as</span> mym</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"当前代码的Logining.........."</span>)</span><br><span class="line">Login()</span><br><span class="line">mym.Login()</span><br></pre></td></tr></table></figure>
+<h3 id="from导入"><a href="#from导入" class="headerlink" title="from导入"></a>from导入</h3><hr>
+<p><strong><code>from module import method</code>   发生了什么</strong>    </p>
+<p><code>from module import method</code> 和直接<code>import module</code>一样，模块都会被运行一遍加载到那个属于他的内存空间里，</p>
+<ul>
+<li><p>不同的是<code>import module</code> 运行完了模块代码后，当前文件的内存空间记录的是<code>变量</code> 对应的是<code>模块内存地址</code></p>
+</li>
+<li><p><code>from  module import method</code>    虽然也会开辟一块<code>内存空间</code>记录模块的运行</p>
+<p>不过在 当前文件的<code>内存空间</code>只会记录，指定模块中方法 对应的内存地址</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_module</span></span><br><span class="line">print(<span class="string">"导入了my_nodule 自定义模块"</span>)</span><br><span class="line"></span><br><span class="line">name = <span class="string">"杰瑞"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"my_nodule模块的Logining ........"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  my_module <span class="keyword">import</span> Login</span><br><span class="line">Login()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; 导入了my_nodule 自定义模块</span><br><span class="line">&gt; my_nodule模块的Logining ........</span><br></pre></td></tr></table></figure>
+<h3 id="from-命名空间的转换"><a href="#from-命名空间的转换" class="headerlink" title="from   命名空间的转换"></a>from   命名空间的转换</h3><blockquote>
+<p>模块中的方法在任何情况下只能调用到模块自己定义的变量，<del>除非外部修改模块中的变量</del></p>
+</blockquote>
+<blockquote>
+<p>同理，在当前代码定义任何变量都不会影响<code>模块中方法的运行</code>，(PS: 这里指的是<code>模块中方法的运行</code>，不是<code>运行模块方法</code>，如果你定义个变量覆盖掉了当前内存空间中 <code>指向模块方法内存地址的变量</code> 这样方法就运行不了)</p>
+</blockquote>
+<h3 id="as-重命名"><a href="#as-重命名" class="headerlink" title="as   重命名"></a>as   重命名</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  my_module <span class="keyword">import</span> Login <span class="keyword">as</span> l</span><br><span class="line">l()</span><br><span class="line">&gt; 导入了my_nodule 自定义模块</span><br><span class="line">&gt; my_nodule模块的Logining ........</span><br></pre></td></tr></table></figure>
+<h3 id="和-all"><a href="#和-all" class="headerlink" title="*  和   __all__"></a><code>*</code>  和   <code>__all__</code></h3><p><code>from  module import  *</code> 就是得是把<code>模块</code> 中所有方法都引用到当前文件里，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  my_module <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">print(name)</span><br><span class="line">Login()</span><br><span class="line"></span><br><span class="line">&gt; 导入了my_nodule 自定义模块</span><br><span class="line">&gt; 杰瑞</span><br><span class="line">&gt; my_nodule模块的Logining ........</span><br></pre></td></tr></table></figure>
+<p><code>__all__</code>就是 <code>*</code>的 生死之敌，且只是<code>*</code>的生死之敌，<code>__all__</code>的作用是定义在模块头部，允许<code>*</code> 可以导入成功的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_module</span></span><br><span class="line">__all__ = [<span class="string">"name"</span>,<span class="string">"Login"</span>]   <span class="comment"># 这里没有允许 * 可以获取到age变量，</span></span><br><span class="line">name = <span class="string">"杰瑞"</span></span><br><span class="line">age = <span class="string">"3"</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"my_nodule模块的Logining ........"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  my_module <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">print(name)</span><br><span class="line">Login()</span><br><span class="line">print(age)</span><br><span class="line"></span><br><span class="line">&gt; 杰瑞</span><br><span class="line">&gt; Traceback (most recent call last):</span><br><span class="line">&gt; my_nodule模块的Logining ........</span><br><span class="line">&gt;   File <span class="string">"E:/OneDrive/个人/代码/09模块.py"</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">&gt;     print(age)</span><br><span class="line">&gt; NameError: name <span class="string">'age'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined   <span class="comment"># 这里就获取不到</span></span><br></pre></td></tr></table></figure>
+<h2 id="模块相关"><a href="#模块相关" class="headerlink" title="模块相关"></a>模块相关</h2><hr>
+<p>### </p>
+<h3 id="Python中-py-文件有2种执行方法"><a href="#Python中-py-文件有2种执行方法" class="headerlink" title="Python中 py 文件有2种执行方法"></a>Python中 py 文件有2种执行方法</h3><ul>
+<li><p>以脚本方式执行</p>
+<p>我们常用的<code>pycharm</code> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://s2.ax1x.com/2019/11/08/MZMl2F.png" alt="1573206696224" title>
+                </div>
+                <div class="image-caption">1573206696224</div>
+            </figure>和命令行下 <code>python /123.py</code>  都属于脚本方式执行</p>
+</li>
+<li><p>以模块方式执行</p>
+<p>只有一种方式是以模块方式运行的，就是当<code>py</code>文件被 <code>import</code>导入时，<code>from</code> 也属于<code>import</code>导入。</p>
+</li>
+</ul>
+<h3 id="name-amp-sys-module"><a href="#name-amp-sys-module" class="headerlink" title="__name__  &amp; sys.module"></a><code>__name__</code>  &amp; <code>sys.module</code></h3><ul>
+<li><p><code>sys.module</code> 是<code>sys</code>模块的一个方法，<code>sys.module</code>以字典格式存储的当前文件 可以调用的所有模块，字典中的value对应的模块内存地址，key对应的则是模块内存地址的变量名</p>
+<p>并且<code>sys.module</code> 无论在哪里，<code>sys.module[&quot;__main__&quot;]</code>对应的都是当前以脚本执行文件的内存地址。</p>
+<p>所以说：</p>
+<p>当一个 py文件以脚本方式执行的时候，<code>sys.module[&quot;__main__&quot;]</code>，对于的就是他的内存地址</p>
+<p>当一个 py文件以模块方式运行时，<code>sys.module[&quot;__main__&quot;]</code>对应的就是调用他的那个文件的内存地址，而模块自己的内存地址存在<code>sys.module[&quot;模块名&quot;]</code>当中</p>
+</li>
+</ul>
+<ul>
+<li><code>__name__</code> 方法返回的是 <code>当前文件</code>在<code>sys.module</code> 中key的变量名。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_module 自定义模块文件</span></span><br><span class="line"><span class="keyword">import</span>  sys</span><br><span class="line"></span><br><span class="line">print(<span class="string">"My_module:"</span>,__name__)</span><br><span class="line">print(<span class="string">"My_module:"</span>,sys.modules[__name__])</span><br><span class="line">print(<span class="string">"My_module:"</span>,sys.modules[<span class="string">"__main__"</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  my_module</span><br><span class="line"><span class="keyword">import</span>  sys</span><br><span class="line">print(<span class="string">"in local"</span>,__name__)</span><br><span class="line">print(<span class="string">"in local:"</span>,sys.modules[__name__])</span><br><span class="line">print(<span class="string">"in local:"</span>,sys.modules[<span class="string">"__main__"</span>])</span><br><span class="line"></span><br><span class="line">&gt; My_module: my_module</span><br><span class="line">&gt; My_module: &lt;module <span class="string">'my_module'</span> <span class="keyword">from</span> <span class="string">'E:\\OneDrive\\个人\\代码\\my_module.py'</span>&gt;</span><br><span class="line">&gt; My_module: &lt;module <span class="string">'__main__'</span> <span class="keyword">from</span> <span class="string">'E:/OneDrive/个人/代码/09模块.py'</span>&gt;</span><br><span class="line">    </span><br><span class="line">&gt; <span class="keyword">in</span> local __main__</span><br><span class="line">&gt; <span class="keyword">in</span> local: &lt;module <span class="string">'__main__'</span> <span class="keyword">from</span> <span class="string">'E:/OneDrive/个人/代码/09模块.py'</span>&gt;</span><br><span class="line">&gt; <span class="keyword">in</span> local: &lt;module <span class="string">'__main__'</span> <span class="keyword">from</span> <span class="string">'E:/OneDrive/个人/代码/09模块.py'</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="把模块当脚本运行"><a href="#把模块当脚本运行" class="headerlink" title="把模块当脚本运行"></a>把模块当脚本运行</h3><p>没好说的。直接来条原则</p>
+<blockquote>
+<p> 在编写py文件时，所有不在函数和类中封装的内容都应该写在<code>if __name__ == &quot;__main__&quot;</code> 下面</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class.....</span><br><span class="line">def .....</span><br><span class="line"></span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">    input("&gt;&gt;&gt;&gt;&gt;")</span><br><span class="line">    print("我是不在函数和类中封装的内容")</span><br></pre></td></tr></table></figure>
+<p><strong>反射本模块中的变量</strong></p>
+<p>学习反射的时候我们知道通过 <code>sys.module[&quot;__main__&quot;]</code> 可以拿到当前文件的内存地址，从而进行反射，模块被调用时,自己的在<code>sys.module</code>并不是<code>__main__</code>，而是模块自己的文件名，</p>
+<p>但是<code>__name__</code> 方法返回的是 <code>当前文件</code>在<code>sys.module</code> 中key的变量名。</p>
+<p>所以说在模块中进行反射，就可以借助<code>__name__</code>这个方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_module 自定义模块文件</span></span><br><span class="line"><span class="keyword">import</span>  sys</span><br><span class="line">name = <span class="string">"jerry"</span></span><br><span class="line">age = <span class="string">"3"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"我是my_module 中反射出来的："</span>,getattr(sys.modules[__name__],<span class="string">"name"</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  my_module</span><br><span class="line"></span><br><span class="line">&gt; 我是my_module 中反射出来的： jerry</span><br></pre></td></tr></table></figure>
+<p><strong>重新加载模块</strong></p>
+<p>没有介绍的价值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>   importlib   <span class="comment"># 重载模块的模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> 	 my_module  </span><br><span class="line"></span><br><span class="line">importlib.reload(my_module) <span class="comment"># 重载模块的方法</span></span><br></pre></td></tr></table></figure>
+<p><strong>pyc编译文件</strong></p>
+<p>当python执行import 模块名 时，就会在当前目录下的<strong>pycache</strong>中生成一个编译好的文件</p>
+<p>如果<code>__pycache__</code>不存在，会默认创建的</p>
+<p>为什么要编译生成呢，python执行时，其实也是在编译文件，只是编译存放在内存</p>
+<p>但是模块呢，在Python认为模块是一个常用又不常修改的py文件，那么他就有一个机制，执行的时候会把编译文件存放在指定的目录中，等下次执行调用模块的时候就可以直接调用这个文件，就不用重新编译模块文件了</p>
+<p>这样到以后做比较大的项目的时候，会有效的提升代码的执行顺序</p>
+<p>那么如果模块文件被修改了呢，放心，Python会自动的重新生成编译文件覆盖过去</p>
+<p>注意：提高的代码效率是指代码中模块的导入效率，并不是代码的其它效率</p>
+<h2 id="模块使用规范"><a href="#模块使用规范" class="headerlink" title="模块使用规范"></a>模块使用规范</h2><blockquote>
+<p>使用     Python风格规范  <a href="https://www.zheli.ink/PEP8.html" target="_blank" rel="external">https://www.zheli.ink/PEP8.html</a></p>
+</blockquote>
+<h3 id="模块的导入规范"><a href="#模块的导入规范" class="headerlink" title="模块的导入规范"></a>模块的导入规范</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- conding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os <span class="comment"># 首先导入内置模块</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> django <span class="comment"># 其次导入第三方模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> my_module <span class="comment"># 最后导入自定义模块</span></span><br></pre></td></tr></table></figure>
+<h3 id="模块的命名规范"><a href="#模块的命名规范" class="headerlink" title="模块的命名规范"></a>模块的命名规范</h3><p>以小写字母开头，规避保留名称</p>
+<h2 id="模块循环导入"><a href="#模块循环导入" class="headerlink" title="模块循环导入"></a>模块循环导入</h2><hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># module_a 自定义模块文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3: 模块化执行 module_a</span></span><br><span class="line"><span class="keyword">import</span> module_b <span class="comment"># 4: 引用 module_b</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">a</span><span class="params">()</span>:</span>print(<span class="string">"a"</span>)</span><br><span class="line">module_b.b()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># module_b 自定义模块文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># start 1: 执行 module_b 文件		  # 5: 模块化执行 module_a</span></span><br><span class="line"><span class="keyword">import</span> module_a <span class="comment"># 2: 引用 module_a   # 6： 在module_b的内存空间中import module_a已经被执行过了，											同一个模块不会被加载2次</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">b</span><span class="params">()</span>:</span>print(<span class="string">"b"</span>)					<span class="comment"># 7： 执行module_b 剩下的代码def</span></span><br><span class="line">module_a.a()						<span class="comment"># 8： 执行module_a.a() 但是module_a中定义的def a还没被加载										  到内存空间 stop  报错</span></span><br><span class="line">执行结果：</span><br><span class="line">AttributeError: module <span class="string">'module_a'</span> has no attribute <span class="string">'a'</span></span><br></pre></td></tr></table></figure>
+<p>执行 <code>module_b</code>文件 &gt; 引用<code>module_a</code> &gt; 模块化执行<code>module_a</code> &gt; 引用<code>module_b</code> &gt; 模块化执行<code>module_a</code> &gt;  在<code>module_b</code> 的内存空间中<code>import module_a</code> 已经被执行过了 &gt; 执行<code>module_b</code> 剩下的代码<code>def</code> &gt;   执行<code>module_a.a()</code> &gt; 但是<code>module_a</code>中定义的<code>def</code>还没被加载到内存空间 &gt; 报错</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果发生循环引用了</span><br><span class="line">就会发现明明写在这个模块中的方法，但是找不到了！</span><br></pre></td></tr></table></figure>
+<p><strong>永远不要写会产生循环引用的代码</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:08:09.631Z" itemprop="dateUpdated">2020-11-26 18:08:09</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/02模块/01 模块/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/02模块/01 模块/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python模块/">Python模块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/&title=《Python 模块》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/&title=《Python 模块》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 模块》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/kubernetes/08_Prometheus/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Kubernetes Prometheus</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/前端/01_HTML/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">前端 HTML</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/&title=《Python 模块》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/&title=《Python 模块》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 模块》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/02模块/01 模块/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3a0WoDMQwEwPz/T6fQp9KSy0qykhTmnkLouR4XbHXl2y1+7t/Pz88/v/n7/d/nerT89942Hjw8PLzW1K+ndT3F6+8fjVNdjt67eHh4eHu8yaY8weebfjIfPDw8vE/jVcvfvAiuHkV4eHh4/4X3qJzNp5j8ZPUzHh4e3rt4SRiRxwS94jgPRFayFjw8PLyY12uAvffzen8PDw8Pr9VVrx4YvVI7KdZ7s8XDw8Pb4PUi13wHnjfPDhTxeHh4eEd5kyMhaX1Vj4dew+zhAuHh4eEt8PJDIilwq3tyHhD3mmp4eHh4e7y85M3Z14dB9fipFuV4eHh4e7w8CMhj3HmgkCALAS4eHh7eAi95rVfm5kX5JCZ+uKB4eHh4C7xq2Votdg8Er8WlKZTXeHh4eGPeXrc9H38S45YbYHh4eHgtXnW6ecSQb9nVGKIwAh4eHt4CL08758V33kKrAvDw8PBeyZu0oHrRwOjvUI0n8PDw8NZ4vYOhV17nEcO8QMfDw8Pb4E3aYJPiuHplYd5gw8PDw9vj9Q6GXjAxX5RqIY6Hh4c3502mngcKvai3WohHV1Tx8PDwxrx80FNTrB4P+fWsJ6Ph4eHhHeVVr5+eKrUn7Gs8Hh4e3jYvuUaQR7H5WXQPnuvFzZt2eHh4eNu8XmlbruJb7+aXD/Dw8PD2eMmmPLlUWh15XuI/+Y8BDw8P7xBvHrZWo4r5RasoXMbDw8M7yrsXn3y7TwKCaqhRPrrw8PDwFnjVDbd6YavQoDoUEzePFjw8PLwir9qCmoQU1fHzd8tZCx4eHt6Y17sadR881TijeZELDw8P72N4+bWnapE9WVY8PDy8T+Plm/upgOPAb8fDw8Nb402aXkm7a7J8eeyLh4eH9xreZBO/HvrUJYOEtNLfw8PDw/v9zRe/Lw0BhR/nnAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

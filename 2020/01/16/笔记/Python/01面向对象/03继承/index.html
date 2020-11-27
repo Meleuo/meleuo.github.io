@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 面向对象:继承 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python 面向对象,学习笔记:Python">
+    <meta name="description" content="继承
+什么是继承？继承是编程思想 面向对象 当中的一个组成部分，
+继承是面向对象的三大特性之一
+继承可是使子类拥有父类的各种属性和方法，可以对父类的属性进行增删改查，
+在下面这段代码中，B 没有定义变量和方法，但是他继承了A,因此他可以调用A的fun方法，和name变量。
+123456789101112class A():    name = &quot;My name is A&quot;    def fun(s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 面向对象:继承">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="继承
+什么是继承？继承是编程思想 面向对象 当中的一个组成部分，
+继承是面向对象的三大特性之一
+继承可是使子类拥有父类的各种属性和方法，可以对父类的属性进行增删改查，
+在下面这段代码中，B 没有定义变量和方法，但是他继承了A,因此他可以调用A的fun方法，和name变量。
+123456789101112class A():    name = &quot;My name is A&quot;    def fun(s">
+<meta property="og:updated_time" content="2020-11-26T10:08:51.737Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 面向对象:继承">
+<meta name="twitter:description" content="继承
+什么是继承？继承是编程思想 面向对象 当中的一个组成部分，
+继承是面向对象的三大特性之一
+继承可是使子类拥有父类的各种属性和方法，可以对父类的属性进行增删改查，
+在下面这段代码中，B 没有定义变量和方法，但是他继承了A,因此他可以调用A的fun方法，和name变量。
+123456789101112class A():    name = &quot;My name is A&quot;    def fun(s">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 面向对象:继承</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 面向对象:继承</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#继承"><span class="post-toc-number">1.</span> <span class="post-toc-text">继承</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是继承？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是继承？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承的作用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">继承的作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#继承基础"><span class="post-toc-number">2.</span> <span class="post-toc-text">继承基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量-amp-方法-查询顺序"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">变量&方法 查询顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同时调用父子俩的-init-super"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">同时调用父子俩的 __init__ super()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#继承的进阶"><span class="post-toc-number">3.</span> <span class="post-toc-text">继承的进阶</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新式-经典类"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">新式/经典类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#两类的差别"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">两类的差别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多继承"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">多继承</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是广度优先"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">什么是广度优先</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是深度优先"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">什么是深度优先</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mro"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">mro()</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/01面向对象/03继承"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 面向对象:继承</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><hr>
+<h3 id="什么是继承？"><a href="#什么是继承？" class="headerlink" title="什么是继承？"></a>什么是继承？</h3><p>继承是编程思想 <code>面向对象</code> 当中的一个组成部分，</p>
+<p><strong>继承是面向对象的三大特性之一</strong></p>
+<p>继承可是使子类拥有父类的各种属性和方法，可以对父类的属性进行增删改查，</p>
+<p>在下面这段代码中，<code>B</code> 没有定义变量和方法，但是他继承了<code>A</code>,因此他可以调用<code>A</code>的<code>fun</code>方法，和<code>name</code>变量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    name = <span class="string">"My name is A"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"IN A"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">b = B()</span><br><span class="line">b.fun()</span><br><span class="line">print(b.name)</span><br><span class="line">&gt; IN A</span><br><span class="line">&gt; My name <span class="keyword">is</span> A</span><br></pre></td></tr></table></figure>
+<p><code>A</code>是<code>B</code>的<code>父类（超类，基类）</code></p>
+<p><code>B</code>是<code>A</code>的<code>子类（派生类）</code></p>
+<h3 id="继承的作用"><a href="#继承的作用" class="headerlink" title="继承的作用"></a>继承的作用</h3><ul>
+<li>优化代码</li>
+<li>节省代码</li>
+<li>提高代码复用性</li>
+<li>提高代码的维护性</li>
+</ul>
+<h2 id="继承基础"><a href="#继承基础" class="headerlink" title="继承基础"></a>继承基础</h2><ul>
+<li>子类和父类不要定义同名的方法和静态字段</li>
+</ul>
+<p>上面的代码中可以看出，<code>A</code>继承了<code>B</code>，因此<code>A</code>可以执行<code>B</code>定义的所有方法和变量。</p>
+<p>同理<code>B</code>也可以对<code>A</code>的变量进行修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    name = <span class="string">"My name is A"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"IN A"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">b = B()</span><br><span class="line">print(b.name)</span><br><span class="line">b.name = <span class="string">"My name not A"</span></span><br><span class="line">print(b.name)</span><br><span class="line">&gt; My name <span class="keyword">is</span> A</span><br><span class="line">&gt; My name <span class="keyword">not</span> A</span><br></pre></td></tr></table></figure>
+<h3 id="变量-amp-方法-查询顺序"><a href="#变量-amp-方法-查询顺序" class="headerlink" title="变量&amp;方法 查询顺序"></a>变量&amp;方法 查询顺序</h3><p>子类继承了父类后就拥有了父类的所有方法和变量，那么他们的查询顺序是什么呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    name = <span class="string">"My name is A"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"IN A"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line">b = B()   <span class="comment"># 实例化了一个 b</span></span><br><span class="line">print(b.name) <span class="comment"># 需要输出b.name &gt; b对象空间 &gt; b实例化空间的指示牌 &gt; B实例化空间 &gt; 父类实例化空间的指示牌 &gt;  父类实例化空间 &gt; 找到name变量 &gt; 输出name</span></span><br><span class="line">&gt; My name <span class="keyword">is</span> A</span><br></pre></td></tr></table></figure>
+<h3 id="同时调用父子俩的-init-super"><a href="#同时调用父子俩的-init-super" class="headerlink" title="同时调用父子俩的 __init__ super()"></a>同时调用父子俩的 <code>__init__</code> <code>super()</code></h3><p>父类一般都是用来存储公共数据，方便子类引用。</p>
+<p>按照查询顺序，我们知道子类首先查询的是自己对象空间&amp;实例化空间里的数据，常规操作我们调用<code>__init__</code>时是直接调用的子类<code>__init__</code>。</p>
+<p>那么如何同时调用父子俩的<code>__init__</code>呢？</p>
+<p>1：在子类<code>__init__</code>上定义父类<code>__init__</code>需要的形参位。实例化子类时，就可以把父类需要的实参一并传入过去</p>
+<p>2：然后在子类的<code>__init__</code>方法里调用父类的<code>__init__</code>，把父类<code>__init__</code>需要的形参传递过去即可。调用父类的<code>__init__</code>传递实参有2种方法： 第一种是使用 <code>类名.</code>调用<code>__init__</code>传参。</p>
+<p>​                                                             第二种是py内置的<code>super()</code>方法调用传参<code>__init__</code>传参。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age,sex)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">        self.sex = sex</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">echo_name</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"我是 &#123;name&#125;"</span>.format(name=self.name))</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">echo_age</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"我今年 &#123;age&#125;岁"</span>.format(age=self.age))</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">echo_sex</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"我是 &#123;sex&#125;"</span>.format(sex=self.sex))</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span><span class="params">(Animal)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,skill,name,age,sex)</span>:</span></span><br><span class="line">        self.skill = skill</span><br><span class="line">        Animal.__init__(self,name,age,sex)  <span class="comment"># 第一种是使用 类名. 调用__init__传参。</span></span><br><span class="line">        <span class="comment"># super().__init__(name,age,sex)		# 第二种是py内置的super()方法调用传参__init__传参。使用super()，不需要给父类 __init__ 的self传参了。super()会自动传递过去</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">echo_skill</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"&#123;skill&#125;"</span>.format(skill=self.skill))</span><br><span class="line">        </span><br><span class="line">cat_data = [<span class="string">"一切以大橘为重"</span>,<span class="string">"橘猫"</span>,<span class="string">"3"</span>,<span class="string">"catman"</span>]</span><br><span class="line">cat = Cat(*cat_data)</span><br><span class="line">cat.echo_name()</span><br><span class="line">cat.echo_age()</span><br><span class="line">cat.echo_sex()</span><br><span class="line">cat.echo_skill()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>问：如果父类的<code>__init__</code>不需要形参呢？</p>
+<p>答：父类的<code>__init__</code>不定义形参，你要他干嘛？</p>
+<p>问：我可以在<code>__init__</code>里面定义其他方法操作。比如在父类定义获取Token，子类定义具体操作</p>
+<p>答：那样可以直接使用<code>类名.__init__(self)</code> 运行一下父类的<code>__init__</code></p>
+</blockquote>
+<h2 id="继承的进阶"><a href="#继承的进阶" class="headerlink" title="继承的进阶"></a>继承的进阶</h2><hr>
+<h3 id="新式-经典类"><a href="#新式-经典类" class="headerlink" title="新式/经典类"></a>新式/经典类</h3><p>到了继承又引出了类的分类，为什么不写在23章中，因为类的分类是以继承来区分的</p>
+<ul>
+<li><p><strong>新式类：继承<code>object</code>类的都是<code>新式类</code></strong></p>
+<p>python3中的所有类都是新式类，因为python3解释器会默认自动给类中都继承<code>object</code>类</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>经典类：不继承<code>object</code>类的都是经典类</strong></p>
+<p>在python2中，默认的是经典类，因为python默认的解释器并不会给类继承<code>object</code>,如果你手动给继承了<code>object</code>，那么他也会升级为新式类</p>
+</li>
+</ul>
+<h3 id="两类的差别"><a href="#两类的差别" class="headerlink" title="两类的差别"></a>两类的差别</h3><h3 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun_a</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"IN A"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun_b</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"IN B"</span>)</span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A,B)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun_c</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"IN C"</span>)</span><br><span class="line"></span><br><span class="line">c = C()</span><br><span class="line">c.fun_a()</span><br><span class="line">c.fun_b()</span><br><span class="line">c.fun_c()</span><br><span class="line">&gt; IN A</span><br><span class="line">&gt; IN B</span><br><span class="line">&gt; IN C</span><br></pre></td></tr></table></figure>
+<p>从上面的代码可以看出，一个类是可以有多个父类的，这样就引发了一个问题，如果2个父类中都存在一个叫<code>name</code>的变量时。而子类自己没有，当他调用<code>name</code>变量时，会调用哪一个父类中的呢？</p>
+<p>这个问题的答案，也就是两类的差距之处</p>
+<p>新式类和经典类的差别就在于： <strong>多继承的查询原则不同</strong></p>
+<ul>
+<li>新式类遵循的是：广度优先。</li>
+<li>经典类遵循的是：深度优先</li>
+</ul>
+<h3 id="什么是广度优先"><a href="#什么是广度优先" class="headerlink" title="什么是广度优先"></a>什么是广度优先</h3><p>广度优先 : 一条路走到倒数第二级,判断,如果其他路能走到终点,则返回走另一条路.如果不能,则走到终点.</p>
+<p>广度优先是由Python内部算法来计算的</p>
+<h3 id="什么是深度优先"><a href="#什么是深度优先" class="headerlink" title="什么是深度优先"></a>什么是深度优先</h3><p>深度优先 : 一条路走到底</p>
+<p>就是会从第一个父类中及向上查询，直到查不到才会向第二个父类查询等</p>
+<h3 id="mro"><a href="#mro" class="headerlink" title="mro()"></a>mro()</h3><p><code>mro()</code> 内置方法，可以查看优先顺序。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:08:51.737Z" itemprop="dateUpdated">2020-11-26 18:08:51</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/01面向对象/03继承/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-面向对象/">Python 面向对象</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/&title=《Python 面向对象:继承》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/&title=《Python 面向对象:继承》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:继承》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/02模块/11 异常处理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模块:异常处理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/02模块/12 双端队列/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 模块:双端队列</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/&title=《Python 面向对象:继承》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/&title=《Python 面向对象:继承》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:继承》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/03继承/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQU4DMQwFUO5/6SKxQyjl245bhN6sqmGayUulONj++Iivx9f18/PpTv6t03d7TzYvPDw8vNbUT9fzZ55PInkyee/pczIrPDw8vD1esq3nG31vaSZh5ngfDw8P76285Pmcl4yJh4eH9z94yaDJEuSj4eHh4f1NXnXjTo7FSWIiT0+s51rw8PDwYt6kAPauzy+q7+Hh4eENtuO75a5knN4Mv42Gh4eHt8BL0q+9dqgqOx+t3JiFh4eHd5U33/qrYWAeKgo/DB4eHt4CrzetXtPA3YJZ9T4eHh7eLV51803+WljR+PDd/Bnw8PDw1ni9VOzdBETvXb8kKfDw8PAWeEl5PilQzUNLrwcgUuDh4eG9hDcp8+f78/OwNF9QPDw8vA1e9TXzjb5XPMvTxIV2Kzw8PLw1XjU5m4wz2frzVC8eHh7eBq93UK5Oq1dCu3UEx8PDw7vLqzImmGRyeUCKlgYPDw9vgVcNA3kL1LWEQnGBmvU9PDw8vDFv0jK13RZQbhrDw8PDu8qbAOYJ1gTfK4/h4eHhvZKXvKC39VfH7y3fMY2Lh4eHd4nXawXotRckx+LJM4WogoeHhzfm9Rqh8sJVktqYt2odAwMeHh7eMi8HVPfhPAjl4aGQpcbDw8O7xKu2OlUbnvKCVvUwHQUhPDw8vGXe8wREdUKTJEg1MBzBeHh4eAu8XuHqEV/JIbt3cJ8vKx4eHl5vto/i1VuzeVKjerw+/seAh4eHN+b1tt38INtLcFTfe629AA8PDy/m9Y7F1XJ+ElTytEghUOHh4eGt8fJgkG/uk2Nx9ch+vIOHh4f3Vl6vFeBWi1UvtODh4eH9HV4eKqpBYnK8PiYj8PDw8BZ4eTKienSeNBDkuefjQRwPDw9vgdcrgFXTB9Xwkxe6ek1aeHh4eC3eJzNUAyezF8VcAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

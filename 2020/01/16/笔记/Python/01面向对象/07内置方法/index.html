@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 面向对象:内置方法 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python 面向对象,学习笔记:Python">
+    <meta name="description" content="类中的内置方法
+什么是内置方法(函数)？被自动加载到内存中的方法，在python 解析器中 是可以直接调用的，比如print，这样的方法是内置方法，每一个内置方法都对应着一个函数，函数的底层一般是用c写的因此我们也看不到对应的源代码！
+什么是类中的内置方法类中的内置方法/类中的特殊方法/双下方法/魔术方法
+在类中可以被直接调用的方法
+__call __方法
+当类中有__call__方法时，执行对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 面向对象:内置方法">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="类中的内置方法
+什么是内置方法(函数)？被自动加载到内存中的方法，在python 解析器中 是可以直接调用的，比如print，这样的方法是内置方法，每一个内置方法都对应着一个函数，函数的底层一般是用c写的因此我们也看不到对应的源代码！
+什么是类中的内置方法类中的内置方法/类中的特殊方法/双下方法/魔术方法
+在类中可以被直接调用的方法
+__call __方法
+当类中有__call__方法时，执行对象">
+<meta property="og:updated_time" content="2020-11-26T10:08:59.705Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 面向对象:内置方法">
+<meta name="twitter:description" content="类中的内置方法
+什么是内置方法(函数)？被自动加载到内存中的方法，在python 解析器中 是可以直接调用的，比如print，这样的方法是内置方法，每一个内置方法都对应着一个函数，函数的底层一般是用c写的因此我们也看不到对应的源代码！
+什么是类中的内置方法类中的内置方法/类中的特殊方法/双下方法/魔术方法
+在类中可以被直接调用的方法
+__call __方法
+当类中有__call__方法时，执行对象">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 面向对象:内置方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 面向对象:内置方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类中的内置方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">类中的内置方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是内置方法-函数-？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是内置方法(函数)？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是类中的内置方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">什么是类中的内置方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#call-方法"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">__call __方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#call常见的应用方法"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">call常见的应用方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#len-方法"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">__len__方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#new-构造方法"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">__new__ 构造方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单例类"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">单例类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#del-析构方法"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">__del__析构方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#析构方法的应用场景"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">析构方法的应用场景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#str-方法"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">__str__方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#repr-方法"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">__repr__方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#item-方法"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">__*item__ 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字典功能的实现"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">字典功能的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#列表功能的实现"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">列表功能的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#eq"><span class="post-toc-number">1.15.</span> <span class="post-toc-text">__eq__</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hash"><span class="post-toc-number">1.16.</span> <span class="post-toc-text">__hash__</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内置方法总结"><span class="post-toc-number">2.</span> <span class="post-toc-text">内置方法总结</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/01面向对象/07内置方法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 面向对象:内置方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="类中的内置方法"><a href="#类中的内置方法" class="headerlink" title="类中的内置方法"></a>类中的内置方法</h2><hr>
+<h3 id="什么是内置方法-函数-？"><a href="#什么是内置方法-函数-？" class="headerlink" title="什么是内置方法(函数)？"></a>什么是内置方法(函数)？</h3><p>被自动加载到内存中的方法，在python 解析器中 是可以直接调用的，比如<code>print</code>，这样的方法是内置方法，每一个内置方法都对应着一个函数，函数的底层一般是用<code>c</code>写的因此我们也看不到对应的源代码！</p>
+<h3 id="什么是类中的内置方法"><a href="#什么是类中的内置方法" class="headerlink" title="什么是类中的内置方法"></a>什么是类中的内置方法</h3><p>类中的内置方法/类中的特殊方法/双下方法/魔术方法</p>
+<p>在类中可以被直接调用的方法</p>
+<h3 id="call-方法"><a href="#call-方法" class="headerlink" title="__call __方法"></a><code>__call __</code>方法</h3><hr>
+<p>当类中有<code>__call__</code>方法时，执行<code>对象()</code> 以及<code>类()()</code>都是在直接执行<code>__call__</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        print(<span class="string">"执行了call方法了"</span>)</span><br><span class="line"></span><br><span class="line">a1 = A()</span><br><span class="line">a1()</span><br><span class="line">A()() <span class="comment"># 相当于实例化了A 但是没有赋给变量</span></span><br><span class="line">&gt; 执行了call方法了</span><br><span class="line">&gt; 执行了call方法了</span><br></pre></td></tr></table></figure>
+<h3 id="call常见的应用方法"><a href="#call常见的应用方法" class="headerlink" title="call常见的应用方法"></a>call常见的应用方法</h3><p>别问有啥用，问就自杀！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        print(<span class="string">"执行了call方法了"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,cls)</span>:</span></span><br><span class="line">        self.a = cls()</span><br><span class="line">        print(<span class="string">"实例化A 前"</span>)</span><br><span class="line">        self.a()</span><br><span class="line">        print(<span class="string">"实例化A 后"</span>)</span><br><span class="line"></span><br><span class="line">B(A)</span><br></pre></td></tr></table></figure>
+<h3 id="len-方法"><a href="#len-方法" class="headerlink" title="__len__方法"></a><code>__len__</code>方法</h3><hr>
+<p>当类中有个 <code>__len__</code> 方法时，在外部调用<code>len(本类对象)</code> 就会执行类中的<code>__len__</code>方法, 当然其他的<code>len</code>是不受任何影响的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"执行了len方法"</span>)</span><br><span class="line">        <span class="keyword">return</span> len(self.name)</span><br><span class="line"></span><br><span class="line">a1 = A(<span class="string">"123456789"</span>)</span><br><span class="line">print(len(a1))</span><br><span class="line"></span><br><span class="line">&gt; 执行了len方法</span><br><span class="line">&gt; <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h3 id="new-构造方法"><a href="#new-构造方法" class="headerlink" title="__new__ 构造方法"></a><code>__new__</code> 构造方法</h3><hr>
+<p><code>__init__</code>      初始化方法</p>
+<p><code>__new__</code>        构造方法</p>
+<blockquote>
+<p>实例化一个对象的过程</p>
+</blockquote>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span>: <span class="string">使用__new__开辟一个内存空间</span></span><br><span class="line"><span class="attribute">2</span>: <span class="string">把对象空间内存地址传给self，执行init</span></span><br><span class="line"><span class="attribute">3</span>: <span class="string">将这个对象的内存空间地址返回给调用者</span></span><br></pre></td></tr></table></figure>
+<h3 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h3><p>单例类就是再代码中只能被实例化一次的！</p>
+<p>通过<code>实例化一个对象的过程</code>我们知道，对象被实例化是借助<code>__new__</code>来开辟内存空间的，所以我们只需要控制<code>__new__</code>构造方法的运行就可以 控制一个类实例化的次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    __ISINSTANCE = <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> cls.__ISINSTANCE:</span><br><span class="line">            cls.__ISINSTANCE = object.__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls.__ISINSTANCE</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">a1 = A(<span class="string">'杰瑞'</span>,<span class="number">4</span>)</span><br><span class="line">print(a1.name,a1.age)</span><br><span class="line"></span><br><span class="line">&gt; 杰瑞 <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>问：  <code>object.__new__(cls)</code>为什么要把<code>类空间</code>的内存地址传过去</p>
+</blockquote>
+<blockquote>
+<p>答：因为方法的执行需要对象，<code>new</code>需要知道他是在谁的基础（类空间）开辟的对象空间</p>
+</blockquote>
+<h3 id="del-析构方法"><a href="#del-析构方法" class="headerlink" title="__del__析构方法"></a><code>__del__</code>析构方法</h3><hr>
+<p>如何触<code>发析构方法</code>:</p>
+<ul>
+<li>在Python解释器垃圾回收机制回收这个对象所占的内存时，触发<code>__del__</code>析构方法</li>
+<li><code>del  对象名</code> 触发类空间里的<code>__del__</code> 析构方法,然后释放 <code>对象空间</code></li>
+<li>代码执行完毕时 ，释放占用的所有内存空间时触发<code>__del__</code>析构方法</li>
+</ul>
+<h3 id="析构方法的应用场景"><a href="#析构方法的应用场景" class="headerlink" title="析构方法的应用场景"></a>析构方法的应用场景</h3><p>归还，释放一些在创建对象的时候借用的操作系统时的一些资源（包括文件资源，包括网络资源）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.f = open(<span class="string">"file"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read_file</span><span class="params">(self)</span>:</span></span><br><span class="line">        print( self.f.read())</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"通知操作系统关闭文件句柄"</span>)</span><br><span class="line">        self.f.close()</span><br><span class="line"></span><br><span class="line">a1 = A()</span><br><span class="line">a1.read_file()</span><br><span class="line">&gt; file txt</span><br><span class="line">&gt; 通知操作系统关闭文件句柄</span><br></pre></td></tr></table></figure>
+<h3 id="str-方法"><a href="#str-方法" class="headerlink" title="__str__方法"></a><code>__str__</code>方法</h3><hr>
+<p>实例化了一个对象，直接用<code>print(对象名)</code>时输出的是这个对象的内存地址，在特殊情况下我们需要输出一些我们想要的东西，就可以用到<code>__str__</code>了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">a1 = A(<span class="string">"杰瑞"</span>)</span><br><span class="line">print(a1)</span><br><span class="line">&gt; 杰瑞</span><br></pre></td></tr></table></figure>
+<p>在外部能够通过对象名调用<code>__str__</code>返回值的方式有，直接<code>print(对象名)</code>  ，<code>print(str(对象名))</code> ，<code>print(&quot;%s&quot; %对象名)</code> 三种调用方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">a1 = A(<span class="string">"杰瑞"</span>)</span><br><span class="line">print(<span class="string">"我是直接print:"</span>,a1)</span><br><span class="line">print(<span class="string">"我是str()print: "</span>,str(a1))</span><br><span class="line">print(<span class="string">"我是 %%s print: %s"</span> %(a1))</span><br><span class="line">&gt; 我是直接<span class="keyword">print</span>: 杰瑞</span><br><span class="line">&gt; 我是str()<span class="keyword">print</span>:  杰瑞</span><br><span class="line">&gt; 我是 %s <span class="keyword">print</span>: 杰瑞</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>问这三种方式有啥区别吗？</p>
+</blockquote>
+<blockquote>
+<p>挨冻喽~我使用了我常规能使用的其他调用变量的方式都可以调用成功，我不懂为什么要把这3额外说一下</p>
+</blockquote>
+<h3 id="repr-方法"><a href="#repr-方法" class="headerlink" title="__repr__方法"></a><code>__repr__</code>方法</h3><hr>
+<p>简单认识一下<code>__repr__</code> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>   self.name</span><br><span class="line">a1 = A(<span class="string">"杰瑞"</span>)</span><br><span class="line">print(str(a1))</span><br><span class="line">print(repr(a1))</span><br><span class="line">&gt; 杰瑞</span><br><span class="line">&gt; 杰瑞</span><br></pre></td></tr></table></figure>
+<p>从上面的代码中可以看出<code>__repr__</code>实现的基础功能和<code>str</code>是一样的，</p>
+<p>但实际上<code>__repr__</code>和<code>__str__</code>是存在一种备胎关系的</p>
+<ul>
+<li><p>同一个<code>类</code>中如果存在<code>__repr__</code>和<code>__str__</code>2个 方法时，在外部用<code>print</code>等方式调用 <code>对象名</code>返回值，那么返回的则是<code>__str__</code>的返回值</p>
+<p>只有使用<code>print(repr(对象名))</code> 和<code>print(&quot;%r&quot; %(a1))</code>这样的调用方式时才会返回<code>__repr__</code>的返回值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  <span class="string">"str方法返回 %s "</span> %(self.name)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>   <span class="string">"repr 方法返回 %s "</span> %(self.name)</span><br><span class="line">a1 = A(<span class="string">"杰瑞"</span>)</span><br><span class="line">print(str(a1))</span><br><span class="line">print(a1)</span><br><span class="line">print(repr(a1))</span><br><span class="line"></span><br><span class="line">&gt; str方法返回 杰瑞 </span><br><span class="line">&gt; str方法返回 杰瑞 </span><br><span class="line">&gt; repr 方法返回 杰瑞</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类中只有<code>__repr__</code>方法时，在外部使用任何方法调用<code>对象名</code>的返回值，返回的都是<code>__repr__</code>的返回值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>   <span class="string">"repr 方法返回 %s "</span> %(self.name)</span><br><span class="line">a1 = A(<span class="string">"杰瑞"</span>)</span><br><span class="line">print(str(a1))</span><br><span class="line">print(a1)</span><br><span class="line">print(repr(a1))</span><br><span class="line"></span><br><span class="line">&gt; repr 方法返回 杰瑞 </span><br><span class="line">&gt; repr 方法返回 杰瑞 </span><br><span class="line">&gt; repr 方法返回 杰瑞</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类中只有<code>__str__</code>方法时，在外部使用<code>print(repr(对象名))</code> 和<code>print(&quot;%r&quot; %(对象名))</code>这样的方法返回的则是对象的内存地址，调用不到<code>__str__</code>的返回值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  <span class="string">"str方法返回 %s "</span> %(self.name)</span><br><span class="line">a1 = A(<span class="string">"杰瑞"</span>)</span><br><span class="line">print(str(a1))</span><br><span class="line">print(a1)</span><br><span class="line">print(repr(a1))</span><br><span class="line">print(<span class="string">"%r"</span> %(a1))</span><br><span class="line"></span><br><span class="line">&gt; str方法返回 杰瑞 </span><br><span class="line">&gt; str方法返回 杰瑞 </span><br><span class="line">&gt; &lt;__main__.A object at <span class="number">0x00A79950</span>&gt;</span><br><span class="line">&gt; &lt;__main__.A object at <span class="number">0x00A79950</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由此可见<code>__repr__</code>是<code>__str__</code>的备胎，并且是<code>__str__</code>完全不搭理的备胎。 得出结论<code>:( 舔狗不得好死</code> 为了关爱舔狗，写代码时请尽量使用<code>__repr__</code></p>
+<blockquote>
+<p>在继承关系中，以上逻辑同样适用</p>
+</blockquote>
+<blockquote>
+<p>补充，什么是repr</p>
+</blockquote>
+<p>repr() 函数将对象转化为供解释器读取的形式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a1 = <span class="string">"abc"</span></span><br><span class="line">print(a1)</span><br><span class="line">print(repr(a1))</span><br><span class="line">print(<span class="string">"%r"</span> %(a1))</span><br><span class="line">&gt; abc</span><br><span class="line">&gt; <span class="string">'abc'</span></span><br><span class="line">&gt; <span class="string">'abc'</span></span><br></pre></td></tr></table></figure>
+<h3 id="item-方法"><a href="#item-方法" class="headerlink" title="__*item__ 方法"></a><code>__*item__</code> 方法</h3><hr>
+<p>在内置的模块中有一些特殊的方法，要求对象必须事项<code>__getitem___ &amp; __setitem__</code> 才能使用</p>
+<p>但是，还是感觉<code>__*item__</code>系列的方法很智障</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">666</span>  <span class="comment"># 方法返回 666</span></span><br><span class="line"></span><br><span class="line">a1 = A()</span><br><span class="line">print(a1[<span class="string">"123123"</span>]) <span class="comment"># 触发__getitem__，把字符串传进去</span></span><br><span class="line">&gt; <span class="number">6666</span></span><br></pre></td></tr></table></figure>
+<p><code>__setiteam__</code>  必须和<code>__setiteam__</code>一起使用,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> item	<span class="comment"># 把你传递进来的字符串在返回回去</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setitem__</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  key, value</span><br><span class="line">a1 = A()</span><br><span class="line">a1[<span class="string">"k1"</span>] == <span class="string">"v1"</span> <span class="comment"># 触发 __setitem__,把key, value传递过去，仅此而已~</span></span><br><span class="line">print(a1[<span class="string">"k1"</span>])  <span class="comment"># 触发 __getitem__，把你传进去的字符串打印出来</span></span><br><span class="line">&gt; k1</span><br></pre></td></tr></table></figure>
+<h3 id="字典功能的实现"><a href="#字典功能的实现" class="headerlink" title="字典功能的实现"></a>字典功能的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> getattr(self,item)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setitem__</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  setattr(self,key,value)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__delitem__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  delattr(self,key)</span><br><span class="line">a1 = A()</span><br><span class="line">a1[<span class="string">"k1"</span>] = <span class="string">"v1"</span></span><br><span class="line">a1[<span class="string">"k2"</span>] = <span class="string">"v2"</span></span><br><span class="line"></span><br><span class="line">print(a1[<span class="string">"k2"</span>])</span><br><span class="line">print(a1[<span class="string">"k1"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span>  a1[<span class="string">"k1"</span>]  <span class="comment"># 触发 __delitem__</span></span><br><span class="line">print(a1.__dict__)</span><br><span class="line"></span><br><span class="line">&gt; v2</span><br><span class="line">&gt; v1</span><br><span class="line">&gt; &#123;<span class="string">'k2'</span>: <span class="string">'v2'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="列表功能的实现"><a href="#列表功能的实现" class="headerlink" title="列表功能的实现"></a>列表功能的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,lst)</span>:</span></span><br><span class="line">        self.lst = lst</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.lst[item]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setitem__</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  self.lst.insert(key,value)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__delitem__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">return</span>  self.lst.pop(key)</span><br><span class="line"></span><br><span class="line">a1 = A([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line">print(a1[<span class="number">1</span>])</span><br><span class="line">a1[<span class="number">3</span>] = <span class="string">"d"</span></span><br><span class="line">print(a1.__dict__)</span><br><span class="line"><span class="keyword">del</span>  a1[<span class="number">2</span>]</span><br><span class="line">print(a1.__dict__)</span><br></pre></td></tr></table></figure>
+<h3 id="eq"><a href="#eq" class="headerlink" title="__eq__"></a><code>__eq__</code></h3><hr>
+<p> <code>__eq__</code> 在外面的触发方式是 <code>==</code></p>
+<p>他的作用就是比较  <code>对象 和 对象</code> ，第一个对象为当前对象，第二个为比较对象</p>
+<p>当然这个比较的规则还是要自己定义的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="comment">#num = 0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self, other)</span>:</span></span><br><span class="line">        <span class="comment">#print(self.name)</span></span><br><span class="line">        <span class="comment">#print(other.name)</span></span><br><span class="line">        <span class="comment">#print(self.num)</span></span><br><span class="line">        <span class="comment">#self.num = self.num +1</span></span><br><span class="line">        <span class="keyword">if</span> self.name == other.name <span class="keyword">and</span> self.age == other.age:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span>  <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">a1 = A(<span class="string">"汤姆"</span>,<span class="string">"10"</span>)</span><br><span class="line">a2 = A(<span class="string">"汤姆"</span>,<span class="string">"10"</span>)</span><br><span class="line">a3 = A(<span class="string">"汤姆"</span>,<span class="string">"10"</span>)</span><br><span class="line">a4 = A(<span class="string">"杰瑞"</span>,<span class="string">"10"</span>)</span><br><span class="line">print(a1 == a2) <span class="comment"># 当前对象a1 比较对象a2</span></span><br><span class="line">print(a2 == a4)</span><br><span class="line">print(a1 == a4 == a3) <span class="comment">#这里就是调用2次 __eq__ ：比较关系是  a1 == a4   a4 == a3</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">True</span></span><br><span class="line">&gt; <span class="keyword">False</span></span><br><span class="line">&gt; <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<h3 id="hash"><a href="#hash" class="headerlink" title="__hash__"></a><code>__hash__</code></h3><p><strong>hash算法：</strong></p>
+<ol>
+<li>底层数据结构基于hash算法来寻找内存地址的优化操作</li>
+<li>将把某一个值存储在内存中，就会经过hash算法的一系列运算，保证不同值的hash值是不一致的、</li>
+<li>对同一个值每执行一次代码，hash值都会进行变化</li>
+<li>对同一个值，执行一次代码中有多次同值的，hash值不会发生变化</li>
+</ol>
+<p><strong>字典的存值：</strong></p>
+<p>字典的存值也是使用hash算法来运算的</p>
+<ol>
+<li>先把key值用hash算法运算一下存储位置，key值存储的就是value值的内存地址</li>
+<li><p>如果在字典中有相同的key值，按Python的执行顺序，最后的值为准</p>
+<p><strong>集合的存值</strong></p>
+</li>
+</ol>
+<p>集合的去重是怎么实现的</p>
+<p>将集合中的每个值一一取出，就像是用for循环一样，在将每个值进行bash运算，在内存中，集合实际都是存储一大堆运算好的hash值，如果二个值相等就会被覆盖</p>
+<p>如果类有<strong>hash</strong>方法，那在外部的触发条件，有使用到字典或集合类型的时候自动调用类中的<strong>hash</strong>方法</p>
+<p>单个的<code>__hash__</code>没有定义的价值，需要和<code>__eq__</code>同时使用，在外面被<code>set()</code> 触发,</p>
+<p><code>set()</code> 的对象必须是定义了 <code>__hash__</code> 和<code>__eq__</code> 方法类的实例化对象才行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__hash__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"执行了 __hash__"</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">123123</span>  <span class="comment"># hash 方法的返回值必须是一串字符串才行，因为在set中他需要对比2个对象的hash值然后决定是否触发__eq__方法。</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self, other)</span>:</span></span><br><span class="line">        print(<span class="string">"执行了 __eq__"</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">321</span> <span class="comment"># 常规的eq 返回值就是True 和 False</span></span><br><span class="line"></span><br><span class="line">a1 = A()</span><br><span class="line">a2 = A()</span><br><span class="line">lst = [a1,a2]</span><br><span class="line">set(lst)</span><br><span class="line"></span><br><span class="line">&gt; 执行了 __hash__</span><br><span class="line">&gt; 执行了 __hash__</span><br><span class="line">&gt; 执行了 __eq__</span><br></pre></td></tr></table></figure>
+<h2 id="内置方法总结"><a href="#内置方法总结" class="headerlink" title="内置方法总结"></a>内置方法总结</h2><p>通过学习上面的内置方法可以看出，内置方法都是在内部实现功能，在外部有一个接头人对应调用的，比如<code>__len__</code>和<code>len</code>，<code>__call__</code>和<code>()()</code></p>
+<p>我们可以得出结论</p>
+<ul>
+<li>双下方法是不能从外面直接调用的！</li>
+<li>而是通过一些 <code>内置函数</code> <code>特色的语法</code> 来触发这些双下方法</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:08:59.705Z" itemprop="dateUpdated">2020-11-26 18:08:59</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/01面向对象/07内置方法/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-面向对象/">Python 面向对象</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/&title=《Python 面向对象:内置方法》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/&title=《Python 面向对象:内置方法》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:内置方法》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/02模块/07 json_pickle_shelve模块/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模块:json pickle shelve模块</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/02模块/08 hashlib模块/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 模块:hashlib 模块</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/&title=《Python 面向对象:内置方法》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/&title=《Python 面向对象:内置方法》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 面向对象:内置方法》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01面向对象/07内置方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwUlEQVR42u3ay47bQAwEwP3/n94AQQ4BEsndpMYxgtLJ8GM85YNI9/DrK76+f173r/7+nu+LK1/hz++9X2F14eHh4Y22fr+hdrvJp66eaV99sSs8PDy8Y7z7YnD/xUl5yH+Iq10lRQIPDw/v03jt19/fyttmHQ8PD+//4LUhwqaxxsPDw/s0XhIc5CHvU+9vwxE8PDy89/DaA7BPeHzwfA8PDw9vcaq+ORJLQt59kXixTzw8PLwDvPzP/ywmmDXlTwUZeHh4eCd4yd/49tXZiNVTgXKUZODh4eEteHn7W1eboO1u2+VZQIyHh4d3jvfs4f1sSCv59mEYgYeHh3eYl0cGSWs7izDadaL/DXh4eHgHePftdXE7LrfVBhlFTIyHh4f3KG8fs27CgllBKgaw8PDw8N7Ca9lPRRJ5sSl2goeHh3eM197ckyAjb6/z1fJG/NereHh4eMd47dJty5u30UmZKdbEw8PDO8DbXLNINz++aqPhtqTh4eHhbXh58Noenj3VdueYy6ErPDw8vId4m8P7pAVvb+IzzOVjPDw8vGO8zXBAG/jOjs3aw7Ni4gAPDw9vxGvLwCaEbaOKNnQuRgfw8PDwFqdCxWF8HBzk0UN+kJaXBzw8PLz38NpRgHa7mxGr/Add/W/Aw8PDC3hta9sedyVjUrNBruhHxMPDwzvAyyODZNMzanKLb0MTPDw8vHO8FpMz8vKQPM6DEjw8PLzTvPwQa3aslY9M1XVs1Hzj4eHh7XnPNrKzkYJ2wKsYAsPDw8M7wMuv/WDB7LM5oxjDwsPDw1vznioGszhj/84Xn8XDw8M7xsuLQT44tcHMStdfVsbDw8P7AF7b2ubrzErUi58bDw8P75/yNmNVbfsebT3ZJx4eHt4x3iyMaNvopLFuG+4XZQMPDw/vAK9dIj8Sy0ey8shjGObi4eHhPcP7AS+Aac4XxqvmAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Kubernetes 部署K8S | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习笔记:Kubernetes">
+    <meta name="description" content="部署K8Skubernetes 架构
+                
+                    
+                    
+                
+                
+            
+准备环境1yum install wget net-tools telnet tree nmap sysstat lrzsz dos2unix bin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes 部署K8S">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="部署K8Skubernetes 架构
+                
+                    
+                    
+                
+                
+            
+准备环境1yum install wget net-tools telnet tree nmap sysstat lrzsz dos2unix bin">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200618200138569.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200618181416906.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200618183626791.png">
+<meta property="og:updated_time" content="2020-11-26T09:18:32.151Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kubernetes 部署K8S">
+<meta name="twitter:description" content="部署K8Skubernetes 架构
+                
+                    
+                    
+                
+                
+            
+准备环境1yum install wget net-tools telnet tree nmap sysstat lrzsz dos2unix bin">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Kubernetes 部署K8S</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Kubernetes 部署K8S</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#部署K8S"><span class="post-toc-number">1.</span> <span class="post-toc-text">部署K8S</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#kubernetes-架构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">kubernetes 架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#准备环境"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">准备环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建DNS服务器"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">搭建DNS服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Docker-环境"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">安装Docker 环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#部署Docker-私有仓库"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">部署Docker 私有仓库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上传一个镜像到私有仓库"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">上传一个镜像到私有仓库</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Master-节点"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">安装Master 节点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#签发证书"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">签发证书</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装etcd"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">安装etcd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证etcd集群状态"><span class="post-toc-number">1.6.3.</span> <span class="post-toc-text">验证etcd集群状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装kube-apiserver"><span class="post-toc-number">1.6.4.</span> <span class="post-toc-text">安装kube-apiserver</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#给kube-apiserver-部署L4高可用"><span class="post-toc-number">1.6.5.</span> <span class="post-toc-text">给kube-apiserver 部署L4高可用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装kube-controller-manager"><span class="post-toc-number">1.6.6.</span> <span class="post-toc-text">安装kube-controller-manager</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-kube-scheduler"><span class="post-toc-number">1.6.7.</span> <span class="post-toc-text">安装 kube-scheduler</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置命令的环境变量"><span class="post-toc-number">1.6.8.</span> <span class="post-toc-text">配置命令的环境变量</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Node服务"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">安装Node服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装kubelet"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">安装kubelet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#kube-proxy"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">kube-proxy</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证K8s集群"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">验证K8s集群</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Minikube"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">Minikube</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/kubernetes/02_安装k8s"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Kubernetes 部署K8S</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="部署K8S"><a href="#部署K8S" class="headerlink" title="部署K8S"></a>部署K8S</h1><h2 id="kubernetes-架构"><a href="#kubernetes-架构" class="headerlink" title="kubernetes 架构"></a>kubernetes 架构</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200618200138569.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install wget net-tools telnet tree nmap sysstat lrzsz dos2unix bind-utils -y</span><br></pre></td></tr></table></figure>
+<p>5台主机的主机名：</p>
+<table>
+<thead>
+<tr>
+<th>IP</th>
+<th>主机名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.10.10.11</td>
+<td>k8s-11</td>
+</tr>
+<tr>
+<td>10.10.10.12</td>
+<td>k8s-12</td>
+</tr>
+<tr>
+<td>10.10.10.21</td>
+<td>k8s-21</td>
+</tr>
+<tr>
+<td>10.10.10.22</td>
+<td>k8s-22</td>
+</tr>
+<tr>
+<td>10.10.10.200</td>
+<td>k8s-200</td>
+</tr>
+</tbody>
+</table>
+<h2 id="搭建DNS服务器"><a href="#搭建DNS服务器" class="headerlink" title="搭建DNS服务器"></a>搭建DNS服务器</h2><blockquote>
+<p>在k8s-200上部署</p>
+</blockquote>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">yum</span> install <span class="keyword">bind </span> -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim  /etc/named.conf &#10;&#10;listen-on port 53 &#123; 10.10.10.200; &#125;;&#10;allow-query     &#123; any; &#125;;&#10;forwarders      &#123; 8.8.8.8; &#125;;&#10;dnssec-enable no;&#10;dnssec-validation no;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62;&#62; /etc/named.rfc1912.zones &#60;&#60;-EOF&#10;zone &#34;host.com&#34; IN &#123;&#10;        type master;&#10;        file &#34;host.com.zone&#34;;&#10;        allow-update &#123; 10.10.10.200; &#125;;&#10;&#125;;&#10;&#10;zone &#34;od.com&#34; IN &#123;&#10;        type master;&#10;        file &#34;od.com.zone&#34;;&#10;        allow-update &#123; 10.10.10.200; &#125;;&#10;&#125;;&#10;&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /var/named/&#10;vim host.com.zone&#10;&#10;$ORIGIN host.com.&#10;$TTL 600        ; 10 minutes&#10;@       IN SOA   dns.host.com. dnsadmin.host.com. (&#10;                                        0       ; serial&#10;                                        1D      ; refresh&#10;                                        1H      ; retry&#10;                                        1W      ; expire&#10;                                        3H )    ; minimum&#10;        NS      dns.host.com.&#10;$TTL 60 ; 1 minute&#10;dns     A       10.10.10.200&#10;k8s-11  A       10.10.10.11&#10;k8s-12  A       10.10.10.12&#10;k8s-21  A       10.10.10.21&#10;k8s-22  A       10.10.10.22&#10;k8s-200 A       10.10.10.200</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /var/named/&#10;vim  od.com.zone &#10;&#10;$ORIGIN od.com.&#10;$TTL 600        ; 10 minutes&#10;@       IN SOA   dns.od.com. dnsadmin.od.com. (&#10;                                        0       ; serial&#10;                                        1D      ; refresh&#10;                                        1H      ; retry&#10;                                        1W      ; expire&#10;                                        3H )    ; minimum&#10;        NS      dns.od.com.&#10;$TTL 60 ; 1 minute&#10;dns     A       10.10.10.200&#10;k8s-11  A       10.10.10.11&#10;k8s-12  A       10.10.10.12&#10;k8s-21  A       10.10.10.21&#10;k8s-22  A       10.10.10.22&#10;k8s-200 A       10.10.10.200</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start named&#10;systemctl enable named</span><br></pre></td></tr></table></figure>
+<h2 id="安装Docker-环境"><a href="#安装Docker-环境" class="headerlink" title="安装Docker 环境"></a>安装Docker 环境</h2><blockquote>
+<p>k8s-21   k8s-22   k8s-200</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker* -y &#10;yum install yum-utils -y &#10;yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo&#10;yum update &#10;yum install docker-ce -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/docker/</span><br><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;-EOF</span><br><span class="line">&#123;</span><br><span class="line">    "graph": "/data/docker",</span><br><span class="line">    "storage-driver": "overlay2",</span><br><span class="line">    "insecure-registries": [</span><br><span class="line">        "harbor.my-k8s.com"</span><br><span class="line">  ],</span><br><span class="line">    "registry-mirrors" : [</span><br><span class="line">        "http://hub-mirror.c.163.com"</span><br><span class="line">  ],</span><br><span class="line">    "bip": "172.7.21.1/24",    //网段 第三位 建议使用 宿主机 ip的第四位</span><br><span class="line">    "exec-opts": [</span><br><span class="line">        "native.cgroupdriver=systemd"</span><br><span class="line">    ],</span><br><span class="line">    "live-restore": true</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+<h2 id="部署Docker-私有仓库"><a href="#部署Docker-私有仓库" class="headerlink" title="部署Docker 私有仓库"></a>部署Docker 私有仓库</h2><blockquote>
+<p>k8s-200</p>
+</blockquote>
+<p><a href="https://github.com/goharbor/harbor/releases/tag/" target="_blank" rel="external">https://github.com/goharbor/harbor/releases/tag/</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://storage.googleapis.com/harbor-releases/release-1.8.0/harbor-offline-installer-v1.8.3.tgz</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xf harbor-offline-installer-v1.8.3.tgz  -C /opt/</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt&#10;mv harbor harbor-v1.8.3&#10;ln -s /opt/harbor-v1.8.3 /opt/harbor</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/harbor&#10;vim harbor.yml    # &#20462;&#25913;&#37197;&#32622;&#25991;&#20214;&#10;hostname: harbor.od.com&#10;http:&#10;&#9;port: 180&#10;data_volume: /data/harbor&#10;location: /data/harbor/logs</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> docker-compose  <span class="comment">#安装依赖</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/harbor/install.sh //&#25191;&#34892;&#23433;&#35013;&#33050;&#26412;</span><br></pre></td></tr></table></figure>
+<p>安装没问题后配置NGINX反代 harbor</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx -y &#10;&#10;cat &#62; /etc/nginx/conf.d/harbor.od.com.conf  &#60;&#60;-EOF&#10;server &#123;&#10;        listen  80;&#10;        server_name     harbor.od.com;&#10;        &#10;        #ssl_certificate     example.com.crt;&#10;    &#9;#ssl_certificate_key example.com.key;&#10;    &#9;#ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;&#10;        #ssl_ciphers         HIGH:!aNULL:!MD5;&#10;&#10;        client_max_body_size 1000m;&#10;&#10;        location / &#123;&#10;          proxy_pass http://127.0.0.1:180;&#10;        &#125;&#10;&#125;&#10;EOF</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>别忘了在 bind9上配置 harbor.od.com的DNS解析</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200618181416906.png" alt="image-20200618181416906" title>
+                </div>
+                <div class="image-caption">image-20200618181416906</div>
+            </figure>
+<h3 id="上传一个镜像到私有仓库"><a href="#上传一个镜像到私有仓库" class="headerlink" title="上传一个镜像到私有仓库"></a>上传一个镜像到私有仓库</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-200 harbor]# docker login harbor.od.com&#10;Username: admin&#10;Password: &#10;WARNING! Your password will be stored unencrypted in /root/.docker/config.json.&#10;Configure a credential helper to remove this warning. See&#10;https://docs.docker.com/engine/reference/commandline/login/#credentials-store&#10;&#10;Login Succeededginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-200 harbor]# docker images | grep nginx &#10;goharbor/nginx-photon           v1.8.3                     3a016e0dc7de        9 months ago        37MB&#10;nginx                           1.7.9                      84581e99d807        5 years ago         91.7MB&#10;&#10;[root@k8s-200 harbor]# docker tag 84581e99d807 harbor.od.com/public/nginx:1.7.9&#10;&#10;[root@k8s-200 harbor]# docker images | grep nginx &#10;goharbor/nginx-photon           v1.8.3                     3a016e0dc7de        9 months ago        37MB&#10;nginx                           1.7.9                      84581e99d807        5 years ago         91.7MB&#10;harbor.od.com/public/nginx      1.7.9                      84581e99d807        5 years ago         91.7MB</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-200 harbor]# docker pull harbor.od.com/public/nginx:1.7.9&#10;Error response from daemon: manifest for harbor.od.com/public/nginx:1.7.9 not found: manifest unknown: manifest unknown&#10;[root@k8s-200 harbor]# docker push harbor.od.com/public/nginx:1.7.9&#10;The push refers to repository [harbor.od.com/public/nginx]&#10;5f70bf18a086: Pushed &#10;.....&#10;1.7.9: digest: sha256:b1f5935eb2e9e2ae89c0b3e2e148c19068d91ca502e857052f14db230443e4c2 size: 3012&#10;[root@k8s-200 harbor]#</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200618183626791.png" alt="image-20200618183626791" title>
+                </div>
+                <div class="image-caption">image-20200618183626791</div>
+            </figure>
+<h2 id="安装Master-节点"><a href="#安装Master-节点" class="headerlink" title="安装Master 节点"></a>安装Master 节点</h2><h3 id="签发证书"><a href="#签发证书" class="headerlink" title="签发证书"></a>签发证书</h3><blockquote>
+<p>k8s-200</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://pkg.cfssl.org/R1.2/cfssl_linux-amd64 -O /usr/local/bin/cfssl&#10;&#10;wget https://github.com/cloudflare/cfssl/releases/download/v1.4.1/cfssljson_1.4.1_linux_amd64 -O /usr/local/bin/cfssl-json&#10;&#10;wget https://github.com/cloudflare/cfssl/releases/download/v1.4.1/cfssl-certinfo_1.4.1_linux_amd64 -O /usr/local/bin/cfssl-certinfo</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/certs</span><br><span class="line">cd !$</span><br><span class="line"></span><br><span class="line">cat &gt; ca-csr.json &lt;&lt;-EOF</span><br><span class="line">&#123;</span><br><span class="line">    "CN": "k8s-ca",</span><br><span class="line">    "hosts":[],</span><br><span class="line">    "key": &#123;</span><br><span class="line">        "algo": "rsa",</span><br><span class="line">        "size": 2048</span><br><span class="line">    &#125;,</span><br><span class="line">    "names": [</span><br><span class="line">        &#123;</span><br><span class="line">            "C": "CN",</span><br><span class="line">            "ST": "beijing",</span><br><span class="line">            "L": "beijing",</span><br><span class="line">            "O": "k8s",</span><br><span class="line">            "OU": "ops"</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    "ca": &#123;</span><br><span class="line">        "expiry": "175200h"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfssl gencert -initca ca-csr.json  | cfssl-json -bare ca&#10;&#10;ls &#10;ca.csr  ca-csr.json  ca-key.pem  ca.pem</span><br></pre></td></tr></table></figure>
+<h3 id="安装etcd"><a href="#安装etcd" class="headerlink" title="安装etcd"></a>安装etcd</h3><blockquote>
+<p>k8s-12, k8s-21, k8s-22 上部署</p>
+</blockquote>
+<p>在k8s-200上生成证书</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /<span class="keyword">opt</span>/certs</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20934;&#22791;&#21019;&#24314;&#35777;&#20070;&#25152;&#38656;&#35201;&#30340;&#37197;&#32622;&#10;cat &#62; ca-config.json &#60;&#60;-EOF&#10;&#123;&#10;    &#34;signing&#34;: &#123;&#10;        &#34;default&#34;: &#123;&#10;            &#34;expiry&#34;: &#34;175200h&#34;&#10;        &#125;,&#10;        &#34;profiles&#34;: &#123;&#10;            &#34;server&#34;: &#123;&#10;                &#34;expiry&#34;: &#34;175200h&#34;,&#10;                &#34;usages&#34;: [&#10;                    &#34;signing&#34;,&#10;                    &#34;key encipherment&#34;,&#10;                    &#34;server auth&#34;&#10;                ]&#10;            &#125;,&#10;            &#34;client&#34;: &#123;&#10;                &#34;expiry&#34;: &#34;175200h&#34;,&#10;                &#34;usages&#34;: [&#10;                    &#34;signing&#34;,&#10;                    &#34;key encipherment&#34;,&#10;                    &#34;client auth&#34;&#10;                ]&#10;            &#125;,&#10;            &#34;peer&#34;: &#123;&#10;                &#34;expiry&#34;: &#34;175200h&#34;,&#10;                &#34;usages&#34;: [&#10;                    &#34;signing&#34;,&#10;                    &#34;key encipherment&#34;,&#10;                    &#34;server auth&#34;,&#10;                    &#34;client auth&#34;&#10;                ]&#10;            &#125;&#10;        &#125;&#10;    &#125;&#10;&#125;&#10;EOF&#10;&#10;cat &#62; etcd-peer-csr.json &#60;&#60;-EOF&#10;&#123;&#10;    &#34;CN&#34;: &#34;k8s-etcd&#34;,&#10;    &#34;hosts&#34;: [&#10;        &#34;10.10.10.11&#34;, //&#21487;&#33021;&#37096;&#32626;etcd&#32452;&#20214;&#30340;&#20840;&#37096;ip&#10;        &#34;10.10.10.12&#34;,&#10;        &#34;10.10.10.21&#34;,&#10;        &#34;10.10.10.22&#34;&#10;    ],&#10;    &#34;key&#34;: &#123;&#10;        &#34;algo&#34;: &#34;rsa&#34;,&#10;        &#34;size&#34;: 2048&#10;    &#125;,&#10;    &#34;names&#34;: [&#10;        &#123;&#10;            &#34;C&#34;: &#34;CN&#34;,&#10;            &#34;ST&#34;: &#34;beijing&#34;,&#10;            &#34;L&#34;: &#34;beijing&#34;,&#10;            &#34;O&#34;: &#34;od&#34;,&#10;            &#34;OU&#34;: &#34;ops&#34;&#10;        &#125;&#10;    ]&#10;&#125;&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=peer  etcd-peer-csr.json | cfssl-json -bare etcd-peer</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; ~/.ssh/id_rsa &lt;&lt;-EOF</span><br><span class="line">-----BEGIN OPENSSH PRIVATE KEY-----</span><br><span class="line">b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn</span><br><span class="line">NhAAAAAwEAAQAAAYEArxUPmUpLkrEDEvLIMdrNtMbcQLUk10iEI5ZKLrKpRdzzgo8x66Fp</span><br><span class="line">nJ836+xYjm1qqFPbZ6NKM3Giuv0Gm1rgnO+Re0DMkaXzqjx/HvbfrYkd7seMzTR+FlkSP1</span><br><span class="line">D/Q1u8h0V6L1L4mvSG05yOR9p5sjZ9hGqisi5SgfTKb9fDs7qqByyH8TPrRXcLPdiMYwpn</span><br><span class="line"><span class="number">5</span>+i+uQVZLiOcOjmxrZmjKIQ8A+l4wQ6ILAPFCWG4CcpKf79k7RcyQq2Ca8oKHlx6htKanS</span><br><span class="line"><span class="number">8</span>aco9KS9mtZWHC3uO188NBAJDuajiJPnkD/xqLVWFi3jcHU8kdw7fSk6XToex/RXmti6Mh</span><br><span class="line"><span class="number">88</span>OlPN+ZGtsiNmMis7hr4e4sYpghNsEC27CmLHtcsbp1wF6gI6Vp5Ozs+rXmGJTIi0ffoR</span><br><span class="line">U/I3Kf6kdPiTBNq/<span class="number">3</span>kazKazgF2vUV0Z4khgRD6gt2Q67fhKursKLfae1C0TUp/LVE4sHm6</span><br><span class="line">IJN7j4kpfcP3PXk8dr4V/EdhjWCqq0TJUpEzgKUHAAAFiMY5RHjGOUR4AAAAB3NzaC1yc2</span><br><span class="line">EAAAGBAK8VD5lKS5KxAxLyyDHazbTG3EC1JNdIhCOWSi6yqUXc84KPMeuhaZyfN+vsWI5t</span><br><span class="line">aqhT22ejSjNxorr9Bpta4JzvkXtAzJGl86o8fx72362JHe7HjM00fhZZEj9Q/<span class="number">0</span>NbvIdFei</span><br><span class="line"><span class="number">9</span>S+Jr0htOcjkfaebI2fYRqorIuUoH0ym/Xw7O6qgcsh/Ez60V3Cz3YjGMKZ+fovrkFWS4j</span><br><span class="line">nDo5sa2ZoyiEPAPpeMEOiCwDxQlhuAnKSn+/ZO0XMkKtgmvKCh5ceobSmp0vGnKPSkvZrW</span><br><span class="line">Vhwt7jtfPDQQCQ7mo4iT55A/<span class="number">8</span>ai1VhYt43B1PJHcO30pOl06Hsf0V5rYujIfPDpTzfmRrb</span><br><span class="line">IjZjIrO4a+HuLGKYITbBAtuwpix7XLG6dcBeoCOlaeTs7Pq15hiUyItH36EVPyNyn+pHT4</span><br><span class="line">kwTav95Gsyms4Bdr1FdGeJIYEQ+oLdkOu34Srq7Ci32ntQtE1Kfy1ROLB5uiCTe4+JKX3D</span><br><span class="line"><span class="number">9</span>z15PHa+FfxHYY1gqqtEyVKRM4ClBwAAAAMBAAEAAAGAOCOSqt5NuS2VBMBgPMwh5XNWMF</span><br><span class="line">FlDLqt1BNemfajnEkqs5Rit2E8UgIjljxkcNbYujyZP3P2WOR4/<span class="number">2</span>gedDYBi5Ctn025yoHh</span><br><span class="line">zZY0VKNoOWab+HJ3zVyliVjqJu87ykdh/iXi9cWu/VCm4rdyT8vX9bLPMGRY4rVDs3PgbV</span><br><span class="line">hL4hdaaY530HmLWOzA6AXFjgRKKOxSK1VxsP+uGmVheX6n+FfePorgM1cLhsF2rnls34bD</span><br><span class="line">uI6QOA2WChdEmHdiIzYXc80BlH3rSasL0nillUDUuL5SJKxJMnPHRVtU9JhKwkY0DpOCNz</span><br><span class="line">JPHTSAYHJoN7EP5di68Z/<span class="number">22</span>vBOP65jruYNgrUZPIGqWTCgOt+jJxDBMrP2G4OyOW81ZZ2Y</span><br><span class="line">iOkzQo1SgCrA397i2SV/<span class="number">4</span>VgQiXJ8L48d9ARCHGHX5RINL+yOwDkMw2wRriSKZ82mwsmJR6</span><br><span class="line">JkImLI9SBqaak4eddMKdTsRzYZBQ4tTzvneEG9AiixhlzNfYqnzS0blUTFcsr03efhAAAA</span><br><span class="line">wQC9IL9eFwvRr54TijewAjBKGpsUo8XRHdZOIIrKt4j1GFLz2JnDpUsNlK/nc5JzJlj03u</span><br><span class="line">s6YztQwoRR+a7OGOoB6z/wl+IM5EijVVE3es8mKD+N3/YaoFC+fltQ0fGzof4ZM6FXXpZp</span><br><span class="line">pXFZ0w8UvjfitevdDdvxzZlVTyhTw/brLl7sbMSFwXqji0WJZHKjLA0SjxuilFsGHgrt/l</span><br><span class="line">+<span class="number">2</span>WO1nJPICrfBEJOh1qzV81lsAUoGQQRReOCQ7u/M9Kh0kyEsAAADBANnBvCpcoLt5EhRD</span><br><span class="line">B+O3imgJW1gfjHMDSvae85AKlskHhAJFNf6/jQmCLztgky17fMyG3J6bm5VP8+niTHJ284</span><br><span class="line">buRT05VzA0RNLmtlif1T2+kLS0HsIV7oyF4NJCVJJhlcEldOokwQB5+cx2lYUrYmenC+R2</span><br><span class="line">FOskb3vvNKSx2W3yYwfDZiQmOvkAz/l5/CrvVAlIhbrk8N1o2Uz/bbKFwGMp2Umq7OoVMj</span><br><span class="line">AicoE12sg27n9BUs8IEklzfzLU+<span class="number">8</span>OGmQAAAMEAzdSyFiUZTx5W2XY9pBZTu8rY4M4/Zf9a</span><br><span class="line">GZbgXC9tZjUP5DtHhPIHRTCFddzhRuoLtMPYFE178AyOcy1AKqcQbqPLShFGDswiC7FbG3</span><br><span class="line"><span class="number">1</span>AdG1S8o5UoDNNSqqNyPtgWoKnBcVcZzX2oVjNo4Ff6+DT0Mgf1oXXz4gZpp3f+BaXEY7o</span><br><span class="line">FybSIOhW33uoCLDjtG87q7KvCXLr1URLI5N66pdaO/vwZP0kFQ2NdgNNkzAc6WOboXizmO</span><br><span class="line">Ltxpwqbkg4s+yfAAAAEWplcnJ5QGplcnJ5LWxpbnV4AQ==</span><br><span class="line">-----END OPENSSH PRIVATE KEY-----</span><br><span class="line">EOF</span><br><span class="line">chmod <span class="number">400</span> ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#19979;&#36733;&#24182;&#37096;&#32626;&#20108;&#36827;&#21046;etcd&#10;mkdir /opt/src; cd /opt/src&#10;wget https://github.com/etcd-io/etcd/releases/download/v3.1.20/etcd-v3.1.20-linux-amd64.tar.gz&#10;tar -xf etcd-v3.1.20-linux-amd64.tar.gz -C /opt/&#10;cd ..&#10;mv etcd-v3.1.20-linux-amd64/ etcd-v3.1.20&#10;ln -s /opt/etcd-v3.1.20/ /opt/etcd</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#21019;&#24314;etcd&#36816;&#34892;&#25152;&#38656;&#35201;&#30340;&#30446;&#24405;&#65292;&#10;mkdir -p /opt/etcd/certs /data/etcd /data/logs/etcd-server &#10;&#10;&#20174;k8s-200&#21738;&#37324;&#33719;&#21462;&#21040;&#35777;&#20070;&#25991;&#20214;,&#25918;&#21040;etcd&#30340;&#35777;&#20070;&#30446;&#24405;&#19979;&#10;cd /opt/etcd/certs&#10;scp k8s-200.host.com:/opt/certs/ca.pem .&#10;scp k8s-200.host.com:/opt/certs/etcd-peer-key.pem .&#10;scp k8s-200.host.com:/opt/certs/etcd-peer.pem .</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#21019;&#24314;etcd&#21551;&#21160;&#33050;&#26412;, &#35831;&#28789;&#27963;&#21464;&#26356;&#20854;&#20013;&#30340;&#21442;&#25968;&#10;cd /opt/etcd/&#10;vim etcd-server-startup.sh &#10;#!/bin/sh&#10;./etcd --name etcd-server-12 \&#10;       --data-dir /data/etcd/etcd-server \&#10;       --listen-peer-urls https://10.10.10.12:2380 \&#10;       --listen-client-urls https://10.10.10.12:2379,http://127.0.0.1:2379 \&#10;       --quota-backend-bytes 8000000000 \&#10;       --initial-advertise-peer-urls https://10.10.10.12:2380 \&#10;       --advertise-client-urls https://10.10.10.12:2379,http://127.0.0.1:2379 \&#10;       --initial-cluster  etcd-server-12=https://10.10.10.12:2380,etcd-server-21=https://10.10.10.21:2380,etcd-server-22=https://10.10.10.22:2380 \&#10;       --ca-file ./certs/ca.pem \&#10;       --cert-file ./certs/etcd-peer.pem \&#10;       --key-file ./certs/etcd-peer-key.pem \&#10;       --client-cert-auth  \&#10;       --trusted-ca-file ./certs/ca.pem \&#10;       --peer-ca-file ./certs/ca.pem \&#10;       --peer-cert-file ./certs/etcd-peer.pem \&#10;       --peer-key-file ./certs/etcd-peer-key.pem \&#10;       --peer-client-cert-auth \&#10;       --peer-trusted-ca-file ./certs/ca.pem \&#10;       --log-output stdout</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;&#26435;&#38480;&#10;useradd -s /sbin/nologin -M etcd&#10;chown etcd:etcd /opt/etcd/ /data/etcd/ /data/logs/etcd-server -R&#10;F</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;subpervisord &#21551;&#21160;&#31649;&#29702;&#24037;&#20855;&#10;yum install supervisor -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#35831;&#28789;&#27963;&#21464;&#26356;&#20854;&#20013;&#30340;&#21442;&#25968;&#10;cat &#62; /etc/supervisord.d/etcd-server.ini &#60;&#60;-EOF&#10;[program:etcd-server-21]&#10;command=/opt/etcd/etcd-server-startup.sh                        ; the program (relative uses PATH, can take args)&#10;numprocs=1                                                      ; number of processes copies to start (def 1)&#10;directory=/opt/etcd                                             ; directory to cwd to before exec (def no cwd)&#10;autostart=true                                                  ; start at supervisord start (default: true)&#10;autorestart=true                                                ; retstart at unexpected quit (default: true)&#10;startsecs=30                                                    ; number of secs prog must stay running (def. 1)&#10;startretries=3                                                  ; max # of serial start failures (default 3)&#10;exitcodes=0,2                                                   ; &#39;expected&#39; exit codes for process (default 0,2)&#10;stopsignal=QUIT                                                 ; signal used to kill process (default TERM)&#10;stopwaitsecs=10                                                 ; max num secs to wait b4 SIGKILL (default 10)&#10;user=etcd                                                       ; setuid to this UNIX account to run the program&#10;redirect_stderr=true                                            ; redirect proc stderr to stdout (default false)&#10;stdout_logfile=/data/logs/etcd-server/etcd.stdout.log           ; stdout log path, NONE for none; default AUTO&#10;stdout_logfile_maxbytes=64MB                                    ; max # logfile bytes b4 rotation (default 50MB)&#10;stdout_logfile_backups=4                                        ; # of stdout logfile backups (default 10)&#10;stdout_capture_maxbytes=1MB                                     ; number of bytes in &#39;capturemode&#39; (default 0)&#10;stdout_events_enabled=false                                     ; emit events on stdout writes (default false)&#10;stopasgroup=true&#10;killasgroup=true&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start supervisord&#10;systemctl enable supervisord&#10;supervisorctl update &#10;supervisorctl status</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="regexp">/opt/</span>etcd<span class="regexp">/etcdctl /</span>usr<span class="regexp">/local/</span>bin/etcdctl</span><br><span class="line">ln -s <span class="regexp">/opt/</span>etcd<span class="regexp">/etcd  /</span>usr<span class="regexp">/local/</span>bin/etcd</span><br></pre></td></tr></table></figure>
+<h3 id="验证etcd集群状态"><a href="#验证etcd集群状态" class="headerlink" title="验证etcd集群状态"></a>验证etcd集群状态</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-21 etcd]# ./etcdctl cluster-health&#10;member 9c939f7e77d79918 is healthy: got healthy result from http://127.0.0.1:2379&#10;member d003cf8d5c278bdc is healthy: got healthy result from http://127.0.0.1:2379&#10;member f3a29751bf654569 is healthy: got healthy result from http://127.0.0.1:2379&#10;cluster is healthy</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-21 etcd]# ./etcdctl member list&#10;9c939f7e77d79918: name=etcd-server-22 peerURLs=https://10.10.10.22:2380 clientURLs=http://127.0.0.1:2379,https://10.10.10.22:2379 isLeader=false&#10;d003cf8d5c278bdc: name=etcd-server-12 peerURLs=https://10.10.10.12:2380 clientURLs=http://127.0.0.1:2379,https://10.10.10.12:2379 isLeader=true&#10;f3a29751bf654569: name=etcd-server-21 peerURLs=https://10.10.10.21:2380 clientURLs=http://127.0.0.1:2379,https://10.10.10.21:2379 isLeader=false</span><br></pre></td></tr></table></figure>
+<h3 id="安装kube-apiserver"><a href="#安装kube-apiserver" class="headerlink" title="安装kube-apiserver"></a>安装kube-apiserver</h3><ul>
+<li>签发证书</li>
+</ul>
+<blockquote>
+<p>k8s-200</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#31614;&#21457;apiserver-client&#30340;&#35777;&#20070;&#65292;&#29992;&#20110;apiserver&#21644;etcd&#20043;&#38388;&#36890;&#35759;&#20351;&#29992;&#10;cat &#62;  client-csr.json &#60;&#60;-EOF&#10;&#123;&#10;    &#34;CN&#34;: &#34;k8s-node&#34;,&#10;    &#34;hosts&#34;: [&#10;    ],&#10;    &#34;key&#34;: &#123;&#10;        &#34;algo&#34;: &#34;rsa&#34;,&#10;        &#34;size&#34;: 2048&#10;    &#125;,&#10;    &#34;names&#34;: [&#10;        &#123;&#10;            &#34;C&#34;: &#34;CN&#34;,&#10;            &#34;ST&#34;: &#34;beijing&#34;,&#10;            &#34;L&#34;: &#34;beijing&#34;,&#10;            &#34;O&#34;: &#34;od&#34;,&#10;            &#34;OU&#34;: &#34;ops&#34;&#10;        &#125;&#10;  ]&#10;&#125;&#10;EOF&#10;&#10;cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=client client-csr.json |cfssl-json -bare client</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#31614;&#21457; apiserver&#35777;&#20070;&#65292;&#29992;&#20110;apiserver&#21551;&#21160;&#20351;&#29992;&#65292; &#35831;&#28789;&#27963;&#21464;&#26356;&#20854;&#20013;&#30340;&#21442;&#25968;&#10;vi apiserver-csr.json&#10;&#123;&#10;    &#34;CN&#34;: &#34;k8s-apiserver&#34;,&#10;    &#34;hosts&#34;: [&#10;        &#34;127.0.0.1&#34;,&#10;        &#34;10.254.0.1&#34;,&#10;        &#34;kubernetes.default&#34;,&#10;        &#34;kubernetes.default.svc&#34;,&#10;        &#34;kubernetes.default.svc.cluster&#34;,&#10;        &#34;kubernetes.default.svc.cluster.local&#34;,&#10;        &#34;10.10.10.10&#34;,&#10;        &#34;10.10.10.21&#34;,&#10;        &#34;10.10.10.22&#34;&#10;    ],&#10;    &#34;key&#34;: &#123;&#10;        &#34;algo&#34;: &#34;rsa&#34;,&#10;        &#34;size&#34;: 2048&#10;    &#125;,&#10;    &#34;names&#34;: [&#10;        &#123;&#10;            &#34;C&#34;: &#34;CN&#34;,&#10;            &#34;ST&#34;: &#34;beijing&#34;,&#10;            &#34;L&#34;: &#34;beijing&#34;,&#10;            &#34;O&#34;: &#34;od&#34;,&#10;            &#34;OU&#34;: &#34;ops&#34;&#10;        &#125;&#10;    ]&#10;&#125;&#10;&#10;cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=server apiserver-csr.json |cfssl-json -bare apiserver</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下载软件</li>
+</ul>
+<blockquote>
+<p>k8s-21 k8s-22</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.k8s.io/v1.15.2/kubernetes-server-linux-amd64.tar.gz&#10;tar -xf kubernetes-server-linux-amd64.tar.gz  -C /opt/&#10;cd /opt/&#10;mv kubernetes/ kubernetes-v1.15.2&#10;ln -s /opt/kubernetes-v1.15.2/ /opt/kubernetes&#10;cd kubernetes/server/bin/ &#10;rm -rf *.tar     #tar&#30340;&#26159;docker images&#25991;&#20214;&#10;rm -rf *_tag&#9;# _tag &#26159;docker images &#30340;&#26631;&#31614;&#65292;&#37117;&#29992;&#19981;&#19978;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20174; k8s-200 &#21738;&#37324;&#33719;&#21462; &#35777;&#20070;&#25991;&#20214;&#65292;&#21253;&#25324;ca&#22312;&#20869;&#65292;client&#65292; apiserver &#19977;&#32452;&#37117;&#35201;&#10;cd /opt/kubernetes/server/bin/ &#10;mkdir certs&#10;&#10;scp k8s-200.host.com:/opt/certs/ca.pem .&#10;scp k8s-200.host.com:/opt/certs/ca-key.pem .&#10;scp k8s-200.host.com:/opt/certs/client.pem .&#10;scp k8s-200.host.com:/opt/certs/client-key.pem .&#10;scp k8s-200.host.com:/opt/certs/apiserver-key.pem .&#10;scp k8s-200.host.com:/opt/certs/apiserver.pem .</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622; apiserver &#21551;&#21160;&#26102;&#38656;&#35201;&#20351;&#29992;&#30340; &#26085;&#24535;&#23457;&#35745;&#37197;&#32622; &#10;cd /opt/kubernetes/server/bin/ &#10;mkdir conf;cd conf&#10;&#10;cat &#62; audit.yaml &#60;&#60;-EOF&#10;apiVersion: audit.k8s.io/v1beta1 # This is required.&#10;kind: Policy&#10;# Don&#39;t generate audit events for all requests in RequestReceived stage.&#10;omitStages:&#10;  - &#34;RequestReceived&#34;&#10;rules:&#10;  # Log pod changes at RequestResponse level&#10;  - level: RequestResponse&#10;    resources:&#10;    - group: &#34;&#34;&#10;      # Resource &#34;pods&#34; doesn&#39;t match requests to any subresource of pods,&#10;      # which is consistent with the RBAC policy.&#10;      resources: [&#34;pods&#34;]&#10;  # Log &#34;pods/log&#34;, &#34;pods/status&#34; at Metadata level&#10;  - level: Metadata&#10;    resources:&#10;    - group: &#34;&#34;&#10;      resources: [&#34;pods/log&#34;, &#34;pods/status&#34;]&#10;&#10;  # Don&#39;t log requests to a configmap called &#34;controller-leader&#34;&#10;  - level: None&#10;    resources:&#10;    - group: &#34;&#34;&#10;      resources: [&#34;configmaps&#34;]&#10;      resourceNames: [&#34;controller-leader&#34;]&#10;&#10;  # Don&#39;t log watch requests by the &#34;system:kube-proxy&#34; on endpoints or services&#10;  - level: None&#10;    users: [&#34;system:kube-proxy&#34;]&#10;    verbs: [&#34;watch&#34;]&#10;    resources:&#10;    - group: &#34;&#34; # core API group&#10;      resources: [&#34;endpoints&#34;, &#34;services&#34;]&#10;&#10;  # Don&#39;t log authenticated requests to certain non-resource URL paths.&#10;  - level: None&#10;    userGroups: [&#34;system:authenticated&#34;]&#10;    nonResourceURLs:&#10;    - &#34;/api*&#34; # Wildcard matching.&#10;    - &#34;/version&#34;&#10;&#10;  # Log the request body of configmap changes in kube-system.&#10;  - level: Request&#10;    resources:&#10;    - group: &#34;&#34; # core API group&#10;      resources: [&#34;configmaps&#34;]&#10;    # This rule only applies to resources in the &#34;kube-system&#34; namespace.&#10;    # The empty string &#34;&#34; can be used to select non-namespaced resources.&#10;    namespaces: [&#34;kube-system&#34;]&#10;&#10;  # Log configmap and secret changes in all other namespaces at the Metadata level.&#10;  - level: Metadata&#10;    resources:&#10;    - group: &#34;&#34; # core API group&#10;      resources: [&#34;secrets&#34;, &#34;configmaps&#34;]&#10;&#10;  # Log all other resources in core and extensions at the Request level.&#10;  - level: Request&#10;    resources:&#10;    - group: &#34;&#34; # core API group&#10;    - group: &#34;extensions&#34; # Version of group should NOT be included.&#10;&#10;  # A catch-all rule to log all other requests at the Metadata level.&#10;  - level: Metadata&#10;    # Long-running requests like watches that fall under this rule will not&#10;    # generate an audit event in RequestReceived.&#10;    omitStages:&#10;      - &#34;RequestReceived&#34;&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;&#21551;&#21160;&#33050;&#26412;, &#35831;&#28789;&#27963;&#21464;&#26356;&#38656;&#35201;&#35843;&#25972;&#30340;&#21442;&#25968;&#10;cd /opt/kubernetes/server/bin/ &#10;vim  kube-apiserver.sh&#10;#!/bin/bash&#10;./kube-apiserver \&#10;  --apiserver-count 2 \&#10;  --audit-log-path /data/logs/kubernetes/kube-apiserver/audit-log \&#10;  --audit-policy-file ./conf/audit.yaml \&#10;  --authorization-mode RBAC \&#10;  --client-ca-file ./certs/ca.pem \&#10;  --requestheader-client-ca-file ./certs/ca.pem \&#10;  --enable-admission-plugins NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota \&#10;  --etcd-cafile ./certs/ca.pem \&#10;  --etcd-certfile ./certs/client.pem \&#10;  --etcd-keyfile ./certs/client-key.pem \&#10;  --etcd-servers https://10.10.10.12:2379,https://10.10.10.21:2379,https://10.10.10.22:2379 \&#10;  --service-account-key-file ./certs/ca-key.pem \&#10;  --service-cluster-ip-range 10.254.0.0/16 \&#10;  --service-node-port-range 3000-29999 \&#10;  --target-ram-mb=1024 \&#10;  --kubelet-client-certificate ./certs/client.pem \&#10;  --kubelet-client-key ./certs/client-key.pem \&#10;  --log-dir  /data/logs/kubernetes/kube-apiserver \&#10;  --tls-cert-file ./certs/apiserver.pem \&#10;  --tls-private-key-file ./certs/apiserver-key.pem \&#10;  --v 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;&#26435;&#38480;&#10;chmod +x kube-apiserver.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#21019;&#24314;kube-apiserver &#36816;&#34892;&#38656;&#35201;&#30340;&#30446;&#24405;&#10;mkdir -p /data/logs/kubernetes/kube-apiserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;supervisorctl   &#35831;&#28789;&#27963;&#21464;&#26356;&#38656;&#35201;&#35843;&#25972;&#30340;&#21442;&#25968;&#10;cat &#62;  /etc/supervisord.d/kube-apiserver.ini &#60;&#60;-EOF&#10;[program:kube-apiserver-21]&#10;command=/opt/kubernetes/server/bin/kube-apiserver.sh            ; the program (relative uses PATH, can take args)&#10;numprocs=1                                                      ; number of processes copies to start (def 1)&#10;directory=/opt/kubernetes/server/bin                            ; directory to cwd to before exec (def no cwd)&#10;autostart=true                                                  ; start at supervisord start (default: true)&#10;autorestart=true                                                ; retstart at unexpected quit (default: true)&#10;startsecs=30                                                    ; number of secs prog must stay running (def. 1)&#10;startretries=3                                                  ; max # of serial start failures (default 3)&#10;exitcodes=0,2                                                   ; &#39;expected&#39; exit codes for process (default 0,2)&#10;stopsignal=QUIT                                                 ; signal used to kill process (default TERM)&#10;stopwaitsecs=10                                                 ; max num secs to wait b4 SIGKILL (default 10)&#10;user=root                                                       ; setuid to this UNIX account to run the program&#10;redirect_stderr=true                                            ; redirect proc stderr to stdout (default false)&#10;stdout_logfile=/data/logs/kubernetes/kube-apiserver/apiserver.stdout.log        ; stderr log path, NONE for none; default AUTO&#10;stdout_logfile_maxbytes=64MB                                    ; max # logfile bytes b4 rotation (default 50MB)&#10;stdout_logfile_backups=4                                        ; # of stdout logfile backups (default 10)&#10;stdout_capture_maxbytes=1MB                                     ; number of bytes in &#39;capturemode&#39; (default 0)&#10;stdout_events_enabled=false                                     ; emit events on stdout writes (default false)&#10;stopasgroup=true&#10;killasgroup=true&#10;EOF</span><br></pre></td></tr></table></figure>
+<h3 id="给kube-apiserver-部署L4高可用"><a href="#给kube-apiserver-部署L4高可用" class="headerlink" title="给kube-apiserver 部署L4高可用"></a>给kube-apiserver 部署L4高可用</h3><blockquote>
+<p>k8s-11   k8s-12</p>
+</blockquote>
+<ul>
+<li>使用nginx做负载均衡， 基于keepalived 实现高可用</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2&#21488;&#26426;&#22120;&#37117;&#35201;&#23433;&#35013;&#30340;&#36719;&#20214;&#10;yum install nginx keepalived -y</span><br></pre></td></tr></table></figure>
+<ul>
+<li><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62;&#62;  /etc/nginx/nginx.conf &#60;&#60;-EOF&#10;stream &#123;&#10;    upstream kube-apiserver &#123;&#10;        server 10.10.10.21:6443     max_fails=3 fail_timeout=30s;&#10;        server 10.10.10.22:6443     max_fails=3 fail_timeout=30s;&#10;    &#125;&#10;    server &#123;&#10;        listen 7443;&#10;        proxy_connect_timeout 2s;&#10;        proxy_timeout 900s;&#10;        proxy_pass kube-apiserver;&#10;    &#125;&#10;&#125;&#10;EOF</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keepalived &#30417;&#25511;&#33050;&#26412;&#10;vim check_port.sh &#10;#!/bin/bash&#10;CHK_PORT=$1&#10;if [ -n $CHK_PORT ];then&#10;        RESULT=$(ss -tln|grep $CHK_PORT| wc -l)&#10;        if [ $RESULT -eq 0 ];then&#10;                echo &#34;$CHK_PORT Port is Dead&#34;&#10;                exit 1&#10;        else&#10;                echo &#34;$CHK_PORT is ok&#34;&#10;        fi&#10;fi</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keepalived.conf &#37197;&#32622; 10.10.10.11&#10;vim keepalived.conf &#10;! Configuration File for keepalived&#10;&#10;global_defs &#123;&#10;   router_id 10.10.10.11&#10;&#10;&#125;&#10;&#10;vrrp_script chk_nginx &#123;&#10;    script &#34;/etc/keepalived/check_port.sh 7443&#34;&#10;    interval 2&#10;    weight -20&#10;&#125;&#10;&#10;vrrp_instance VI_1 &#123;&#10;    state MASTER&#10;    interface eth0&#10;    virtual_router_id 121&#10;    priority 100&#10;    advert_int 1&#10;    mcast_src_ip 10.10.10.11&#10;    nopreempt&#9;&#9;# &#22768;&#26126;&#20026;&#19981;&#25250;&#21344;IP&#27169;&#24335;&#65292;&#40664;&#35748;&#20026;&#25250;&#21344;&#10;&#10;    authentication &#123;&#10;        auth_type PASS&#10;        auth_pass 123123&#10;    &#125;&#10;    track_script &#123;&#10;         chk_nginx&#10;    &#125;&#10;    virtual_ipaddress &#123;&#10;        10.10.10.10&#10;    &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keepalived.conf &#37197;&#32622; 10.10.10.12&#10;vim keepalived.conf &#10;! Configuration File for keepalived&#10;global_defs &#123;&#10;        router_id 10.10.10.12&#10;&#125;&#10;vrrp_script chk_nginx &#123;&#10;        script &#34;/etc/keepalived/check_port.sh 7443&#34;&#10;        interval 2&#10;        weight -20&#10;&#125;&#10;vrrp_instance VI_1 &#123;&#10;        state BACKUP&#10;        interface eth0&#10;        virtual_router_id 121&#10;        mcast_src_ip 10.10.10.12&#10;        priority 90&#10;        advert_int 1&#10;        authentication &#123;&#10;                auth_type PASS&#10;                auth_pass 123123&#10;        &#125;&#10;        track_script &#123;&#10;                chk_nginx&#10;        &#125;&#10;        virtual_ipaddress &#123;&#10;                10.10.10.10&#10;        &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx &#10;systemctl restart keepalived&#10;systemctl enable nginx &#10;systemctl enable keepalived</span><br></pre></td></tr></table></figure>
+<h3 id="安装kube-controller-manager"><a href="#安装kube-controller-manager" class="headerlink" title="安装kube-controller-manager"></a>安装kube-controller-manager</h3><blockquote>
+<p>k8s-21,  k8s-22</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;&#21551;&#21160;&#33050;&#26412;&#10;cat &#62; /opt/kubernetes/server/bin/kube-controller-manager.sh  &#60;&#60;-EOF&#10;#!/bin/sh&#10;./kube-controller-manager \&#10;  --cluster-cidr 172.7.0.0/16 \&#10;  --leader-elect true \&#10;  --log-dir /data/logs/kubernetes/kube-controller-manager \&#10;  --master http://127.0.0.1:8080 \&#10;  --service-account-private-key-file ./certs/ca-key.pem \&#10;  --service-cluster-ip-range 10.254.0.0/16 \&#10;  --root-ca-file ./certs/ca.pem \&#10;  --v 2&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir  /data/logs/kubernetes/kube-controller-manager  -p &#10;chmod +x /opt/kubernetes/server/bin/kube-controller-manager.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622; supervisord &#21551;&#21160;&#33050;&#26412;&#10;cat &#62;  /etc/supervisord.d/kube-conntroller-manager.ini  &#60;&#60;-EOF&#10;[program:kube-controller-manager-21]&#10;command=/opt/kubernetes/server/bin/kube-controller-manager.sh                     ; the program (relative uses PATH, can take args)&#10;numprocs=1                                                                        ; number of processes copies to start (def 1)&#10;directory=/opt/kubernetes/server/bin                                              ; directory to cwd to before exec (def no cwd)&#10;autostart=true                                                                    ; start at supervisord start (default: true)&#10;autorestart=true                                                                  ; retstart at unexpected quit (default: true)&#10;startsecs=30                                                                      ; number of secs prog must stay running (def. 1)&#10;startretries=3                                                                    ; max # of serial start failures (default 3)&#10;exitcodes=0,2                                                                     ; &#39;expected&#39; exit codes for process (default 0,2)&#10;stopsignal=QUIT                                                                   ; signal used to kill process (default TERM)&#10;stopwaitsecs=10                                                                   ; max num secs to wait b4 SIGKILL (default 10)&#10;user=root                                                                         ; setuid to this UNIX account to run the program&#10;redirect_stderr=true                                                              ; redirect proc stderr to stdout (default false)&#10;stdout_logfile=/data/logs/kubernetes/kube-controller-manager/controller.stdout.log  ; stderr log path, NONE for none; default AUTO&#10;stdout_logfile_maxbytes=64MB                                                      ; max # logfile bytes b4 rotation (default 50MB)&#10;stdout_logfile_backups=4                                                          ; # of stdout logfile backups (default 10)&#10;stdout_capture_maxbytes=1MB                                                       ; number of bytes in &#39;capturemode&#39; (default 0)&#10;stdout_events_enabled=false                                                       ; emit events on stdout writes (default false)&#10;stopasgroup=true&#10;killasgroup=true&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl update &#10;supervisorctl status&#10;etcd-server-21                   RUNNING   pid 16675, uptime 11:35:38&#10;kube-apiserver-21                RUNNING   pid 16914, uptime 10:29:33&#10;kube-controller-manager-21       RUNNING   pid 19234, uptime 0:09:52</span><br></pre></td></tr></table></figure>
+<h3 id="安装-kube-scheduler"><a href="#安装-kube-scheduler" class="headerlink" title="安装 kube-scheduler"></a>安装 kube-scheduler</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; /opt/kubernetes/server/bin/kube-scheduler.sh  &#60;&#60;-EOF&#10;#!/bin/sh&#10;./kube-scheduler \&#10;  --leader-elect  \&#10;  --log-dir /data/logs/kubernetes/kube-scheduler \&#10;  --master http://127.0.0.1:8080 \&#10;  --v 2&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/logs/kubernetes/kube-scheduler&#10;chmod +x /opt/kubernetes/server/bin/kube-scheduler.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; /etc/supervisord.d/kube-scheduler.ini  &#60;&#60;-EOF&#10;[program:kube-scheduler-21]&#10;command=/opt/kubernetes/server/bin/kube-scheduler.sh                     ; the program (relative uses PATH, can take args)&#10;numprocs=1                                                               ; number of processes copies to start (def 1)&#10;directory=/opt/kubernetes/server/bin                                     ; directory to cwd to before exec (def no cwd)&#10;autostart=true                                                           ; start at supervisord start (default: true)&#10;autorestart=true                                                         ; retstart at unexpected quit (default: true)&#10;startsecs=30                                                             ; number of secs prog must stay running (def. 1)&#10;startretries=3                                                           ; max # of serial start failures (default 3)&#10;exitcodes=0,2                                                            ; &#39;expected&#39; exit codes for process (default 0,2)&#10;stopsignal=QUIT                                                          ; signal used to kill process (default TERM)&#10;stopwaitsecs=10                                                          ; max num secs to wait b4 SIGKILL (default 10)&#10;user=root                                                                ; setuid to this UNIX account to run the program&#10;redirect_stderr=true                                                     ; redirect proc stderr to stdout (default false)&#10;stdout_logfile=/data/logs/kubernetes/kube-scheduler/scheduler.stdout.log ; stderr log path, NONE for none; default AUTO&#10;stdout_logfile_maxbytes=64MB                                             ; max # logfile bytes b4 rotation (default 50MB)&#10;stdout_logfile_backups=4                                                 ; # of stdout logfile backups (default 10)&#10;stdout_capture_maxbytes=1MB                                              ; number of bytes in &#39;capturemode&#39; (default 0)&#10;stdout_events_enabled=false                                              ; emit events on stdout writes (default false)&#10;stopasgroup=true&#10;killasgroup=true&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl update &#10;supervisorctl status&#10;etcd-server-21                   RUNNING   pid 16675, uptime 11:37:52&#10;kube-apiserver-21                RUNNING   pid 16914, uptime 10:31:47&#10;kube-controller-manager-21       RUNNING   pid 19234, uptime 0:12:06&#10;kube-scheduler-21                RUNNING   pid 19257, uptime 0:10:58</span><br></pre></td></tr></table></figure>
+<h3 id="配置命令的环境变量"><a href="#配置命令的环境变量" class="headerlink" title="配置命令的环境变量"></a>配置命令的环境变量</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#34;export PATH=$PATH:/opt/kubernetes/server/bin/&#34; &#62;&#62; /etc/profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#26816;&#26597;&#38598;&#32676;&#30417;&#25511;&#29366;&#20917;&#10; kubectl  get cs&#10;NAME                 STATUS    MESSAGE              ERROR&#10;scheduler            Healthy   ok                   &#10;controller-manager   Healthy   ok                   &#10;etcd-0               Healthy   &#123;&#34;health&#34;: &#34;true&#34;&#125;   &#10;etcd-2               Healthy   &#123;&#34;health&#34;: &#34;true&#34;&#125;   &#10;etcd-1               Healthy   &#123;&#34;health&#34;: &#34;true&#34;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="安装Node服务"><a href="#安装Node服务" class="headerlink" title="安装Node服务"></a>安装Node服务</h2><h3 id="安装kubelet"><a href="#安装kubelet" class="headerlink" title="安装kubelet"></a>安装kubelet</h3><ul>
+<li>签发证书</li>
+</ul>
+<blockquote>
+<p>k8s-200</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#29983;&#25104;kubelet&#21644;apiserver&#36890;&#35759;&#30340;&#35777;&#20070;&#10;cat &#62; kubelet-csr.json &#60;&#60;-EOF &#10;&#123;&#10;    &#34;CN&#34;: &#34;k8s-kubelet&#34;,&#10;    &#34;hosts&#34;: [&#10;    &#34;127.0.0.1&#34;,&#10;    &#34;10.10.10.10&#34;,&#10;    &#34;10.10.10.11&#34;,&#10;    &#34;10.10.10.12&#34;,&#10;    &#34;10.10.10.21&#34;,&#10;    &#34;10.10.10.22&#34;&#10;    ],&#10;    &#34;key&#34;: &#123;&#10;        &#34;algo&#34;: &#34;rsa&#34;,&#10;        &#34;size&#34;: 2048&#10;    &#125;,&#10;    &#34;names&#34;: [&#10;        &#123;&#10;            &#34;C&#34;: &#34;CN&#34;,&#10;            &#34;ST&#34;: &#34;beijing&#34;,&#10;            &#34;L&#34;: &#34;beijing&#34;,&#10;            &#34;O&#34;: &#34;od&#34;,&#10;            &#34;OU&#34;: &#34;ops&#34;&#10;        &#125;&#10;    ]&#10;&#125;&#10;EOF&#10;&#10;cfssl gencert -ca=ca.pem -ca-key=ca-key.pem --config=ca-config.json -profile=server kubelet-csr.json | cfssl-json -bare kubelet</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#23558;&#35777;&#20070;&#25335;&#36125;&#21040;node &#33410;&#28857;&#19978; k8s-21 k8s-22&#10;cd /opt/kubernetes/server/bin/certs/&#10;scp k8s-200.host.com:/opt/certs/kubelet.pem .&#10;scp k8s-200.host.com:/opt/certs/kubelet-key.pem .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成 kubelet 配置文件</li>
+</ul>
+<blockquote>
+<p>这个配置文件是通用的，单机生成后其他节点直接拿着用就可以啦</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/kubernetes/server/bin/conf&#10;&#10;kubectl config set-cluster myk8s \&#10;    --certificate-authority=/opt/kubernetes/server/bin/certs/ca.pem \&#10;    --embed-certs=true \&#10;    --server=https://10.10.10.4:7443 \&#10;    --kubeconfig=kubelet.kubeconfig&#10;    &#10;kubectl config set-credentials k8s-node \&#10;  --client-certificate=/opt/kubernetes/server/bin/certs/client.pem \&#10;  --client-key=/opt/kubernetes/server/bin/certs/client-key.pem \&#10;  --embed-certs=true \&#10;  --kubeconfig=kubelet.kubeconfig &#10;  &#10;kubectl config set-context myk8s-context \&#10;  --cluster=myk8s \&#10;  --user=k8s-node \&#10;  --kubeconfig=kubelet.kubeconfig&#10;  &#10;kubectl config use-context myk8s-context --kubeconfig=kubelet.kubeconfig # &#29983;&#25104;&#37197;&#32622;&#25991;&#20214;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>授予 k8s-node 用户以 system(master，主控节点 and 计算节点)的身份， 创建成功后就会存如etcd中。一次就好</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/kubernetes/server/bin/conf&#10;cat &#62; k8s-node.yaml  &#60;&#60;-EOF&#10;apiVersion: rbac.authorization.k8s.io/v1&#10;kind: ClusterRoleBinding&#10;metadata:&#10;  name: k8s-node&#10;roleRef:&#10;  apiGroup: rbac.authorization.k8s.io&#10;  kind: ClusterRole&#10;  name: system:node&#10;subjects:&#10;&#10;- apiGroup: rbac.authorization.k8s.io&#10;  kind: User&#10;  name: k8s-node&#10;EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f k8s-node.yaml  #&#21019;&#24314;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备pause 镜像</li>
+</ul>
+<p>k8s中pod里面的应用镜像启动前会先运行pause 镜像，为应用镜像创建资源（IP，内存等等）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull kubernetes/pause&#10;docker login harbor.od.com&#10;docker tag f9d5de079539 harbor.od.com/public/pause:latest&#10;docker push harbor.od.com/public/pause:latest</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动脚本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/kubernetes/server/bin/kubelet.sh&#10;#!/bin/sh&#10;./kubelet \&#10;  --anonymous-auth=false \&#10;  --cgroup-driver systemd \&#10;  --cluster-dns 10.10.10.200 \&#10;  --cluster-domain cluster.local \&#10;  --runtime-cgroups=/systemd/system.slice \&#10;  --kubelet-cgroups=/systemd/system.slice \&#10;  --fail-swap-on=&#34;false&#34; \&#10;  --client-ca-file ./certs/ca.pem \&#10;  --tls-cert-file ./certs/kubelet.pem \&#10;  --tls-private-key-file ./certs/kubelet-key.pem \&#10;  --hostname-override k8s-21.host.com   \&#10;  --kubeconfig ./conf/kubelet.kubeconfig \&#10;  --log-dir /data/logs/kubernetes/kube-kubelet \&#10;  --pod-infra-container-image harbor.od.com/public/pause:latest \&#10;  --root-dir /data/kubelet</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建运行需要的目录，以及配置权限</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/logs/kubernetes/kube-kubelet /data/kubelet&#10;chmod +x /opt/kubernetes/server/bin/kubelet.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>supervisord 启动脚本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/supervisord.d/kube-kubelet.ini &#10;[program:kube-kubelet-21]&#10;command=/opt/kubernetes/server/bin/kubelet.sh     ; the program (relative uses PATH, can take args)&#10;numprocs=1                                        ; number of processes copies to start (def 1)&#10;directory=/opt/kubernetes/server/bin              ; directory to cwd to before exec (def no cwd)&#10;autostart=true                                    ; start at supervisord start (default: true)&#10;autorestart=true                                  ; retstart at unexpected quit (default: true)&#10;startsecs=30                                      ; number of secs prog must stay running (def. 1)&#10;startretries=3                                    ; max # of serial start failures (default 3)&#10;exitcodes=0,2                                     ; &#39;expected&#39; exit codes for process (default 0,2)&#10;stopsignal=QUIT                                   ; signal used to kill process (default TERM)&#10;stopwaitsecs=10                                   ; max num secs to wait b4 SIGKILL (default 10)&#10;user=root                                         ; setuid to this UNIX account to run the program&#10;redirect_stderr=true                              ; redirect proc stderr to stdout (default false)&#10;stdout_logfile=/data/logs/kubernetes/kube-kubelet/kubelet.stdout.log   ; stderr log path, NONE for none; default AUTO&#10;stdout_logfile_maxbytes=64MB                      ; max # logfile bytes b4 rotation (default 50MB)&#10;stdout_logfile_backups=4                          ; # of stdout logfile backups (default 10)&#10;stdout_capture_maxbytes=1MB                       ; number of bytes in &#39;capturemode&#39; (default 0)&#10;stdout_events_enabled=false                       ; emit events on stdout writes (default false)&#10;stopasgroup=true&#10;killasgroup=true</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动程序</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl update &#10;supervisorctl status&#10;etcd-server-21                   RUNNING   pid 19782, uptime 0:05:07&#10;kube-apiserver-21                RUNNING   pid 19778, uptime 0:05:07&#10;kube-controller-manager-21       RUNNING   pid 19779, uptime 0:05:07&#10;kube-kubelet-21                  RUNNING   pid 20005, uptime 0:03:35&#10;kube-scheduler-21                RUNNING   pid 19781, uptime 0:05:07</span><br></pre></td></tr></table></figure>
+<ul>
+<li>验证结果</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes &#10;NAME              STATUS   ROLES    AGE     VERSION&#10;k8s-21.host.com   Ready    &#60;none&#62;   5m31s   v1.15.2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>给node配置ROLES(标签）</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  label nodes k8s-21.host.com node-role.kubernetes.io/master=&#10;node/k8s-21.host.com labeled&#10;&#10;kubectl  label nodes k8s-21.host.com node-role.kubernetes.io/node=&#10;node/k8s-21.host.com labeled&#10;&#10;kubectl  label nodes k8s-21.host.com node-role.kubernetes.io/test=&#10;node/k8s-21.host.com labeled&#10;&#10;kubectl get nodes&#10;NAME              STATUS   ROLES              AGE    VERSION&#10;k8s-21.host.com   Ready    master,node,test   7m7s   v1.15.2</span><br></pre></td></tr></table></figure>
+<h3 id="kube-proxy"><a href="#kube-proxy" class="headerlink" title="kube-proxy"></a>kube-proxy</h3><ul>
+<li>签发证书</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62; kube-proxy-csr.json  &#60;&#60;-EOF&#10;&#123;&#10;    &#34;CN&#34;: &#34;system:kube-proxy&#34;,&#10;    &#34;key&#34;: &#123;&#10;        &#34;algo&#34;: &#34;rsa&#34;,&#10;        &#34;size&#34;: 2048&#10;    &#125;,&#10;    &#34;names&#34;: [&#10;        &#123;&#10;            &#34;C&#34;: &#34;CN&#34;,&#10;            &#34;ST&#34;: &#34;beijing&#34;,&#10;            &#34;L&#34;: &#34;beijing&#34;,&#10;            &#34;O&#34;: &#34;od&#34;,&#10;            &#34;OU&#34;: &#34;ops&#34;&#10;        &#125;&#10;    ]&#10;&#125;&#10;EOF&#10;&#10;cfssl gencert  -ca=ca.pem  -ca-key=ca-key.pem  --config=ca-config.json  -profile=client kube-proxy-csr.json  | cfssl-json -bare kube-proxy-client</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/kubernetes/server/bin/certs&#10;scp k8s-200.host.com:/opt/certs/kube-proxy-client.pem .&#10;scp k8s-200.host.com:/opt/certs/kube-proxy-client-key.pem .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置 kube-proxy 在k8s集群中的用户配置文件， 生成一次就够， 其他节点用同一个都OK</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/kubernetes/server/bin/conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl config set-cluster myk8s \&#10; --certificate-authority=/opt/kubernetes/server/bin/certs/ca.pem \&#10; --embed-certs=true \&#10; --server=https://10.10.10.4:7443 \&#10; --kubeconfig=kube-proxy.kubeconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl config set-credentials kube-proxy \&#10;  --client-certificate=/opt/kubernetes/server/bin/certs/kube-proxy-client.pem \&#10;  --client-key=/opt/kubernetes/server/bin/certs/kube-proxy-client-key.pem \&#10;  --embed-certs=true \&#10;  --kubeconfig=kube-proxy.kubeconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl config set-context myk8s-context \&#10; --cluster=myk8s \&#10; --user=kube-proxy \&#10; --kubeconfig=kube-proxy.kubeconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl config use-context myk8s-context --kubeconfig=kube-proxy.kubeconfig</span><br></pre></td></tr></table></figure>
+<ul>
+<li>加载ipvs模块</li>
+</ul>
+<p>k8s流量调度的机制</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/ipvs.sh &#10;#!/bin/bash&#10;ipvs_mods_dir=&#34;/usr/lib/modules/$(uname -r)/kernel/net/netfilter/ipvs&#34;&#10;for i in $(ls $ipvs_mods_dir|grep -o &#34;^[^.]*&#34;)&#10;do&#10;/sbin/modinfo -F filename $i &#38;&#62;/dev/null&#10;if [ $? -eq 0 ];then&#10;  /sbin/modprobe $i&#10;fi&#10;done</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /root/ipvs.sh &#10;echo &#34;/root/ipvs.sh&#34;  &#62;&#62; /etc/rc.local&#10;chmod +x /etc/rc.local</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod  | grep ip_vs&#10;ip_vs_wrr              16384  0 &#10;.......&#10;libcrc32c              16384  2 xfs,ip_vs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置启动脚本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /opt/kubernetes/server/bin/kube-proxy.sh  &#10;#!/bin/sh&#10;./kube-proxy \&#10;  --cluster-cidr 172.7.0.0/16 \&#10;  --hostname-override k8s-21.host.com \&#10;  --proxy-mode=ipvs \&#10;  --ipvs-scheduler=nq \&#10;  --kubeconfig ./conf/kube-proxy.kubeconfig</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建运行需要的目录，以及配置权限</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/logs/kubernetes/kube-proxy&#10;chmod +x /opt/kubernetes/server/bin/kube-proxy.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>supervisord 启动脚本</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/supervisord.d/kube-proxy.ini&#10;[program:kube-proxy-21]&#10;command=/opt/kubernetes/server/bin/kube-proxy.sh                     ; the program (relative uses PATH, can take args)&#10;numprocs=1                                                           ; number of processes copies to start (def 1)&#10;directory=/opt/kubernetes/server/bin                                 ; directory to cwd to before exec (def no cwd)&#10;autostart=true                                                       ; start at supervisord start (default: true)&#10;autorestart=true                                                     ; retstart at unexpected quit (default: true)&#10;startsecs=30                                                         ; number of secs prog must stay running (def. 1)&#10;startretries=3                                                       ; max # of serial start failures (default 3)&#10;exitcodes=0,2                                                        ; &#39;expected&#39; exit codes for process (default 0,2)&#10;stopsignal=QUIT                                                      ; signal used to kill process (default TERM)&#10;stopwaitsecs=10                                                      ; max num secs to wait b4 SIGKILL (default 10)&#10;user=root                                                            ; setuid to this UNIX account to run the program&#10;redirect_stderr=true                                                 ; redirect proc stderr to stdout (default false)&#10;stdout_logfile=/data/logs/kubernetes/kube-proxy/proxy.stdout.log     ; stderr log path, NONE for none; default AUTO&#10;stdout_logfile_maxbytes=64MB                                         ; max # logfile bytes b4 rotation (default 50MB)&#10;stdout_logfile_backups=4                                             ; # of stdout logfile backups (default 10)&#10;stdout_capture_maxbytes=1MB                                          ; number of bytes in &#39;capturemode&#39; (default 0)&#10;stdout_events_enabled=false                                          ; emit events on stdout writes (default false)&#10;stopasgroup=true&#10;killasgroup=true</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl  update &#10;supervisorctl  status &#10;etcd-server-22                   RUNNING   pid 15935, uptime 13:38:24&#10;kube-apiserver-22                RUNNING   pid 19337, uptime 12:31:28&#10;kube-controller-manager-22       RUNNING   pid 23350, uptime 0:46:33&#10;kube-kubelet-22                  RUNNING   pid 24036, uptime 0:33:47&#10;kube-proxy-22                    RUNNING   pid 32132, uptime 0:01:19&#10;kube-scheduler-22                RUNNING   pid 18900, uptime 2:14:24</span><br></pre></td></tr></table></figure>
+<ul>
+<li>验证ipvs</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ipvsadm -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc&#10;NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE&#10;kubernetes   ClusterIP   10.254.0.1   &#60;none&#62;        443/TCP   12h</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -Ln&#10;IP Virtual Server version 1.2.1 (size=4096)&#10;Prot LocalAddress:Port Scheduler Flags&#10;  -&#62; RemoteAddress:Port           Forward Weight ActiveConn InActConn&#10;TCP  10.254.0.1:443 nq&#10;  -&#62; 10.10.10.21:6443             Masq    1      0          0         &#10;  -&#62; 10.10.10.22:6443             Masq    1      0          0</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>k8s 集群安装完成</p>
+</blockquote>
+<h2 id="验证K8s集群"><a href="#验证K8s集群" class="headerlink" title="验证K8s集群"></a>验证K8s集群</h2><ul>
+<li>使用配置清单下发任务</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#62;  nginx-ds.yaml  &#60;&#60;-EOF&#10;apiVersion: extensions/v1beta1&#10;kind: DaemonSet&#10;metadata:&#10;  name: nginx-ds&#10;spec:&#10;  template:&#10;    metadata:&#10;      labels:&#10;        app: nginx-ds&#10;    spec:&#10;      containers:&#10;      - name: my-nginx&#10;        image: harbor.od.com/public/nginx:1.7.9&#10;        ports:&#10;        - containerPort: 80&#10;EOF</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下发</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  create -f nginx-ds.yaml&#10;&#10;kubectl  get pods&#10;NAME             READY   STATUS    RESTARTS   AGE&#10;nginx-ds-5xdq8   1/1     Running   0          12s&#10;nginx-ds-fc55n   1/1     Running   0          12s</span><br></pre></td></tr></table></figure>
+<ul>
+<li>访问启动的pod</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl  get pods -o wide&#10;NAME             READY   STATUS    RESTARTS   AGE   IP           NODE              NOMINATED NODE   READINESS GATES&#10;nginx-ds-5xdq8   1/1     Running   0          56s   172.7.22.2   k8s-22.host.com   &#60;none&#62;           &#60;none&#62;&#10;nginx-ds-fc55n   1/1     Running   0          56s   172.7.21.2   k8s-21.host.com   &#60;none&#62;           &#60;none&#62;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>验证K8s全部组建的状态</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;[root@k8s-21 ~]# kubectl  get cs&#10;NAME                 STATUS    MESSAGE              ERROR&#10;scheduler            Healthy   ok                   &#10;controller-manager   Healthy   ok                   &#10;etcd-1               Healthy   &#123;&#34;health&#34;: &#34;true&#34;&#125;   &#10;etcd-0               Healthy   &#123;&#34;health&#34;: &#34;true&#34;&#125;   &#10;etcd-2               Healthy   &#123;&#34;health&#34;: &#34;true&#34;&#125;   &#10;[root@k8s-21 ~]# kubectl  get nodes&#10;NAME              STATUS   ROLES              AGE   VERSION&#10;k8s-21.host.com   Ready    master,node,test   56m   v1.15.2&#10;k8s-22.host.com   Ready    master,node        44m   v1.15.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
+<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">minikube start \</span><br><span class="line">-<span class="ruby">-registry-mirror=<span class="symbol">https:</span>/<span class="regexp">/registry.docker-cn.com \</span><br><span class="line"></span></span>-<span class="ruby"><span class="regexp">-image-repository=registry.cn-hangzhou.aliyuncs.com/google</span>_containers \</span><br><span class="line"></span>-<span class="ruby">-vm-driver=docker \</span><br><span class="line"></span>-<span class="ruby">-alsologtostderr \</span><br><span class="line"></span>-<span class="ruby">v=<span class="number">8</span> \</span><br><span class="line"></span>-<span class="ruby">-base-image registry.cn-hangzhou.aliyuncs.com/google_containers/<span class="symbol">kicbase:</span>v<span class="number">0</span>.<span class="number">0</span>.<span class="number">10</span></span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T09:18:32.151Z" itemprop="dateUpdated">2020-11-26 17:18:32</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/kubernetes/02_安装k8s/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Kubernetes/">学习笔记:Kubernetes</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/&title=《Kubernetes 部署K8S》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/&title=《Kubernetes 部署K8S》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes 部署K8S》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/02模块/04 正则表达式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 模块:正则表达式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/02模块/05 re模块/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 模块:re模块</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/&title=《Kubernetes 部署K8S》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/&title=《Kubernetes 部署K8S》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kubernetes 部署K8S》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/kubernetes/02_安装k8s/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS27DMAxF0ex/0+40QCrnPtIuaupqFORj6WRAkBRfL7yOt/X5/uqb75/y15/PvGzJkCHjsYzjdK02IFuuvn/+d5z/armvDBkyNmCQQ5CIR55JDsrPJkOGDBkpg4fp87RShgwZMjoMUqD2E0EZMmTIqBWx/KD9XtmNtbgMGTIeyODb/P3rW+43ZMiQ8SjGES5e4tbaZ7UlQ4aM2YxaK62TnJHWW621J0OGjB0YtYfePRbGx9FkyJAxlUHSu9qnJMjyv+PLLjJkyBjNiNOvG5pxnFE7mwwZMiYxOuMUPOzy39bafDJkyJjH6Iw48FDIR7v4SS6b1JAhQ8a/Z9Q2Pg+FpGRNL0FRQilDhoyhjH7yx5PITgH8JfjKkCFjGwYpHWsXk+n1Z3o5KkOGjB0Y5HHpdWYtKeTl7rLdJkOGjHEM8tV0wIKH0QOvIKDLkCFjHIMngp3SlKzW9YMMGTJGMzpJWDzNER4lfV+GDBk7MPjgBUkZSXnMC+Yg3MuQIWMoo9b052kcL1n5vl9KWRkyZIxmpAMTafusBpYhQ4aMWiLIAZ22WlDEypAhYyjjCNdVpPTT4ApThgwZ4xj9K8Z0g3RcQ4YMGTLSENm5BiAjGq30UYYMGRsw0sDHkzmSVtaK2GW7TYYMGdszWu17HHzJoEYr4MqQIWM0gzT904uHlP3LXjJkyNiAUWvWX1vKEowMGTL2ZNRGHK4d+Up3LN5yyJAh43mMHxTo2xm57IyhAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

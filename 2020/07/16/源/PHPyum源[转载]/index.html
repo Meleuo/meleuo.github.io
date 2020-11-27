@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>PHPyum源[转载] | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="php,软件源">
+    <meta name="description" content="Centos7采用Yum安装PHP的方案：
+1、检查当前安装的PHP
+1yum list installed | grep php
+如果有已经安装的PHP包，先删除他们：
+1yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcry">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHPyum源[转载]">
+<meta property="og:url" content="http://example.com/2020/07/16/源/PHPyum源[转载]/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="Centos7采用Yum安装PHP的方案：
+1、检查当前安装的PHP
+1yum list installed | grep php
+如果有已经安装的PHP包，先删除他们：
+1yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcry">
+<meta property="og:updated_time" content="2020-11-25T14:07:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHPyum源[转载]">
+<meta name="twitter:description" content="Centos7采用Yum安装PHP的方案：
+1、检查当前安装的PHP
+1yum list installed | grep php
+如果有已经安装的PHP包，先删除他们：
+1yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcry">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PHPyum源[转载]</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PHPyum源[转载]</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-07-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/源/">源</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-源/PHPyum源[转载]"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PHPyum源[转载]</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-16 10:31:00" datetime="2020-07-16T02:31:00.000Z"  itemprop="datePublished">2020-07-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/源/">源</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Centos7采用Yum安装PHP的方案：</p>
+<p><strong>1、检查当前安装的PHP</strong></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">list</span> installed | <span class="keyword">grep</span> php</span><br></pre></td></tr></table></figure>
+<p>如果有已经安装的PHP包，先删除他们：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove php<span class="class">.x86_64</span> php-cli<span class="class">.x86_64</span> php-common<span class="class">.x86_64</span> php-gd<span class="class">.x86_64</span> php-ldap<span class="class">.x86_64</span> php-mbstring<span class="class">.x86_64</span> php-mcrypt<span class="class">.x86_64</span> php-mysql<span class="class">.x86_64</span> php-pdo.x86_64</span><br></pre></td></tr></table></figure>
+<p><strong>2、升级yum源</strong><br>   Centos 5.X</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="constant">Uvh</span> <span class="symbol">http:</span>/<span class="regexp">/mirror.webtatic.com/yum</span><span class="regexp">/el5/latest</span>.rpm</span><br></pre></td></tr></table></figure>
+<p>  CentOs 6.x</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="constant">Uvh</span> <span class="symbol">http:</span>/<span class="regexp">/mirror.webtatic.com/yum</span><span class="regexp">/el6/latest</span>.rpm</span><br></pre></td></tr></table></figure>
+<p>  CentOs 7.X </p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="constant">Uvh</span> <span class="symbol">https:</span>/<span class="regexp">/mirror.webtatic.com/yum</span><span class="regexp">/el7/epel</span>-release.rpm</span><br><span class="line">rpm -<span class="constant">Uvh</span> <span class="symbol">https:</span>/<span class="regexp">/mirror.webtatic.com/yum</span><span class="regexp">/el7/webtatic</span>-release.rpm</span><br></pre></td></tr></table></figure>
+<p>如果想删除上面安装的包，重新安装<br>   rpm -qa | grep webstatic<br>   rpm -e  上面搜索到的包即可<br>（列出所有被安装的rpm package：rpm -qa）</p>
+<p><strong>3、运行 yum install 安装PHP：</strong><br>   PHP5.5</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php55w<span class="class">.x86_64</span> php55w-cli<span class="class">.x86_64</span> php55w-common<span class="class">.x86_64</span> php55w-gd<span class="class">.x86_64</span> php55w-ldap<span class="class">.x86_64</span> php55w-mbstring<span class="class">.x86_64</span> php55w-mcrypt<span class="class">.x86_64</span> php55w-mysql<span class="class">.x86_64</span> php55w-pdo.x86_64</span><br></pre></td></tr></table></figure>
+<p>  PHP5.6</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php56w<span class="class">.x86_64</span> php56w-cli<span class="class">.x86_64</span> php56w-common<span class="class">.x86_64</span> php56w-gd<span class="class">.x86_64</span> php56w-ldap<span class="class">.x86_64</span> php56w-mbstring<span class="class">.x86_64</span> php56w-mcrypt<span class="class">.x86_64</span> php56w-mysql<span class="class">.x86_64</span> php56w-pdo.x86_64</span><br></pre></td></tr></table></figure>
+<p>  PHP7.0</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php70w<span class="class">.x86_64</span> php70w-cli<span class="class">.x86_64</span> php70w-common<span class="class">.x86_64</span> php70w-gd<span class="class">.x86_64</span> php70w-ldap<span class="class">.x86_64</span> php70w-mbstring<span class="class">.x86_64</span> php70w-mcrypt<span class="class">.x86_64</span> php70w-mysql<span class="class">.x86_64</span> php70w-pdo.x86_64</span><br></pre></td></tr></table></figure>
+<p>（注：如果想升级，把上面的55w换成56w、70W就可以了）<br><strong>4、安装PHP FPM，分别对应为PHP5.5、PHP5.6、PHP7.0</strong><br>   yum install php55w-fpm<br>   yum install php56w-fpm<br>   yum install php70w-fpm<br>（注：如果想升级，把上面的55w换成56w、70W就可以了）   </p>
+<p>  log 位置： /var/log/php-fpm<br>   pid 位置： /var/run/php-fpm/php-fpm.pid<br>   信号命令：  </p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">INT</span>, TERM 立刻终止</span><br><span class="line">QUIT 平滑终止</span><br><span class="line">USR1 重新打开日志文件</span><br><span class="line">USR2 平滑重载所有worker进程并重新载入配置和二进制模块</span><br></pre></td></tr></table></figure>
+<p>  启动 php-fpm</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php-fpm</span><br></pre></td></tr></table></figure>
+<p>  重启 php-fpm</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -<span class="keyword">INT</span> `cat <span class="regexp">/var/</span>run<span class="regexp">/php-fpm/</span>php-fpm.pid`</span><br></pre></td></tr></table></figure>
+<p>  php-fpm 重启：<br>   kill -USR2 <code>cat /var/run/php-fpm/php-fpm.pid</code></p>
+<p><strong>扩展：配置yum源</strong></p>
+<p>  我们要使用yum来安装PHP-fpm和比较新版本的php,nginx,MySQL-server的话， 首先得给yum添加几个源，CentOS默认的源里面软件比较旧，有些软件、库还没有。<br><strong>一、EPEL源：</strong><br>   Extra Packages for Enterprise Linux (or EPEL)或者叫企业版 Linux 附加软件包， 是一个由特别兴趣小组创建、维护并管理的，针对 红帽企业版 Linux(RHEL)及其衍生发行版 (比如 CentOS、 Scientific Linux)的一个高质量附加软件包项目。<br>   EPEL 的软件包通常不会与企业版 Linux 官方源中的软件包发生冲突，或者互相替换文件。 EPEL 与 Fedora 项目基本一致，包含完整的构建系统、升级管理器、镜像管理器等等。<br>   EPEL源官方网站：<a href="https://fedoraproject.org/wiki/EPEL" target="_blank" rel="external">https://fedoraproject.org/wiki/EPEL</a><br><strong>添加EPEL源：</strong><br>   32位CentOS，在命令行运行下面命令：  </p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh <span class="symbol">http:</span>/<span class="regexp">/mirrors.ustc.edu.cn/fedora</span><span class="regexp">/epel/</span><span class="number">6</span>/i386/epel-release-<span class="number">6</span>-<span class="number">8</span>.noarch.rpm</span><br></pre></td></tr></table></figure>
+<p>  64位CentOS，在命令行运行下面命令： </p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh <span class="symbol">http:</span>/<span class="regexp">/mirrors.ustc.edu.cn/fedora</span><span class="regexp">/epel/</span><span class="number">6</span>/x86_64/epel-release-<span class="number">6</span>-<span class="number">8</span>.noarch.rpm</span><br></pre></td></tr></table></figure>
+<p>   EPEL源只能作为CentOS官方源的补充，里面还都是一些系统基础的软件包，我们要安装的php，php-fpm，MySQL等软件里面还是没有，所以接下来添加另一个软件源Remi。</p>
+<p><strong>二、Remi源</strong>中的软件几乎都是最新稳定版。或许您会怀疑稳定不？放心吧，这些都是Linux骨灰级的玩家编译好放进源里的，他们对于系统环境和软件编译参数的熟悉程度毋庸置疑。</p>
+<p>   Remi官方网站：<a href="http://rpms.famillecollet.com/" target="_blank" rel="external">http://rpms.famillecollet.com/</a></p>
+<p><strong>添加Remi源</strong>，不管32位还是64位的系统，运行下面命令：  </p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh <span class="string">http:</span><span class="comment">//rpms.famillecollet.com/enterprise/remi-release-6.rpm</span></span><br></pre></td></tr></table></figure>
+<p>  Remi源默认是没有启用的，我们来<strong>启用Remi源：</strong></p>
+<p>  修改 /etc/yum.repos.d/remi.repo 文件，把文件内的 enabled=0 改为 enabled=1 。<br>  （注意：该文件内有2个 enabled=0 我们修改[remi]下面的，不要修改[remi-test]下面的）</p>
+<p><strong>三、到这里yum源的配置结束</strong>，下面安装软件就简单了。安装时候有询问y/n的时候都是y</p>
+<p>   安装php,php-fpm以及php扩展：  </p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">yum</span> install php php-fpm php-<span class="keyword">bcmatch </span>php-gd php-mbstring php-mcrypt php-mysql</span><br></pre></td></tr></table></figure>
+<p>  安装mysql：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span></span></span><br></pre></td></tr></table></figure>
+<p>  安装nginx：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> nginx</span><br></pre></td></tr></table></figure>
+<p>   Mysql配置文件my.cnf路径：/etc/my.cnf<br>   Nginx配置文件nginx.conf路径：/etc/nginx/nginx.conf<br>   PHP配置文件php.ini路径： /etc/php.ini<br>   php-fpm配置文件php-fpm.conf路径：/etc/php-fpm.conf</p>
+<blockquote>
+<p>本文为转载</p>
+</blockquote>
+<blockquote>
+<p>原文地址：<a href="https://my.oschina.net/codercpf/blog/1825069" target="_blank" rel="external">https://my.oschina.net/codercpf/blog/1825069</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-25T14:07:17.000Z" itemprop="dateUpdated">2020-11-25 22:07:17</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/07/16/源/PHPyum源[转载]/" target="_blank" rel="external">http://example.com/2020/07/16/源/PHPyum源[转载]/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件源/">软件源</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/07/16/源/PHPyum源[转载]/&title=《PHPyum源[转载]》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/07/16/源/PHPyum源[转载]/&title=《PHPyum源[转载]》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/07/16/源/PHPyum源[转载]/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHPyum源[转载]》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/07/16/源/PHPyum源[转载]/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/07/16/源/PHPyum源[转载]/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/09/10/监控/filebeat 和 logstash加密通讯/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">filebeat 和 logstash加密通讯</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/07/11/Docker/Docker基础操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Docker基础操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/07/16/源/PHPyum源[转载]/&title=《PHPyum源[转载]》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/07/16/源/PHPyum源[转载]/&title=《PHPyum源[转载]》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/07/16/源/PHPyum源[转载]/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHPyum源[转载]》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/07/16/源/PHPyum源[转载]/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/07/16/源/PHPyum源[转载]/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aQW4kIQwF0Nz/0j3SrCJNquZ/XB0l8Fi1IlLwWFg25uMjHq+/4/Pvz3/5d87af13NeWxgYGD8Wsbrdqxt4uoL9+vm3/yCioGBcQCjDbL3sHwk697PwcDAwHgq7UuCbBKmMTAwMNYYSUqXbAUDAwPjnjEvQZOt52nlG2txDAyMX8hYawx8z++39zcwMDB+PGPtamzttO6TvMnAwMDYmzG56sqbl2tlaptWYmBgnMCYBMo2Z5sknZd7w8DA2JTxVNBMgmn+CKxudmJgYGzNePZCLU/yclLdfsDAwDiAsfZIIt/oWvpYrI6BgbEdY3K5lly9JaQHUkYMDIytGe3FWV7Etk++8gP6z60hBgbG1oykdJwXqO1hFbvCwMDYmjFvKOaPJyYJYlFOY2BgbMRol5zPT46gfaKBgYFxGiMPfG0bMoe1pS8GBsbejDbw5WGxDppxaxMDA+NMxnzJtkBN2qXJU4/L/gYGBsamjEly1iZw7cG9sSLHwMD48Yw2FK4VtKPHXslOMDAwjmGsPZuY907bZsAXczAwMLZmtItNnoW132mDPgYGxq6MVznm12f3YXSxOYqBgbE1Yx7s2oKzLZITNgYGxgmMNsjmy7fz8+QSAwPjTMak9m0v4yZJHgYGBka+uacCaJsmXn4NAwMDY+kyLm9e5sEXAwPjZMba5taeaCSpXn6IGBgYJzDWGgNrHYak2dk2EjAwMLZm/AExD8xSYzuxswAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

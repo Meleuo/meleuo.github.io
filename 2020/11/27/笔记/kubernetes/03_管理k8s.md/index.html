@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="{&quot;ID&quot;:&quot;20200914151218-vripg64&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-j2y520d&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:1,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Msrte-人生苦短,何妨一试">
+<meta property="og:url" content="http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="{&quot;ID&quot;:&quot;20200914151218-vripg64&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-j2y520d&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:1,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;">
+<meta property="og:updated_time" content="2020-09-13T23:12:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Msrte-人生苦短,何妨一试">
+<meta name="twitter:description" content="{&quot;ID&quot;:&quot;20200914151218-vripg64&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-j2y520d&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:1,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-27T02:00:27.630Z" itemprop="datePublished" class="page-time">
+  2020-11-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-笔记/kubernetes/03_管理k8s.md"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-27 10:00:27" datetime="2020-11-27T02:00:27.630Z"  itemprop="datePublished">2020-11-27</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            {"ID":"20200914151218-vripg64","Type":0,"Close":true,"LastLineBlank":true,"Children":[{"ID":"20200914151218-j2y520d","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":1,"Children":[{"Type":3,"Tokens":"IyA="},{"Type":16,"Tokens":"6LWE5rqQ566h55CG"}]},{"ID":"20200914151218-wnb4kxf","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"566h55CGazhz5qC45b+D6LWE5rqQ55qE5LiJ56eN5pa55rOV"}]},{"ID":"20200914151218-apzbur3","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"6ZmI6L+w5byP566h55CG4oCU5Li76KaB5L6d6LWW5ZG95Luk6KGMQ0xJ5bel5YW36L+b6KGM566h55CG"}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineChecked":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineChecked":true,"Children":[{"Type":16,"Tokens":"5aOw5piO5byP566h55CG4oCU5Li76KaB5Lul5p2l57uf5LiA6LWE5rqQ6YWN572u5riF5Y2V77yIbWFuaWZlc3TvvInov5vooYznrqHnkIY="}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"R1VJ5byP566h55CG4oCU5Li76KaB5L6d6LWW5Zu+5b2i5YyW5pON5L2c55WM6Z2i77yId2Vi55WM6Z2iIGRhc2hib3JhZO+8iei/m+ihjOeuoeeQhg=="}]}]}]},{"ID":"20200914151218-xsiqbdi","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"6ZmI6L+w5byP6LWE5rqQ566h55CG"}]},{"ID":"20200914151218-fff898f","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"bmFtZXNwYWNlIOWQjeensOepuumXtA=="}]},{"ID":"20200914151218-h60k4xu","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBnZXQgbmFtZXNwYWNlL25zCgpuYW1lc3BhY2UJCeiOt+WPlms4c+S4reeahOWQjeensOepuumXtO+8jCBuc+eugOWGmQo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-ghgl4gh","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBnZXQgYWxsIFsgLW4gbmFtZXNwYWNlIF0gCgphbGwgCeiOt+WPluWQjeensOepuumXtOS4reeahOWFqOmDqOi1hOa6kAotbiAgCeaMh+WumuWQjeensOepuumXtCwg5LiN5oyH5a6a6buY6K6k5pivZGVmYXVsdOWQjeensOepuumXtAo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-8r31ag5","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBjcmVhdGUgbmFtZXNwYWNlCWFwcAoKYXBwCQnliJvlu7rkuIDkuKrlkI3kuLphcHDnmoTlkI3np7Dnqbrpl7QK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-6tt2zqp","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBkZWxldGUgbmFtZXNwYWNlCWFwcAoKYXBwCQnliKDpmaTlkI3kuLphcHDnmoTlkI3np7Dnqbrpl7QK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-a44d3uy","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"cG9kL3BvZOaOp+WItuWZqCDnrqHnkIY="}]},{"ID":"20200914151218-mx4u8p8","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5paw5bu65LiA5Liq5ZCN5Li6IG5naW54LXdlYueahCBwb2TmjqfliLblmag="}]}]}]},{"ID":"20200914151218-4bzpcbr","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBjcmVhdGUgZGVwbG95bWVudCBuZ2lueC13ZWIgLS1pbWFnZT1oYXJib3Iub2QuY29tL3B1YmxpYy9uZ2lueDoxLjcuOSAtbiBrdWJlLXB1YmxpYwoKY3JlYXRlCQkJ5Yib5bu6cG9k5o6n5Yi25ZmoCmRlcGxveW1lbnQJCeaMh+WumuS9v+eUqCBkZXBsb3ltZW50IHBvZOaOp+WItuWZqApuZ2lueC13ZWIJCXBvZOaOp+WItuWZqOeahG5hbWUKLS1pbWFnZT0JCeWFtuS4rXBvZOS9v+eUqOeahOmVnOWDjwotbgkJCQnmjIflrprlkI3np7Dnqbrpl7QK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-mx2cxv4","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"6ZyA6KaB5Yy65YiGcG9k5ZKMcG9k5o6n5Yi25Zmo77yM6L+Z6YeM5Yib5bu655qE5bCx5piv5LiA5LiqcG9k5o6n5Yi25Zmo77yM55u45b2T5LqO5pivcG9k55qE5Ymn5pys77yMIHBvZOaOp+WItuWZqOS8muaMieeFp+WJp+acrOWGheWuueaLiei1t3BvZA=="}]}]},{"ID":"20200914151218-6biawc6","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Yig6Zmk5ZCN5Li6bmdpbngtd2ViLTU0OGY0ZjlkOGQtcTRqOWLnmoRwb2Q="}]}]}]},{"ID":"20200914151218-gjdmyyv","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBkZWxldGUgcG9kIG5naW54LXdlYi01NDhmNGY5ZDhkLXE0ajliCS1uIGt1YmUtcHVibGljCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-y3o6bhc","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5Yig6Zmk5LqGcG9k77yMcG9k5o6n5Yi25Zmo5Lya56uL5Yi75LuO5paw5oyJ54Wn5Ymn5pys5ouJ6LW35paw55qEcG9k77yM5omA5Lul5a+5cG9k55qE5Yig6Zmk55u45b2T5LqO5piv6YeN5ZCvcG9k"}]}]},{"ID":"20200914151218-vafd0z5","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Yig6Zmk5oyH5a6a5o6n5Yi25Zmo77yM5ZCM5qC35peX5LiL55qE5omA5LulcG9k5Lmf5Lya6KKr5LiA5bm26ZSA5q+B"}]}]}]},{"ID":"20200914151218-czgvrds","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBkZWxldGUgZGVwbG95bWVudCBuZ2lueC10ZXN0IC1uIGt1YmUtcHVibGljIFstLWZvcmNlCS0tZ3JhY2UtcGVyaW9kPTBdCgpkZXBsb3ltZW50CeaMh+WumuaOp+WItuWZqOexu+WeiwpuZ2lueC10ZXN0CeaMh+WumuaOp+WItuWZqOWQjeWtlwotLWZvcmNlCS0tZ3JhY2UtcGVyaW9kPTAJ5by65Yi25Yig6ZmkcG9kCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-tn7772n","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5omp5a65L+WHj+WwkXBvZOaVsOmHjw=="}]}]}]},{"ID":"20200914151218-czz9nn2","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"a3ViZWN0bCBzY2FsZSBkZXBsb3ltZW50IG5naW54LXdlYiAtLXJlcGxpY2FzPTUgLW4ga3ViZS1wdWJsaWMKCi0tcmVwbGljYXMJ5oyH5a6acG9k5oC75pWwCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-f2banik","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5p+l6K+icG9k5o6n5Yi25Zmo5L+h5oGv"}]}]}]},{"ID":"20200914151218-1h7957r","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCAgZGVzY3JpYmUvZ2V0ICBkZXBsb3ltZW50IG5naW54LXdlYiAtbiBrdWJlLXB1YmxpYwoKZGVzY3JpYmUJCeivpue7huafpeeciwpnZXQJCQkJ566A5Y2V5p+l55yLCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-2hr2e49","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5p+l6K+icG9k5L+h5oGv"}]}]}]},{"ID":"20200914151218-50dkj53","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"a3ViZWN0bCBkZXNjcmliZS9nZXQgcG9kIG5naW54LXdlYi01NDhmNGY5ZDhkLXBnNWZiIC1uIGt1YmUtcHVibGljCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-xt6gths","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBnZXQgcG9kIG5naW54LXdlYi01NDhmNGY5ZDhkLXBnNWZiIC1uIGt1YmUtcHVibGljIC1vIHdpZGUKCi1vIHdpZGUJCeaYvuekunBvZOeahGlwCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-hwpr4uj","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6L+b5YWlcG9k"}]}]}]},{"ID":"20200914151218-tt6n30u","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBleGVjIC1pdCBuZ2lueC1kcy1jZjQ2OCAvYmluL2Jhc2gK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-b8mx8mf","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"c2VydmljZSDnrqHnkIY="}]},{"ID":"20200914151218-lld28q8","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Yib5bu6c3Zj"}]}]}]},{"ID":"20200914151218-3pwyrbu","Type":11,"Close":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBleHBvc2UgZGVwbG95bWVudCBuZ2lueC13ZWIgLS1wb3J0PTgwIC1uIGt1YmUtcHVibGljCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-39v2zmo","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5p+l6K+ic3Zj"}]}]}]},{"ID":"20200914151218-av64qex","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBnZXQgc2VydmljZS9zdmMKa3ViZWN0bCBkZXNjcmliZSBzdmMgbmdpbngtd2ViIC1uIGt1YmUtcHVibGljCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-upbtidq","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Yig6Zmkc3Zj"}]}]}]},{"ID":"20200914151218-0ze52ha","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBkZWxldGUgc3ZjIG5naW54LXRlc3QK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-1po6yqc","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"a3ViZXJuZXTpm4bnvqTnrqHnkIbotYTmupDnmoTllK/kuIDlhaXlj6PlsLHmmK/pgJrov4fnm7jlupTnmoTmlrnms5XosIPnlKhhcGlzZXJ2ZXLnmoTmjqXlj6M="}]},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"a3ViZWN0bCDmmK9rOHPlrpjmlrnmj5DkvpvnmoRDTEnlt6XlhbfvvIznlKjkuo7lkoxhcGlzZXJ2ZXLov5vooYzpgJrorq/vvIznlKjmiLfovpPlhaXnmoTlkb3ku6TkvJrovazljJbkuLphcGlzZXJ2ZXLog73or4bliKvnmoTkv6Hmga8="}]}]},{"ID":"20200914151218-0f21gmv","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"a3ViZWN0bCDlkb3ku6Tmn6Xor6I="},{"Type":33,"LinkType":2,"Children":[{"Type":36},{"Type":40,"Tokens":"aHR0cDovL2RvY3Mua3ViZXJuZXRlcy5vcmcuY24vNjgzLmh0bWw="},{"Type":37},{"Type":38},{"Type":41,"Tokens":"aHR0cDovL2RvY3Mua3ViZXJuZXRlcy5vcmcuY24vNjgzLmh0bWw="},{"Type":39}]}]}]},{"ID":"20200914151218-h84v7dp","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"5aOw5piO5byP566h55CG"}]},{"ID":"20200914151218-4pfh7ib","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5p+l55yL6LWE5rqQ6YWN572u5riF5Y2V"}]}]}]},{"ID":"20200914151218-wg2eyen","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBnZXQgZGVwbG95bWVudCBuZ2lueC13ZWIgLW4ga3ViZS1wdWJsaWMgLW8geWFtbAo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-oev5obb","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6LWE5rqQ6YWN572u5riF5Y2V5b+F6KaB55qENOS4quWtl+autQ=="}]}]}]},{"ID":"20200914151218-uy0zs14","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"eWFtbA==","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"eWFtbA=="},{"Type":15,"Tokens":"YXBpVmVyc2lvbjogZXh0ZW5zaW9ucy92MWJldGExCmtpbmQ6IERlcGxveW1lbnQKbWV0YWRhdGE6CgkKc3BlYzoK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-9a6z7vi","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6Kej6YeK6YWN572u5riF5Y2V5a2X5q61"}]}]}]},{"ID":"20200914151218-9rovfal","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBleHBsYWluCXNlcnZpY2UuYXBpVmVyc2lvbgoK6Kej6YeKYXBpVmVyc2lvbuWtl+auteeahOWPr+mAieWPguaVsOWSjOaEj+S5iQo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-dbw4fnk","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5L2/55So6YWN572u5riF5Y2V5Yib5bu65Lu75Yqh"}]}]}]},{"ID":"20200914151218-mhdxyw4","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"Y2F0ID4gbmdpbngtZHMueWFtbCA8PC1FT0YKYXBpVmVyc2lvbjogZXh0ZW5zaW9ucy92MWJldGExCmtpbmQ6IERhZW1vblNldAptZXRhZGF0YToKICBuYW1lOiBuZ2lueC1kcwpzcGVjOgogIHRlbXBsYXRlOgogICAgbWV0YWRhdGE6CiAgICAgIGxhYmVsczoKICAgICAgICBhcHA6IG5naW54LWRzCiAgICBzcGVjOgogICAgICBjb250YWluZXJzOgogICAgICAtIG5hbWU6IG15LW5naW54CiAgICAgICAgaW1hZ2U6IGhhcmJvci5vZC5jb20vcHVibGljL25naW54OjEuNy45CiAgICAgICAgcG9ydHM6CiAgICAgICAgLSBjb250YWluZXJQb3J0OiA4MApFT0YK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-meuvq33","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"a3ViZWN0bCBjcmVhdGUgLWYgIG5naW54LWRzLnlhbWwgIC1uIGt1YmUtcHVibGljCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-uitd5hh","Type":7,"Close":true,"LastLineBlank":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5L+u5pS56YWN572u5riF5Y2V5YaF5a65"}]},{"Type":7,"Close":true,"LastLineBlank":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Zyo57q/5L+u5pS5"}]},{"Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBlZGl0IHNlcnZpY2UgbmdpbngtZHMgLW4ga3ViZS1wdWJsaWMKCuS/ruaUuXNlcnZpY2XotYTmupDphY3nva7muIXljZUK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBlZGl0IGRlcGxveW1lbnQgbmdpbngtZHMgLW4ga3ViZS1wdWJsaWMKCuS/ruaUuXBvZOaOp+WItuWZqOi1hOa6kOmFjee9rua4heWNlQo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"56a757q/5L+u5pS5"}]},{"Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"a3ViZWN0bCBhcHBseSAtZiBuZ2lueC1kcy55YW1sIAoK55u05o6l5L+u5pS56YWN572u5riF5Y2V5paH5Lu277yM54S25ZCO5L2/55SoYXBwbHnorqnlhbbnlJ/mlYgK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]}]}]}]},{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Yig6Zmk6LWE5rqQ6YWN572u5riF5Y2V55Sf5oiQ55qE6LWE5rqQ"}]}]}]},{"ID":"20200914151218-fvjf7nj","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBkZWxldGUgLWYgZmlsZS55YW1sCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-axqtafs","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":1,"Children":[{"Type":3,"Tokens":"IyA="},{"Type":16,"Tokens":"azhz5bmz5ruR5Y2H57qn"}]},{"ID":"20200914151218-a9nr4oy","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5bCG5b2T5YmNMuWPsOiKgueCueeahGs4c+W5s+a7keWNh+e6p+WIsCB2MS4xNS40"}]}]},{"ID":"20200914151218-fr9nq2f","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIxIGNvbmZdIyBrdWJlY3RsICBnZXQgbm9kZXMKTkFNRSAgICAgICAgICAgICAgU1RBVFVTICAgUk9MRVMgICAgICAgICBBR0UgICAgIFZFUlNJT04KazhzLTIxLmhvc3QuY29tICAgUmVhZHkgICAgbWFzdGVyLG5vZGUgICA1ZDEyaCAgIHYxLjE1LjIKazhzLTIyLmhvc3QuY29tICAgUmVhZHkgICAgbWFzdGVyLG5vZGUgICA1ZDEyaCAgIHYxLjE1LjIK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-rarzmz8","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5YeG5aSH6L2v5Lu25YyF"}]}]}]},{"ID":"20200914151218-70n4khi","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"Y2QgL29wdC9zcmMKd2dldCBodHRwczovL2RsLms4cy5pby92MS4xNS40L2t1YmVybmV0ZXMtc2VydmVyLWxpbnV4LWFtZDY0LnRhci5negoKbXYga3ViZXJuZXRlcy1zZXJ2ZXItbGludXgtYW1kNjQudGFyLmd6ICBrdWJlcm5ldGVzLXNlcnZlci12MS4xNS40LWxpbnV4LWFtZDY0LnRhci5negoKbWtkaXIgdG1wZGlyCgp0YXIgLXhmICBrdWJlcm5ldGVzLXNlcnZlci12MS4xNS40LWxpbnV4LWFtZDY0LnRhci5neiAtQyB0bXBkaXIvCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-ma2oyux","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIxIHNyY10jIHRyZWUgdG1wZGlyLwp0bXBkaXIvCmAtLSBrdWJlcm5ldGVzCiAgICB8LS0gTElDRU5TRVMKICAgIHwtLSBhZGRvbnMKICAgIHwtLSBrdWJlcm5ldGVzLXNyYy50YXIuZ3oKICAgIGAtLSBzZXJ2ZXIKICAgICAgICBgLS0gYmluCiAgICAgICAgICAgIHwtLSBhcGlleHRlbnNpb25zLWFwaXNlcnZlcgogICAgICAgICAgICAuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLgoJCQkuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLgogICAgICAgICAgICBgLS0gbW91bnRlcgo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-xha3jjm","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"Y3AgLWEgIHRtcGRpci9rdWJlcm5ldGVzIC9vcHQva3ViZXJuZXRlcy12MS4xNS40Cg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-ga706r2","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5YeG5aSH5paw54mI5pys55qEa3ViZXJuZXRlcw=="}]}]}]},{"ID":"20200914151218-9h3kmrm","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"Y2QgL29wdC9rdWJlcm5ldGVzLXYxLjE4LjQKcm0gLXJmIGt1YmVybmV0ZXMtc3JjLnRhci5negoKY2Qgc2VydmVyL2Jpbi8Kcm0gLXJmICoudGFyCnJtIC1yZiAqX3RhZwoKY3AgLWEgL29wdC9rdWJlcm5ldGVzL3NlcnZlci9iaW4vY29uZiAvb3B0L2t1YmVybmV0ZXMvc2VydmVyL2Jpbi9jZXJ0cyAvb3B0L2t1YmVybmV0ZXMvc2VydmVyL2Jpbi8qLnNoIC4K"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-g6npftu","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5LuOazhz5Lit5YmU6Zmk6KaB5Y2H57qn55qE6IqC54K5"}]}]}]},{"ID":"20200914151218-y5ky8jk","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIxIGNvbmZdIyBrdWJlY3RsICBnZXQgbm9kZXMKTkFNRSAgICAgICAgICAgICAgU1RBVFVTICAgUk9MRVMgICAgICAgICBBR0UgICAgIFZFUlNJT04KazhzLTIxLmhvc3QuY29tICAgUmVhZHkgICAgbWFzdGVyLG5vZGUgICA1ZDEyaCAgIHYxLjE1LjIKazhzLTIyLmhvc3QuY29tICAgUmVhZHkgICAgbWFzdGVyLG5vZGUgICA1ZDEyaCAgIHYxLjE1LjIKCltyb290QGs4cy0yMSBjb25mXSMga3ViZWN0bCAgZGVsZXRlIG5vZGVzIGs4cy0yMS5ob3N0LmNvbQpOQU1FICAgICAgICAgICAgICBTVEFUVVMgICBST0xFUyAgICAgICAgIEFHRSAgICAgVkVSU0lPTgprOHMtMjEuaG9zdC5jb20gICBSZWFkeSAgICBtYXN0ZXIsbm9kZSAgIDVkMTJoICAgdjEuMTUuMgprOHMtMjIuaG9zdC5jb20gICBSZWFkeSAgICBtYXN0ZXIsbm9kZSAgIDVkMTJoICAgdjEuMTUuMgoKW3Jvb3RAazhzLTIxIGNvbmZdIyBrdWJlY3RsICBnZXQgbm9kZXMKTkFNRSAgICAgICAgICAgICAgU1RBVFVTICAgUk9MRVMgICAgICAgICBBR0UgICAgIFZFUlNJT04KazhzLTIyLmhvc3QuY29tICAgUmVhZHkgICAgbWFzdGVyLG5vZGUgICA1ZDEyaCAgIHYxLjE1LjIK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-ra6vnxn","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5LuO6ZuG576k5Lit5Yig6Zmk5LiA5LiqIOiKgueCueaXtu+8jGs4c+WGhemDqOS8muiHquWKqOWwhuivpeiKgueCueeahOS7u+WKoeiwg+W6puWIsOWFtuS7luiKgueCueS4iuWOuw=="}]}]},{"ID":"20200914151218-12sgth1","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5by65Yi26KaG55uW5pen54mI5pys55qE6L2v6L+e5o6l"}]}]}]},{"ID":"20200914151218-btkxeov","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"bG4gLXNmbiAvb3B0L2t1YmVybmV0ZXMtdjEuMTUuNCAvb3B0L2t1YmVybmV0ZXMK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-d0bslq3","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6YeN5ZCvIGs4cw=="}]}]}]},{"ID":"20200914151218-vl1iqdb","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"c3VwZXJ2aXNvcmN0bCBzdG9wIGFsbApwcyBhdXggfCBncmVwIGt1YmUKCnN1cGVydmlzb3JjdGwgc3RhcnQgYWxsCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-s5ch911","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5aaC5p6c5pyJ6ZSZ6K+v6ZyA6KaB5omL5Yqo5aSE55CG77yM6Zeu6aKY5Z+65pys5LiK6YO95pivc3VwZXJ2aXNvcuayoeacieadgOaOieaXp+eahOi/m+eoi+W9seWTjeeahA=="}]}]},{"ID":"20200914151218-e7c8vns","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5qOA5p+l5paw54mI5pys55qE6L+Q6KGM54q25oCB"}]}]}]},{"ID":"20200914151218-xyycotn","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIxIHN1cGVydmlzb3JkLmRdIyBzdXBlcnZpc29yY3RsICBzdGF0dXMKZXRjZC1zZXJ2ZXItMjEgICAgICAgICAgICAgICAgICAgUlVOTklORyAgIHBpZCAyNjM4OSwgdXB0aW1lIDA6MDM6MzMKZmxhbm5lbGQtMjEgICAgICAgICAgICAgICAgICAgICAgUlVOTklORyAgIHBpZCAyNzQ5OSwgdXB0aW1lIDA6MDI6MDgKa3ViZS1hcGlzZXJ2ZXItMjEgICAgICAgICAgICAgICAgUlVOTklORyAgIHBpZCAyNjM5MSwgdXB0aW1lIDA6MDM6MzMKa3ViZS1jb250cm9sbGVyLW1hbmFnZXItMjEgICAgICAgUlVOTklORyAgIHBpZCAyNjM5MiwgdXB0aW1lIDA6MDM6MzMKa3ViZS1rdWJlbGV0LTIxICAgICAgICAgICAgICAgICAgUlVOTklORyAgIHBpZCAyNzkwNCwgdXB0aW1lIDA6MDE6MDEKa3ViZS1wcm94eS0yMSAgICAgICAgICAgICAgICAgICAgUlVOTklORyAgIHBpZCAyNjM4OCwgdXB0aW1lIDA6MDM6MzMKa3ViZS1zY2hlZHVsZXItMjEgICAgICAgICAgICAgICAgUlVOTklORyAgIHBpZCAyNjQwNCwgdXB0aW1lIDA6MDM6MzMK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-vml7wsb","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIxIHN1cGVydmlzb3JkLmRdIyBrdWJlY3RsICBnZXQgbm9kZXMKTkFNRSAgICAgICAgICAgICAgU1RBVFVTICAgUk9MRVMgICAgICAgICBBR0UgICAgIFZFUlNJT04KazhzLTIxLmhvc3QuY29tICAgUmVhZHkgICAgPG5vbmU+ICAgICAgICAxM20gICAgIHYxLjE1LjQKazhzLTIyLmhvc3QuY29tICAgUmVhZHkgICAgbWFzdGVyLG5vZGUgICA1ZDEyaCAgIHYxLjE1LjIK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-foh3bub","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"azhzLTIyIOWNh+e6p+S5n+aYr+WQjOeQhg=="}]}]},{"ID":"20200914151218-y1lzfcc","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIxIH5dIyBrdWJlY3RsICBnZXQgbm9kZXMKTkFNRSAgICAgICAgICAgICAgU1RBVFVTICAgUk9MRVMgICAgQUdFICAgVkVSU0lPTgprOHMtMjEuaG9zdC5jb20gICBSZWFkeSAgICA8bm9uZT4gICA1MG0gICB2MS4xNS40Cms4cy0yMi5ob3N0LmNvbSAgIFJlYWR5ICAgIDxub25lPiAgIDM0cyAgIHYxLjE1LjQK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-jspy8bf","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":1,"Children":[{"Type":3,"Tokens":"IyA="},{"Type":16,"Tokens":"azhzIOS6uuS4uuiwg+W6pg=="}]},{"ID":"20200914151218-4pbj02t","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"5rGh54K5IHRhaW50"}]},{"ID":"20200914151218-9y29m6t","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCAgdGFpbnQgbm9kZSBrOHMtMjEuaG9zdC5jb20gZGlzaz1oZGQ6Tm9FeGVjdXRlCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-lvk2dai","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCAgdGFpbnQgbm9kZSBrOHMtMjEuaG9zdC5jb20gZGlzay0KCuWIoOmZpOS4gOS4quaxoeeCuQo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-1lp5ke2","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"5a655b+N5rGh54K5"}]},{"ID":"20200914151218-heq6wa0","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"eWFtbA==","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"eWFtbA=="},{"Type":15,"Tokens":"Y2F0IG5naW54LWRwLnlhbWwgCmFwaVZlcnNpb246IGV4dGVuc2lvbnMvdjFiZXRhMQpraW5kOiBEZXBsb3ltZW50Cm1ldGFkYXRhOgogIGxhYmVsczoKICAgIGFwcDogbmdpbngtZHAKICBuYW1lOiBuZ2lueC1kcAogIG5hbWVzcGFjZToga3ViZS1wdWJsaWMKc3BlYzoKICByZXBsaWNhczogMgogIHNlbGVjdG9yOgogICAgbWF0Y2hMYWJlbHM6CiAgICAgIGFwcDogbmdpbngtZHAKICB0ZW1wbGF0ZToKICAgIG1ldGFkYXRhOgogICAgICBsYWJlbHM6CiAgICAgICAgYXBwOiBuZ2lueC1kcAogICAgc3BlYzoKICAgICAgdG9sZXJhdGlvbnM6CiAgICAgIC0ga2V5OiBkaXNrCiAgICAgICAgdmFsdWU6IGhkZAogICAgICAgIGVmZmVjdDogTm9FeGVjdXRlCiAgICAgIGNvbnRhaW5lcnM6CiAgICAgIC0gaW1hZ2U6IGhhcmJvci5vZC5jb20vcHVibGljL25naW54OjEuNy45CiAgICAgICAgaW1hZ2VQdWxsUG9saWN5OiBJZk5vdFByZXNlbnQKICAgICAgICBuYW1lOiBuZ2lueAo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-5pajx3f","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"5aSa5Liq5rGh54K5"}]},{"ID":"20200914151218-mtodld3","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCB0YWludCBub2RlIGs4cy0yMS5ob3N0LmNvbSBoZGQ9Ok5vRXhlY3V0ZQprdWJlY3RsIHRhaW50IG5vZGUgazhzLTIxLmhvc3QuY29tIG1pbl9tZW1vcnk9Ok5vRXhlY3V0ZQo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-6mrfvsa","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":3,"Children":[{"Type":3,"Tokens":"IyMjIA=="},{"Type":16,"Tokens":"5a655b+N5aSa5Liq5rGh54K5"}]},{"ID":"20200914151218-yrwel91","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"eWFtbA==","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"eWFtbA=="},{"Type":15,"Tokens":"YXBpVmVyc2lvbjogZXh0ZW5zaW9ucy92MWJldGExCmtpbmQ6IERlcGxveW1lbnQKbWV0YWRhdGE6CiAgbGFiZWxzOgogICAgYXBwOiBuZ2lueC1kcAogIG5hbWU6IG5naW54LWRwCiAgbmFtZXNwYWNlOiBrdWJlLXB1YmxpYwpzcGVjOgogIHJlcGxpY2FzOiAyCiAgc2VsZWN0b3I6CiAgICBtYXRjaExhYmVsczoKICAgICAgYXBwOiBuZ2lueC1kcAogIHRlbXBsYXRlOgogICAgbWV0YWRhdGE6CiAgICAgIGxhYmVsczoKICAgICAgICBhcHA6IG5naW54LWRwCiAgICBzcGVjOgogICAgICB0b2xlcmF0aW9uczoKICAgICAgLSBrZXk6IGhkZAogICAgICAtIGtleTogbWluX21lbW9yeQogICAgICAgIGVmZmVjdDogTm9FeGVjdXRlCiAgICAgIGNvbnRhaW5lcnM6CiAgICAgIC0gaW1hZ2U6IGhhcmJvci5vZC5jb20vcHVibGljL25naW54OjEuNy45CiAgICAgICAgaW1hZ2VQdWxsUG9saWN5OiBJZk5vdFByZXNlbnQKICAgICAgICBuYW1lOiBuZ2lueAo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-9hyyqrg","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"5qCH562+"}]}]}
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-13T23:12:26.000Z" itemprop="dateUpdated">2020-09-14 07:12:26</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/11/27/笔记/kubernetes/03_管理k8s.md/" target="_blank" rel="external">http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/27/笔记/Python/02模块/03 模块动态导入.md/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/11/27/笔记/前端/01 初识HTML.md/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/kubernetes/03_管理k8s.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACv0lEQVR42u3aO44jMQwFQN//0rPpJO55j5QML1AdGf50qxSQMsnXK75+fl3v3snff3ef5NPXjQsPDw9vsfTkMb/fyWHPv3q3quf7PK8ZDw8P7zbv+QE59TmIt58+b3eyKXh4eHjfwEuCdXu+TZINHh4e3v/OywsTZ8sfeHh4eN/Da0N2W2ZNjuBtKeRwrQUPDw8v5uVh+nteX+nv4eHh4a276s8BN2mAtYfsdozgj9Xi4eHhXeDlAXfTmsoP63kZN18nHh4e3g3erIA7SwNF+bUsFheHbzw8PLw1Lwn3SfBNfrV/YrtBeHh4eDd4+SPzUkJbeN2UcaNjNx4eHt4FXvLVvJ0/608l+AN9PDw8PLwFbzbYlIfpvHHVdvyjBIaHh4d3gZcfiJNSQlvM3QwZ5AduPDw8vLO8TfielXdPlTyiQzkeHh7eR3ibgN62xPIhg2SDhhMQeHh4eCPerKk/a4y1hYZVasHDw8O7wMv//G+WMhsFmI1kFZkHDw8Pb8SbjQjk7a793ZLD+tstwMPDw7vAy0P/JpFsEkxeqiiSBB4eHt6aN1toW5adjQXMUg4eHh7ePd5+OKAN2bPta0sYr7ySgYeHh1fyNgMBq9JAuYltIeOPigseHh7empcPCsxunRQg2mZYst14eHh4n+G1i25LEvmBOBlHKIYM8PDw8I7ykr/6z7fYj1LthwaiPcbDw8M7ymuHRHP25tC8GfbCw8PDu81rBwKSUN5OMeQpqhhKwMPDwzvK+ymvvOm1avaX6edtwsDDw8O7wNu380+VbjevD1x4eHh4JW8T3JMtyFPL7CAeNcDw8PDwLvDawJ0vbpZONgnstc9LeHh4eEd5syXmKSf/TrROPDw8vC/gzRJGu6zNU/Dw8PA+w0sOym1wb9nt6GpUaMbDw8O7wGv/5M+W0g4ofLSQgYeHh5fy/gFaaIdc81hRowAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

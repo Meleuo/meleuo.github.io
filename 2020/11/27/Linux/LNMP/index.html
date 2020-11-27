@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>LNMP环境部署文档 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LNMP,Linux,Nginx,环境">
+    <meta name="description" content="​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LNMP环境部署文档">
+<meta property="og:url" content="http://example.com/2020/11/27/Linux/LNMP/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="​">
+<meta property="og:updated_time" content="2020-11-26T07:32:30.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LNMP环境部署文档">
+<meta name="twitter:description" content="​">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">LNMP环境部署文档</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">LNMP环境部署文档</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-27T02:00:27.630Z" itemprop="datePublished" class="page-time">
+  2020-11-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-Linux/LNMP"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">LNMP环境部署文档</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-27 10:00:27" datetime="2020-11-27T02:00:27.630Z"  itemprop="datePublished">2020-11-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>​     </p>
+<a id="more"></a>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lnmp&#29615;&#22659;&#29256;&#26412;&#65306;&#10;OS&#65306;CentOS Linux release 7.6.1810 (Core) &#10;NGINX&#65306;nginx-1.16.0&#10;MySQL&#65306;mysql-5.7.26&#10;PHP&#65306;php-7.3.5&#10;&#10;&#10;&#20934;&#22791;&#29615;&#22659;&#65292;&#23433;&#35013;yum&#20381;&#36182;&#10;useradd -s  /sbin/nologin   -M  nginx -u 12138&#10;&#10;&#10;yum install -y ncurses-devel cmake vim wget lsof gcc gcc-c++ bzip2  net-tools bind-utils pcre-devel zlib-devel openssl-devel libzip-devel  libxslt-devel&#9;freetype-devel libpng-devel libjpeg-devel  bzip2-devel  libxml2-devel curl-devel&#10;&#10;&#32534;&#35793;NGINX&#26102;&#20250;&#21152;&#20837;&#21551;&#29992;HTTP2.0&#30340;&#21442;&#25968;&#65292;&#25152;&#20197;&#36825;&#37324;&#23433;&#35013;&#23427;&#30340;&#20381;&#36182;Openssl&#10;mv openssl-1.0.2h /usr/local/openssl&#10;&#10;&#32534;&#35793;PHP&#26102;&#20250;&#20250;&#25253;&#19968;&#20010;&#21644;&#36825;&#20010;&#30456;&#20851;&#30340;&#38169;&#35823;&#65292;PHP7.3&#38656;&#35201;&#30340;libzip&#29256;&#26412;&#38656;&#35201;&#22823;&#20110;0.11&#65292;&#25105;&#20204;&#25552;&#21069;&#25226;&#26032;&#29256;&#26412;&#30340;libzip&#32473;&#20182;&#32534;&#35793;&#22909;&#10;&#10;yum remove -y libzip&#10;wget https://nih.at/libzip/libzip-1.2.0.tar.gz&#10;tar -zxvf libzip-1.2.0.tar.gz&#10;cd libzip-1.2.0&#10;./configure&#10;make &#38;&#38; make install&#10;&#10;&#23558; /usr/local/lib64 /usr/lib64 &#36825;&#20123;&#38024;&#23545;64&#20301;&#30340;&#24211;&#25991;&#20214;&#36335;&#24452;&#21152;&#20837;&#21160;&#24577;&#38142;&#25509;&#24211;&#37197;&#32622;&#25991;&#20214;/etc/ld.so.conf&#25628;&#32034;&#36335;&#24452;&#10;echo &#39;/usr/local/lib64&#10;/usr/local/lib&#10;/usr/lib&#10;/usr/lib64&#39;&#62;&#62;/etc/ld.so.conf&#10;&#10;cp /usr/local/lib/libzip/include/zipconf.h /usr/local/include/zipconf.h&#10;&#10;&#32534;&#35793;NGINX&#10;./configure --prefix=/usr/local/nginx --user=nginx --group=nginx --pid-path=/run/nginx.pid --lock-path=/run/nginx.lock --http-client-body-temp-path=/tmp/client --http-proxy-temp-path=/tmp/proxy --http-fastcgi-temp-path=/tmp/fastcgi --http-uwsgi-temp-path=/tmp/uwsgi --http-scgi-temp-path=/tmp/scgi --http-log-path=/usr/local/nginx/logs/access.log --error-log-path=/usr/local/nginx/logs/error.log  --with-http_ssl_module  --with-stream_realip_module   --with-http_v2_module  --with-openssl=/usr/local/openssl&#10;&#10;make &#38;&#38; make install &#10;NGINX&#23448;&#26041;&#25991;&#26723;&#65292;&#23545;&#32534;&#35793;&#20351;&#29992;&#30340;&#27599;&#19968;&#20010;&#21442;&#25968;&#37117;&#20570;&#20102;&#35814;&#32454;&#30340;&#20171;&#32461;&#12290;&#10;https://nginx.org/en/docs/configure.html&#10;&#10;&#10;&#32534;&#35793;PHP&#10;&#20854;&#23454;PHP&#26377;&#24456;&#22810;&#20381;&#36182;&#38656;&#35201;&#23433;&#35013;&#65292;&#20294;&#26159;&#25105;&#20204;&#19968;&#24320;&#22987;&#37027;&#26465;yum&#23601;&#24050;&#32463;&#20840;&#37096;&#23433;&#35013;&#20102;&#65292;&#25152;&#20197;&#36825;&#37324;&#30452;&#25509;&#32534;&#35793;&#23601;&#34892;&#20102;&#12290;&#10;./configure --prefix=/usr/local/php --with-fpm-user=nginx --with-fpm-group=nginx --with-curl --with-freetype-dir --with-gd --with-gettext --with-iconv-dir --with-kerberos --with-libdir=lib64 --with-libxml-dir --with-mysqli --with-openssl --with-pcre-regex --with-pdo-mysql --with-pdo-sqlite --with-pear --with-png-dir --with-jpeg-dir --with-xmlrpc --with-xsl --with-zlib --with-bz2 --with-mhash --enable-fpm --enable-bcmath --enable-libxml --enable-inline-optimization --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-xml --enable-zip --enable-fpm&#10;make &#38;&#38; make install &#10;&#10;cp php.ini-production /usr/local/php/lib/php.ini&#10;cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf&#10;ln -s /usr/local/php/sbin/php-fpm /usr/local/bin&#10;cp -a sapi/fpm/php-fpm.service /usr/lib/systemd/system/&#10;systemctl start php-fpm #&#21551;&#21160;PHP-fpm&#10;&#10;NGINX&#21644;PHP&#37117;&#23433;&#35013;&#22909;&#20102;&#20351;&#29992;PHPinfo&#27979;&#35797;&#19968;&#19979;&#10;&#10; &#10;&#32534;&#35793;MySQL&#10;useradd -M -s /sbin/nologin mysql&#10;cd /root/src/&#10;wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.26.tar.gz&#10;tar -xf mysql-5.7.26.tar.gz&#10;cd mysql-5.7.26&#10;cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/usr/local/mysql/data   -DDOWNLOAD_BOOST=1    -DWITH_BOOST=/usr/local/boost  -DSYSCONFDIR=/usr/local/mysql  -DWITH_INNOBASE_STORAGE_ENGINE=1  -DWITH_PARTITION_STORAGE_ENGINE=1  -DWITH_FEDERATED_STORAGE_ENGINE=1-DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_MYISAM_STORAGE_ENGINE=1  -DENABLED_LOCAL_INFILE=1  -DENABLE_DTRACE=0  -DDEFAULT_CHARSET=utf8mb4  -DDEFAULT_COLLATION=utf8mb4_general_ci  -DWITH_EMBEDDED_SERVER=1-DWITH_PARTITION_STORAGE_ENGINE=1 -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysqld.sock -DWITH_EXTRA_CHARSETS=all -DWITH_PERFSCHEMA_STORAGE_ENGINE=1 -DMYSQL_TCP_PORT=65400 -DWITH_DEBUG=OFF&#10;make &#38;&#38; make install &#10;./bin/mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data&#10;cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld   &#10;ln -s /usr/local/mysql/bin/* /usr/local/bin/&#10;&#10;###</span><br></pre></td></tr></table></figure>
+<p><code>`</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T07:32:30.518Z" itemprop="dateUpdated">2020-11-26 15:32:30</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/11/27/Linux/LNMP/" target="_blank" rel="external">http://example.com/2020/11/27/Linux/LNMP/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LNMP/">LNMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境/">环境</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/Linux/LNMP/&title=《LNMP环境部署文档》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/Linux/LNMP/&title=《LNMP环境部署文档》 — Msrte-人生苦短,何妨一试&source=​..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/Linux/LNMP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LNMP环境部署文档》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/Linux/LNMP/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/Linux/LNMP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/27/笔记/Python/02模块/06 random_time_os_sys模块.md/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/11/27/笔记/Python/01面向对象/07内置方法.md/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/Linux/LNMP/&title=《LNMP环境部署文档》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/Linux/LNMP/&title=《LNMP环境部署文档》 — Msrte-人生苦短,何妨一试&source=​..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/Linux/LNMP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LNMP环境部署文档》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/Linux/LNMP/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/Linux/LNMP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aS27DMAwFwNz/0u62QBDrkYoIBxitCseVRxtC/Lxe8bre1vvz/08+/e+nJ19euLi429zrdt1/4NP77+/kx17siYuLO8hNPtOj56Ht3oCLi/tk7n3oSY6U7I+Li/tb3CT5SS49uLi4z+cmgSk5ZJ72HM/VcHFxN7h5lfLc30fqu7i4uC3uVVw7jZb9hYuLO8OtXlaqV5ZqqSX5Li4u7jy3NypR3aEXFnFxcWe4vVbHTjskCXyLGxkuLu5hbhJo8kSo1zgpBz5cXNwRbnUYq5rwVC9Di+QHFxf3MDcft0rCWTVUVds2uLi4M9z9Yamdy0p+7MXMCC4u7le5OW4nQbpnFYomuLi4I9y88FG93OQFlPJRcXFxx7nVMmjhDhXsGb2Ji4s7yC0PSG3vMDpHhouLu83NG6v36F6DNkp+cHFxB7nVTfcPWQ6LuLi4h7m9lmqvfZI/j+47uLi4x7jV4LJTOumNWTQPg4uLu83tjWPmxGr7dvErLi7uILfaLEmKoTm9mavh4uI+jFsNedUyyqI4gouL+0huHpiqby6+gouLO8jNRyeToJYXRvMxUFxc3EluLwz1rjW9ZAkXF3eQ+wfPiJp5URxvxgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

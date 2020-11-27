@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python 函数 | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="学习笔记:Python">
+    <meta name="description" content="什么是函数
+函数是一个封装好的可能会被重复用到的方法&amp;amp;工具，需要用的时候直接调用即可
+1234def function():    print(&quot;我是第一个函数&quot;)function()&amp;gt; 我是一个函数
+函数的返回值
+返回值和输出是有根本区别的
+12345678910111213def function_1():    print(&quot;我是正常输出&quot;)    function()&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 函数">
+<meta property="og:url" content="http://example.com/2020/01/16/笔记/Python/01 函数/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="什么是函数
+函数是一个封装好的可能会被重复用到的方法&amp;amp;工具，需要用的时候直接调用即可
+1234def function():    print(&quot;我是第一个函数&quot;)function()&amp;gt; 我是一个函数
+函数的返回值
+返回值和输出是有根本区别的
+12345678910111213def function_1():    print(&quot;我是正常输出&quot;)    function()&amp;gt;">
+<meta property="og:updated_time" content="2020-11-26T10:04:48.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 函数">
+<meta name="twitter:description" content="什么是函数
+函数是一个封装好的可能会被重复用到的方法&amp;amp;工具，需要用的时候直接调用即可
+1234def function():    print(&quot;我是第一个函数&quot;)function()&amp;gt; 我是一个函数
+函数的返回值
+返回值和输出是有根本区别的
+12345678910111213def function_1():    print(&quot;我是正常输出&quot;)    function()&amp;gt;">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python 函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python 函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-16T02:31:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的返回值"><span class="post-toc-number">2.</span> <span class="post-toc-text">函数的返回值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的参数"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数的参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#位置参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">位置参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关键字参数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">关键字参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认参数"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">默认参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态参数"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">动态参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#arg"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">*arg</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#kwargs"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">**kwargs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#混合参数"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">混合参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#匿名函数"><span class="post-toc-number">4.</span> <span class="post-toc-text">匿名函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#map-高阶函数"><span class="post-toc-number">5.</span> <span class="post-toc-text">map() 高阶函数</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-笔记/Python/01 函数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python 函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-16 10:31:00" datetime="2020-01-16T02:31:00.000Z"  itemprop="datePublished">2020-01-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h2><hr>
+<p>函数是一个封装好的可能会被重复用到的方法&amp;工具，需要用的时候直接调用即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"我是第一个函数"</span>)</span><br><span class="line">function()</span><br><span class="line">&gt; 我是一个函数</span><br></pre></td></tr></table></figure>
+<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><hr>
+<p>返回值和输出是有根本区别的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function_1</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"我是正常输出"</span>)</span><br><span class="line">    </span><br><span class="line">function()</span><br><span class="line">&gt; 我是正常输出</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function_2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"我是一个返回"</span></span><br><span class="line"></span><br><span class="line">function_2() </span><br><span class="line">&gt; 			<span class="comment">#直接调用函数是不会有输出的，因为函数体内本身没有定义输出。</span></span><br><span class="line"><span class="keyword">print</span>（function_2()）</span><br><span class="line">&gt; 我是一个返回	<span class="comment"># 返回值是不会直接打印的，需要调用</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(parameter)</span>:</span> <span class="comment"># parameter 称之为形参</span></span><br><span class="line">    print(parameter)</span><br><span class="line">    </span><br><span class="line">function(<span class="string">"我是实参"</span>)</span><br><span class="line">&gt; 我是实参</span><br></pre></td></tr></table></figure>
+<h3 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h3><p>位置参数就是对号入做，有几个行参就对应多少个位参</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(para_1,para_2)</span>:</span></span><br><span class="line">    print(para_1)</span><br><span class="line">    print(para_2)</span><br><span class="line"> </span><br><span class="line">function(<span class="string">"我是第一个位置参数"</span>,<span class="string">"我是第二个位置参数"</span>)</span><br><span class="line">&gt; 我是第一个位置参数</span><br><span class="line">&gt; 我是第二个位置参数</span><br></pre></td></tr></table></figure>
+<h3 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h3><p><code>形参=实参</code> 的方式绑定实参和形参，这样就只需要记住形参的名字不用记住位置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(para_1,para_2)</span>:</span></span><br><span class="line">    print(para_1)</span><br><span class="line">    print(para_2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将实参绑定到形参上，这样的方法叫做关键字参数</span></span><br><span class="line">function(para_2=<span class="string">"我是第二个关键字参数"</span>,para_1=<span class="string">"我是第一个关键字参数"</span>)</span><br><span class="line">&gt; 我是第一个关键字参数</span><br><span class="line">&gt; 我是第二个关键字参数</span><br></pre></td></tr></table></figure>
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>在不传送实参的情况下，具有默认参数的形参会直接调用默认参数，如果给有默认参数的形参传入实参，那么调用实参</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(para_1, para_2, para_3=<span class="string">"我是默认参数"</span>)</span>:</span></span><br><span class="line">    print(para_1)</span><br><span class="line">    print(para_2)</span><br><span class="line">    print(para_3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function( <span class="string">"我是第一个参数"</span>,para_2=<span class="string">"我是第二个参数"</span>)</span><br><span class="line">&gt; 我是第一个参数</span><br><span class="line">&gt; 我是第二个参数</span><br><span class="line">&gt; 我是默认参数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function( <span class="string">"我是第一个参数"</span>,<span class="string">"我是第二个参数"</span>,<span class="string">"我是第三个参数"</span>)</span><br><span class="line">&gt; 我是第一个参数</span><br><span class="line">&gt; 我是第二个参数</span><br><span class="line">&gt; 我是第三个参数</span><br></pre></td></tr></table></figure>
+<h3 id="动态参数"><a href="#动态参数" class="headerlink" title="动态参数"></a>动态参数</h3><h3 id="arg"><a href="#arg" class="headerlink" title="*arg"></a>*arg</h3><p><code>*arg</code> 接受所有普通的实参，以tuple的形式输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"Args 输出:"</span>,args)</span><br><span class="line"></span><br><span class="line">function(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">&gt; Args 输出: (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="kwargs"><a href="#kwargs" class="headerlink" title="**kwargs"></a>**kwargs</h3><p><code>*kwarg</code> 接受所有关键字参数，以dict的形式输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    print(<span class="string">"Kwargs 输出:"</span>,kwargs)</span><br><span class="line"></span><br><span class="line">function(a1=<span class="number">1</span>,a2=<span class="number">2</span>,a3=<span class="number">3</span>,a4=<span class="number">4</span>)</span><br><span class="line">&gt; Kwargs 输出: &#123;<span class="string">'a1'</span>: <span class="number">1</span>, <span class="string">'a2'</span>: <span class="number">2</span>, <span class="string">'a3'</span>: <span class="number">3</span>, <span class="string">'a4'</span>: <span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="混合参数"><a href="#混合参数" class="headerlink" title="混合参数"></a>混合参数</h3><p>顾名思义，就是把前面几个参数混在一起使用！</p>
+<p><strong>位参必须定义在关键字参数前面</strong></p>
+<p><strong>位参对应的形参不能再定义为关键字参数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span><span class="params">(a1,a2,a3,*args,a4)</span>:</span></span><br><span class="line">    print(<span class="string">"a1:"</span>,a1)</span><br><span class="line">    print(<span class="string">"a2:"</span>,a2)</span><br><span class="line">    print(<span class="string">"a3:"</span>,a3)</span><br><span class="line">    print(<span class="string">"Args:"</span>,args)</span><br><span class="line">    print(<span class="string">"a4:"</span>,a4)</span><br><span class="line">function(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,a4=<span class="number">6</span>)</span><br><span class="line">&gt; a1: <span class="number">1</span></span><br><span class="line">&gt; a2: <span class="number">2</span></span><br><span class="line">&gt; a3: <span class="number">3</span></span><br><span class="line">&gt; Args: (<span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">&gt; a4: <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>当一些函数很简单，只是用一个固定的表达式计算一个值的时候就可以使用匿名函数</p>
+<p>匿名函数正常都是使用<code>return</code> 返回结果，也没有谁会在匿名函数中定个<code>print()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: func1 = <span class="keyword">lambda</span> x: x * x</span><br><span class="line">In [<span class="number">2</span>]: print(func1(<span class="number">2</span>))</span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: func2 = <span class="keyword">lambda</span> x,y: x * y</span><br><span class="line">In [<span class="number">4</span>]: print(func2(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">5</span>]: func2 = <span class="keyword">lambda</span> x,y,z: x * y * z + z</span><br><span class="line">In [<span class="number">6</span>]: print(func2(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="number">28</span></span><br></pre></td></tr></table></figure>
+<h2 id="map-高阶函数"><a href="#map-高阶函数" class="headerlink" title="map() 高阶函数"></a>map() 高阶函数</h2><p><code>map(func,iter)</code>  </p>
+<p>函数接受2个参数，一个func 表达式函数，一个可迭代序列（看作列表即可），他的功能就是把序列中的每个值代入表达式函数计算。然后使用 <code>list()</code>列表函数取值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">26</span>]: func1 = <span class="keyword">lambda</span> n: n + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">27</span>]: lst = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">In [<span class="number">28</span>]: result = map(func1,lst)</span><br><span class="line"></span><br><span class="line">In [<span class="number">29</span>]: print(list(result))</span><br><span class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T10:04:48.277Z" itemprop="dateUpdated">2020-11-26 18:04:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/01/16/笔记/Python/01 函数/" target="_blank" rel="external">http://example.com/2020/01/16/笔记/Python/01 函数/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记-Python/">学习笔记:Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01 函数/&title=《Python 函数》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01 函数/&title=《Python 函数》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01 函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 函数》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01 函数/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01 函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/16/笔记/Python/01面向对象/01 面向对象/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python 面向对象</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/16/笔记/Python/03网络编程/02 相关模块/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python 网络编程:相关模块</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/01/16/笔记/Python/01 函数/&title=《Python 函数》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/01/16/笔记/Python/01 函数/&title=《Python 函数》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/16/笔记/Python/01 函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python 函数》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/01/16/笔记/Python/01 函数/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/16/笔记/Python/01 函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS27DMAxF0ex/0y7QaWLrPtIJYOpqZASGpdMBy49eL7yO//X+y/vi75Bfbl4yZMh4LOO4XGfv8C+cHet6L342GTJk7MO4DrIEQA5HQuoZaXFmGTJkyMAHTVND/ixDhgwZtcBXC7v9fWXIkLEngwdHkj7WClfy+w21uAwZMh7ISAcDv3z+4nxDhgwZD2Ec4SIJJU8feVq5OJUMGTJGM9L2WT817IfXIMOVIUPGCAYJo/wyRDoErY0KPnxfhgwZoxlk0FhL4/jR+fcXAVqGDBnbMGrt+zTJ40G2WMTKkCFjEINbO6XmNTjdCzXaZMiQMYiRlprplQh+rM6oQIYMGXsyaq3863d46lncRYYMGUMZaTHJA+VdYRcliDJkyBjNuKv47FzR6IxLZciQsQMjnSGkjblao42MVOOuoQwZMh7L4MlfmjjWmv4k9C8GAzJkyBjHIMGRh8j0qhnBB5ctZMiQMZTBy8tOEYs2xq03GTJk7MzghWutQE2HB+mzDBkypjL4ofvXudLxQPAFGTJkbMPgJWXtekQNX5xvyJAhYxCjtjqhtr89L4ZlyJAxg1FrwfOEL726UQzxMmTIGM34RpDtNOBqdydkyJCxA6MTZNMg2Am4i+/LkCFjAwbZkpeX/Ijp/4FFwJUhQ8b2DB7+OgGUX7P40HSTIUOGjNJlr7suZyxOIkOGjA0YaRHLYfyPlbbtZMiQsQ8jHQzwJn5/3QaQIUPGUxl/8R084oqMPyYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

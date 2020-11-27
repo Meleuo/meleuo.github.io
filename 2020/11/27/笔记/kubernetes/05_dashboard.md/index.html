@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="{&quot;ID&quot;:&quot;20200914151218-wty1ncq&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-jkebeff&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:1,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Msrte-人生苦短,何妨一试">
+<meta property="og:url" content="http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="{&quot;ID&quot;:&quot;20200914151218-wty1ncq&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-jkebeff&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:1,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;">
+<meta property="og:updated_time" content="2020-09-13T23:12:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Msrte-人生苦短,何妨一试">
+<meta name="twitter:description" content="{&quot;ID&quot;:&quot;20200914151218-wty1ncq&quot;,&quot;Type&quot;:0,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;Children&quot;:[{&quot;ID&quot;:&quot;20200914151218-jkebeff&quot;,&quot;Type&quot;:2,&quot;Close&quot;:true,&quot;LastLineBlank&quot;:true,&quot;HeadingLevel&quot;:1,&quot;Children&quot;:[{&quot;Type&quot;:3,&quot;">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-27T02:00:27.630Z" itemprop="datePublished" class="page-time">
+  2020-11-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-笔记/kubernetes/05_dashboard.md"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-27 10:00:27" datetime="2020-11-27T02:00:27.630Z"  itemprop="datePublished">2020-11-27</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            {"ID":"20200914151218-wty1ncq","Type":0,"Close":true,"LastLineBlank":true,"Children":[{"ID":"20200914151218-jkebeff","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":1,"Children":[{"Type":3,"Tokens":"IyA="},{"Type":16,"Tokens":"a3ViZXJuZXRlcy1kYXNoYm9hcmQ="}]},{"ID":"20200914151218-hek93io","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"6YOo572yZGFzaGJvcmFk"}]},{"ID":"20200914151218-ekj2u33","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"azhzLTIwMA=="}]}]},{"ID":"20200914151218-0ubitjp","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"5YeG5aSH6ZWc5YOP"}]}]},{"ID":"20200914151218-vr3z7bq","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5Yib5bu6ZGFzaGJvcmFkIOeahOi1hOa6kOmFjee9rua4heWNlQ=="}]}]}]},{"ID":"20200914151218-j429rxe","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"bWtkaXIgL2RhdGEvazhzLXlhbWwvZGFzaGJvYXJkO2NkIC9kYXRhL2s4cy15YW1sL2Rhc2hib2FyZAo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-q5a0u4w","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIwMCBkYXNoYm9hcmRdIyBjYXQgPiByYmFjLnlhbWwgPDwtRU9GCmFwaVZlcnNpb246IHYxCmtpbmQ6IFNlcnZpY2VBY2NvdW50Cm1ldGFkYXRhOgogIGxhYmVsczoKICAgIGs4cy1hcHA6IGt1YmVybmV0ZXMtZGFzaGJvYXJkCiAgICBhZGRvbm1hbmFnZXIua3ViZXJuZXRlcy5pby9tb2RlOiBSZWNvbmNpbGUKICBuYW1lOiBrdWJlcm5ldGVzLWRhc2hib2FyZC1hZG1pbgogIG5hbWVzcGFjZToga3ViZS1zeXN0ZW0KLS0tCmFwaVZlcnNpb246IHJiYWMuYXV0aG9yaXphdGlvbi5rOHMuaW8vdjEKa2luZDogQ2x1c3RlclJvbGVCaW5kaW5nCm1ldGFkYXRhOgogIG5hbWU6IGt1YmVybmV0ZXMtZGFzaGJvYXJkLWFkbWluCiAgbmFtZXNwYWNlOiBrdWJlLXN5c3RlbQogIGxhYmVsczoKICAgIGs4cy1hcHA6IGt1YmVybmV0ZXMtZGFzaGJvYXJkCiAgICBhZGRvbm1hbmFnZXIua3ViZXJuZXRlcy5pby9tb2RlOiBSZWNvbmNpbGUKcm9sZVJlZjoKICBhcGlHcm91cDogcmJhYy5hdXRob3JpemF0aW9uLms4cy5pbwogIGtpbmQ6IENsdXN0ZXJSb2xlCiAgbmFtZTogY2x1c3Rlci1hZG1pbgpzdWJqZWN0czoKLSBraW5kOiBTZXJ2aWNlQWNjb3VudAogIG5hbWU6IGt1YmVybmV0ZXMtZGFzaGJvYXJkLWFkbWluCiAgbmFtZXNwYWNlOiBrdWJlLXN5c3RlbQpFT0YK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-8qd9qwq","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIwMCBkYXNoYm9hcmRdIyBjYXQgPiAgZHAueWFtbCA8PC1FT0YKYXBpVmVyc2lvbjogYXBwcy92MQpraW5kOiBEZXBsb3ltZW50Cm1ldGFkYXRhOgogIG5hbWU6IGt1YmVybmV0ZXMtZGFzaGJvYXJkCiAgbmFtZXNwYWNlOiBrdWJlLXN5c3RlbQogIGxhYmVsczoKICAgIGs4cy1hcHA6IGt1YmVybmV0ZXMtZGFzaGJvYXJkCiAgICBrdWJlcm5ldGVzLmlvL2NsdXN0ZXItc2VydmljZTogInRydWUiCiAgICBhZGRvbm1hbmFnZXIua3ViZXJuZXRlcy5pby9tb2RlOiBSZWNvbmNpbGUKc3BlYzoKICBzZWxlY3RvcjoKICAgIG1hdGNoTGFiZWxzOgogICAgICBrOHMtYXBwOiBrdWJlcm5ldGVzLWRhc2hib2FyZAogIHRlbXBsYXRlOgogICAgbWV0YWRhdGE6CiAgICAgIGxhYmVsczoKICAgICAgICBrOHMtYXBwOiBrdWJlcm5ldGVzLWRhc2hib2FyZAogICAgICBhbm5vdGF0aW9uczoKICAgICAgICBzY2hlZHVsZXIuYWxwaGEua3ViZXJuZXRlcy5pby9jcml0aWNhbC1wb2Q6ICcnCiAgICBzcGVjOgogICAgICBwcmlvcml0eUNsYXNzTmFtZTogc3lzdGVtLWNsdXN0ZXItY3JpdGljYWwKICAgICAgY29udGFpbmVyczoKICAgICAgLSBuYW1lOiBrdWJlcm5ldGVzLWRhc2hib2FyZAogICAgICAgIGltYWdlOiAgaGFyYm9yLm9kLmNvbS9wdWJsaWMvZGFzaGJvYXJkOnYxLjguMwogICAgICAgIHJlc291cmNlczoKICAgICAgICAgIGxpbWl0czoKICAgICAgICAgICAgY3B1OiAxMDBtCiAgICAgICAgICAgIG1lbW9yeTogMzAwTWkKICAgICAgICAgIHJlcXVlc3RzOgogICAgICAgICAgICBjcHU6IDUwbQogICAgICAgICAgICBtZW1vcnk6IDEwME1pCiAgICAgICAgcG9ydHM6CiAgICAgICAgLSBjb250YWluZXJQb3J0OiA4NDQzCiAgICAgICAgICBwcm90b2NvbDogVENQCiAgICAgICAgYXJnczoKICAgICAgICAgICMgUExBVEZPUk0tU1BFQ0lGSUMgQVJHUyBIRVJFCiAgICAgICAgICAtIC0tYXV0by1nZW5lcmF0ZS1jZXJ0aWZpY2F0ZXMKICAgICAgICB2b2x1bWVNb3VudHM6CiAgICAgICAgLSBuYW1lOiB0bXAtdm9sdW1lCiAgICAgICAgICBtb3VudFBhdGg6IC90bXAKICAgICAgICBsaXZlbmVzc1Byb2JlOgogICAgICAgICAgaHR0cEdldDoKICAgICAgICAgICAgc2NoZW1lOiBIVFRQUwogICAgICAgICAgICBwYXRoOiAvCiAgICAgICAgICAgIHBvcnQ6IDg0NDMKICAgICAgICAgIGluaXRpYWxEZWxheVNlY29uZHM6IDMwCiAgICAgICAgICB0aW1lb3V0U2Vjb25kczogMzAKICAgICAgdm9sdW1lczoKICAgICAgLSBuYW1lOiB0bXAtdm9sdW1lCiAgICAgICAgZW1wdHlEaXI6IHt9CiAgICAgIHNlcnZpY2VBY2NvdW50TmFtZToga3ViZXJuZXRlcy1kYXNoYm9hcmQtYWRtaW4KICAgICAgdG9sZXJhdGlvbnM6CiAgICAgIC0ga2V5OiAiQ3JpdGljYWxBZGRvbnNPbmx5IgogICAgICAgIG9wZXJhdG9yOiAiRXhpc3RzIgpFT0YK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-vbz1m7x","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIwMCBkYXNoYm9hcmRdIyBjYXQgPiBzdmMueWFtbCA8PC1FT0YKY2F0ID4gc3ZjLnlhbWwgPDwtRU9GCmFwaVZlcnNpb246IHYxCmtpbmQ6IFNlcnZpY2UKbWV0YWRhdGE6CiAgbmFtZToga3ViZXJuZXRlcy1kYXNoYm9hcmQKICBuYW1lc3BhY2U6IGt1YmUtc3lzdGVtCiAgbGFiZWxzOgogICAgazhzLWFwcDoga3ViZXJuZXRlcy1kYXNoYm9hcmQKICAgIGt1YmVybmV0ZXMuaW8vY2x1c3Rlci1zZXJ2aWNlOiAidHJ1ZSIKICAgIGFkZG9ubWFuYWdlci5rdWJlcm5ldGVzLmlvL21vZGU6IFJlY29uY2lsZQpzcGVjOgogIHNlbGVjdG9yOgogICAgazhzLWFwcDoga3ViZXJuZXRlcy1kYXNoYm9hcmQKICBwb3J0czoKICAtIHBvcnQ6IDQ0MwogICAgdGFyZ2V0UG9ydDogODQ0MwpFT0YK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-680gf9j","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIwMCBkYXNoYm9hcmRdIyBjYXQgPiBpbmdyZXNzLnlhbWwgPDwtRU9GCmFwaVZlcnNpb246IGV4dGVuc2lvbnMvdjFiZXRhMQpraW5kOiBJbmdyZXNzCm1ldGFkYXRhOgogIG5hbWU6IGt1YmVybmV0ZXMtZGFzaGJvYXJkCiAgbmFtZXNwYWNlOiBrdWJlLXN5c3RlbQogIGFubm90YXRpb25zOgogICAga3ViZXJuZXRlcy5pby9pbmdyZXNzLmNsYXNzOiB0cmFlZmlrCnNwZWM6CiAgcnVsZXM6CiAgLSBob3N0OiBkYXNoYm9yYWQub2QuY29tCiAgICBodHRwOgogICAgICBwYXRoczoKICAgICAgLSBiYWNrZW5kOgogICAgICAgICAgc2VydmljZU5hbWU6IGt1YmVybmV0ZXMtZGFzaGJvYXJkCiAgICAgICAgICBzZXJ2aWNlUG9ydDogNDQzCkVPRgo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-z88hvnb","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"azhzLTIx"}]}]},{"ID":"20200914151218-754m9wr","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5ZCv5Yqo"}]}]}]},{"ID":"20200914151218-03vtmyk","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"a3ViZWN0bCAgYXBwbHkgICAgIC1mIGh0dHA6Ly9rOHMteWFtbC5vZC5jb20vZGFzaGJvYXJkL3JiYWMueWFtbAprdWJlY3RsICBhcHBseSAgICAgLWYgaHR0cDovL2s4cy15YW1sLm9kLmNvbS9kYXNoYm9hcmQvZHAueWFtbAprdWJlY3RsICBhcHBseSAgICAgLWYgaHR0cDovL2s4cy15YW1sLm9kLmNvbS9kYXNoYm9hcmQvc3ZjLnlhbWwKa3ViZWN0bCAgYXBwbHkgICAgIC1mIGh0dHA6Ly9rOHMteWFtbC5vZC5jb20vZGFzaGJvYXJkL2luZ3Jlc3MueWFtbAprdWJlY3RsICBnZSBwb2RzIC1uIGt1YmUtc3lzdGVtCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-bz5z5o8","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":34,"Children":[{"Type":35,"Tokens":"IQ=="},{"Type":36,"Tokens":"Ww=="},{"Type":40,"Tokens":"aW1hZ2UtMjAyMDA2MjcwMDMwNDg1MDY="},{"Type":37,"Tokens":"XQ=="},{"Type":38,"Tokens":"KA=="},{"Type":41,"Tokens":"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL01lbGV1by9pbWFnZXMvbWFzdGVyL2ltYWdlLTIwMjAwNjI3MDAzMDQ4NTA2LnBuZw=="},{"Type":39,"Tokens":"KQ=="}]}]},{"ID":"20200914151218-g9ejxq8","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"RGFzaGJvcmFkIOmFjee9rmh0dHBz"}]},{"ID":"20200914151218-4enlsk1","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"ZGFzaGJvcmFkIGh0dHDkuI3mlK/mjIHorqTor4Hlv4XpobvphY3nva5odHRwc+ivgeS5pg=="}]},{"ID":"20200914151218-m1n4ed2","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5omA5Lul5ZyoIOS4g+WxgueahCBuZ2lueOi0n+i9veS4iumFjee9rmh0dHBz"}]},{"ID":"20200914151218-d06e9wn","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6Ieq562+c3Ns6K+B5Lmm"},{"Type":27,"CodeMarkerLen":1,"Children":[{"Type":28,"Tokens":"YA=="},{"Type":29,"Tokens":"5LuF5L2c5Y+C6ICD"},{"Type":30,"Tokens":"YA=="}]}]}]}]},{"ID":"20200914151218-xj2wrjt","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"eWFtbA==","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"eWFtbA=="},{"Type":15,"Tokens":"KHVtYXNrIDAwNzc7IG9wZW5zc2wgZ2VucnNhIC1vdXQgZGFzaGJvcmFkLm9kLmNvbS5rZXkgMjA0OCkKCm9wZW5zc2wgIHJlcSAtbmV3IC1rZXkgZGFzaGJvcmFkLm9kLmNvbS5rZXkgIC1vdXQgZGFzaGJvcmFkLm9kLmNvbS5jc3IgLXN1YmogIi9DTj1kYXNoYm9yYWQub2QuY29tL0M9Q04vU1Q9QkovTD1CZWlqaW5nL089SzhTLXdlYi9PVT1vcHMiCgpvcGVuc3NsICB4NTA5IC1yZXEgLWluIGRhc2hib3JhZC5vZC5jb20uY3NyICAtQ0EgY2EucGVtICAtQ0FrZXkgY2Eta2V5LnBlbSAgIC1vdXQgZGFzaGJvcmFkLm9kLmNvbS5jcnQgLUNBY3JlYXRlc2VyaWFsICAtZGF5cyAzNjUwCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-tf9cr1m","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6YWN572ubmdpbng="}]}]}]},{"ID":"20200914151218-fnugo24","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"c2VydmVyIHsKICAgIGxpc3RlbiAgICAgIDgwOwogICAgc2VydmVyX25hbWUgZGFzaGJvcmFkLm9kLmNvbTsKICAgIHJld3JpdGUgXiguKikkIGh0dHBzOi8vJHtzZXJ2ZXJfbmFtZX0kMSBwZXJtYW5lbnQ7Cn0Kc2VydmVyIHsKICAgIGxpc3RlbiAgICAgIDQ0MyBzc2w7CiAgICBzZXJ2ZXJfbmFtZSBkYXNoYm9yYWQub2QuY29tOwoKICAgIHNzbF9jZXJ0aWZpY2F0ZSAiY2VydHMvZGFzaGJvcmFkLm9kLmNvbS5jcnQiOwogICAgc3NsX2NlcnRpZmljYXRlX2tleSAiY2VydHMvZGFzaGJvcmFkLm9kLmNvbS5rZXkiOwogICAgc3NsX3Nlc3Npb25fY2FjaGUgc2hhcmVkOlNTTDoxbTsKICAgIHNzbF9zZXNzaW9uX3RpbWVvdXQgMTBtOwogICAgc3NsX2NpcGhlcnMgSElHSDohYU5VTEw6IU1ENTsKICAgIHNzbF9wcmVmZXJfc2VydmVyX2NpcGhlcnMgb247CgoKICAgIGxvY2F0aW9uIC8gewogICAgICAgIHByb3h5X3Bhc3MgaHR0cDovL2RlZmF1bHRfYmFja2VuZF90cmFlZmlrOwogICAgICAgIHByb3h5X3NldF9oZWFkZXIgSG9zdCAgICAgICAkaHR0cF9ob3N0OwogICAgICAgIHByb3h5X3NldF9oZWFkZXIgeC1mb3J3YXJkZWQtZm9yICRwcm94eV9hZGRfeF9mb3J3YXJkZWRfZm9yOwogICAgfQp9Cg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-tl8ja34","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6I635Y+W5ZCN56ew56m66Ze05Lit55qEIHNlcnZpY2UtYWNjb3V0IOWIl+ihqA=="}]}]}]},{"ID":"20200914151218-ydextcz","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCBnZXQgc2VjcmV0IC1uIGt1YmUtc3lzdGVtICAgCg=="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-wk23zj8","Type":7,"Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"6K+m57uG5p+l55yL77yMIOW5tuaLv+WIsHRva2Vu"}]}]}]},{"ID":"20200914151218-qcqpgbh","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14},{"Type":15,"Tokens":"a3ViZWN0bCBkZXNjcmliZSBrdWJlcm5ldGVzLWRhc2hib2FyZC1hZG1pbi10b2tlbi05amw5diAtbiBrdWJlLXN5c3RlbQo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-zfgmud8","Type":7,"Close":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":8,"Tokens":"Kg==","Close":true,"LastLineBlank":true,"Tight":true,"BulletChar":42,"Padding":2,"Marker":"Kg==","Num":-1,"Children":[{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"a3ViZXJuZXRlcyBkYXNoYm9yYWQg55qEd2Vi55WM6Z2i5bCx5piv5L2/55SoIHRva2Vu55m75b2V55qE"}]}]}]},{"ID":"20200914151218-7k8d5ae","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":34,"Children":[{"Type":35,"Tokens":"IQ=="},{"Type":36,"Tokens":"Ww=="},{"Type":40,"Tokens":"aW1hZ2UtMjAyMDA2MjcwMDI5MTA5Mzk="},{"Type":37,"Tokens":"XQ=="},{"Type":38,"Tokens":"KA=="},{"Type":41,"Tokens":"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL01lbGV1by9pbWFnZXMvbWFzdGVyL2ltYWdlLTIwMjAwNjI3MDAyOTEwOTM5LnBuZw=="},{"Type":39,"Tokens":"KQ=="}]}]},{"ID":"20200914151218-nwsjk1c","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"55u45YWz5paH5qGj"}]}]},{"ID":"20200914151218-s49a0tj","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":27,"CodeMarkerLen":1,"Children":[{"Type":28,"Tokens":"YA=="},{"Type":29,"Tokens":"ZGFzaGJvcmFkIGltYWdlcw=="},{"Type":30,"Tokens":"YA=="}]},{"Type":16,"Tokens":"IDog"},{"Type":33,"LinkType":2,"Children":[{"Type":36},{"Type":40,"Tokens":"aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvZGFzaGJvYXJkL3JlbGVhc2VzL3RhZw=="},{"Type":37},{"Type":38},{"Type":41,"Tokens":"aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvZGFzaGJvYXJkL3JlbGVhc2VzL3RhZw=="},{"Type":39}]}]},{"ID":"20200914151218-27ajv0g","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"azhz55qEcmJhY+mJtOadgw=="}]},{"ID":"20200914151218-t7mx5it","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":33,"LinkType":2,"Children":[{"Type":36},{"Type":40,"Tokens":"aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poL2RvY3MvcmVmZXJlbmNlL2FjY2Vzcy1hdXRobi1hdXRoei9yYmFjLw=="},{"Type":37},{"Type":38},{"Type":41,"Tokens":"aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL3poL2RvY3MvcmVmZXJlbmNlL2FjY2Vzcy1hdXRobi1hdXRoei9yYmFjLw=="},{"Type":39}]}]},{"ID":"20200914151218-uqv6uuy","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":33,"LinkType":2,"Children":[{"Type":36},{"Type":40,"Tokens":"aHR0cHM6Ly9qaW1teXNvbmcuaW8va3ViZXJuZXRlcy1oYW5kYm9vay9jb25jZXB0cy9yYmFjLmh0bWw="},{"Type":37},{"Type":38},{"Type":41,"Tokens":"aHR0cHM6Ly9qaW1teXNvbmcuaW8va3ViZXJuZXRlcy1oYW5kYm9vay9jb25jZXB0cy9yYmFjLmh0bWw="},{"Type":39}]}]},{"ID":"20200914151218-bqrwsk4","Type":2,"Close":true,"LastLineBlank":true,"HeadingLevel":2,"Children":[{"Type":3,"Tokens":"IyMg"},{"Type":16,"Tokens":"ZGFzaGJvcmFkIOaPkuS7tmhlYXBzdGVy"}]},{"ID":"20200914151218-ga9y63h","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"aGVhcHN0ZXIg5bey57uP5aSa5bm05rKh5pyJ5pu05paw77yM5bm25LiUaGVhcHN0ZXLnmoQ="},{"Type":27,"CodeMarkerLen":1,"Children":[{"Type":28,"Tokens":"YA=="},{"Type":29,"Tokens":"5oCn6IO955uR5o6n"},{"Type":30,"Tokens":"YA=="}]},{"Type":16,"Tokens":"5Yqf6IO9546w5Zyo5bey57uP5a6M5YWo6KKrIA=="},{"Type":27,"CodeMarkerLen":1,"Children":[{"Type":28,"Tokens":"YA=="},{"Type":29,"Tokens":"5pmu572X57Gz5L+u5pav"},{"Type":30,"Tokens":"YA=="}]},{"Type":16,"Tokens":"IOWPluS7ow=="}]}]},{"ID":"20200914151218-ttkggtj","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":16,"Tokens":"5YeG5aSH6ZWc5YOP"}]},{"Type":1,"Close":true,"Children":[{"Type":33,"LinkType":2,"Children":[{"Type":36},{"Type":40,"Tokens":"aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMtcmV0aXJlZC9oZWFwc3Rlci9yZWxlYXNlcy90YWcvdjEuNS40"},{"Type":37},{"Type":38},{"Type":41,"Tokens":"aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMtcmV0aXJlZC9oZWFwc3Rlci9yZWxlYXNlcy90YWcvdjEuNS40"},{"Type":39}]}]}]},{"ID":"20200914151218-wba4ut2","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"azhzLTIwMA=="}]}]},{"ID":"20200914151218-4bc54cv","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"bWtkaXIgL2RhdGEvazhzLXlhbWwvaGVhcHN0ZXI7IGNkICAvZGF0YS9rOHMteWFtbC9oZWFwc3Rlcgo="},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-alkg68c","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIwMCBoZWFwc3Rlcl0jIGNhdCA+IHJiYWMueWFtbCA8PC1FT0YKYXBpVmVyc2lvbjogdjEKa2luZDogU2VydmljZUFjY291bnQKbWV0YWRhdGE6CiAgbmFtZTogaGVhcHN0ZXIKICBuYW1lc3BhY2U6IGt1YmUtc3lzdGVtCi0tLQpraW5kOiBDbHVzdGVyUm9sZUJpbmRpbmcKYXBpVmVyc2lvbjogcmJhYy5hdXRob3JpemF0aW9uLms4cy5pby92MWJldGExCm1ldGFkYXRhOgogIG5hbWU6IGhlYXBzdGVyCnJvbGVSZWY6CiAgYXBpR3JvdXA6IHJiYWMuYXV0aG9yaXphdGlvbi5rOHMuaW8KICBraW5kOiBDbHVzdGVyUm9sZQogIG5hbWU6IHN5c3RlbTpoZWFwc3RlcgpzdWJqZWN0czoKLSBraW5kOiBTZXJ2aWNlQWNjb3VudAogIG5hbWU6IGhlYXBzdGVyCiAgbmFtZXNwYWNlOiBrdWJlLXN5c3RlbQpFT0YK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-5qi6505","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIwMCBoZWFwc3Rlcl0jIGNhdCA+IGRwLnlhbWwgPDwtRU9GCmFwaVZlcnNpb246IGV4dGVuc2lvbnMvdjFiZXRhMQpraW5kOiBEZXBsb3ltZW50Cm1ldGFkYXRhOgogIG5hbWU6IGhlYXBzdGVyCiAgbmFtZXNwYWNlOiBrdWJlLXN5c3RlbQpzcGVjOgogIHJlcGxpY2FzOiAxCiAgdGVtcGxhdGU6CiAgICBtZXRhZGF0YToKICAgICAgbGFiZWxzOgogICAgICAgIHRhc2s6IG1vbml0b3JpbmcKICAgICAgICBrOHMtYXBwOiBoZWFwc3RlcgogICAgc3BlYzoKICAgICAgc2VydmljZUFjY291bnROYW1lOiBoZWFwc3RlcgogICAgICBjb250YWluZXJzOgogICAgICAtIG5hbWU6IGhlYXBzdGVyCiAgICAgICAgaW1hZ2U6IGhhcmJvci5vZC5jb20vcHVibGljL2hlYXBzdGVyOnYxLjUuNAogICAgICAgIGltYWdlUHVsbFBvbGljeTogSWZOb3RQcmVzZW50CiAgICAgICAgY29tbWFuZDoKICAgICAgICAtIC9oZWFwc3RlcgogICAgICAgIC0gLS1zb3VyY2U9a3ViZXJuZXRlczpodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdApFT0YK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-dwa4r6u","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"W3Jvb3RAazhzLTIwMCBoZWFwc3Rlcl0jIGNhdCA+IHN2Yy55YW1sIDw8LUVPRgphcGlWZXJzaW9uOiB2MQpraW5kOiBTZXJ2aWNlCm1ldGFkYXRhOgogIGxhYmVsczoKICAgIHRhc2s6IG1vbml0b3JpbmcKICAgICMgRm9yIHVzZSBhcyBhIENsdXN0ZXIgYWRkLW9uIChodHRwczovL2dpdGh1Yi5jb20va3ViZXJuZXRlcy9rdWJlcm5ldGVzL3RyZWUvbWFzdGVyL2NsdXN0ZXIvYWRkb25zKQogICAgIyBJZiB5b3UgYXJlIE5PVCB1c2luZyB0aGlzIGFzIGFuIGFkZG9uLCB5b3Ugc2hvdWxkIGNvbW1lbnQgb3V0IHRoaXMgbGluZS4KICAgIGt1YmVybmV0ZXMuaW8vY2x1c3Rlci1zZXJ2aWNlOiAndHJ1ZScKICAgIGt1YmVybmV0ZXMuaW8vbmFtZTogSGVhcHN0ZXIKICBuYW1lOiBoZWFwc3RlcgogIG5hbWVzcGFjZToga3ViZS1zeXN0ZW0Kc3BlYzoKICBwb3J0czoKICAtIHBvcnQ6IDgwCiAgICB0YXJnZXRQb3J0OiA4MDgyCiAgc2VsZWN0b3I6CiAgICBrOHMtYXBwOiBoZWFwc3RlcgpFT0YK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-yvpmfjq","Type":5,"Close":true,"LastLineBlank":true,"Children":[{"Type":6,"Tokens":"PiA=","Close":true},{"Type":1,"Close":true,"Children":[{"Type":16,"Tokens":"azhzLTIx"}]}]},{"ID":"20200914151218-gvs4duu","Type":11,"Close":true,"LastLineBlank":true,"IsFencedCodeBlock":true,"CodeBlockFenceChar":96,"CodeBlockFenceLen":3,"CodeBlockOpenFence":"YGBg","CodeBlockInfo":"c2hlbGw=","CodeBlockCloseFence":"YGBg","Children":[{"Type":12,"Tokens":"YGBg","CodeBlockFenceLen":3},{"Type":14,"CodeBlockInfo":"c2hlbGw="},{"Type":15,"Tokens":"a3ViZWN0bCAgYXBwbHkgLWYgaHR0cDovL2s4cy15YW1sLm9kLmNvbS9oZWFwc3Rlci9yYmFjLnlhbWwKa3ViZWN0bCAgYXBwbHkgLWYgaHR0cDovL2s4cy15YW1sLm9kLmNvbS9oZWFwc3Rlci9kcC55YW1sCmt1YmVjdGwgIGFwcGx5IC1mIGh0dHA6Ly9rOHMteWFtbC5vZC5jb20vaGVhcHN0ZXIvc3ZjLnlhbWwK"},{"Type":13,"Tokens":"YGBg","CodeBlockFenceLen":3}]},{"ID":"20200914151218-o45n3q0","Type":1,"Close":true,"LastLineBlank":true,"Children":[{"Type":34,"Children":[{"Type":35,"Tokens":"IQ=="},{"Type":36,"Tokens":"Ww=="},{"Type":40,"Tokens":"aW1hZ2UtMjAyMDA2MjcwNTAxMzA0Mzg="},{"Type":37,"Tokens":"XQ=="},{"Type":38,"Tokens":"KA=="},{"Type":41,"Tokens":"aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL01lbGV1by9pbWFnZXMvbWFzdGVyL2ltYWdlLTIwMjAwNjI3MDUwMTMwNDM4LnBuZw=="},{"Type":39,"Tokens":"KQ=="}]}]}]}
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-13T23:12:26.000Z" itemprop="dateUpdated">2020-09-14 07:12:26</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/11/27/笔记/kubernetes/05_dashboard.md/" target="_blank" rel="external">http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/27/笔记/Python/01面向对象/06内置函数_反射_内置方法.md/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/11/27/笔记/Python/02模块/08 hashlib模块.md/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/&title=Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/&title=Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/27/笔记/kubernetes/05_dashboard.md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aQU7DQAwF0N7/0kVihQQJ3/aYVuhlVbVNOm+Qxsb24xFfz8/r6+v7d67u+v7p9+v++4+NCw8PD6+19OTHrj5NtuP+F5N7k/X8sCo8PDy8NV4eDJIF5VuThIRkyy7fx8PDw3sp71Q4yUl4eHh4/49XTXDzpBwPDw/v/Xm9omrv+5PQslhrwcPDw4t5k0P5Va/X+3t4eHh4ra56cuDO0+heCSNaLR4eHt4CL0lbJ1NMyUhWnkDnUeCR7C4eHh7egNc77qtLT2DVba0WefHw8PDmvEnqXB23SlpuSSmkEB7w8PDw1ni9VDUPBsnG5RuUrwQPDw9vg1c90PPBqWoy3SNFBQg8PDy8Nd4pQLXAWg1O5VoLHh4e3hqvenOeIt8/odoqywMGHh4e3gZv0uDvtbJ6iXKzcIyHh4e3wOu1oJIQkhz9PUCvhYaHh4d3ijdv/E8S5Tyhz7f1sr+Hh4eHt8CrHvrzAYLn7XXgtMfDw8Nb4OUH+qmSa3VQYB668PDw8LZ5vaXnYeNUxaDZ38PDw8Mb83qlh6RYkGPyMaxyAMPDw8Nb4FUP9F47Ku/FVQNJtEI8PDy8P+edSqyrDbB8WCHaMzw8PLxDvN4RPxm0qqbI1TZbNDqAh4eHN+DNw8apskVe/K1uLh4eHt5ZXq+VNRmKygu++ZPx8PDw3oFXTaMni642xpL4hoeHh7fHq7btkyJCFT/foMKYFx4eHt6Y9yxeeRtsAqi2wS6fj4eHh7fA6x2+1dZX3sTKnzDZbjw8PLw5rzf2NCoKFMGjvw8eHh7eGi//J79Xcu2lxQnjl/Xg4eHhvZSXJ8H35dpeYSIPLXh4eHjvycvLAdWtSZZeSPHx8PDw1njVYkTv0L8n9di/BAw8PDy8BV6vFnqqpJuHnAN9PDw8PLwp7wNQPJKXCj6ubgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

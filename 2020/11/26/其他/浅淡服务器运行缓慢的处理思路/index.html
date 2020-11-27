@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>浅谈服务器变慢后的处理思路[未完] | Msrte-人生苦短,何妨一试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="其他">
+    <meta name="description" content="浅谈服务器变慢后的处理思路
+为何又是浅谈~经常看文章的大佬都会发现这类题材的文章全都是浅谈！ 就不能来个深谈吗🐶？
+
+检查是否中毒如果是本来运行的好好的服务器器突然出现问题。那么有可能是出现外部恶意攻击
+Web服务常见的攻击手段就是CC和 DDOS SYN报文攻击
+或者服务器本身中毒，例如DTLMiner挖矿病毒和相关的变种，也是这段时间比较常见的， 不同于Windows， Linux下绝大多数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈服务器变慢后的处理思路[未完]">
+<meta property="og:url" content="http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/index.html">
+<meta property="og:site_name" content="Msrte-人生苦短,何妨一试">
+<meta property="og:description" content="浅谈服务器变慢后的处理思路
+为何又是浅谈~经常看文章的大佬都会发现这类题材的文章全都是浅谈！ 就不能来个深谈吗🐶？
+
+检查是否中毒如果是本来运行的好好的服务器器突然出现问题。那么有可能是出现外部恶意攻击
+Web服务常见的攻击手段就是CC和 DDOS SYN报文攻击
+或者服务器本身中毒，例如DTLMiner挖矿病毒和相关的变种，也是这段时间比较常见的， 不同于Windows， Linux下绝大多数">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200914111032488.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200914111128402.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200914111645610.png">
+<meta property="og:updated_time" content="2020-11-26T08:07:14.649Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈服务器变慢后的处理思路[未完]">
+<meta name="twitter:description" content="浅谈服务器变慢后的处理思路
+为何又是浅谈~经常看文章的大佬都会发现这类题材的文章全都是浅谈！ 就不能来个深谈吗🐶？
+
+检查是否中毒如果是本来运行的好好的服务器器突然出现问题。那么有可能是出现外部恶意攻击
+Web服务常见的攻击手段就是CC和 DDOS SYN报文攻击
+或者服务器本身中毒，例如DTLMiner挖矿病毒和相关的变种，也是这段时间比较常见的， 不同于Windows， Linux下绝大多数">
+    
+        <link rel="alternate" type="application/atom+xml" title="Msrte-人生苦短,何妨一试" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/icons8-linux-96.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小毒蛙</h5>
+          <a href="mailto:meleuo@outlook.com" title="meleuo@outlook.com" class="mail">meleuo@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://pan.msrte.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">浅谈服务器变慢后的处理思路[未完]</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">浅谈服务器变慢后的处理思路[未完]</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-26T07:36:14.000Z" itemprop="datePublished" class="page-time">
+  2020-11-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#浅谈服务器变慢后的处理思路"><span class="post-toc-number">1.</span> <span class="post-toc-text">浅谈服务器变慢后的处理思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查是否中毒"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">检查是否中毒</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应对方法"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">应对方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定位缓慢原因"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">定位缓慢原因</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#排查命令"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">排查命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ps"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">ps</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#top"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">top</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pstree"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">pstree</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-其他/浅淡服务器运行缓慢的处理思路"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">浅谈服务器变慢后的处理思路[未完]</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-26 15:36:14" datetime="2020-11-26T07:36:14.000Z"  itemprop="datePublished">2020-11-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="浅谈服务器变慢后的处理思路"><a href="#浅谈服务器变慢后的处理思路" class="headerlink" title="浅谈服务器变慢后的处理思路"></a>浅谈服务器变慢后的处理思路</h1><blockquote>
+<p>为何又是浅谈~经常看文章的大佬都会发现这类题材的文章全都是浅谈！ 就不能来个深谈吗🐶？</p>
+</blockquote>
+<h2 id="检查是否中毒"><a href="#检查是否中毒" class="headerlink" title="检查是否中毒"></a>检查是否中毒</h2><p>如果是本来运行的好好的服务器器突然出现问题。那么有可能是出现外部恶意攻击</p>
+<p>Web服务常见的攻击手段就是CC和 DDOS SYN报文攻击</p>
+<p>或者服务器本身中毒，例如<code>DTLMiner挖矿病毒</code>和相关的变种，也是这段时间比较常见的， 不同于Windows， Linux下绝大多数病毒的传播途径都是：Mysql弱口令， Redis弱口令，SSH弱口令等等等~~~</p>
+<h3 id="应对方法"><a href="#应对方法" class="headerlink" title="应对方法"></a>应对方法</h3><p>Web的攻击的防御就是一个拼钱拼资源的过程，CC攻击简单理解就是通过单台机器或者n台机器模拟大量正常的用户去请求你的网页，从而耗尽你的资源，使得正常用户无法正常访问，<del>可通过配置Nginx lua实现防御简单的CC，不给过前提是你的NGINX 有资源去识别请求，如果对方的量足够大，这招也就没有什么意义</del>,  </p>
+<p>DDOS是一个攻击的种类的，泛指使用大量肉鸡计算机，通过各种方式请求目标主机，使其无法正常运行，这样的攻击手段都称之为DDOS（cc也是DDOS的一种）。</p>
+<p> 在这个大家族中臭名远扬的便是 DDOS SYN报文攻击，这种攻击手段是建立在TCP三次握手的基础之上的，从根本上就无解，好在，这种攻击本身也是需要成本的，不过这个成本比例也和双方的手上的资源相关，面临这种攻击唯一的解决手段就是拼钱。</p>
+<p>服务器中毒，服务器中毒的处理一般就是三步</p>
+<ol>
+<li>查定时任务，后台可疑的进程，一般病毒都会通过定时任务或者伪装成系统文件名称在后台不停的拉起新的病毒，没有清理定时任务之前清理直接清理病毒文件意义不大，因为片刻他就会拉起新的病毒进程。</li>
+<li>清理病毒文件，，病毒一般都会借助ACL， chattr，Selinux等不<code>保护</code>病毒文件，没法直接删除，但也只是简单的敲几行代码，root就能轻轻松松处理掉</li>
+<li>最后一步也是最脑壳疼的一步，作为运维，最头疼的就是和不懂技术的上级汇报的时候，这步要怎么处理，我是没法给出意见，还请自由发挥。</li>
+</ol>
+<h2 id="定位缓慢原因"><a href="#定位缓慢原因" class="headerlink" title="定位缓慢原因"></a>定位缓慢原因</h2><p>排除了外部恶意影响的原因后，就得从自生找原因了，首先检查服务器的整体情况，判断是什么方向引发的慢</p>
+<blockquote>
+<p>CPU，内存，磁盘IO，网络IO</p>
+</blockquote>
+<p>举个例子：</p>
+<p>最常见的计算密集型程序莫过于MySQL的查询操作，一张表如果索引主键等优化的不好，在查询的时候轻轻松松就能到100%，200%也不是梦，这种问题还不是垂直扩展能直接解决的，1c1g下的100%你使用4c8c很有可能还是100%，这种情况下就得从具体问题处理了</p>
+<p>👴：sql优化的不行？DBA呢？还不去看! </p>
+<p>👩‍🦰：公司没有DBA！</p>
+<p>👴:  后端呢？ 后端写的垃圾代码，还不去优化！</p>
+<p>👩:  后端分析不出来原因，解决不了</p>
+<p>👴:  …..</p>
+<p>👩:  …..</p>
+<p>👴:  运维呢！ 服务器CPU爆了！让运维处理！</p>
+<p>👩:  你…你就是运维！</p>
+<p>👴:   . ….  …..  …. … … mmp</p>
+<h2 id="排查命令"><a href="#排查命令" class="headerlink" title="排查命令"></a>排查命令</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p>查看CPU占用前10的进程</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200914111032488.png" alt="image-20200914111032488" title>
+                </div>
+                <div class="image-caption">image-20200914111032488</div>
+            </figure>
+<h3 id="top"><a href="#top" class="headerlink" title="top"></a>top</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200914111128402.png" alt="image-20200914111128402" title>
+                </div>
+                <div class="image-caption">image-20200914111128402</div>
+            </figure>
+<h3 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/image-20200914111645610.png" alt="image-20200914111645610" title>
+                </div>
+                <div class="image-caption">image-20200914111645610</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-11-26T08:07:14.649Z" itemprop="dateUpdated">2020-11-26 16:07:14</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/" target="_blank" rel="external">http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" alt="小毒蛙">
+            小毒蛙
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/&title=《浅谈服务器变慢后的处理思路[未完]》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/&title=《浅谈服务器变慢后的处理思路[未完]》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅谈服务器变慢后的处理思路[未完]》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/26/其他/电信网关修改为桥接/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">电信光猫修改为桥接模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/11/26/NGINX/Nginx配置文件/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">nginx 配置文件模板[持续更新]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小毒蛙 &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/&title=《浅谈服务器变慢后的处理思路[未完]》 — Msrte-人生苦短,何妨一试&pic=https://cdn.jsdelivr.net/gh/Meleuo/files@imgs/hexologo.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/&title=《浅谈服务器变慢后的处理思路[未完]》 — Msrte-人生苦短,何妨一试&source=..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅谈服务器变慢后的处理思路[未完]》 — Msrte-人生苦短,何妨一试&url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/26/其他/浅淡服务器运行缓慢的处理思路/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQU7DQAwFUO5/aZBYVSoJ3/aYFullVZV2Mm8qxcb2x0d8fX5fj68f36l+pvf+81+PXXh4eHitrV9dz1u/31B1/ftjurpXvhoeHh7eHi8JBvcBINlogr//TL5nPDw8vHfgJSlvL/HNQxEeHh7e/+JVk+n51pPXeHh4eK/iJcWI/DPJJubsw7UWPDw8vJjXa4C99vV6fw8PDw9v0JrKC7XVkFAt6Zb3iYeHh7fAmxQXqiEkXydHRgEDDw8P7ygvgeVDUXmrLDmIvCByuRoeHh7eAq/aTJqn3fnTu7raaFwVDw8PL+blLajJbaqHUh0RiDp7eHh4eId480JDvtFqej1J3PHw8PD2ePMtzssHebGjnLjj4eHhLfB6JYNJSSJ/v/ozNCsueHh4eANenjrPG2O90kZSbsDDw8Pb5k22m5xW9VCSx32yQjT/hYeHh7fGmxRYmylvK7L9cF88PDy8ZV61QZXfPinj5kd5v5/LwICHh4e3xttLrHvJca94gYeHh7fN6w0KTEqueZDIk+/LlBoPDw9vgZc06SftqF7RdlLGxcPDw9vm5cGgN/aUh598lCFKwfHw8PDWeHmSmiS+87JstWFWrlLj4eHhDXh5obb6gM5JpxLoyyPAw8PDW+BNvlwdrpqMC1QHEfDw8PC2edWSa55G54WMJEVuNsnw8PDwjvKS5eblg16qPR/kwsPDw9vjVRftbfRsYyw5bjw8PLyzvF6Lq9rQqgaAXuL+w7fw8PDwFngHosrRsYMeOz9QPDw8vFO8fJQqL85WC7jzQIKHh4f397xTI1Z5ybU3+NWsteDh4eG9lFct7yZBZR4k8PDw8N6Tl4869dLoOeaXyQg8PDy8o7xqmz8/oHxAqtdyiwIDHh4e3lFe9V/9/AF9aoRr/gPg4eHhHeJ9AUOTDQE46IuMAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
