@@ -1,0 +1,8 @@
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sed -i 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking no/g' /etc/ssh/sshd_config
+systemctl restart sshd
+
+cat > ~/.ssh/authorized_keys <<EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDJub7g82PENghQ6rw0vYG6Poh+6gmXpIjDLqU1hINZf7g8EGW17HOdGGNoghQhO9Fx6S2Q7dvQSwiubS4XLUKQPWTL/ZGSCV97YVCYZLhauJ22Sw2hvFumJtbsObz9Pg180unxzt4HiwsPt6FsKmHBaYZugIaNeZE/Zb43X+SrsBqNEw75kia7+h2P0bWYxXEXj2E+zxqvs3T7tzf2yZL9iDm8LF+tWJR2U7Veqb09wpJNFm2OOxQwVJ4yO1Ch3yCgJl4coruei8U0kVoBKYNqJf82wski/C0wIvdaeNzw/Kih66O1s2x8rcUVChi5Tt6U3Sk4+Fex7HsRNj1AMPThVswFPlLgHWUBOOvg2whxAp6QyEV3nOR+QM1L4XvqzX/RV+IYgif2BsxowQS6Xdp1f3qd6Coh6Iw9Eo24JrsFGSLvIdKAOA34Mbfa4oNvGRPEMyYvMBfbcfNXiI6n5dSWwPq+5FBrYkQcnSE1bb55FnUpd/BfcEv7C7PPiWMSRYD0JVQd2/Qypy9YcrBZc3MtNwJ5x2aFh0LQ7vv31cvq5p+kZ3agjOOUpDZbt+Fki9FmvDzjA3SoHMxUvLeLRZW8MnBNAR8oCiVuD1IC36q8DGeQVIyzFsBFzi1XdnDw3Cb31QBbitzUtsdq8LOYQ8elLQ/aQBeWCXJAMt39I6uY9Q== meleu@DESKTOP-MC48PSJ
+EOF
+chmod  600 ~/.ssh/authorized_keys
